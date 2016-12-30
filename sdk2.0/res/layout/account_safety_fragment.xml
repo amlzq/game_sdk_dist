@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/common_bg" android:layout_width="510.0dip" android:layout_height="300.0dip">
+        <include android:id="@id/common_title" layout="@layout/common_title" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip">
+            <RelativeLayout android:id="@id/update_ps_layout" android:background="@drawable/common_input_bg" android:layout_width="fill_parent" android:layout_height="45.0dip">
+                <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/update_ps_text" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/right_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/bind_layout" android:background="@drawable/common_input_bg" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_marginTop="10.0dip">
+                <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:id="@id/bind_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/bind_text" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/pay_recommend_color" android:id="@id/is_bind_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/is_bind_text" android:layout_toRightOf="@id/bind_tv" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/right_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

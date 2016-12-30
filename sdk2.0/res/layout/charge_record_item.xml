@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="135.0dip">
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="42.0dip" android:layout_marginTop="5.0dip">
+            <TextView android:textColor="@color/charge_record_text_color" android:gravity="center" android:id="@id/order_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/order_id_text" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/charge_record_text_color" android:id="@id/order_id_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="\ 20123234454" android:layout_toRightOf="@id/order_text" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/score_color" android:id="@id/order_state_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:text="支付成功" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View android:background="@color/line_color" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
+        <RelativeLayout android:gravity="center" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="70.0dip">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/charge_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:src="@drawable/charge_icon" />
+            <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/charge_iv">
+                <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:layout_gravity="center_vertical" android:id="@id/game_name_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="阴阳师大天狗式阴阳皮肤" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/message_send_color" android:layout_gravity="center_vertical" android:id="@id/charge_date_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="5.0dip" android:text="2016-11-14" />
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_alignParentRight="true">
+                <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:layout_gravity="center_vertical" android:id="@id/charge_money_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="10.00" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/message_send_color" android:layout_gravity="center_vertical" android:id="@id/charge_way_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="5.0dip" android:text="通过微信充值" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

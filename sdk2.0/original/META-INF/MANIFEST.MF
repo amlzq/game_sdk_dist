@@ -1,0 +1,924 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/layout/quick_play_fragment.xml
+SHA1-Digest: pCHVffi0Cwewift488naDuR8A2s=
+
+Name: res/layout/main_common_title.xml
+SHA1-Digest: ohB2AYg59gqVCc+yxaCJDVQm2GY=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_greeklatin.txt
+SHA1-Digest: KM44dvGlJjA1G1+QMxAorjQfVZo=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_dutch.txt
+SHA1-Digest: ubXAOlBgTG6cluGh9Yg9omLd9gY=
+
+Name: res/drawable-xhdpi-v4/score_game_default_icon.png
+SHA1-Digest: XtsYbDu6Hr3lHHu26dUHfYXhEiY=
+
+Name: res/drawable/good_bg.xml
+SHA1-Digest: 5Ss7kWl09g5/ghuv+ko38dLXYy4=
+
+Name: res/layout/game_package_item.xml
+SHA1-Digest: 9A/lPHVhgWzY8WPdeu1eoxwsB9I=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_german.txt
+SHA1-Digest: YO+2+bquWxcrjLHWD06sQ4ycQYc=
+
+Name: res/layout/ttw_sdk.xml
+SHA1-Digest: ubMUV5tPqDvykDrNem05+c/Eq9c=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_hungarian.txt
+SHA1-Digest: kpJ0pEDOyFBEu6wl4QdynsUq6jE=
+
+Name: res/layout/pay_result_dialog.xml
+SHA1-Digest: a5ZKPuyONse0Yp0hHWIn8Ag4HqA=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_common.txt
+SHA1-Digest: padRPYJ0BaElGjLugFZoVeiaNRQ=
+
+Name: org/apache/commons/codec/language/bm/sep_rules_hebrew.txt
+SHA1-Digest: G0Yn8vlBmcqKqvsNdi9pfDl8Mbs=
+
+Name: res/drawable/coupon_bg.xml
+SHA1-Digest: ToDhHVKUMvKh3N8U1nyzMQpRvsk=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_common.txt
+SHA1-Digest: u/mGD68aVPmhFiWBCiQdju9UoVw=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_french.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_common.txt
+SHA1-Digest: yMn8iqUiPF5RM7J9xhj6gb3A6E4=
+
+Name: res/drawable/charge_item_normal.xml
+SHA1-Digest: 1tnICZX8N8PLrQr15bMwg++zJWI=
+
+Name: res/layout/game_package_detail_item.xml
+SHA1-Digest: gM7lhdWQAirUKtfyo7fJq7IYUrw=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_russian.txt
+SHA1-Digest: k/nguda0I1ot8kuzX5C5xNb+MhY=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_english.txt
+SHA1-Digest: WdrL/vp21NUtryKaVCYaAfnUY9U=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_russian.txt
+SHA1-Digest: lulM+eX+omlYPVagYcZ7S+1OOAg=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_french.txt
+SHA1-Digest: CrDzmQQb/nDj6G9KGuej8e+uHIU=
+
+Name: res/layout/activity_common_info.xml
+SHA1-Digest: KP+yr3fX40VZuWG/EpIWwHfPzNQ=
+
+Name: res/drawable-xhdpi-v4/float_holder.png
+SHA1-Digest: DEC1lHDR2v5NtTfYvL4IZCvgo+Q=
+
+Name: res/drawable/common_btn.xml
+SHA1-Digest: n/fVoshTE/9OdFgvNT6uBIQ34tA=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_greeklatin.txt
+SHA1-Digest: T0MDehullcH0uAY9slGJMUAhTkQ=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_any.txt
+SHA1-Digest: vokBnqDrzgh7ubmg4N5ltqYJsgY=
+
+Name: res/drawable-xhdpi-v4/user_account_icon.png
+SHA1-Digest: 9LLcH/JF4RqnabpeXKk5NWwJg7I=
+
+Name: res/layout/quick_register_fragment.xml
+SHA1-Digest: pcSm3G2kMUnpo9jKol/uVnyQr+Y=
+
+Name: res/drawable-xhdpi-v4/phone_bind_icon.png
+SHA1-Digest: yZcTqLANSl8BaKWAvkZ5Yle5o/s=
+
+Name: res/drawable-xhdpi-v4/float_holder2.png
+SHA1-Digest: JQyDmyi4dFku6CmZNhdipUbNWrY=
+
+Name: res/drawable/fy_notice_bg.xml
+SHA1-Digest: iSpPK6AXHnCg2AL7Lvwl6ecasR8=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_polish.txt
+SHA1-Digest: BKwAayJJNnmipd/rFV3jPkaErSE=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_german.txt
+SHA1-Digest: 3GlHgMBkvi2mEoFnPYxoBXIh4No=
+
+Name: res/drawable-xhdpi-v4/logo.png
+SHA1-Digest: VLiALcR3ZadorrQpWaDyCpU3qtc=
+
+Name: res/drawable/common_input_bg.xml
+SHA1-Digest: 7dPYtI3Yy1JeumDxHHIN2Hn+E90=
+
+Name: res/layout/score_store_item.xml
+SHA1-Digest: wNQAuIi11BJNgF9khZJFgrdXm4s=
+
+Name: resources.arsc
+SHA1-Digest: sERf2PdeMp6BkS7u1r77E1Qs6PQ=
+
+Name: org/apache/commons/codec/language/bm/sep_rules_french.txt
+SHA1-Digest: B8soq3ODQdgyws77pmFOVzo66uI=
+
+Name: res/layout/charge_record_item.xml
+SHA1-Digest: JwuNAvQxovtT2vgMAzr0UefFVro=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_spanish.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: AndroidManifest.xml
+SHA1-Digest: A8cKmSg8ZyP/xPcFQra6OI9+hvk=
+
+Name: res/drawable-xhdpi-v4/pay_way_unselected.png
+SHA1-Digest: R4rcx+QPDoiOeJK6pZUOkdMH8Hw=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_cyrillic.txt
+SHA1-Digest: Yg5q1pDwdRE2199a3lBn//aVSZ0=
+
+Name: res/drawable-xhdpi-v4/login_out_img.png
+SHA1-Digest: Ek05K9+ltLjsR3W5FmVXMlprEYs=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_czech.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: res/layout/common_vertical_title.xml
+SHA1-Digest: q7oMFR+cRb40IoReOvdtHItQRWI=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_approx_common.txt
+SHA1-Digest: Hxjkq50d1HJRTfhnGsjVmtUwQ38=
+
+Name: res/drawable-xhdpi-v4/selected_pay_icon.png
+SHA1-Digest: e576yClNaHhRWh1s93Ew28A5aEQ=
+
+Name: res/drawable-xhdpi-v4/down_logo.png
+SHA1-Digest: MykZU33PR1vmXUdz4E2OSGmhxR0=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_any.txt
+SHA1-Digest: 0mWytx3QfDcxQYesfSLfKaaiPGc=
+
+Name: org/apache/commons/codec/language/bm/sep_rules_italian.txt
+SHA1-Digest: 4OtvhiYVCX6Pngy4UP1SKrIDoro=
+
+Name: assets/textfield_default_holo_light.9.png
+SHA1-Digest: uX4mYzqOvMN/BWRJwoarhkcsjaI=
+
+Name: res/layout/account_login_fragment.xml
+SHA1-Digest: +dgvU1AUMfD9nkW9rufJNzZLeGY=
+
+Name: res/drawable-xhdpi-v4/share_icon.png
+SHA1-Digest: yXIg1JYHlKQmPijcdWCq35wBvqs=
+
+Name: res/layout/gamebox_notification_layout.xml
+SHA1-Digest: WS9m8F3HGOyzkX6imigeCTlybz0=
+
+Name: res/drawable-xhdpi-v4/float_menu_out.png
+SHA1-Digest: IZn0+BFHx4uuCiZYElFuBz/Ux0I=
+
+Name: res/drawable-xhdpi-v4/tel_icon.png
+SHA1-Digest: Iw9p8aERQEmDScsal455/aV5SUk=
+
+Name: res/layout/phone_login_fragment.xml
+SHA1-Digest: FTJJMP9x/w5w/FESRnmL6eh7z4I=
+
+Name: res/layout/activity_main.xml
+SHA1-Digest: 5xXz7f2eWr8jWu5t8AZ2iFFHOik=
+
+Name: org/apache/commons/codec/language/bm/ash_languages.txt
+SHA1-Digest: x5ijgzijaJwexI8tGvYq1Ys8W0o=
+
+Name: lib/x86/libplugin_phone.so
+SHA1-Digest: z/ShechIyRuIWiJTFESDKN52x0U=
+
+Name: res/layout/activity_game_package.xml
+SHA1-Digest: z0+Qdowls/rMQGQTrWJSQ1+dZi8=
+
+Name: res/drawable-xhdpi-v4/module_point_normal.png
+SHA1-Digest: yNS1nzytY8sWcF+Y6f4KW0E2N8w=
+
+Name: res/layout/activity_charge.xml
+SHA1-Digest: KfxdMTskG8VssdA+31bVG0Emjmg=
+
+Name: res/drawable-xhdpi-v4/service_qq_icon.png
+SHA1-Digest: gy4KU82NGro+ma7aeckkU9C+URY=
+
+Name: res/drawable/coupon_list_selector.xml
+SHA1-Digest: WxSXCPKV1x4tU1+JIeGCcuEIk5A=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_spanish.txt
+SHA1-Digest: wGpv/4nTHPd+c4HkTvDnN2PUYOU=
+
+Name: res/layout/activity_charge_record.xml
+SHA1-Digest: KqH5ekVzBn/VVJ0Ce918miQf1+4=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_german.txt
+SHA1-Digest: MxrOjj0j10k/YbNQybQuDJBum3c=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_common.txt
+SHA1-Digest: LdAHq1Uf7ZJObFLplHkMBg62o8g=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_german.txt
+SHA1-Digest: 0/CejklscQ18lQIcpLZ4h2ZwsQ0=
+
+Name: res/layout/activity_game_package_detail.xml
+SHA1-Digest: 1YaOfNJYQ85HWIv55V3v1Fts9FE=
+
+Name: res/layout/custom_dialog.xml
+SHA1-Digest: EeOlQ3naVqW7NpOA1ZpB4hJA6kA=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_hungarian.txt
+SHA1-Digest: KxrQuSBewEePK/XN5khH0PWw7yE=
+
+Name: res/layout/service_dialog.xml
+SHA1-Digest: 00wFBBQXPydp+4ECKabz67NJyQo=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_hebrew.txt
+SHA1-Digest: 80bIa465/ozUslfQBb84wPL42nY=
+
+Name: org/apache/commons/codec/language/bm/gen_hebrew_common.txt
+SHA1-Digest: U+3sGtHvTz+ZqpSe1f7MYHB2TsQ=
+
+Name: res/drawable/custom_dialog_bg.xml
+SHA1-Digest: u6narlH03PU923nUMnEuQ1SIT/E=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_french.txt
+SHA1-Digest: FzpQ+GbWmzaOeTszrpAHMAbmuII=
+
+Name: res/drawable/charge_item_select.xml
+SHA1-Digest: M9qUQCWwPB2vXP6kaAEQpFQYzRM=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/layout/coupon_list.xml
+SHA1-Digest: 8/tnhQ4xlPo/xJs9xPfMsGpjgWc=
+
+Name: res/drawable-xhdpi-v4/login_user_list_ite_bg.9.png
+SHA1-Digest: Gn9hRNCCOM9yC3hdsGDePaX9wx8=
+
+Name: org/apache/commons/codec/language/bm/sep_hebrew_common.txt
+SHA1-Digest: pLUCmc4T/RjuklQ1aIULtSUwHKI=
+
+Name: res/drawable-mdpi-v4/ic_launcher.png
+SHA1-Digest: RRxOSvpmhVfCwiprVV/wZlaqQpw=
+
+Name: res/drawable-xhdpi-v4/ic_share_wechat.png
+SHA1-Digest: j7L5VJkjDE6cgLzb3zvbf8go85I=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_russian.txt
+SHA1-Digest: rXaMJ4HIP1dVq2JA4YDx9goSHNo=
+
+Name: res/drawable-xhdpi-v4/close_icon.png
+SHA1-Digest: HPot6ISamQGVSxa+t0gNoFwSlAI=
+
+Name: res/drawable/coupon_selected_bg.xml
+SHA1-Digest: z77Zum/CWa8MNIPK4JnVB0JZjAA=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_common.txt
+SHA1-Digest: 4KUii83+gs6HZqsqdVTJKWmbKLE=
+
+Name: res/drawable/common_cancel_selector.xml
+SHA1-Digest: kk6/uZL3g2sdE4bTszc6JyJTdlw=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_russian.txt
+SHA1-Digest: ln5mpI7m/dYz8po1m2pe5V1t//k=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_romanian.txt
+SHA1-Digest: 8dJCy93UqGPxUAM5qiwy8UeOCpA=
+
+Name: res/drawable/module_select_bg.xml
+SHA1-Digest: mxGN+d9yyvib1LsoWAybXuUG2GM=
+
+Name: res/drawable-xhdpi-v4/right_icon.png
+SHA1-Digest: 2aRC+MRx9pB09pZ+nyStLLVbtxM=
+
+Name: res/drawable/point.xml
+SHA1-Digest: 1zyDgRDlqhMz3GabKPk8FrflkNA=
+
+Name: res/drawable-xhdpi-v4/alipay_selected_icon.png
+SHA1-Digest: JcaDWfodk4bMJaRnl+CrBQqZbLI=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_spanish.txt
+SHA1-Digest: v/X501bGOhAvKUt41xXerI3WFvE=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/layout/activity_login.xml
+SHA1-Digest: 3npStv9MUzfLnl3PX9hoWBVXSUo=
+
+Name: res/drawable-xhdpi-v4/wxpay_selected_icon.png
+SHA1-Digest: zD/hquQ6dqsetVjJqw3wXpuWruQ=
+
+Name: res/drawable-xhdpi-v4/ic_share_qq.png
+SHA1-Digest: dk7MOHjJgJsNZxTij0uwW1Dw6b8=
+
+Name: res/drawable/coupon_normal_bg.xml
+SHA1-Digest: jazhyhTz7Vc+iZJWzyHmbw7s6TA=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_greek.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: res/layout/compaign_detail.xml
+SHA1-Digest: sgroreGPNoQGLUU+2HH1f9oi6UA=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_italian.txt
+SHA1-Digest: sQ1CrX8M+aYXtqb+FaAQJlodnx0=
+
+Name: res/drawable-xhdpi-v4/ic_share_friends.png
+SHA1-Digest: q+GeBT5jBDi19zspzOLosW0sUXs=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_spanish.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/drawable-xhdpi-v4/point_select.png
+SHA1-Digest: DZ4T2rSUz1S6LD8kQQ1herNWMfQ=
+
+Name: res/drawable-xhdpi-v4/loading_icon1.png
+SHA1-Digest: rIAjSVlD/ylrIYMdJo5rLxhS4J4=
+
+Name: res/drawable/charge_item_selector.xml
+SHA1-Digest: w9gs9v4iAsKPt9L6CEdp5OUQXAo=
+
+Name: res/drawable/pay_bg.xml
+SHA1-Digest: r4n+a0lKpwcWzkjm/xdo+b71wIU=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_romanian.txt
+SHA1-Digest: 9XU05+EK41PC/HwRw9zxny5awCw=
+
+Name: res/drawable/border_line_btn.xml
+SHA1-Digest: zqltsGZHno7myILzH5q/KWLOLFo=
+
+Name: res/layout/activity_init.xml
+SHA1-Digest: KgngYZX4CFd2nMrcYisLpKBdPuY=
+
+Name: assets/shadow_window.9.png
+SHA1-Digest: jE622Nr5jKW96RON7DeJZbBwLKw=
+
+Name: lib/armeabi/libentryex.so
+SHA1-Digest: 7DQEX/axAjDayP2iLScCt5nzbjg=
+
+Name: res/drawable-xhdpi-v4/point_normal.png
+SHA1-Digest: kspuGKuVlIJ4bru3u0oG9zKGs9U=
+
+Name: res/layout/share_dialog.xml
+SHA1-Digest: VgGGfanq17aJDeXDg22DJuOGyN8=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_hungarian.txt
+SHA1-Digest: w312gpWjUSsWx0VAK7N26JpOv3E=
+
+Name: assets/shadow_bg.9.png
+SHA1-Digest: 4men5aRBLXdHHLnF8+RDjySqjxc=
+
+Name: res/drawable-xhdpi-v4/loading_icon2.png
+SHA1-Digest: rIAjSVlD/ylrIYMdJo5rLxhS4J4=
+
+Name: res/drawable-xhdpi-v4/game_bg.jpg
+SHA1-Digest: of5jy806TI3wQ8el8aCjjgDNtiw=
+
+Name: res/layout/bind_phone_fragment.xml
+SHA1-Digest: +Jvxyzmit5v17ezvu8UOUFD29rs=
+
+Name: res/drawable-xhdpi-v4/float_bg_left_up.9.png
+SHA1-Digest: 7VArxnGK0VG7tjyuUTIFLXo5tFk=
+
+Name: res/drawable/pay_result_money_bg.xml
+SHA1-Digest: xtcMfOYEaO7MLNLlBOyxif1Fxrc=
+
+Name: res/drawable-xhdpi-v4/alipay_normal_icon.png
+SHA1-Digest: lnnfxWtPkQ8on/bGdCd0Br6K6Do=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_spanish.txt
+SHA1-Digest: jxaPlVZm4rC0Egc7UWeCEFaLVsQ=
+
+Name: res/drawable-xhdpi-v4/ic_share_weibo.png
+SHA1-Digest: V2TV7h8jzCkBDjxS9AF+fRj+FJY=
+
+Name: res/layout/login_user_list_item.xml
+SHA1-Digest: JmXR029oFUrfnqEIjETkuJBYfKc=
+
+Name: res/drawable-xhdpi-v4/pay_red.9.png
+SHA1-Digest: ZCPYEaAdq8YPJ8cIBSCY7wuhHhI=
+
+Name: res/drawable-xxhdpi-v4/ic_launcher.png
+SHA1-Digest: GVIfdEOBv4gEny2T1jDhGGsZOBo=
+
+Name: res/layout/coupon_list_item.xml
+SHA1-Digest: oMRCWDdfzc4Q6TBJGW3SmpsAud8=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_hungarian.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/apache/commons/codec/language/bm/sep_rules_any.txt
+SHA1-Digest: tBhirNuraiANjlje0HNzz2Rd8XY=
+
+Name: res/drawable-xhdpi-v4/check_box_normal.png
+SHA1-Digest: IpMRRvyOwonClu7KfSt2SbITVdg=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_english.txt
+SHA1-Digest: 00E7VR452tbgGSDvaN2vH71JXd0=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_italian.txt
+SHA1-Digest: kpJ0pEDOyFBEu6wl4QdynsUq6jE=
+
+Name: org/apache/http/entity/mime/version.properties
+SHA1-Digest: j+1JuBDtIbddfq6CRnKwfx2OXkQ=
+
+Name: res/color/common_text_selector.xml
+SHA1-Digest: Zim1zH3sKRlpozVnw2S3SD4Ksyw=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_german.txt
+SHA1-Digest: w4DMVKfl4a7tpge4d91vRsE09Uc=
+
+Name: res/drawable/alipay_selector.xml
+SHA1-Digest: v4x8TNUC+LQ+FeFeQ/OJyTHRo80=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_german.txt
+SHA1-Digest: ASWiPOCybslDsqdqSYrJCczwNBA=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_greek.txt
+SHA1-Digest: /j/A9h8+FfAazMODJJHekOCQB5c=
+
+Name: res/drawable-xhdpi-v4/login_green.9.png
+SHA1-Digest: wG+p++ris/ahh+jg4xYYoTguLUs=
+
+Name: res/layout/common_title.xml
+SHA1-Digest: 8VIkTKVzK75LUanSehcGoXTX1Ug=
+
+Name: res/drawable/login_user_bg.xml
+SHA1-Digest: MfpJnXttL7KnYvQz9RRAQ32GMIQ=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_cyrillic.txt
+SHA1-Digest: zhdfuG3lpctSYxuUJ7xTMIjSPNs=
+
+Name: org/apache/commons/codec/language/bm/sep_rules_portuguese.txt
+SHA1-Digest: sqGys16ESrXOXSg9obu8ix9O0DQ=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_any.txt
+SHA1-Digest: jWl5fcYklf5KZQOVQOhWuWwoUAM=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_french.txt
+SHA1-Digest: fG8iHIY7dmE+dzMnRN1V8U+CAWs=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_french.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_polish.txt
+SHA1-Digest: e4PksIbpzRqmyfXiE+gxLVhuVNA=
+
+Name: res/drawable-xhdpi-v4/module_point_select.png
+SHA1-Digest: Urfv+3zPSmjPp9hPwjzch4M+I8o=
+
+Name: res/drawable-xhdpi-v4/charge_icon.png
+SHA1-Digest: Y30qSsWEmuUyQkLySO1QmQnk08Y=
+
+Name: res/drawable/common_bottom_bg.xml
+SHA1-Digest: /E0xOfms8MvVFryZylxuFVE8fqc=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_any.txt
+SHA1-Digest: dLYj+QzWWMV1HWCtEJPX4xYg2q0=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_portuguese.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_romanian.txt
+SHA1-Digest: h57+YZWPX1cnEcSdoXhfGLuta3s=
+
+Name: res/layout/login_in_dialog.xml
+SHA1-Digest: Iz41JHJfR5myyAck1oMk/z+sWXY=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_russian.txt
+SHA1-Digest: T4ZqaaGytR6k0txV4R9HaAMRd8M=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_greeklatin.txt
+SHA1-Digest: epTnnPkJV3kP2U6NeMgMH2hMESs=
+
+Name: res/layout/activity_score_store.xml
+SHA1-Digest: 83lEMx6fMCKxrF2EqYNBbbzil54=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_romanian.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_english.txt
+SHA1-Digest: xDM5Kj+RvDu2y5bXf+6seM3O0Ww=
+
+Name: res/drawable-xhdpi-v4/validate_icon.png
+SHA1-Digest: 9dn/DmrPmYT2wravn/HAnUqzqdo=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_arabic.txt
+SHA1-Digest: 8LPDBpkhGMPrbgNH/3GMv5DW2Vs=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_hungarian.txt
+SHA1-Digest: 604dJC1I4/8Oy3q/B/iDaSTWh7Y=
+
+Name: res/drawable-xhdpi-v4/quick_register_icon.png
+SHA1-Digest: JXP2gqYfBIMgMrs0M8nwy3+oIa4=
+
+Name: res/drawable/common_title_bg.xml
+SHA1-Digest: Lef7zDSpKXGareZYAK32Lcr8cYg=
+
+Name: res/drawable-xhdpi-v4/service_weixin_icon.png
+SHA1-Digest: +oLZZuJ8iMb3HdaptHSHNt2Hw70=
+
+Name: res/color/forget_text_selector.xml
+SHA1-Digest: viMFiY1G6ERPvFLLNG/9vG33kt8=
+
+Name: res/drawable-xhdpi-v4/more_account_icon.png
+SHA1-Digest: JrqzwB4I+ysw4WpiTcqONpUaoBo=
+
+Name: res/drawable-xhdpi-v4/game_count_icon.png
+SHA1-Digest: I65FA7wOEiBYXqWfygNMy2dMeMk=
+
+Name: res/layout/module_view_pager.xml
+SHA1-Digest: I3BJJ0PZsqiuXGvwC6Cpj1igp1s=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_portuguese.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: res/drawable/border_line_gray.xml
+SHA1-Digest: tvzHYt+bZHsUy/yhKWdymMk9GKI=
+
+Name: res/drawable-xhdpi-v4/quick_left_icon.png
+SHA1-Digest: 2G19hJQFijGZngKhQ7Pj4wBiJ8Y=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_turkish.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: lib/armeabi/libplugin_phone.so
+SHA1-Digest: z/ShechIyRuIWiJTFESDKN52x0U=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_polish.txt
+SHA1-Digest: YtjlwefN2I0RWdC2euL3eS1iTgQ=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_cyrillic.txt
+SHA1-Digest: T3Kwm8H/aw/kkF6SaYfagX9J1mw=
+
+Name: res/drawable-xhdpi-v4/charge.png
+SHA1-Digest: ws34DfXRsbdk95W/wz3g5R1MFEY=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_cyrillic.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: res/layout/notice_dialog.xml
+SHA1-Digest: k3fcZNELLPG5OF25kY5Y0BCjaRE=
+
+Name: res/drawable-xhdpi-v4/common_cancel_selected.9.png
+SHA1-Digest: droVu7i3ocVz0E1LBzUWcXlFpKA=
+
+Name: res/drawable-xhdpi-v4/change_icon1.png
+SHA1-Digest: pHRr/RrZgC5WpPqmOR6/xbxKD6E=
+
+Name: org/apache/commons/codec/language/bm/sep_rules_spanish.txt
+SHA1-Digest: uTGxICniFcGE+85pnK+pGH1Xzt8=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_any.txt
+SHA1-Digest: s7KvcfwD+yZtsux5sF8HC7SSwKw=
+
+Name: res/drawable-xhdpi-v4/notice_title.png
+SHA1-Digest: VAdC1mxXKiiTNIk3TawHsuXyht4=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_romanian.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_cyrillic.txt
+SHA1-Digest: 00E7VR452tbgGSDvaN2vH71JXd0=
+
+Name: res/drawable-xhdpi-v4/close_icon1.png
+SHA1-Digest: Y7j6bR9osouBFo3ZrBYv0pQ5gtE=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_hungarian.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/drawable-xhdpi-v4/person.png
+SHA1-Digest: Fhv6u6rJfzBaScm9CnwS7xEMZgM=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_italian.txt
+SHA1-Digest: fpEQsllQFifzCfJ/dp1xEwvBVdg=
+
+Name: res/layout/login_user_list.xml
+SHA1-Digest: zBbONzsNuH8JBhzxU6J4SJbPLSc=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_greek.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/color/quick_play_text_selector.xml
+SHA1-Digest: iYHMTb6wWkFuSr/LwCZaTclSy4Q=
+
+Name: res/drawable-xhdpi-v4/compaign_default.png
+SHA1-Digest: dxsEUrQUVvBx20MCNBtIcnpnjtg=
+
+Name: res/layout/update_password_fragment.xml
+SHA1-Digest: XBL2IujVAMUl4Dj6pbuXraDABQk=
+
+Name: res/layout/compaign_item.xml
+SHA1-Digest: 2WsZTehfCM7vGU0qf7usoffz4Xo=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_spanish.txt
+SHA1-Digest: 604dJC1I4/8Oy3q/B/iDaSTWh7Y=
+
+Name: res/drawable-xhdpi-v4/alipay_icon.png
+SHA1-Digest: cP2VMkF7yGFeKAooBXvIzrlnfjc=
+
+Name: res/drawable-xhdpi-v4/pay_way_selected.png
+SHA1-Digest: peEmOQHQWcERgGHMpuclaAJ0rx0=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/drawable-xhdpi-v4/change_account.png
+SHA1-Digest: RWZM/fD0aztHySQj6dSTdMA+Pgo=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_french.txt
+SHA1-Digest: o5S4BN9+movhRfKv/CPmwVWMk0s=
+
+Name: res/drawable-xhdpi-v4/quick_play_icon.png
+SHA1-Digest: jkHbiH/YYPYEpY8ZOVfwgjHq/mg=
+
+Name: org/apache/commons/codec/language/bm/ash_hebrew_common.txt
+SHA1-Digest: lhqN1L0rc6oqNcToAM5w5eXc69k=
+
+Name: res/drawable-xhdpi-v4/point_select1.png
+SHA1-Digest: VYNQB0aBl1TJWjD2HxgUDMAisBI=
+
+Name: res/drawable-xhdpi-v4/quick_title_icon.png
+SHA1-Digest: M5p+GlWxpe6YDa6gYKBEhuqUG3E=
+
+Name: res/drawable-xhdpi-v4/float_bg_right_up.9.png
+SHA1-Digest: Ijp04qnw9aZaavn5qIRJxBrnnxM=
+
+Name: res/drawable-xhdpi-v4/loading_icon.png
+SHA1-Digest: NegfSOUoKxczW/JD95o7cSd65Vo=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_czech.txt
+SHA1-Digest: iPK8bJaVzSZc5K5rvtJ99cdrL3g=
+
+Name: res/layout/activity_main1.xml
+SHA1-Digest: nJtXPTe+13VRql0atGYDAMYkScU=
+
+Name: res/drawable-xhdpi-v4/float_menu_out2.png
+SHA1-Digest: 2WGPuQHd9xFIJg2Wt2eppJVl/TE=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_approx_common.txt
+SHA1-Digest: 2wGOF99LQlKr0epBg2LDfgg5c/k=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_any.txt
+SHA1-Digest: 31+z+V5I9I/BsRgZo688C7Nmz5c=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_any.txt
+SHA1-Digest: 5FHNYWkE/iE9uhTrfBSWz2fh4rI=
+
+Name: res/drawable-xhdpi-v4/close_pay_icon.png
+SHA1-Digest: Zc8ChYAZh9l/GTe56mdgzxSMC3E=
+
+Name: res/drawable/gridview_item_selector.xml
+SHA1-Digest: XruZyIbZZt98CHk+Raa+zNMxfMo=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_polish.txt
+SHA1-Digest: bnV3hR/TM8/nCLUXvfXHWUmvShI=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_common.txt
+SHA1-Digest: VLGwCVv3uxq8eYkWPr7gmtHLOnU=
+
+Name: res/drawable-xhdpi-v4/user_default_icon.png
+SHA1-Digest: 1mxnqb5gZoL8nLehKYDL9KGlA6c=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_english.txt
+SHA1-Digest: CHRv59odKbwWuNzWNtwmYNxOEH4=
+
+Name: res/drawable/check_box_selector.xml
+SHA1-Digest: 9aChdDWh83Jdlq8iQHI8YvHHNI0=
+
+Name: res/drawable/module_point.xml
+SHA1-Digest: TKy2Ar4jSIirfr9Btrlbf3ML4uU=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_approx_common.txt
+SHA1-Digest: c9AqKhHVO0VPlbeLnJTrKdy/gSs=
+
+Name: res/drawable-xhdpi-v4/delete_user_icon.png
+SHA1-Digest: LAw8PVWUyQi59U4jw+S5mZu9/WY=
+
+Name: res/drawable-xhdpi-v4/photo_icon.png
+SHA1-Digest: 0F+yYos66jh4qtsP9hSVWIyNXw8=
+
+Name: res/drawable-xhdpi-v4/loading_logo.png
+SHA1-Digest: luh4ay7KqKhO98MtaW6iRPDbeuY=
+
+Name: res/drawable/pay_coin_way_selector.xml
+SHA1-Digest: DrVvPNe8LNBtRdk7vODmUo4ib7E=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_portuguese.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_polish.txt
+SHA1-Digest: C2oXvKtemOA5+wbuURYYZrRXawk=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_russian.txt
+SHA1-Digest: i18jgMcJnz+/whRVChudyvXR6bQ=
+
+Name: assets/ipaynow_data.bin
+SHA1-Digest: i1XZGGEll2v/hT/Q2ZEx2hs6R6A=
+
+Name: res/drawable-xhdpi-v4/user_name_edit_icon.png
+SHA1-Digest: KWklpGfBpG692irRhhYmPutUL78=
+
+Name: org/apache/commons/codec/language/bm/ash_exact_english.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_hebrew.txt
+SHA1-Digest: 1d23tX+8Zs6txZql1HQugopK6Dw=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_french.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/layout/game_coin_item.xml
+SHA1-Digest: o5j+rsng2Ba1I7KGrkKf5fmmlUw=
+
+Name: res/layout/message_quick_login.xml
+SHA1-Digest: QVSPYgIsptu16mlaAmJEPdR6QlE=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_arabic.txt
+SHA1-Digest: 6qj8otnCUSRgzzY1XsPSLprI8l4=
+
+Name: res/drawable-xhdpi-v4/wxpay_normal_icon.png
+SHA1-Digest: l+0vPyCypO+j70a1VKDjpY7kAXo=
+
+Name: res/layout-v17/float_left_layout.xml
+SHA1-Digest: HCBoJlVz90sH9ejya7lV8mkMXI4=
+
+Name: res/layout/activity_user_info.xml
+SHA1-Digest: rfbQn5MyeglhDzpHdiusBkKI0s4=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_italian.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_italian.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/drawable-xhdpi-v4/change_icon.png
+SHA1-Digest: RAx60Di/LT3QSQmNlininY50dBw=
+
+Name: res/drawable-xhdpi-v4/service_phone_icon.png
+SHA1-Digest: 8AA+Up57eVCznxL0s83DSUUvuls=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_cyrillic.txt
+SHA1-Digest: EsR+HI42mjkQMSRBChc6UJMNHnk=
+
+Name: res/drawable-xhdpi-v4/change_icon2.png
+SHA1-Digest: BuFfYzX/WLuKcOP5WUNjcEf0LxQ=
+
+Name: org/apache/commons/codec/language/bm/ash_rules_romanian.txt
+SHA1-Digest: c2FG81GO6lTa5eTZpNvoIjKLPfw=
+
+Name: org/apache/commons/codec/language/bm/sep_exact_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/drawable-xhdpi-v4/ic_launcher.png
+SHA1-Digest: AfPh3OJoypH966MludSW6f1RHg4=
+
+Name: res/drawable-xhdpi-v4/message.png
+SHA1-Digest: +re1GqGTsD5V2V5ZIboKtXpQAIQ=
+
+Name: org/apache/commons/codec/language/bm/sep_languages.txt
+SHA1-Digest: N9Nby7yZl/CNB4XLYMOy4NPkDns=
+
+Name: res/drawable/ttw_edit_three_bg.xml
+SHA1-Digest: 33uOXuDGsvy5aLbK9WHPqhvRnc8=
+
+Name: res/layout/main_module_item.xml
+SHA1-Digest: qxFImqv2b+0gHpOb+DN8fpGlMw4=
+
+Name: res/drawable/common_bg.xml
+SHA1-Digest: 9NCEg/CkokFs4Smuq8mYjjp2BgQ=
+
+Name: res/layout/compaign_fragment.xml
+SHA1-Digest: kNUviNOdxPPBpQrAipoK9vKu5p0=
+
+Name: res/drawable-xhdpi-v4/check_box_selected.png
+SHA1-Digest: xp3nBFoLCJbEOGTKZTw+RfYQPWg=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_french.txt
+SHA1-Digest: q9sgIysKftSjudOa4wXU3BLc/4Y=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_polish.txt
+SHA1-Digest: d7PswPXB40uZY4D8wXcuG7osFGk=
+
+Name: res/drawable-xhdpi-v4/common_cancel_normal.9.png
+SHA1-Digest: 2n2tT28BWjIK1eV9KZtWZoeITXo=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_turkish.txt
+SHA1-Digest: rN+fxuizg39UWtnHiV1G1d2AaVY=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_dutch.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/drawable/module_bg.xml
+SHA1-Digest: 7jzx6f46Ftzozx9MKbMcl4vybAo=
+
+Name: assets/textfield_activated_holo_dark.9.png
+SHA1-Digest: gLxu/tBOQ+FsIpgp3TZ+UF/SqXE=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_arabic.txt
+SHA1-Digest: yt4PLY35eX3omtnfi8cYJAdUwDA=
+
+Name: res/drawable-hdpi-v4/ic_launcher.png
+SHA1-Digest: Nq8q3HeTluE5JNCBpVvNy3BXtJI=
+
+Name: res/layout/main_fragment.xml
+SHA1-Digest: bc5ZwHZis5BG+6SvotOOaiPhRj8=
+
+Name: res/layout/game_coin_fragment.xml
+SHA1-Digest: ZfofPE1bZiHrfeoNe7AWvnbqU8w=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_spanish.txt
+SHA1-Digest: T+njbAJy1Bqc9+cbiIJMwcI9HrU=
+
+Name: org/apache/commons/codec/language/bm/lang.txt
+SHA1-Digest: H+gJtZUsHsM9QHoCyS/cdT9yjaQ=
+
+Name: res/drawable-xhdpi-v4/back_icon.png
+SHA1-Digest: 76MR9z9JbdSA0x775vYZs2dTbDY=
+
+Name: org/apache/commons/codec/language/bm/gen_rules_portuguese.txt
+SHA1-Digest: 2tGtdUrB2oruPbgFAC1SD4R2Mn0=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_spanish.txt
+SHA1-Digest: lGrj01vFVhIZq42vqijMqqlw+eo=
+
+Name: res/drawable-xhdpi-v4/change_account_icon.png
+SHA1-Digest: Mrs/6xy4FI1ZTDOxojKXWTS0slI=
+
+Name: res/drawable/kk_ttw_edit_three_bg.xml
+SHA1-Digest: ij8J2VUYHrtQJgJRUDw5144HDuI=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_dutch.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/layout/float_left_layout.xml
+SHA1-Digest: WL25H5Mn+vnb7O1sVrYRrsiZLBU=
+
+Name: res/layout/float_layout.xml
+SHA1-Digest: Htvt+7b9oe8sNjz443UmEjyo6DE=
+
+Name: res/drawable-xhdpi-v4/float_drag.png
+SHA1-Digest: joz0qP3S+iR46X5zHB9VVgPVwzA=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_turkish.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: res/drawable-xhdpi-v4/password_icon.png
+SHA1-Digest: si+5A+fSouRQu/jSoQNNI4PaVM8=
+
+Name: res/layout/activity_update_phone.xml
+SHA1-Digest: MMxQ+WYPNWlOKOvm/ZZqD6ZxxkI=
+
+Name: org/apache/commons/codec/language/bm/ash_approx_any.txt
+SHA1-Digest: 54nb4ON7/wkHOr32PrSKqoszAGk=
+
+Name: res/layout/account_safety_fragment.xml
+SHA1-Digest: vCTtQpP+S5+bqRTH5MxTfq+Uxsc=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: res/layout/activity_loginout.xml
+SHA1-Digest: eDn/CMW2b8JQKoMfxLpx0yDxoAM=
+
+Name: org/apache/commons/codec/language/bm/gen_approx_english.txt
+SHA1-Digest: WdrL/vp21NUtryKaVCYaAfnUY9U=
+
+Name: org/apache/commons/codec/language/bm/gen_exact_czech.txt
+SHA1-Digest: 00E7VR452tbgGSDvaN2vH71JXd0=
+
+Name: res/drawable/ttw_pw_list_selector.xml
+SHA1-Digest: 5+E9XIvC+PptDZYtTyN5yMky6yY=
+
+Name: res/drawable-xhdpi-v4/refresh_icon.png
+SHA1-Digest: gQOOAL+gq2i6GYvGy/YGzsnqIZI=
+
+Name: lib/x86/libentryex.so
+SHA1-Digest: WcZHJ/gHxreiouD2G9uXt5l0KXE=
+
+Name: res/drawable-xhdpi-v4/tencent_pay_icon.png
+SHA1-Digest: y2WNSJe7HDgRkgKIm0us1UJDDR0=
+
+Name: org/apache/commons/codec/language/bm/gen_languages.txt
+SHA1-Digest: Wd+YcHRM0F23bj/qZsPhOjYOa+4=
+
+Name: res/drawable/wxpay_selector.xml
+SHA1-Digest: Y+8L7IVXIOpnlafsVCsB1H5Ky3Y=
+
+Name: res/drawable-xhdpi-v4/phone_unbind_icon.png
+SHA1-Digest: EzuB/xGdDouxVh0DkRoysmbkpOA=
+
+Name: res/layout/activity_payment.xml
+SHA1-Digest: XVRVUArq/9RkCSHizYeSD0cl6IQ=
+
+Name: org/apache/commons/codec/language/bm/sep_approx_portuguese.txt
+SHA1-Digest: wGpv/4nTHPd+c4HkTvDnN2PUYOU=
+
+Name: classes.dex
+SHA1-Digest: 7AjuRFX9Tuq8rVFkQDYZhQB3EwQ=
+

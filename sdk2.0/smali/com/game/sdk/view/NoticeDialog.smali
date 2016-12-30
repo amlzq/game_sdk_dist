@@ -1,0 +1,218 @@
+.class public Lcom/game/sdk/view/NoticeDialog;
+.super Landroid/app/Dialog;
+.source "NoticeDialog.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field private closeIv:Landroid/widget/ImageView;
+
+.field private mContext:Landroid/content/Context;
+
+.field private notice:Ljava/lang/String;
+
+.field private noticeTv:Landroid/widget/TextView;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "msg"    # Ljava/lang/String;
+
+    .prologue
+    .line 33
+    const-string v0, "style"
+
+    const-string v1, "CustomSdkDialog"
+
+    invoke-static {p1, v0, v1}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+
+    .line 34
+    iput-object p1, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    .line 35
+    iput-object p2, p0, Lcom/game/sdk/view/NoticeDialog;->notice:Ljava/lang/String;
+
+    .line 36
+    return-void
+.end method
+
+
+# virtual methods
+.method public initView()V
+    .locals 7
+
+    .prologue
+    .line 45
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v1
+
+    .line 46
+    .local v1, "layoutInflater":Landroid/view/LayoutInflater;
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    const-string v5, "layout"
+
+    const-string v6, "notice_dialog"
+
+    invoke-static {v4, v5, v6}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    .line 48
+    .local v3, "view":Landroid/view/View;
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    const-string v5, "id"
+
+    const-string v6, "notice_content"
+
+    invoke-static {v4, v5, v6}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iput-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->noticeTv:Landroid/widget/TextView;
+
+    .line 49
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    const-string v5, "id"
+
+    const-string v6, "close_icon"
+
+    invoke-static {v4, v5, v6}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/ImageView;
+
+    iput-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->closeIv:Landroid/widget/ImageView;
+
+    .line 50
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->noticeTv:Landroid/widget/TextView;
+
+    iget-object v5, p0, Lcom/game/sdk/view/NoticeDialog;->notice:Ljava/lang/String;
+
+    invoke-static {v5}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 51
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->closeIv:Landroid/widget/ImageView;
+
+    invoke-virtual {v4, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 52
+    invoke-virtual {p0, v3}, Lcom/game/sdk/view/NoticeDialog;->setContentView(Landroid/view/View;)V
+
+    .line 54
+    invoke-virtual {p0}, Lcom/game/sdk/view/NoticeDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    .line 55
+    .local v0, "dialogWindow":Landroid/view/Window;
+    invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v2
+
+    .line 56
+    .local v2, "params":Landroid/view/WindowManager$LayoutParams;
+    iget-object v4, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    const/16 v5, 0x19f
+
+    invoke-static {v4, v5}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
+
+    move-result v4
+
+    iput v4, v2, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    .line 58
+    const/16 v4, 0x11
+
+    iput v4, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    .line 59
+    return-void
+.end method
+
+.method public onClick(Landroid/view/View;)V
+    .locals 4
+    .param p1, "v"    # Landroid/view/View;
+
+    .prologue
+    .line 63
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    const-string v2, "id"
+
+    const-string v3, "close_icon"
+
+    invoke-static {v1, v2, v3}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    .line 64
+    invoke-virtual {p0}, Lcom/game/sdk/view/NoticeDialog;->dismiss()V
+
+    .line 65
+    iget-object v0, p0, Lcom/game/sdk/view/NoticeDialog;->mContext:Landroid/content/Context;
+
+    check-cast v0, Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    .line 67
+    :cond_0
+    return-void
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 0
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+
+    .prologue
+    .line 40
+    invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
+
+    .line 41
+    invoke-virtual {p0}, Lcom/game/sdk/view/NoticeDialog;->initView()V
+
+    .line 42
+    return-void
+.end method

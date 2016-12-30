@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/service_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/common_vertical_title" />
+    <View android:background="@color/line_color" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/balance_text" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/test_play_account_color" android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="¥0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/common_input_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:gravity="center" android:id="@id/charge_10_tv" android:background="@drawable/charge_item_selector" android:layout_width="0.0dip" android:layout_height="58.0dip" android:layout_margin="12.0dip" android:text="@string/charge_10_text" android:layout_weight="1.0" />
+            <TextView android:gravity="center" android:id="@id/charge_50_tv" android:background="@drawable/charge_item_selector" android:layout_width="0.0dip" android:layout_height="58.0dip" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:text="@string/charge_50_text" android:layout_weight="1.0" />
+            <TextView android:gravity="center" android:id="@id/charge_100_tv" android:background="@drawable/charge_item_selector" android:layout_width="0.0dip" android:layout_height="58.0dip" android:layout_margin="12.0dip" android:text="@string/charge_100_text" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-12.0dip">
+            <TextView android:gravity="center" android:id="@id/charge_200_tv" android:background="@drawable/charge_item_selector" android:layout_width="0.0dip" android:layout_height="58.0dip" android:layout_margin="12.0dip" android:text="@string/charge_200_text" android:layout_weight="1.0" />
+            <TextView android:gravity="center" android:id="@id/charge_500_tv" android:background="@drawable/charge_item_selector" android:layout_width="0.0dip" android:layout_height="58.0dip" android:layout_marginTop="12.0dip" android:layout_marginBottom="12.0dip" android:text="@string/charge_500_text" android:layout_weight="1.0" />
+            <TextView android:gravity="center" android:id="@id/charge_1000_tv" android:background="@drawable/charge_item_selector" android:layout_width="0.0dip" android:layout_height="58.0dip" android:layout_margin="12.0dip" android:text="@string/charge_1000_text" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dip">
+            <EditText android:textSize="14.0sp" android:textColor="@color/black" android:id="@id/custom_money_ev" android:background="@drawable/charge_item_selector" android:paddingLeft="5.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip" android:hint="@string/custom_money_text" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/common_input_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <TextView android:textSize="14.0sp" android:layout_gravity="left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="15.0dip" android:text="@string/other_pay_text" />
+        <RelativeLayout android:id="@id/alipay_layout" android:layout_width="fill_parent" android:layout_height="56.0dip" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip">
+            <TextView android:gravity="center" android:id="@id/alipay_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alipay_text" android:drawableLeft="@drawable/alipay_icon" android:drawablePadding="12.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/pay_recommend_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/recommend_text" android:layout_toRightOf="@id/alipay_iv" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/alipay_selected_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/selected_pay_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <View android:background="@color/line_color" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+        <RelativeLayout android:id="@id/wxpay_layout" android:layout_width="fill_parent" android:layout_height="56.0dip" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip">
+            <TextView android:gravity="center" android:id="@id/wxpay_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wxpay_text" android:drawableLeft="@drawable/tencent_pay_icon" android:drawablePadding="12.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <ImageView android:id="@id/wxpay_selected_icon" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/selected_pay_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="12.0dip">
+        <Button android:textSize="15.0sp" android:textColor="@color/white" android:id="@id/charge_btn" android:background="@drawable/common_btn" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="@string/charge_confirm_text" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dip">
+        <TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/service_text" android:drawableLeft="@drawable/service_phone_icon" android:drawablePadding="12.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</LinearLayout>
