@@ -16,12 +16,11 @@ cp -r ${s_dir}/smali/com/game/sdk/ ${t_dir}/smali/com/game/
 cp -r ${s_dir}/smali/com/alibaba ${t_dir}/smali/com
 
 #3.复制res、assets资源
-cp -r sdk2.0/assets  ${t_dir}/
-for D in `find sdk2.0/res -type d`
+cp -r ${s_dir}/assets  ${t_dir}/
+for D in `find ${s_dir}/res -type d`
 do
   if [[ $D != *"/values"* ]] && [[ $D != "${s_dir}/res" ]]
   then
-    echo $D
     cp -r $D  ${t_dir}/res/
   fi
 done
