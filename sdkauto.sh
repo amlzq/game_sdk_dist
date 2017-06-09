@@ -1,20 +1,35 @@
 #!/bin/sh
 
-
 target_apk_path=${1}
 source_apk_path=${2}
 
-
+ext="${target_apk_path##*.}"
+name="${target_apk_path%.*}"
 s_dir=sdk2.0
-t_dir=$RANDOM$RANDOM
+t_dir=$name
+
+if [ -f "${t_dir}_signed.apk" ]; then
+  exit
+fi
+
+if [ ! -f $target_apk_path ]; then
+  exit
+fi
 
 if [ ! -d $s_dir ]; then
+  if [ ! -f $source_apk_path ]; then
+    exit
+  fi
   java -jar apktool.jar d $source_apk_path -o $s_dir
 fi
 
 #1.反编译游戏母包app
-java -jar apktool.jar d ${target_apk_path} -o ${t_dir}
-# cp -rf ${s_dir}/lib ${t_dir}/
+java -jar apktool.jar -f d ${target_apk_path} -o ${t_dir}
+cp -Rf ${s_dir}/lib/armeabi ${t_dir}/lib
+cp -Rf ${s_dir}/lib/armeabi-v7a ${t_dir}/lib
+cp -Rf ${s_dir}/lib/mips ${t_dir}/lib
+cp -Rf ${s_dir}/lib/x86 ${t_dir}/lib
+
 
 rm -rf ${t_dir}/smali/com/game
 rm -rf ${t_dir}/smali/com/ipaynow #删除
@@ -46,7 +61,6 @@ do
   fi
 done
 
-
 #4.合并xml文件
 #4a AndroidManifest.xml
 #4b values目录中 ids.xml, colors.xml, strings.xml 等
@@ -58,5 +72,5 @@ java -jar apktool.jar b ${t_dir} -o ${t_dir}.apk
 #7 签名
 jarsigner -verbose -keystore xxrjy.jks -signedjar ${t_dir}_signed.apk ${t_dir}.apk xxrjy -storepass 123456
 #清理
-rm -rf ${t_dir}.apk
+# rm -rf ${t_dir}.apk
 rm -rf ${t_dir}
