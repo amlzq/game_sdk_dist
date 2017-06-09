@@ -31,7 +31,7 @@ cp -Rf ${s_dir}/lib/mips ${t_dir}/lib
 cp -Rf ${s_dir}/lib/x86 ${t_dir}/lib
 
 
-rm -rf ${t_dir}/smali/com/game
+rm -rf ${t_dir}/smali/com/game/sdk
 rm -rf ${t_dir}/smali/com/ipaynow #删除
 rm -rf ${t_dir}/smali/com/UCMobile #删除
 rm -rf ${t_dir}/smali/com/unionpay #删除
@@ -42,7 +42,7 @@ cp -rf ${s_dir}/smali/okhttp3 ${t_dir}/smali
 cp -rf ${s_dir}/smali/okio ${t_dir}/smali
 cp -rf ${s_dir}/smali/u ${t_dir}/smali
 cp -rf ${s_dir}/smali/com/squareup ${t_dir}/smali/com/
-cp -rf ${s_dir}/smali/com/game ${t_dir}/smali/com
+cp -rf ${s_dir}/smali/com/game/sdk ${t_dir}/smali/com
 cp -rf ${s_dir}/smali/com/alibaba ${t_dir}/smali/com
 cp -rf ${s_dir}/smali/com/ipaynow ${t_dir}/smali/com
 cp -rf ${s_dir}/smali/com/ta ${t_dir}/smali/com
@@ -50,6 +50,7 @@ cp -rf ${s_dir}/smali/com/ut ${t_dir}/smali/com
 cp -rf ${s_dir}/smali/com/vqs ${t_dir}/smali/com
 cp -rf ${s_dir}/smali/com/umeng ${t_dir}/smali/com
 cp -rf ${s_dir}/smali/com/feiyou ${t_dir}/smali/com
+cp -rf ${s_dir}/smali/com/UCMobile ${t_dir}/smali/com
 
 #3.复制res、assets资源
 cp -rf ${s_dir}/assets  ${t_dir}/

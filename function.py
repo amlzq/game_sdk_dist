@@ -82,8 +82,8 @@ def mergePublicXml(sXml, tXml):
     tRoot = tTree.getroot()
 
     R={}
-    X={}
     Rkeys=[]
+    X={}
 
     for tChild in tRoot:
         stype = tChild.attrib['type'];
@@ -123,44 +123,32 @@ def mergePublicXml(sXml, tXml):
         genR(stype, R[stype]);
 
 def genR(type, fields):
-    header_template = []
-    header_template.append(".class public final L{2}/R${1};\n")
-    header_template.append(".super Ljava/lang/Object;\n")
-    header_template.append(".source \"R.java\"\n\n\n")
-
-    header_template.append("# annotations\n")
-    header_template.append(".annotation system Ldalvik/annotation/EnclosingClass;\n")
-    header_template.append("    value = L{2}/R;\n")
-    header_template.append(".end annotation\n\n")
-
-    header_template.append(".annotation system Ldalvik/annotation/InnerClass;\n")
-    header_template.append("    accessFlags = 0x19\n")
-    header_template.append("    name = \"{1}\"\n")
-    header_template.append(".end annotation\n\n\n")
-    header_template.append("# static fields\n")
-
-    footer_template = []
-    footer_template.append("# direct methods\n")
-    footer_template.append(".method public constructor <init>()V\n")
-    footer_template.append("    .locals 0\n")
-    footer_template.append("    .prologue\n")
-    footer_template.append("    .line 240\n\n")
-    footer_template.append("    invoke-direct {p0}, Ljava/lang/Object;-><init>()V\n")
-    footer_template.append("    return-void\n")
-    footer_template.append(".end method\n")
+    template = ".class public final L{2}/R${1};\n\
+    .super Ljava/lang/Object;\n\
+    .source \"R.java\"\n\n\n\
+    # annotations\n\
+    .annotation system Ldalvik/annotation/EnclosingClass;\n\
+        value = L{2}/R;\n\
+    .end annotation\n\n\
+    .annotation system Ldalvik/annotation/InnerClass;\n\
+        accessFlags = 0x19\n\
+        name = \"{1}\"\n\
+    .end annotation\n\n\n\
+    # static fields\n\
+    {3}\
+    # direct methods\n\
+    .method public constructor <init>()V\n\
+        .locals 0\n\
+        .prologue\n\
+        .line 240\n\n\
+        invoke-direct {p0}, Ljava/lang/Object;-><init>()V\n\
+        return-void\n\
+    .end method\n"
 
     fname = "R${1}.smali".replace("{1}", type)
     file = open(fname, 'w+')
-    header_str = "".join(header_template)
-    header_str = header_str.replace("{1}", type).replace("{2}", package_name)
-    file.write(header_str)
-
-    fields_str = "".join(fields)
-    print fields
-    file.write(fields_str)
-
-    footer_str = "".join(footer_template)
-    file.write(footer_str)
+    template = template.replace("{1}", type).replace("{2}", package_name).replace("{3}", "".join(fields))
+    file.write(template)
     file.close()
     copyfile(fname, "".join([t_dir, "/smali/", package_name, "/",  fname]))
     os.remove(fname)
