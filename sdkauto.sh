@@ -22,7 +22,6 @@ fi
 if [ ! -d $s_dir ]; then
   if [ ! -f $source_apk_path ]; then
     echo "I: ${source_apk_path} not exist"
-    echo "$"
     exit
   fi
   echo "I: Decode sdk.."
