@@ -83,47 +83,54 @@ def mergePublicXml(sXml, tXml):
 
     R={}
     Rkeys=[]
-    X={}
 
-    for tChild in tRoot:
-        stype = tChild.attrib['type']
-        iid = tChild.attrib['id']
-
-        val = 0
-        if stype in X:
-            val = X[stype]["val"] + 1
-        X = {
-            "val": val,
-            "pre": iid[:6]
-        }
 
     for sChild in sRoot:
         isSame = False
+        stype = sChild.attrib['type']
+        sname = sChild.attrib['name']
+
         for tChild in tRoot:
-            if sChild.attrib['type'] == tChild.attrib['type'] and sChild.attrib['name'] == tChild.attrib['name']:
+            if stype == tChild.attrib['type'] and sname == tChild.attrib['name']:
                 isSame = True
                 #tChild.attrib['id'] = sChild.attrib['id']
                 break
-        if not isSame:
-            stype = sChild.attrib['type']
 
-            if stype not in R:
-                R[stype]=[]
+        if not isSame:
+            lastid = "0x00000000"
+            for tChild in tRoot:
+                if stype == tChild.attrib['type']:
+                    tlastid = tChild.attrib['id'];
+                    if int(lastid, 16) < int(tlastid, 16):
+                        lastid = tChild.attrib['id']
 
             if stype not in Rkeys:
+                R[stype]=[]
                 Rkeys.append(stype)
 
-            sChild.attrib['id'] = "".join([X["pre"], str(hex(int(sChild.attrib['id'], 16) + X["val"]))[-4:]]);
+            lastid = str(hex(int(lastid, 16) + 1))
+            sChild.attrib['id'] = lastid
             tRoot.append(sChild)
 
-            field_template = ".field public static final {1}:I = {2}\n\n"
-            fieldStr = field_template.replace("{1}", sChild.attrib['name']).replace("{2}", sChild.attrib['id'])
-            R[stype].append(fieldStr)
+    #这一块代码内存要求随tRoot大小增长  【暂不优化】      
+    for tChild in tRoot:
+        sname = tChild.attrib['name']
+        stype = tChild.attrib['type']
+        if "." in sname:
+            sname = sname.replace(".", "_")
+
+        if stype not in Rkeys:
+            R[stype]=[]
+            Rkeys.append(stype)
+
+        field_template = ".field public static final {1}:I = {2}\n\n"
+        fieldStr = field_template.replace("{1}", sname).replace("{2}", tChild.attrib['id'])
+        R[stype].append(fieldStr)
 
     tTree.write(tXml, encoding='utf-8', xml_declaration=True)
 
     for stype in Rkeys:
-        genR(stype, R[stype]);
+        genR(stype, R[stype])
 
 def genR(type, fields):
     template = ".class public final L{2}/R${1};\n\

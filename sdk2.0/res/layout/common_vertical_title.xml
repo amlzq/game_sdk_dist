@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/common_title_layout" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="50.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/back_iv" android:background="@drawable/icon_back_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-    <TextView android:textSize="16.0sp" android:textColor="@color/black" android:id="@id/title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/charge_text" android:layout_centerInParent="true" />
-    <Button android:textSize="12.0sp" android:textColor="@color/border_line_color" android:id="@id/right_btn" android:background="@drawable/border_line_btn" android:visibility="gone" android:layout_width="66.0dip" android:layout_height="28.0dip" android:layout_marginRight="8.0dip" android:text="@string/charge_record_text" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-</RelativeLayout>
