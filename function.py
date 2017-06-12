@@ -108,6 +108,8 @@ def mergePublicXml(sXml, tXml):
             stype = sChild.attrib['type']
 
             if stype not in Rkeys:
+                if stype in R:
+                    R[stype]=[]
                 Rkeys.append(stype)
 
             sChild.attrib['id'] = "".join([X["pre"], str(hex(int(sChild.attrib['id'], 16) + X["val"]))[-4:]]);
