@@ -9,27 +9,40 @@ s_dir=sdk2.0
 t_dir=$name
 
 if [ -f "${t_dir}_signed.apk" ]; then
+  echo "$(tput setaf 1)I: ${t_dir}_signed.apk is exist$(tput setaf 0)!"
+  echo "$(tput setaf 1)I: try: \n    rm -f ${t_dir}_signed.apk$(tput setaf 0)."
   exit
 fi
 
 if [ ! -f $target_apk_path ]; then
+  echo "$(tput setaf 1)I: ${target_apk_path} not exist$(tput setaf 0)!"
   exit
 fi
 
 if [ ! -d $s_dir ]; then
   if [ ! -f $source_apk_path ]; then
+    echo "$(tput setaf 1)I: ${source_apk_path} not exist$(tput setaf 0)!"
+    echo "$(tput setaf 0)"
     exit
   fi
+  echo "$(tput setaf 1)I: Decode sdk$(tput setaf 0)..."
   java -jar apktool.jar d $source_apk_path -o $s_dir
+  echo "$(tput setaf 1)I: Decode success$(tput setaf 0)."
 fi
 
-#1.反编译游戏母包app
+#1. 反编译游戏母包app
+echo "$(tput setaf 1)I: Decode game$(tput setaf 0)..."
 java -jar apktool.jar -f d ${target_apk_path} -o ${t_dir}
-cp -Rf ${s_dir}/lib/armeabi ${t_dir}/lib
-cp -Rf ${s_dir}/lib/armeabi-v7a ${t_dir}/lib
-cp -Rf ${s_dir}/lib/mips ${t_dir}/lib
-cp -Rf ${s_dir}/lib/x86 ${t_dir}/lib
-
+echo "$(tput setaf 1)I: Decode success$(tput setaf 0)."
+#2. lib合并
+echo "$(tput setaf 1)I: Merge lib、smail、res dirs$(tput setaf 0)..."
+for D in `find ${t_dir}/lib -type d`
+do
+  if [[ $D != "${t_dir}/lib" ]]
+  then
+    cp -Rf ${D/$t_dir/$s_dir} ${t_dir}/lib
+  fi
+done
 
 rm -rf ${t_dir}/smali/com/game/sdk
 rm -rf ${t_dir}/smali/com/ipaynow #删除
@@ -61,17 +74,23 @@ do
     cp -rf $D  ${t_dir}/res/
   fi
 done
-
 #4.合并xml文件
 #4a AndroidManifest.xml
 #4b values目录中 ids.xml, colors.xml, strings.xml 等
 #4c values目录中public.xml
 #5 重新生成对应的R文件
 python function.py ${s_dir} ${t_dir}
+echo "$(tput setaf 1)I: Merge success$(tput setaf 0)."
 #6 回编
+echo "$(tput setaf 1)I: Encode game$(tput setaf 0)..."
 java -jar apktool.jar b ${t_dir} -o ${t_dir}.apk
+echo "$(tput setaf 1)I: Encode success$(tput setaf 0)."
 #7 签名
+echo "$(tput setaf 1)I: Signing$(tput setaf 0)..."
 jarsigner -verbose -keystore xxrjy.jks -signedjar ${t_dir}_signed.apk ${t_dir}.apk xxrjy -storepass 123456
+echo "$(tput setaf 1)I: Sign success$(tput setaf 0)."
 #清理
 # rm -rf ${t_dir}.apk
+echo "$(tput setaf 1)I: Delete temp file$(tput setaf 0)..."
 rm -rf ${t_dir}
+echo "$(tput setaf 1)I: Success$(tput setaf 0)."

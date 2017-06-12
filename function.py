@@ -107,6 +107,9 @@ def mergePublicXml(sXml, tXml):
         if not isSame:
             stype = sChild.attrib['type']
 
+            if stype not in R:
+                R[stype]=[]
+
             if stype not in Rkeys:
                 Rkeys.append(stype)
 
