@@ -19,6 +19,8 @@
 
 .field public static httpRequest:Lcom/game/sdk/net/impls/OKHttpRequest;
 
+.field public static initializedPicasso:Z
+
 .field public static picasso:Lcom/squareup/picasso/Picasso;
 
 
@@ -41,7 +43,11 @@
 
     sput-object v0, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
-    .line 43
+    .line 45
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/game/sdk/net/impls/OKHttpRequest;->initializedPicasso:Z
+
     return-void
 .end method
 
@@ -49,13 +55,13 @@
     .locals 0
 
     .prologue
-    .line 45
+    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
+    .line 48
     invoke-static {}, Lcom/game/sdk/net/impls/OKHttpRequest;->initOkHttpClient()V
 
-    .line 47
+    .line 49
     return-void
 .end method
 
@@ -73,17 +79,17 @@
     .end annotation
 
     .prologue
-    .line 127
+    .line 129
     if-nez p3, :cond_0
 
-    .line 128
+    .line 130
     new-instance v2, Lcom/game/sdk/net/exception/NullResonseListenerException;
 
     invoke-direct {v2}, Lcom/game/sdk/net/exception/NullResonseListenerException;-><init>()V
 
     throw v2
 
-    .line 129
+    .line 131
     :cond_0
     sget-object v2, Lcom/game/sdk/net/impls/OKHttpRequest;->MEDIA_TYPE:Lokhttp3/MediaType;
 
@@ -91,7 +97,7 @@
 
     move-result-object v1
 
-    .line 130
+    .line 132
     .local v1, "requestBody":Lokhttp3/RequestBody;
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
@@ -105,11 +111,11 @@
 
     move-result-object v0
 
-    .line 131
+    .line 133
     .local v0, "request":Lokhttp3/Request;
     invoke-direct {p0, v0, p3, p4}, Lcom/game/sdk/net/impls/OKHttpRequest;->sendRequest(Lokhttp3/Request;Lcom/game/sdk/net/listeners/OnHttpResonseListener;Z)V
 
-    .line 132
+    .line 134
     return-void
 .end method
 
@@ -117,17 +123,17 @@
     .locals 2
 
     .prologue
-    .line 59
+    .line 58
     sget-object v0, Lcom/game/sdk/net/impls/OKHttpRequest;->httpRequest:Lcom/game/sdk/net/impls/OKHttpRequest;
 
     if-nez v0, :cond_0
 
-    .line 60
+    .line 59
     const-class v1, Lcom/game/sdk/net/impls/OKHttpRequest;
 
     monitor-enter v1
 
-    .line 61
+    .line 60
     :try_start_0
     new-instance v0, Lcom/game/sdk/net/impls/OKHttpRequest;
 
@@ -135,18 +141,18 @@
 
     sput-object v0, Lcom/game/sdk/net/impls/OKHttpRequest;->httpRequest:Lcom/game/sdk/net/impls/OKHttpRequest;
 
-    .line 60
+    .line 59
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 64
+    .line 63
     :cond_0
     sget-object v0, Lcom/game/sdk/net/impls/OKHttpRequest;->httpRequest:Lcom/game/sdk/net/impls/OKHttpRequest;
 
     return-object v0
 
-    .line 60
+    .line 59
     :catchall_0
     move-exception v0
 
@@ -162,62 +168,37 @@
     .locals 6
 
     .prologue
-    const-wide/16 v4, 0x3c
-
-    .line 50
+    .line 52
     invoke-static {}, Lcom/game/sdk/net/utils/OKHttpUtil;->getHttpClientBuilder()Lokhttp3/OkHttpClient$Builder;
 
     move-result-object v0
 
-    .line 51
-    .local v0, "builder":Lokhttp3/OkHttpClient$Builder;
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
-
-    invoke-virtual {v0, v4, v5, v1}, Lokhttp3/OkHttpClient$Builder;->readTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-
-    move-result-object v1
-
-    .line 52
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
-
-    invoke-virtual {v1, v4, v5, v2}, Lokhttp3/OkHttpClient$Builder;->writeTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-
-    move-result-object v1
-
     .line 53
-    const-wide/16 v2, 0x1e
+    .local v0, "builder":Lokhttp3/OkHttpClient$Builder;
+    new-instance v1, Lokhttp3/Cache;
 
-    sget-object v4, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
-
-    invoke-virtual {v1, v2, v3, v4}, Lokhttp3/OkHttpClient$Builder;->connectTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
-
-    move-result-object v1
-
-    .line 54
-    new-instance v2, Lokhttp3/Cache;
-
-    new-instance v3, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
     invoke-static {}, Lcom/game/sdk/utils/PathUtil;->getImageDir()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     const-wide/32 v4, 0x6400000
 
-    invoke-direct {v2, v3, v4, v5}, Lokhttp3/Cache;-><init>(Ljava/io/File;J)V
+    invoke-direct {v1, v2, v4, v5}, Lokhttp3/Cache;-><init>(Ljava/io/File;J)V
 
-    invoke-virtual {v1, v2}, Lokhttp3/OkHttpClient$Builder;->cache(Lokhttp3/Cache;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$Builder;->cache(Lokhttp3/Cache;)Lokhttp3/OkHttpClient$Builder;
 
-    .line 55
+    .line 54
     invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
     move-result-object v1
 
     sput-object v1, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
-    .line 56
+    .line 55
     return-void
 .end method
 
@@ -226,16 +207,21 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 68
+    .line 67
     sget-object v1, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
     if-nez v1, :cond_0
 
-    .line 69
+    .line 68
     invoke-static {}, Lcom/game/sdk/net/impls/OKHttpRequest;->initOkHttpClient()V
 
-    .line 72
+    .line 70
     :cond_0
+    sget-boolean v1, Lcom/game/sdk/net/impls/OKHttpRequest;->initializedPicasso:Z
+
+    if-nez v1, :cond_1
+
+    .line 71
     new-instance v1, Lcom/squareup/picasso/Picasso$Builder;
 
     invoke-direct {v1, p0}, Lcom/squareup/picasso/Picasso$Builder;-><init>(Landroid/content/Context;)V
@@ -254,11 +240,18 @@
 
     move-result-object v0
 
-    .line 73
+    .line 72
     .local v0, "picasso":Lcom/squareup/picasso/Picasso;
     invoke-static {v0}, Lcom/squareup/picasso/Picasso;->setSingletonInstance(Lcom/squareup/picasso/Picasso;)V
 
-    .line 74
+    .line 73
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lcom/game/sdk/net/impls/OKHttpRequest;->initializedPicasso:Z
+
+    .line 76
+    .end local v0    # "picasso":Lcom/squareup/picasso/Picasso;
+    :cond_1
     return-void
 .end method
 
@@ -273,10 +266,10 @@
     .end annotation
 
     .prologue
-    .line 179
+    .line 181
     const/4 v2, 0x0
 
-    .line 180
+    .line 182
     .local v2, "nresponse":Lcom/game/sdk/net/entry/Response;
     sget-object v4, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
@@ -284,13 +277,13 @@
 
     move-result-object v1
 
-    .line 181
+    .line 183
     .local v1, "call":Lokhttp3/Call;
     invoke-interface {v1}, Lokhttp3/Call;->execute()Lokhttp3/Response;
 
     move-result-object v3
 
-    .line 182
+    .line 184
     .local v3, "response":Lokhttp3/Response;
     invoke-virtual {v3}, Lokhttp3/Response;->isSuccessful()Z
 
@@ -298,14 +291,14 @@
 
     if-eqz v4, :cond_0
 
-    .line 183
+    .line 185
     const-string v0, ""
 
-    .line 184
+    .line 186
     .local v0, "body":Ljava/lang/String;
     if-eqz p2, :cond_1
 
-    .line 185
+    .line 187
     invoke-virtual {v3}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
     move-result-object v4
@@ -318,7 +311,7 @@
 
     move-result-object v0
 
-    .line 189
+    .line 191
     :goto_0
     invoke-virtual {v3}, Lokhttp3/Response;->code()I
 
@@ -328,7 +321,7 @@
 
     move-result-object v2
 
-    .line 191
+    .line 193
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "\u670d\u52a1\u5668\u8fd4\u56de\u6570\u636e->"
@@ -345,12 +338,12 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 194
+    .line 196
     .end local v0    # "body":Ljava/lang/String;
     :cond_0
     return-object v2
 
-    .line 187
+    .line 189
     .restart local v0    # "body":Ljava/lang/String;
     :cond_1
     invoke-virtual {v3}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
@@ -371,14 +364,14 @@
     .param p3, "encryptResponse"    # Z
 
     .prologue
-    .line 199
+    .line 201
     sget-object v1, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
     invoke-virtual {v1, p1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
     move-result-object v0
 
-    .line 200
+    .line 202
     .local v0, "call":Lokhttp3/Call;
     new-instance v1, Lcom/game/sdk/net/impls/OKHttpRequest$1;
 
@@ -386,7 +379,7 @@
 
     invoke-interface {v0, v1}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 222
+    .line 224
     return-void
 .end method
 
@@ -403,17 +396,17 @@
     .end annotation
 
     .prologue
-    .line 103
+    .line 105
     if-nez p2, :cond_0
 
-    .line 104
+    .line 106
     new-instance v1, Lcom/game/sdk/net/exception/NullResonseListenerException;
 
     invoke-direct {v1}, Lcom/game/sdk/net/exception/NullResonseListenerException;-><init>()V
 
     throw v1
 
-    .line 106
+    .line 108
     :cond_0
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
@@ -423,13 +416,13 @@
 
     move-result-object v0
 
-    .line 107
+    .line 109
     .local v0, "request":Lokhttp3/Request;
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, p2, v1}, Lcom/game/sdk/net/impls/OKHttpRequest;->sendRequest(Lokhttp3/Request;Lcom/game/sdk/net/listeners/OnHttpResonseListener;Z)V
 
-    .line 108
+    .line 110
     return-void
 .end method
 
@@ -458,19 +451,19 @@
     .end annotation
 
     .prologue
-    .line 113
+    .line 115
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-static {p2}, Lcom/game/sdk/net/utils/OKHttpUtil;->encodeParams(Ljava/util/Map;)[B
 
     move-result-object v0
 
-    .line 114
+    .line 116
     .local v0, "data":[B
     const/4 v1, 0x1
 
     invoke-direct {p0, p1, v0, p3, v1}, Lcom/game/sdk/net/impls/OKHttpRequest;->apost2(Ljava/lang/String;[BLcom/game/sdk/net/listeners/OnHttpResonseListener;Z)V
 
-    .line 115
+    .line 117
     return-void
 .end method
 
@@ -501,17 +494,17 @@
     .end annotation
 
     .prologue
-    .line 121
+    .line 123
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-static {p2, p4}, Lcom/game/sdk/net/utils/OKHttpUtil;->encodeParams(Ljava/util/Map;Z)[B
 
     move-result-object v0
 
-    .line 122
+    .line 124
     .local v0, "data":[B
     invoke-direct {p0, p1, v0, p3, p4}, Lcom/game/sdk/net/impls/OKHttpRequest;->apost2(Ljava/lang/String;[BLcom/game/sdk/net/listeners/OnHttpResonseListener;Z)V
 
-    .line 123
+    .line 125
     return-void
 .end method
 
@@ -543,18 +536,18 @@
     .end annotation
 
     .prologue
-    .line 150
+    .line 152
     .local p3, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     if-nez p4, :cond_0
 
-    .line 151
+    .line 153
     new-instance v2, Lcom/game/sdk/net/exception/NullResonseListenerException;
 
     invoke-direct {v2}, Lcom/game/sdk/net/exception/NullResonseListenerException;-><init>()V
 
     throw v2
 
-    .line 153
+    .line 155
     :cond_0
     if-eqz p2, :cond_1
 
@@ -562,7 +555,7 @@
 
     if-nez v2, :cond_2
 
-    .line 154
+    .line 156
     :cond_1
     new-instance v2, Ljava/io/FileNotFoundException;
 
@@ -572,7 +565,7 @@
 
     throw v2
 
-    .line 156
+    .line 158
     :cond_2
     invoke-static {p2, p3}, Lcom/game/sdk/net/utils/OKHttpUtil;->setBuilder(Lcom/game/sdk/net/entry/UpFileInfo;Ljava/util/Map;)Lokhttp3/MultipartBody$Builder;
 
@@ -582,7 +575,7 @@
 
     move-result-object v1
 
-    .line 158
+    .line 160
     .local v1, "requestBody":Lokhttp3/MultipartBody;
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
@@ -596,13 +589,13 @@
 
     move-result-object v0
 
-    .line 160
+    .line 162
     .local v0, "request":Lokhttp3/Request;
     const/4 v2, 0x0
 
     invoke-direct {p0, v0, p4, v2}, Lcom/game/sdk/net/impls/OKHttpRequest;->sendRequest(Lokhttp3/Request;Lcom/game/sdk/net/listeners/OnHttpResonseListener;Z)V
 
-    .line 161
+    .line 163
     return-void
 .end method
 
@@ -611,12 +604,12 @@
     .param p1, "url"    # Ljava/lang/String;
 
     .prologue
-    .line 165
+    .line 167
     sget-object v1, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
     if-nez v1, :cond_0
 
-    .line 166
+    .line 168
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "client == null"
@@ -625,7 +618,7 @@
 
     throw v1
 
-    .line 168
+    .line 170
     :cond_0
     sget-object v1, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
@@ -649,7 +642,7 @@
 
     if-nez v2, :cond_3
 
-    .line 172
+    .line 174
     sget-object v1, Lcom/game/sdk/net/impls/OKHttpRequest;->client:Lokhttp3/OkHttpClient;
 
     invoke-virtual {v1}, Lokhttp3/OkHttpClient;->dispatcher()Lokhttp3/Dispatcher;
@@ -672,10 +665,10 @@
 
     if-nez v2, :cond_4
 
-    .line 176
+    .line 178
     return-void
 
-    .line 168
+    .line 170
     :cond_3
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -683,7 +676,7 @@
 
     check-cast v0, Lokhttp3/Call;
 
-    .line 169
+    .line 171
     .local v0, "call":Lokhttp3/Call;
     invoke-interface {v0}, Lokhttp3/Call;->request()Lokhttp3/Request;
 
@@ -699,12 +692,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 170
+    .line 172
     invoke-interface {v0}, Lokhttp3/Call;->cancel()V
 
     goto :goto_0
 
-    .line 172
+    .line 174
     .end local v0    # "call":Lokhttp3/Call;
     :cond_4
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -713,7 +706,7 @@
 
     check-cast v0, Lokhttp3/Call;
 
-    .line 173
+    .line 175
     .restart local v0    # "call":Lokhttp3/Call;
     invoke-interface {v0}, Lokhttp3/Call;->request()Lokhttp3/Request;
 
@@ -729,7 +722,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 174
+    .line 176
     invoke-interface {v0}, Lokhttp3/Call;->cancel()V
 
     goto :goto_1
@@ -745,7 +738,7 @@
     .end annotation
 
     .prologue
-    .line 77
+    .line 79
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
@@ -754,7 +747,7 @@
 
     move-result-object v0
 
-    .line 78
+    .line 80
     .local v0, "request":Lokhttp3/Request;
     const/4 v1, 0x0
 
@@ -788,13 +781,13 @@
     .end annotation
 
     .prologue
-    .line 83
+    .line 85
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-static {p2}, Lcom/game/sdk/net/utils/OKHttpUtil;->setBuilder(Ljava/util/Map;)Lokhttp3/FormBody$Builder;
 
     move-result-object v0
 
-    .line 84
+    .line 86
     .local v0, "builder":Lokhttp3/FormBody$Builder;
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
@@ -812,7 +805,7 @@
 
     move-result-object v1
 
-    .line 85
+    .line 87
     .local v1, "request":Lokhttp3/Request;
     const/4 v2, 0x0
 
@@ -835,14 +828,14 @@
     .end annotation
 
     .prologue
-    .line 89
+    .line 91
     sget-object v2, Lcom/game/sdk/net/impls/OKHttpRequest;->MEDIA_TYPE:Lokhttp3/MediaType;
 
     invoke-static {v2, p2}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;[B)Lokhttp3/RequestBody;
 
     move-result-object v1
 
-    .line 90
+    .line 92
     .local v1, "requestBody":Lokhttp3/RequestBody;
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
@@ -856,7 +849,7 @@
 
     move-result-object v0
 
-    .line 91
+    .line 93
     .local v0, "request":Lokhttp3/Request;
     invoke-direct {p0, v0, p3}, Lcom/game/sdk/net/impls/OKHttpRequest;->sendRequest(Lokhttp3/Request;Z)Lcom/game/sdk/net/entry/Response;
 
@@ -890,13 +883,13 @@
     .end annotation
 
     .prologue
-    .line 97
+    .line 99
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-static {p2, p3}, Lcom/game/sdk/net/utils/OKHttpUtil;->encodeParams(Ljava/util/Map;Z)[B
 
     move-result-object v0
 
-    .line 98
+    .line 100
     .local v0, "data":[B
     invoke-virtual {p0, p1, v0, p3}, Lcom/game/sdk/net/impls/OKHttpRequest;->post(Ljava/lang/String;[BZ)Lcom/game/sdk/net/entry/Response;
 
@@ -930,7 +923,7 @@
     .end annotation
 
     .prologue
-    .line 137
+    .line 139
     .local p3, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     if-eqz p2, :cond_0
 
@@ -938,7 +931,7 @@
 
     if-nez v2, :cond_1
 
-    .line 138
+    .line 140
     :cond_0
     new-instance v2, Ljava/io/FileNotFoundException;
 
@@ -948,7 +941,7 @@
 
     throw v2
 
-    .line 140
+    .line 142
     :cond_1
     invoke-static {p2, p3}, Lcom/game/sdk/net/utils/OKHttpUtil;->setBuilder(Lcom/game/sdk/net/entry/UpFileInfo;Ljava/util/Map;)Lokhttp3/MultipartBody$Builder;
 
@@ -958,7 +951,7 @@
 
     move-result-object v1
 
-    .line 142
+    .line 144
     .local v1, "requestBody":Lokhttp3/MultipartBody;
     invoke-static {p1}, Lcom/game/sdk/net/utils/OKHttpUtil;->getRequestBuilder(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
@@ -972,7 +965,7 @@
 
     move-result-object v0
 
-    .line 144
+    .line 146
     .local v0, "request":Lokhttp3/Request;
     const/4 v2, 0x0
 

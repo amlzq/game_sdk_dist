@@ -47,24 +47,24 @@
     .end annotation
 
     .prologue
-    .line 56
+    .line 47
     .local p2, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/ScoreStore;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 57
+    .line 48
     iput-object p1, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
-    .line 58
+    .line 49
     iput-object p2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
-    .line 59
+    .line 50
     new-instance v0, Lokhttp3/OkHttpClient;
 
     invoke-direct {v0}, Lokhttp3/OkHttpClient;-><init>()V
 
     iput-object v0, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
-    .line 60
+    .line 51
     return-void
 .end method
 
@@ -72,7 +72,7 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 30
     iget-object v0, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -93,25 +93,22 @@
     .end annotation
 
     .prologue
-    .line 63
+    .line 54
     .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/ScoreStore;>;"
     iget-object v0, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
     if-eqz v0, :cond_0
 
-    .line 64
+    .line 55
     iget-object v0, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 65
-    iput-object p1, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
-
-    .line 69
+    .line 59
     :goto_0
     return-void
 
-    .line 67
+    .line 57
     :cond_0
     iput-object p1, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
@@ -122,7 +119,7 @@
     .locals 1
 
     .prologue
-    .line 73
+    .line 63
     iget-object v0, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -137,7 +134,7 @@
     .param p1, "pos"    # I
 
     .prologue
-    .line 78
+    .line 68
     iget-object v0, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -152,7 +149,7 @@
     .param p1, "arg0"    # I
 
     .prologue
-    .line 83
+    .line 73
     int-to-long v0, p1
 
     return-wide v0
@@ -165,7 +162,7 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 91
+    .line 81
     iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
 
     invoke-interface {v2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -176,16 +173,16 @@
 
     iget-object v1, v2, Lcom/game/sdk/domain/ScoreStore;->img:Ljava/lang/String;
 
-    .line 92
+    .line 82
     .local v1, "url":Ljava/lang/String;
     if-nez p2, :cond_1
 
-    .line 93
+    .line 83
     new-instance v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;-><init>(Lcom/game/sdk/adapter/ScoreStoreAdapter;)V
 
-    .line 94
+    .line 84
     .local v0, "holder":Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;
     iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
@@ -193,7 +190,7 @@
 
     move-result-object v2
 
-    .line 95
+    .line 85
     iget-object v3, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
     const-string v4, "layout"
@@ -210,7 +207,7 @@
 
     move-result-object p2
 
-    .line 97
+    .line 87
     iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
     const-string v3, "id"
@@ -229,7 +226,7 @@
 
     iput-object v2, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->scoreGameIv:Landroid/widget/ImageView;
 
-    .line 99
+    .line 89
     iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
     const-string v3, "id"
@@ -246,29 +243,10 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 98
+    .line 88
     iput-object v2, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->gameNameTv:Landroid/widget/TextView;
 
-    .line 100
-    iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
-
-    const-string v3, "id"
-
-    const-string v4, "score_tv"
-
-    invoke-static {v2, v3, v4}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    iput-object v2, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->scoreTv:Landroid/widget/TextView;
-
-    .line 102
+    .line 92
     iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
     const-string v3, "id"
@@ -285,13 +263,13 @@
 
     check-cast v2, Landroid/widget/Button;
 
-    .line 101
+    .line 91
     iput-object v2, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->exchangeBtn:Landroid/widget/Button;
 
-    .line 103
+    .line 93
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 108
+    .line 98
     :goto_0
     iget-object v3, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->gameNameTv:Landroid/widget/TextView;
 
@@ -307,29 +285,14 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 109
-    iget-object v3, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->scoreTv:Landroid/widget/TextView;
-
-    iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->scoreStoreList:Ljava/util/List;
-
-    invoke-interface {v2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/game/sdk/domain/ScoreStore;
-
-    iget-object v2, v2, Lcom/game/sdk/domain/ScoreStore;->stock:Ljava/lang/String;
-
-    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 111
+    .line 101
     invoke-static {v1}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 112
+    .line 102
     iget-object v2, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {v2}, Lcom/squareup/picasso/Picasso;->with(Landroid/content/Context;)Lcom/squareup/picasso/Picasso;
@@ -344,7 +307,7 @@
 
     invoke-virtual {v2, v3}, Lcom/squareup/picasso/RequestCreator;->into(Landroid/widget/ImageView;)V
 
-    .line 115
+    .line 105
     :cond_0
     iget-object v2, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->exchangeBtn:Landroid/widget/Button;
 
@@ -354,15 +317,15 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 131
+    .line 125
     iget-object v2, v0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->exchangeBtn:Landroid/widget/Button;
 
     invoke-virtual {v2, v1}, Landroid/widget/Button;->setTag(Ljava/lang/Object;)V
 
-    .line 132
+    .line 126
     return-object p2
 
-    .line 105
+    .line 95
     .end local v0    # "holder":Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;
     :cond_1
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -380,9 +343,9 @@
     .param p1, "downListener"    # Lcom/game/sdk/adapter/ScoreStoreAdapter$DownApkListener;
 
     .prologue
-    .line 52
+    .line 43
     iput-object p1, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter;->downListener:Lcom/game/sdk/adapter/ScoreStoreAdapter$DownApkListener;
 
-    .line 53
+    .line 44
     return-void
 .end method

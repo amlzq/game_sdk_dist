@@ -16,9 +16,9 @@
 
 .field public params:Lcom/game/sdk/domain/PayParams;
 
-.field public rmb_money:Ljava/lang/String;
+.field public rmbMoney:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
-        name = "rmbMoney"
+        name = "rmb_money"
     .end annotation
 .end field
 

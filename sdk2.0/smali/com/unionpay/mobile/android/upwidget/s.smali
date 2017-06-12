@@ -2,18 +2,18 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
-.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/q;
 
 
 # direct methods
-.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/q;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/s;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/s;->a:Lcom/unionpay/mobile/android/upwidget/q;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -22,28 +22,12 @@
 
 
 # virtual methods
-.method public final onGlobalLayout()V
-    .locals 4
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/s;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/s;->a:Lcom/unionpay/mobile/android/upwidget/q;
 
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->a(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/unionpay/mobile/android/upwidget/s;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
-
-    invoke-static {v1}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->a(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
-
-    move-result-object v1
-
-    const-wide/16 v2, 0x5
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/q;->b(Lcom/unionpay/mobile/android/upwidget/q;)V
 
     return-void
 .end method

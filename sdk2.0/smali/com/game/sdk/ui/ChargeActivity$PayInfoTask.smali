@@ -52,36 +52,36 @@
     .param p8, "md5signstr"    # Ljava/lang/String;
 
     .prologue
-    .line 315
+    .line 574
     iput-object p1, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
-    .line 314
+    .line 573
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 310
+    .line 569
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->chargeMoney:D
 
-    .line 316
+    .line 575
     iput-object p2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->pContext:Landroid/content/Context;
 
-    .line 317
+    .line 576
     iput-object p3, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->userId:Ljava/lang/String;
 
-    .line 318
+    .line 577
     iput p4, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->payType:I
 
-    .line 319
+    .line 578
     iput-object p5, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->payWay:Ljava/lang/String;
 
-    .line 320
+    .line 579
     iput-wide p6, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->chargeMoney:D
 
-    .line 321
+    .line 580
     iput-object p8, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->md5signstr:Ljava/lang/String;
 
-    .line 322
+    .line 581
     return-void
 .end method
 
@@ -92,7 +92,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 331
+    .line 590
     iget-object v0, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     new-instance v1, Lcom/game/sdk/engin/ChargeEngin;
@@ -111,13 +111,13 @@
 
     invoke-direct/range {v1 .. v8}, Lcom/game/sdk/engin/ChargeEngin;-><init>(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;DLjava/lang/String;)V
 
-    invoke-static {v0, v1}, Lcom/game/sdk/ui/ChargeActivity;->access$2(Lcom/game/sdk/ui/ChargeActivity;Lcom/game/sdk/engin/ChargeEngin;)V
+    invoke-static {v0, v1}, Lcom/game/sdk/ui/ChargeActivity;->access$5(Lcom/game/sdk/ui/ChargeActivity;Lcom/game/sdk/engin/ChargeEngin;)V
 
-    .line 332
+    .line 591
     iget-object v0, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->chargeEngin:Lcom/game/sdk/engin/ChargeEngin;
-    invoke-static {v0}, Lcom/game/sdk/ui/ChargeActivity;->access$3(Lcom/game/sdk/ui/ChargeActivity;)Lcom/game/sdk/engin/ChargeEngin;
+    invoke-static {v0}, Lcom/game/sdk/ui/ChargeActivity;->access$6(Lcom/game/sdk/ui/ChargeActivity;)Lcom/game/sdk/engin/ChargeEngin;
 
     move-result-object v0
 
@@ -147,37 +147,37 @@
     .param p1, "result"    # Lcom/game/sdk/domain/PayInfo;
 
     .prologue
-    .line 337
+    .line 596
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 338
+    .line 597
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     iget-object v2, v2, Lcom/game/sdk/ui/ChargeActivity;->payDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v2}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 339
+    .line 598
     if-eqz p1, :cond_2
 
-    .line 340
+    .line 599
     const-string v2, "\u652f\u4ed8\u4fe1\u606f\u83b7\u53d6\u6210\u529f----"
 
     invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 341
+    .line 600
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     iget-object v3, p1, Lcom/game/sdk/domain/PayInfo;->orderSn:Ljava/lang/String;
 
-    invoke-static {v2, v3}, Lcom/game/sdk/ui/ChargeActivity;->access$4(Lcom/game/sdk/ui/ChargeActivity;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/game/sdk/ui/ChargeActivity;->access$7(Lcom/game/sdk/ui/ChargeActivity;Ljava/lang/String;)V
 
-    .line 342
+    .line 601
     iget-object v2, p1, Lcom/game/sdk/domain/PayInfo;->params:Lcom/game/sdk/domain/PayParams;
 
     if-eqz v2, :cond_1
 
-    .line 343
+    .line 602
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->payWay:Ljava/lang/String;
 
     const-string v3, "alipay"
@@ -188,7 +188,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 344
+    .line 603
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     iget-object v3, p1, Lcom/game/sdk/domain/PayInfo;->params:Lcom/game/sdk/domain/PayParams;
@@ -205,7 +205,7 @@
 
     invoke-virtual {v2, v3, v4, v5}, Lcom/game/sdk/ui/ChargeActivity;->payAlipayMoney(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 347
+    .line 606
     :cond_0
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->payWay:Ljava/lang/String;
 
@@ -217,28 +217,28 @@
 
     if-eqz v2, :cond_1
 
-    .line 351
+    .line 610
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
-    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$5(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
+    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$8(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->orderid:Ljava/lang/String;
-    invoke-static {v3}, Lcom/game/sdk/ui/ChargeActivity;->access$6(Lcom/game/sdk/ui/ChargeActivity;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/game/sdk/ui/ChargeActivity;->access$9(Lcom/game/sdk/ui/ChargeActivity;)Ljava/lang/String;
 
     move-result-object v3
 
     iput-object v3, v2, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderNo:Ljava/lang/String;
 
-    .line 352
+    .line 611
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
-    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$5(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
+    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$8(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     move-result-object v2
 
@@ -248,11 +248,11 @@
 
     iput-object v3, v2, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->appId:Ljava/lang/String;
 
-    .line 353
+    .line 612
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
-    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$5(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
+    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$8(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     move-result-object v2
 
@@ -260,11 +260,11 @@
 
     iput-object v3, v2, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderStartTime:Ljava/lang/String;
 
-    .line 355
+    .line 614
     iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
-    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$5(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
+    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$8(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     move-result-object v2
 
@@ -272,13 +272,13 @@
 
     move-result-object v2
 
-    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$7(Ljava/lang/String;)V
+    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$10(Ljava/lang/String;)V
 
-    .line 356
+    .line 615
     new-instance v2, Ljava/lang/StringBuilder;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->preSignStr:Ljava/lang/String;
-    invoke-static {}, Lcom/game/sdk/ui/ChargeActivity;->access$8()Ljava/lang/String;
+    invoke-static {}, Lcom/game/sdk/ui/ChargeActivity;->access$11()Ljava/lang/String;
 
     move-result-object v3
 
@@ -310,85 +310,49 @@
 
     move-result-object v1
 
-    .line 358
+    .line 617
     .local v1, "mhtSignature":Ljava/lang/String;
     :try_start_0
-    new-instance v2, Landroid/app/ProgressDialog;
+    iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
+
+    # getter for: Lcom/game/sdk/ui/ChargeActivity;->mIpaynowplugin:Lcom/ipaynow/plugin/api/IpaynowPlugin;
+    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$12(Lcom/game/sdk/ui/ChargeActivity;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    move-result-object v2
 
     iget-object v3, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
-    invoke-direct {v2, v3}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
-
-    invoke-static {v2}, Lcom/game/sdk/ui/ChargeActivity;->access$9(Landroid/app/ProgressDialog;)V
-
-    .line 359
-    # getter for: Lcom/game/sdk/ui/ChargeActivity;->progressDialog:Landroid/app/ProgressDialog;
-    invoke-static {}, Lcom/game/sdk/ui/ChargeActivity;->access$10()Landroid/app/ProgressDialog;
+    invoke-virtual {v2, v3}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->setCallResultActivity(Landroid/app/Activity;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
 
     move-result-object v2
 
-    const-string v3, "\u652f\u4ed8\u73af\u5883\u626b\u63cf\u4e2d..."
+    invoke-virtual {v2, v1}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->pay(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
-
-    .line 360
-    # getter for: Lcom/game/sdk/ui/ChargeActivity;->progressDialog:Landroid/app/ProgressDialog;
-    invoke-static {}, Lcom/game/sdk/ui/ChargeActivity;->access$10()Landroid/app/ProgressDialog;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Landroid/app/ProgressDialog;->setProgressStyle(I)V
-
-    .line 362
-    # getter for: Lcom/game/sdk/ui/ChargeActivity;->progressDialog:Landroid/app/ProgressDialog;
-    invoke-static {}, Lcom/game/sdk/ui/ChargeActivity;->access$10()Landroid/app/ProgressDialog;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/app/ProgressDialog;->setCanceledOnTouchOutside(Z)V
-
-    .line 363
-    # getter for: Lcom/game/sdk/ui/ChargeActivity;->progressDialog:Landroid/app/ProgressDialog;
-    invoke-static {}, Lcom/game/sdk/ui/ChargeActivity;->access$10()Landroid/app/ProgressDialog;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->setPayLoading(Landroid/app/ProgressDialog;)V
-
-    .line 364
-    iget-object v2, p0, Lcom/game/sdk/ui/ChargeActivity$PayInfoTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
-
-    invoke-static {v2, v1}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->pay(Landroid/app/Activity;Ljava/lang/String;)V
-
-    .line 366
+    .line 618
     const-string v2, "1"
 
     sput-object v2, Lcom/game/sdk/ui/ChargeActivity;->isnowpay:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 376
+    .line 627
     .end local v1    # "mhtSignature":Ljava/lang/String;
     :cond_1
     :goto_0
     return-void
 
-    .line 368
+    .line 619
     .restart local v1    # "mhtSignature":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 369
+    .line 620
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 374
+    .line 625
     .end local v0    # "e":Ljava/lang/Exception;
     .end local v1    # "mhtSignature":Ljava/lang/String;
     :cond_2
@@ -415,9 +379,9 @@
     .locals 0
 
     .prologue
-    .line 326
+    .line 585
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 327
+    .line 586
     return-void
 .end method

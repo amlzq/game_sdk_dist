@@ -118,7 +118,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -128,7 +128,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -138,7 +138,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -148,7 +148,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -158,7 +158,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -168,7 +168,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -178,7 +178,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 

@@ -39,7 +39,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity$3;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
-    .line 428
+    .line 441
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,25 +52,25 @@
     .param p1, "response"    # Lcom/game/sdk/net/entry/Response;
 
     .prologue
-    .line 446
+    .line 459
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$3;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     iget-object v1, v1, Lcom/game/sdk/ui/UserInfoActivity;->updateDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 447
+    .line 460
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 448
+    .line 461
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x3
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 449
+    .line 462
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$3;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->handler:Landroid/os/Handler;
@@ -80,7 +80,7 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 450
+    .line 463
     return-void
 .end method
 
@@ -97,7 +97,7 @@
     .end annotation
 
     .prologue
-    .line 432
+    .line 445
     .local p1, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/UpdateInfo;>;"
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$3;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
@@ -105,12 +105,12 @@
 
     invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 433
+    .line 446
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 435
+    .line 448
     .local v0, "msg":Landroid/os/Message;
     if-eqz p1, :cond_0
 
@@ -118,7 +118,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 436
+    .line 449
     sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     iget-object v1, p1, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
@@ -129,12 +129,12 @@
 
     iput-object v1, v2, Lcom/game/sdk/domain/UserInfo;->face:Ljava/lang/String;
 
-    .line 437
+    .line 450
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 441
+    .line 454
     :goto_0
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$3;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
@@ -145,10 +145,10 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 442
+    .line 455
     return-void
 
-    .line 439
+    .line 452
     :cond_0
     const/4 v1, 0x3
 

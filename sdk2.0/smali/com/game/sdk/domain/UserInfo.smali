@@ -8,6 +8,8 @@
 
 .field public agent:Ljava/lang/String;
 
+.field public agentId:Ljava/lang/String;
+
 .field public areaId:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "area_id"
@@ -34,6 +36,12 @@
 
 .field public isrpwd:I
 
+.field public kefuQQ:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "kefu_qq"
+    .end annotation
+.end field
+
 .field public logintime:J
 
 .field public mobile:Ljava/lang/String;
@@ -51,6 +59,12 @@
 .field public qq:Ljava/lang/String;
 
 .field public sex:I
+
+.field public shareContent:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "share_content"
+    .end annotation
+.end field
 
 .field public sign:Ljava/lang/String;
 
@@ -75,6 +89,12 @@
 .field public validateMobile:I
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "is_vali_mobile"
+    .end annotation
+.end field
+
+.field public vipLevel:I
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "vip_level"
     .end annotation
 .end field
 

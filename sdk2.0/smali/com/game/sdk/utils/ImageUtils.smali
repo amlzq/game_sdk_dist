@@ -16,7 +16,7 @@
     .locals 0
 
     .prologue
-    .line 12
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,32 +28,32 @@
     .param p1, "targetSize"    # Lcom/game/sdk/utils/ImageUtils$ImageSize;
 
     .prologue
-    .line 56
+    .line 53
     iget v5, p0, Lcom/game/sdk/utils/ImageUtils$ImageSize;->width:I
 
-    .line 57
+    .line 54
     .local v5, "width":I
     iget v0, p0, Lcom/game/sdk/utils/ImageUtils$ImageSize;->height:I
 
-    .line 58
+    .line 55
     .local v0, "height":I
     const/4 v2, 0x1
 
-    .line 60
+    .line 57
     .local v2, "inSampleSize":I
     iget v4, p1, Lcom/game/sdk/utils/ImageUtils$ImageSize;->width:I
 
-    .line 61
+    .line 58
     .local v4, "reqWidth":I
     iget v3, p1, Lcom/game/sdk/utils/ImageUtils$ImageSize;->height:I
 
-    .line 63
+    .line 60
     .local v3, "reqHeight":I
     if-le v5, v4, :cond_0
 
     if-le v0, v3, :cond_0
 
-    .line 66
+    .line 62
     int-to-float v7, v5
 
     int-to-float v8, v4
@@ -64,7 +64,7 @@
 
     move-result v6
 
-    .line 67
+    .line 63
     .local v6, "widthRatio":I
     int-to-float v7, v0
 
@@ -76,13 +76,13 @@
 
     move-result v1
 
-    .line 68
+    .line 64
     .local v1, "heightRatio":I
     invoke-static {v6, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v2
 
-    .line 70
+    .line 66
     .end local v1    # "heightRatio":I
     .end local v6    # "widthRatio":I
     :cond_0
@@ -94,26 +94,27 @@
     .param p0, "view"    # Landroid/view/View;
 
     .prologue
-    .line 99
+    .line 93
     const/4 v1, 0x0
 
-    .line 100
+    .line 94
     .local v1, "height":I
     if-nez p0, :cond_0
 
+    .line 95
     const/4 v3, 0x0
 
-    .line 126
+    .line 116
     :goto_0
     return v3
 
-    .line 102
+    .line 97
     :cond_0
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
 
-    .line 104
+    .line 99
     .local v2, "params":Landroid/view/ViewGroup$LayoutParams;
     if-eqz v2, :cond_1
 
@@ -123,36 +124,36 @@
 
     if-eq v3, v4, :cond_1
 
-    .line 106
+    .line 100
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v1
 
-    .line 108
+    .line 102
     :cond_1
     if-gtz v1, :cond_2
 
     if-eqz v2, :cond_2
 
-    .line 110
+    .line 103
     iget v1, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 113
+    .line 106
     :cond_2
     if-gtz v1, :cond_3
 
-    .line 115
+    .line 107
     const-string v3, "mMaxHeight"
 
     invoke-static {p0, v3}, Lcom/game/sdk/utils/ImageUtils;->getImageViewFieldValue(Ljava/lang/Object;Ljava/lang/String;)I
 
     move-result v1
 
-    .line 119
+    .line 111
     :cond_3
     if-gtz v1, :cond_4
 
-    .line 121
+    .line 112
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -161,12 +162,11 @@
 
     move-result-object v3
 
-    .line 122
     invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v0
 
-    .line 123
+    .line 113
     .local v0, "displayMetrics":Landroid/util/DisplayMetrics;
     iget v1, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 
@@ -174,7 +174,7 @@
     :cond_4
     move v3, v1
 
-    .line 126
+    .line 116
     goto :goto_0
 .end method
 
@@ -183,26 +183,27 @@
     .param p0, "view"    # Landroid/view/View;
 
     .prologue
-    .line 137
+    .line 126
     const/4 v2, 0x0
 
-    .line 138
+    .line 127
     .local v2, "width":I
     if-nez p0, :cond_0
 
+    .line 128
     const/4 v3, 0x0
 
-    .line 165
+    .line 152
     :goto_0
     return v3
 
-    .line 140
+    .line 130
     :cond_0
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    .line 142
+    .line 132
     .local v1, "params":Landroid/view/ViewGroup$LayoutParams;
     if-eqz v1, :cond_1
 
@@ -212,36 +213,36 @@
 
     if-eq v3, v4, :cond_1
 
-    .line 144
+    .line 133
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v2
 
-    .line 146
+    .line 135
     :cond_1
     if-gtz v2, :cond_2
 
     if-eqz v1, :cond_2
 
-    .line 148
+    .line 136
     iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 151
+    .line 139
     :cond_2
     if-gtz v2, :cond_3
 
-    .line 154
+    .line 142
     const-string v3, "mMaxWidth"
 
     invoke-static {p0, v3}, Lcom/game/sdk/utils/ImageUtils;->getImageViewFieldValue(Ljava/lang/Object;Ljava/lang/String;)I
 
     move-result v2
 
-    .line 157
+    .line 145
     :cond_3
     if-gtz v2, :cond_4
 
-    .line 160
+    .line 148
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -250,12 +251,11 @@
 
     move-result-object v3
 
-    .line 161
     invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v0
 
-    .line 162
+    .line 149
     .local v0, "displayMetrics":Landroid/util/DisplayMetrics;
     iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
@@ -263,7 +263,7 @@
     :cond_4
     move v3, v2
 
-    .line 165
+    .line 152
     goto :goto_0
 .end method
 
@@ -272,23 +272,23 @@
     .param p0, "imageStream"    # Ljava/io/InputStream;
 
     .prologue
-    .line 22
+    .line 27
     new-instance v0, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 23
+    .line 28
     .local v0, "options":Landroid/graphics/BitmapFactory$Options;
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
-    .line 24
+    .line 29
     const/4 v1, 0x0
 
     invoke-static {p0, v1, v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    .line 25
+    .line 30
     new-instance v1, Lcom/game/sdk/utils/ImageUtils$ImageSize;
 
     iget v2, v0, Landroid/graphics/BitmapFactory$Options;->outWidth:I
@@ -306,10 +306,10 @@
     .param p1, "fieldName"    # Ljava/lang/String;
 
     .prologue
-    .line 177
+    .line 163
     const/4 v2, 0x0
 
-    .line 180
+    .line 165
     .local v2, "value":I
     :try_start_0
     const-class v3, Landroid/widget/ImageView;
@@ -318,20 +318,20 @@
 
     move-result-object v0
 
-    .line 181
+    .line 166
     .local v0, "field":Ljava/lang/reflect/Field;
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 182
+    .line 167
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    .line 183
+    .line 168
     .local v1, "fieldValue":I
     if-lez v1, :cond_0
 
@@ -339,17 +339,17 @@
 
     if-ge v1, v3, :cond_0
 
-    .line 185
+    .line 169
     move v2, v1
 
-    .line 190
+    .line 173
     .end local v0    # "field":Ljava/lang/reflect/Field;
     .end local v1    # "fieldValue":I
     :cond_0
     :goto_0
     return v2
 
-    .line 187
+    .line 171
     :catch_0
     move-exception v3
 
@@ -361,12 +361,12 @@
     .param p0, "view"    # Landroid/view/View;
 
     .prologue
-    .line 82
+    .line 77
     new-instance v0, Lcom/game/sdk/utils/ImageUtils$ImageSize;
 
     invoke-direct {v0}, Lcom/game/sdk/utils/ImageUtils$ImageSize;-><init>()V
 
-    .line 84
+    .line 79
     .local v0, "imageSize":Lcom/game/sdk/utils/ImageUtils$ImageSize;
     invoke-static {p0}, Lcom/game/sdk/utils/ImageUtils;->getExpectWidth(Landroid/view/View;)I
 
@@ -374,13 +374,13 @@
 
     iput v1, v0, Lcom/game/sdk/utils/ImageUtils$ImageSize;->width:I
 
-    .line 85
+    .line 80
     invoke-static {p0}, Lcom/game/sdk/utils/ImageUtils;->getExpectHeight(Landroid/view/View;)I
 
     move-result v1
 
     iput v1, v0, Lcom/game/sdk/utils/ImageUtils$ImageSize;->height:I
 
-    .line 87
+    .line 82
     return-object v0
 .end method

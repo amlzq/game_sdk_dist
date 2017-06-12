@@ -27,7 +27,11 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/s;->a:Lcom/unionpay/mobile/android/widgets/p;
 
-    invoke-static {v0, p1}, Lcom/unionpay/mobile/android/widgets/p;->a(Lcom/unionpay/mobile/android/widgets/p;Landroid/view/View;)V
+    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/p;->b(Lcom/unionpay/mobile/android/widgets/p;)Landroid/app/Dialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     return-void
 .end method

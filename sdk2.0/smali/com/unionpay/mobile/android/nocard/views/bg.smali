@@ -1,171 +1,87 @@
-.class public final Lcom/unionpay/mobile/android/nocard/views/bg;
+.class final Lcom/unionpay/mobile/android/nocard/views/bg;
 .super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field final synthetic a:I
+
+.field final synthetic b:Ljava/lang/String;
+
+.field final synthetic c:Ljava/lang/String;
+
+.field final synthetic d:Lcom/unionpay/mobile/android/nocard/views/bd$a;
 
 
 # direct methods
-.method public static a(Landroid/content/Context;Lorg/json/JSONArray;II)Landroid/widget/LinearLayout;
-    .locals 4
+.method constructor <init>(Lcom/unionpay/mobile/android/nocard/views/bd$a;ILjava/lang/String;Ljava/lang/String;)V
+    .locals 0
 
-    const/4 v3, -0x1
+    iput-object p1, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->d:Lcom/unionpay/mobile/android/nocard/views/bd$a;
 
-    new-instance v1, Landroid/widget/LinearLayout;
+    iput p2, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->a:I
 
-    invoke-direct {v1, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    iput-object p3, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->b:Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
+    iput-object p4, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->c:Ljava/lang/String;
 
-    const/4 v0, 0x1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v2, -0x2
-
-    invoke-direct {v0, v3, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    sget v2, Lcom/unionpay/mobile/android/global/a;->d:I
-
-    iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
-
-    const/4 v0, 0x0
-
-    :goto_0
-    if-ge p2, p3, :cond_0
-
-    invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
-
-    move-result v2
-
-    if-ge p2, v2, :cond_0
-
-    :try_start_0
-    invoke-virtual {p1, p2}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    :goto_1
-    new-instance v2, Lcom/unionpay/mobile/android/widgets/ac;
-
-    sget v3, Lcom/unionpay/mobile/android/global/a;->I:I
-
-    invoke-direct {v2, p0, v3, v0}, Lcom/unionpay/mobile/android/widgets/ac;-><init>(Landroid/content/Context;ILorg/json/JSONObject;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    add-int/lit8 p2, p2, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    invoke-virtual {v2}, Lorg/json/JSONException;->printStackTrace()V
-
-    goto :goto_1
-
-    :cond_0
-    return-object v1
+    return-void
 .end method
 
-.method public static a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
 
-    const-string v0, "\"first_pay_flag\":\"%s\",\"card\":\"%s\",\"pay_type\":\"%s\",\"pay_mode\":\"%s\""
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 6
 
-    const/4 v1, 0x4
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->d:Lcom/unionpay/mobile/android/nocard/views/bd$a;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/bd$a;->a:Lcom/unionpay/mobile/android/nocard/views/bd;
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->d:Lcom/unionpay/mobile/android/nocard/views/bd$a;
 
-    aput-object p0, v1, v2
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/bd$a;->a:Lcom/unionpay/mobile/android/nocard/views/bd;
 
-    const/4 v2, 0x1
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/bd;->d:Landroid/content/Context;
 
-    aput-object p1, v1, v2
+    const-string v1, "pay_success_click_activity"
 
-    const/4 v2, 0x2
+    sget-object v2, Lcom/unionpay/mobile/android/utils/o;->i:[Ljava/lang/String;
 
-    aput-object p2, v1, v2
+    const/4 v3, 0x2
 
-    const/4 v2, 0x3
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object p3, v1, v2
+    const/4 v4, 0x0
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    iget v5, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->a:I
 
-    move-result-object v0
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    return-object v0
-.end method
+    move-result-object v5
 
-.method public static a(Lorg/json/JSONObject;)Ljava/lang/String;
-    .locals 3
+    aput-object v5, v3, v4
 
-    const-string v0, "uppay"
+    const/4 v4, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->b:Ljava/lang/String;
 
-    const-string v2, "action:"
+    aput-object v5, v3, v4
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/unionpay/mobile/android/nocard/views/bd;->a(Landroid/content/Context;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const-string v2, "action"
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->d:Lcom/unionpay/mobile/android/nocard/views/bd$a;
 
-    invoke-static {p0, v2}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/bd$a;->a:Lcom/unionpay/mobile/android/nocard/views/bd;
 
-    move-result-object v2
+    const-string v1, ""
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/unionpay/mobile/android/nocard/views/bg;->c:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v2}, Lcom/unionpay/mobile/android/nocard/views/bd;->a(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v0, "action"
-
-    invoke-static {p0, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
-
-    const-string v0, "\"first_pay_flag\":\"%s\",%s,\"pay_type\":\"%s\",\"pay_mode\":\"%s\""
-
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object p0, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x2
-
-    aput-object p2, v1, v2
-
-    const/4 v2, 0x3
-
-    aput-object p3, v1, v2
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

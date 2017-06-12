@@ -838,7 +838,7 @@
 
     const/high16 v4, 0x41a00000    # 20.0f
 
-    invoke-static {v1, v4}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v1, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v1
 
@@ -911,7 +911,7 @@
 
     const/high16 v9, 0x41a00000    # 20.0f
 
-    invoke-static {v1, v9}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v1, v9}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v9
 
@@ -1049,7 +1049,7 @@
 
     const/high16 v11, 0x41a00000    # 20.0f
 
-    invoke-static {v10, v11}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v10, v11}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v10
 

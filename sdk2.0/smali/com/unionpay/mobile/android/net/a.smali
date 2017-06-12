@@ -9,9 +9,11 @@
 # instance fields
 .field private a:Ljavax/net/ssl/SSLContext;
 
+.field private b:Landroid/content/Context;
+
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,10 +22,38 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
 
+    iput-object p1, p0, Lcom/unionpay/mobile/android/net/a;->b:Landroid/content/Context;
+
     return-void
 .end method
 
-.method private static a()Ljavax/net/ssl/SSLContext;
+.method private a()Ljavax/net/ssl/SSLContext;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/net/a;->b:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/net/a;->a(Landroid/content/Context;)Ljavax/net/ssl/SSLContext;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
+
+    :cond_0
+    iget-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
+
+    return-object v0
+.end method
+
+.method private static a(Landroid/content/Context;)Ljavax/net/ssl/SSLContext;
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -48,7 +78,7 @@
 
     new-instance v4, Lcom/unionpay/mobile/android/net/b;
 
-    invoke-direct {v4}, Lcom/unionpay/mobile/android/net/b;-><init>()V
+    invoke-direct {v4, p0}, Lcom/unionpay/mobile/android/net/b;-><init>(Landroid/content/Context;)V
 
     aput-object v4, v2, v3
 
@@ -72,30 +102,6 @@
     invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v1
-.end method
-
-.method private b()Ljavax/net/ssl/SSLContext;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
-
-    if-nez v0, :cond_0
-
-    invoke-static {}, Lcom/unionpay/mobile/android/net/a;->a()Ljavax/net/ssl/SSLContext;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
-
-    :cond_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/net/a;->a:Ljavax/net/ssl/SSLContext;
-
-    return-object v0
 .end method
 
 
@@ -168,7 +174,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/net/a;->b()Ljavax/net/ssl/SSLContext;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/net/a;->a()Ljavax/net/ssl/SSLContext;
 
     move-result-object v0
 
@@ -192,7 +198,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/net/a;->b()Ljavax/net/ssl/SSLContext;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/net/a;->a()Ljavax/net/ssl/SSLContext;
 
     move-result-object v0
 

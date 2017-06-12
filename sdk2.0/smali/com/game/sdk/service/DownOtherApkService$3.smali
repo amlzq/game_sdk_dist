@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/service/DownOtherApkService$3;->this$0:Lcom/game/sdk/service/DownOtherApkService;
 
-    .line 167
+    .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 170
+    .line 179
     iget-object v0, p0, Lcom/game/sdk/service/DownOtherApkService$3;->this$0:Lcom/game/sdk/service/DownOtherApkService;
 
     const-string v1, "\u4e0b\u8f7d\u5730\u5740\u9519\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
@@ -54,6 +54,6 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 171
+    .line 180
     return-void
 .end method

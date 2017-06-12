@@ -1,5 +1,5 @@
 !!brut.androlib.meta.MetaInfo
-apkFileName: 6.apk
+apkFileName: sdk.apk
 compressionType: false
 doNotCompress:
 - arsc
@@ -12,7 +12,8 @@ sdkInfo:
   targetSdkVersion: '21'
 sharedLibrary: false
 unknownFiles:
-  org/apache/http/entity/mime/version.properties: '8'
+  com/unionpay/res/nav_back.png: '8'
+  com/unionpay/res/nav_logo.png: '8'
   org/apache/commons/codec/language/bm/ash_approx_any.txt: '8'
   org/apache/commons/codec/language/bm/ash_approx_common.txt: '8'
   org/apache/commons/codec/language/bm/ash_approx_cyrillic.txt: '8'

@@ -41,7 +41,7 @@
 
     iput-object p4, p0, Lcom/game/sdk/FYGameSDK$2$1;->val$loginlistener:Lcom/game/sdk/domain/OnLoginListener;
 
-    .line 152
+    .line 197
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,7 +53,7 @@
     .locals 4
 
     .prologue
-    .line 155
+    .line 200
     iget-object v0, p0, Lcom/game/sdk/FYGameSDK$2$1;->this$1:Lcom/game/sdk/FYGameSDK$2;
 
     # getter for: Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
@@ -69,6 +69,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/game/sdk/FYGameSDK;->login(Landroid/content/Context;ZLcom/game/sdk/domain/OnLoginListener;)V
 
-    .line 156
+    .line 201
     return-void
 .end method

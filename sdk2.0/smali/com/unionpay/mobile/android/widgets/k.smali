@@ -1,5 +1,5 @@
 .class public final Lcom/unionpay/mobile/android/widgets/k;
-.super Lcom/unionpay/mobile/android/widgets/z;
+.super Lcom/unionpay/mobile/android/widgets/aa;
 
 
 # instance fields
@@ -39,7 +39,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;ILorg/json/JSONObject;)V
+.method public constructor <init>(Landroid/content/Context;ILorg/json/JSONObject;Ljava/lang/String;)V
     .locals 5
 
     const v4, -0x593503
@@ -48,7 +48,7 @@
 
     const/4 v3, -0x1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/unionpay/mobile/android/widgets/z;-><init>(Landroid/content/Context;ILorg/json/JSONObject;)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/unionpay/mobile/android/widgets/aa;-><init>(Landroid/content/Context;ILorg/json/JSONObject;Ljava/lang/String;)V
 
     const-string v0, "[A-Za-z0-9]{8,32}"
 
@@ -84,7 +84,7 @@
 
     const-string v0, "button_label"
 
-    invoke-static {p3, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -92,7 +92,7 @@
 
     const-string v0, "button_action"
 
-    invoke-static {p3, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -112,9 +112,9 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/k;->b:Lcom/unionpay/mobile/android/widgets/t;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/k;->b:Lcom/unionpay/mobile/android/widgets/u;
 
-    invoke-virtual {v1, v0}, Lcom/unionpay/mobile/android/widgets/t;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Lcom/unionpay/mobile/android/widgets/u;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     new-instance v0, Landroid/widget/TextView;
 
@@ -144,7 +144,7 @@
 
     const v2, -0x666667
 
-    invoke-static {v1, v4, v4, v2}, Lcom/unionpay/mobile/android/utils/d;->a(IIII)Landroid/content/res/ColorStateList;
+    invoke-static {v1, v4, v4, v2}, Lcom/unionpay/mobile/android/utils/g;->a(IIII)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
@@ -172,11 +172,11 @@
 
     invoke-direct {v0, v1, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/k;->b:Lcom/unionpay/mobile/android/widgets/t;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/k;->b:Lcom/unionpay/mobile/android/widgets/u;
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/k;->q:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2, v0}, Lcom/unionpay/mobile/android/widgets/t;->a(Landroid/view/View;Landroid/widget/LinearLayout$LayoutParams;)V
+    invoke-virtual {v1, v2, v0}, Lcom/unionpay/mobile/android/widgets/u;->a(Landroid/view/View;Landroid/widget/LinearLayout$LayoutParams;)V
 
     return-void
 .end method
@@ -232,7 +232,7 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/k;->q:Landroid/widget/TextView;
 
-    sget-object v1, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v1, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v1, v1, Lcom/unionpay/mobile/android/languages/c;->B:Ljava/lang/String;
 
@@ -298,4 +298,12 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method protected final d()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "_input_coupon"
+
+    return-object v0
 .end method

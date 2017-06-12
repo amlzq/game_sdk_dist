@@ -32,6 +32,16 @@
 
 
 # direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
 
@@ -115,9 +125,9 @@
 
     iput v0, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->c:I
 
-    new-instance v0, Lcom/unionpay/mobile/android/upwidget/r;
+    new-instance v0, Lcom/unionpay/mobile/android/upwidget/t;
 
-    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/upwidget/r;-><init>(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)V
+    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/upwidget/t;-><init>(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)V
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->e:Landroid/os/Handler;
 
@@ -294,7 +304,7 @@
 
     const/high16 v4, 0x42700000    # 60.0f
 
-    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -351,6 +361,33 @@
 
 
 # virtual methods
+.method public final a()V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->d:Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->e:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->e:Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->a:Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->a:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    :cond_0
+    iput-object v1, p0, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->a:Ljava/util/List;
+
+    return-void
+.end method
+
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 5
 

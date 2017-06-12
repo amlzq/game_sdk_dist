@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
 
-    .line 84
+    .line 132
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,7 +39,7 @@
     .locals 1
 
     .prologue
-    .line 84
+    .line 132
     iget-object v0, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
 
     return-object v0
@@ -51,80 +51,33 @@
     .locals 4
 
     .prologue
-    .line 88
-    iget-object v2, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
-
-    # invokes: Lcom/game/sdk/FYGameSDK;->preInit()V
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)V
-
-    .line 90
+    .line 136
     new-instance v0, Lcom/game/sdk/engin/InitEngin;
 
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
 
     # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$1(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
+    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v0, v2}, Lcom/game/sdk/engin/InitEngin;-><init>(Landroid/content/Context;)V
 
-    .line 92
+    .line 138
     .local v0, "initEngin":Lcom/game/sdk/engin/InitEngin;
     invoke-virtual {v0}, Lcom/game/sdk/engin/InitEngin;->run()Z
 
     move-result v1
 
-    .line 94
+    .line 140
     .local v1, "result":Z
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string v3, "fy game sdk acontext ---"
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
-
-    # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
-    invoke-static {v3}, Lcom/game/sdk/FYGameSDK;->access$1(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
-
-    .line 96
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string v3, "fy game sdk result---"
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
-
-    .line 98
     if-eqz v1, :cond_0
 
-    .line 99
+    .line 141
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
 
     # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$1(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
+    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
 
     move-result-object v2
 
@@ -134,16 +87,40 @@
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 122
+    .line 166
     :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "fy game sdk result---"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
+
+    # getter for: Lcom/game/sdk/FYGameSDK;->isInitOk:Z
+    invoke-static {v3}, Lcom/game/sdk/FYGameSDK;->access$4(Lcom/game/sdk/FYGameSDK;)Z
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 167
     return-void
 
-    .line 113
+    .line 155
     :cond_0
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
 
     # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$1(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
+    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
 
     move-result-object v2
 

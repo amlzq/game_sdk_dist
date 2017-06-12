@@ -1,10 +1,37 @@
 .class public final Lcom/ipaynow/plugin/utils/b;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljavax/net/ssl/X509TrustManager;
+
+
+# static fields
+.field static ba:Ljavax/net/ssl/HostnameVerifier;
+
 
 # direct methods
-.method public static b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 8
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/ipaynow/plugin/utils/c;
+
+    invoke-direct {v0}, Lcom/ipaynow/plugin/utils/c;-><init>()V
+
+    sput-object v0, Lcom/ipaynow/plugin/utils/b;->ba:Ljavax/net/ssl/HostnameVerifier;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static g(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 9
 
     const/4 v1, 0x0
 
@@ -21,63 +48,102 @@
 
     move-result-object v0
 
-    check-cast v0, Ljava/net/HttpURLConnection;
+    check-cast v0, Ljavax/net/ssl/HttpsURLConnection;
     :try_end_0
-    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_5
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_b
     .catch Ljava/net/ProtocolException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/security/KeyManagementException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_5
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/16 v3, 0x7530
-
     :try_start_1
-    invoke-virtual {v0, v3}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
+    const-string v3, "SSL"
 
-    const/16 v3, 0x7530
+    invoke-static {v3}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;
 
-    invoke-virtual {v0, v3}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+    move-result-object v3
 
-    const/4 v3, 0x1
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v3}, Ljava/net/HttpURLConnection;->setDoInput(Z)V
+    const/4 v5, 0x1
 
-    const/4 v3, 0x1
+    new-array v5, v5, [Ljavax/net/ssl/TrustManager;
 
-    invoke-virtual {v0, v3}, Ljava/net/HttpURLConnection;->setDoOutput(Z)V
+    const/4 v6, 0x0
 
-    const/4 v3, 0x0
+    new-instance v7, Lcom/ipaynow/plugin/utils/b;
 
-    invoke-virtual {v0, v3}, Ljava/net/HttpURLConnection;->setUseCaches(Z)V
+    invoke-direct {v7}, Lcom/ipaynow/plugin/utils/b;-><init>()V
 
-    const-string v3, "Connection"
+    aput-object v7, v5, v6
 
-    const-string v4, "Keep-Alive"
+    new-instance v6, Ljava/security/SecureRandom;
 
-    invoke-virtual {v0, v3, v4}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v6}, Ljava/security/SecureRandom;-><init>()V
+
+    invoke-virtual {v3, v4, v5, v6}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
+
+    const/16 v4, 0x7530
+
+    invoke-virtual {v0, v4}, Ljavax/net/ssl/HttpsURLConnection;->setReadTimeout(I)V
+
+    const/16 v4, 0x7530
+
+    invoke-virtual {v0, v4}, Ljavax/net/ssl/HttpsURLConnection;->setConnectTimeout(I)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v4}, Ljavax/net/ssl/HttpsURLConnection;->setDoInput(Z)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v4}, Ljavax/net/ssl/HttpsURLConnection;->setDoOutput(Z)V
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v4}, Ljavax/net/ssl/HttpsURLConnection;->setUseCaches(Z)V
+
+    sget-object v4, Lcom/ipaynow/plugin/utils/b;->ba:Ljavax/net/ssl/HostnameVerifier;
+
+    invoke-virtual {v0, v4}, Ljavax/net/ssl/HttpsURLConnection;->setHostnameVerifier(Ljavax/net/ssl/HostnameVerifier;)V
+
+    invoke-virtual {v3}, Ljavax/net/ssl/SSLContext;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljavax/net/ssl/HttpsURLConnection;->setSSLSocketFactory(Ljavax/net/ssl/SSLSocketFactory;)V
 
     const-string v3, "Accept-Charset"
 
     const-string v4, "UTF-8"
 
-    invoke-virtual {v0, v3, v4}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v4}, Ljavax/net/ssl/HttpsURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v3, "Content-Type"
 
     const-string v4, "application/x-www-form-urlencoded"
 
-    invoke-virtual {v0, v3, v4}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v4}, Ljavax/net/ssl/HttpsURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v3, "Charset"
+
+    const-string v4, "UTF-8"
+
+    invoke-virtual {v0, v3, v4}, Ljavax/net/ssl/HttpsURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v3, "POST"
 
-    invoke-virtual {v0, v3}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Ljavax/net/ssl/HttpsURLConnection;->setRequestMethod(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->connect()V
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->connect()V
 
     new-instance v3, Ljava/io/BufferedWriter;
 
     new-instance v4, Ljava/io/OutputStreamWriter;
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getOutputStream()Ljava/io/OutputStream;
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->getOutputStream()Ljava/io/OutputStream;
 
     move-result-object v5
 
@@ -91,19 +157,19 @@
 
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->flush()V
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getResponseCode()I
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->getResponseCode()I
 
     move-result v3
 
     const/16 v4, 0xc8
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_3
 
     new-instance v3, Ljava/io/BufferedReader;
 
     new-instance v4, Ljava/io/InputStreamReader;
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v5
 
@@ -115,16 +181,22 @@
     invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
     :try_end_1
     .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/net/ProtocolException; {:try_start_1 .. :try_end_1} :catch_4
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/net/ProtocolException; {:try_start_1 .. :try_end_1} :catch_a
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_9
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_1 .. :try_end_1} :catch_8
+    .catch Ljava/security/KeyManagementException; {:try_start_1 .. :try_end_1} :catch_7
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_6
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    if-eqz v0, :cond_0
 
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -132,13 +204,16 @@
     :goto_1
     return-object v0
 
-    :cond_0
+    :cond_1
     :try_start_2
     invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
     :try_end_2
     .catch Ljava/net/MalformedURLException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/net/ProtocolException; {:try_start_2 .. :try_end_2} :catch_4
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    .catch Ljava/net/ProtocolException; {:try_start_2 .. :try_end_2} :catch_a
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_9
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_2 .. :try_end_2} :catch_8
+    .catch Ljava/security/KeyManagementException; {:try_start_2 .. :try_end_2} :catch_7
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_6
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     goto :goto_0
@@ -156,13 +231,16 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    if-eqz v0, :cond_2
 
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_2
     move-object v0, v1
 
     goto :goto_1
 
-    :cond_1
+    :cond_3
     :try_start_4
     const-string v2, "\u7f51\u7edc\u5f02\u5e38"
 
@@ -172,7 +250,7 @@
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getResponseCode()I
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->getResponseCode()I
 
     move-result v4
 
@@ -186,15 +264,21 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
     :try_end_4
     .catch Ljava/net/MalformedURLException; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/net/ProtocolException; {:try_start_4 .. :try_end_4} :catch_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Ljava/net/ProtocolException; {:try_start_4 .. :try_end_4} :catch_a
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_9
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_4 .. :try_end_4} :catch_8
+    .catch Ljava/security/KeyManagementException; {:try_start_4 .. :try_end_4} :catch_7
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_6
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    if-eqz v0, :cond_4
 
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_4
     move-object v0, v1
 
     goto :goto_1
@@ -214,8 +298,11 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    if-eqz v0, :cond_5
 
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_5
     move-object v0, v1
 
     goto :goto_1
@@ -235,8 +322,65 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+    if-eqz v0, :cond_6
 
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_6
+    move-object v0, v1
+
+    goto :goto_1
+
+    :catch_3
+    move-exception v0
+
+    move-object v0, v1
+
+    :goto_5
+    :try_start_7
+    const-string v2, "net error"
+
+    const-string v3, "\u534f\u8bae\u540d\u9519\u8bef"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_7
+    move-object v0, v1
+
+    goto :goto_1
+
+    :catch_4
+    move-exception v0
+
+    move-object v0, v1
+
+    :goto_6
+    if-eqz v0, :cond_8
+
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_8
+    move-object v0, v1
+
+    goto :goto_1
+
+    :catch_5
+    move-exception v0
+
+    move-object v0, v1
+
+    :goto_7
+    if-eqz v0, :cond_9
+
+    invoke-virtual {v0}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_9
     move-object v0, v1
 
     goto :goto_1
@@ -244,36 +388,76 @@
     :catchall_0
     move-exception v0
 
-    :goto_5
-    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
+    :goto_8
+    if-eqz v1, :cond_a
 
+    invoke-virtual {v1}, Ljavax/net/ssl/HttpsURLConnection;->disconnect()V
+
+    :cond_a
     throw v0
 
     :catchall_1
     move-exception v1
 
-    move-object v7, v1
+    move-object v8, v1
 
     move-object v1, v0
 
-    move-object v0, v7
+    move-object v0, v8
+
+    goto :goto_8
+
+    :catch_6
+    move-exception v2
+
+    goto :goto_7
+
+    :catch_7
+    move-exception v2
+
+    goto :goto_6
+
+    :catch_8
+    move-exception v2
 
     goto :goto_5
 
-    :catch_3
+    :catch_9
     move-exception v2
 
     goto :goto_4
 
-    :catch_4
+    :catch_a
     move-exception v2
 
     goto :goto_3
 
-    :catch_5
+    :catch_b
     move-exception v0
 
     move-object v0, v1
 
-    goto :goto_2
+    goto/16 :goto_2
+.end method
+
+
+# virtual methods
+.method public final checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
 .end method

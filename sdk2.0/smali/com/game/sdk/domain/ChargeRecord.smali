@@ -26,6 +26,14 @@
     .end annotation
 .end field
 
+.field public rmbMoney:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "rmb_money"
+    .end annotation
+.end field
+
+.field public status:I
+
 .field public statusMsg:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "status_msg"

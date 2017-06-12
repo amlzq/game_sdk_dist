@@ -20,7 +20,7 @@
     .param p2, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 30
+    .line 29
     const-string v0, "style"
 
     const-string v1, "CustomSdkDialog"
@@ -31,13 +31,13 @@
 
     invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    .line 31
+    .line 30
     iput-object p1, p0, Lcom/game/sdk/view/CustomDialog;->mContext:Landroid/content/Context;
 
-    .line 32
+    .line 31
     iput-object p2, p0, Lcom/game/sdk/view/CustomDialog;->message:Ljava/lang/String;
 
-    .line 33
+    .line 32
     return-void
 .end method
 
@@ -47,14 +47,14 @@
     .locals 8
 
     .prologue
-    .line 43
+    .line 42
     iget-object v4, p0, Lcom/game/sdk/view/CustomDialog;->mContext:Landroid/content/Context;
 
     invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    .line 44
+    .line 43
     .local v1, "layoutInflater":Landroid/view/LayoutInflater;
     iget-object v4, p0, Lcom/game/sdk/view/CustomDialog;->mContext:Landroid/content/Context;
 
@@ -72,7 +72,7 @@
 
     move-result-object v3
 
-    .line 46
+    .line 45
     .local v3, "view":Landroid/view/View;
     iget-object v4, p0, Lcom/game/sdk/view/CustomDialog;->mContext:Landroid/content/Context;
 
@@ -92,7 +92,7 @@
 
     iput-object v4, p0, Lcom/game/sdk/view/CustomDialog;->messageTv:Landroid/widget/TextView;
 
-    .line 47
+    .line 46
     iget-object v4, p0, Lcom/game/sdk/view/CustomDialog;->mContext:Landroid/content/Context;
 
     const-string v5, "id"
@@ -111,28 +111,28 @@
 
     iput-object v4, p0, Lcom/game/sdk/view/CustomDialog;->loadingIv:Landroid/widget/ImageView;
 
-    .line 48
+    .line 47
     invoke-virtual {p0, v3}, Lcom/game/sdk/view/CustomDialog;->setContentView(Landroid/view/View;)V
 
-    .line 50
+    .line 49
     iget-object v4, p0, Lcom/game/sdk/view/CustomDialog;->messageTv:Landroid/widget/TextView;
 
     iget-object v5, p0, Lcom/game/sdk/view/CustomDialog;->message:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 52
+    .line 51
     invoke-virtual {p0}, Lcom/game/sdk/view/CustomDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    .line 53
+    .line 52
     .local v0, "dialogWindow":Landroid/view/Window;
     invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v2
 
-    .line 54
+    .line 53
     .local v2, "params":Landroid/view/WindowManager$LayoutParams;
     iget-object v4, p0, Lcom/game/sdk/view/CustomDialog;->mContext:Landroid/content/Context;
 
@@ -150,7 +150,7 @@
 
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 56
+    .line 55
     return-void
 .end method
 
@@ -159,16 +159,16 @@
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 37
+    .line 36
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
 
-    .line 38
+    .line 37
     invoke-virtual {p0}, Lcom/game/sdk/view/CustomDialog;->initView()V
 
-    .line 39
+    .line 38
     invoke-virtual {p0}, Lcom/game/sdk/view/CustomDialog;->startAnimation()V
 
-    .line 40
+    .line 39
     return-void
 .end method
 
@@ -180,7 +180,7 @@
 
     const/4 v3, 0x1
 
-    .line 75
+    .line 74
     new-instance v0, Landroid/view/animation/RotateAnimation;
 
     const/4 v1, 0x0
@@ -193,7 +193,7 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/view/animation/RotateAnimation;-><init>(FFIFIF)V
 
-    .line 77
+    .line 76
     .local v0, "ra":Landroid/view/animation/RotateAnimation;
     new-instance v1, Landroid/view/animation/LinearInterpolator;
 
@@ -201,25 +201,25 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/RotateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 78
+    .line 77
     const-wide/16 v4, 0x5dc
 
     invoke-virtual {v0, v4, v5}, Landroid/view/animation/RotateAnimation;->setDuration(J)V
 
-    .line 79
+    .line 78
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/view/animation/RotateAnimation;->setRepeatCount(I)V
 
-    .line 80
+    .line 79
     const-wide/16 v4, 0x0
 
     invoke-virtual {v0, v4, v5}, Landroid/view/animation/RotateAnimation;->setStartOffset(J)V
 
-    .line 81
+    .line 80
     invoke-virtual {v0, v3}, Landroid/view/animation/RotateAnimation;->setRepeatMode(I)V
 
-    .line 82
+    .line 81
     return-object v0
 .end method
 
@@ -227,13 +227,13 @@
     .locals 0
 
     .prologue
-    .line 65
+    .line 64
     invoke-virtual {p0}, Lcom/game/sdk/view/CustomDialog;->startAnimation()V
 
-    .line 66
+    .line 65
     invoke-virtual {p0}, Lcom/game/sdk/view/CustomDialog;->show()V
 
-    .line 67
+    .line 66
     return-void
 .end method
 
@@ -241,12 +241,12 @@
     .locals 2
 
     .prologue
-    .line 59
+    .line 58
     iget-object v0, p0, Lcom/game/sdk/view/CustomDialog;->loadingIv:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_0
 
-    .line 60
+    .line 59
     iget-object v0, p0, Lcom/game/sdk/view/CustomDialog;->loadingIv:Landroid/widget/ImageView;
 
     invoke-virtual {p0}, Lcom/game/sdk/view/CustomDialog;->rotaAnimation()Landroid/view/animation/Animation;
@@ -255,7 +255,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 62
+    .line 61
     :cond_0
     return-void
 .end method

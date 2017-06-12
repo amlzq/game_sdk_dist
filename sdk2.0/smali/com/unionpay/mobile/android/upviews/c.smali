@@ -1,82 +1,69 @@
 .class final Lcom/unionpay/mobile/android/upviews/c;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
+.super Ljava/util/TimerTask;
 
 
 # instance fields
-.field final synthetic a:Lcom/unionpay/mobile/android/widgets/y;
-
-.field final synthetic b:Lcom/unionpay/mobile/android/widgets/y;
-
-.field final synthetic c:Lcom/unionpay/mobile/android/upviews/a;
+.field final synthetic a:Lcom/unionpay/mobile/android/upviews/b$d;
 
 
 # direct methods
-.method constructor <init>(Lcom/unionpay/mobile/android/upviews/a;Lcom/unionpay/mobile/android/widgets/y;Lcom/unionpay/mobile/android/widgets/y;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/upviews/b$d;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/upviews/c;->c:Lcom/unionpay/mobile/android/upviews/a;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/upviews/b$d;
 
-    iput-object p2, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/widgets/y;
-
-    iput-object p3, p0, Lcom/unionpay/mobile/android/upviews/c;->b:Lcom/unionpay/mobile/android/widgets/y;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->c:Lcom/unionpay/mobile/android/upviews/a;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/upviews/b$d;
 
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/a;->a(Lcom/unionpay/mobile/android/upviews/a;)Lcom/unionpay/mobile/android/widgets/m;
+    iget-object v0, v0, Lcom/unionpay/mobile/android/upviews/b$d;->a:Lcom/unionpay/mobile/android/upviews/b;
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->c:Lcom/unionpay/mobile/android/upviews/a;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/a;->a(Lcom/unionpay/mobile/android/upviews/a;)Lcom/unionpay/mobile/android/widgets/m;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/m;->a()Z
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/b;->b(Lcom/unionpay/mobile/android/upviews/b;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->c:Lcom/unionpay/mobile/android/upviews/a;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/upviews/b$d;
 
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/a;->a(Lcom/unionpay/mobile/android/upviews/a;)Lcom/unionpay/mobile/android/widgets/m;
+    iget-object v0, v0, Lcom/unionpay/mobile/android/upviews/b$d;->a:Lcom/unionpay/mobile/android/upviews/b;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/b;->a(Lcom/unionpay/mobile/android/upviews/b;)Landroid/os/Handler;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/m;->c()V
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/widgets/y;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/upviews/b$d;
 
-    check-cast v0, Lcom/unionpay/mobile/android/widgets/ai;
+    iget-object v0, v0, Lcom/unionpay/mobile/android/upviews/b$d;->a:Lcom/unionpay/mobile/android/upviews/b;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/b;->c(Lcom/unionpay/mobile/android/upviews/b;)Ljava/util/Timer;
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/ai;->a(Z)V
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->b:Lcom/unionpay/mobile/android/widgets/y;
+    invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
 
-    check-cast v0, Lcom/unionpay/mobile/android/widgets/p;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upviews/c;->a:Lcom/unionpay/mobile/android/upviews/b$d;
 
-    const/4 v1, 0x1
+    iget-object v0, v0, Lcom/unionpay/mobile/android/upviews/b$d;->a:Lcom/unionpay/mobile/android/upviews/b;
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/p;->a(Z)V
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upviews/b;->c(Lcom/unionpay/mobile/android/upviews/b;)Ljava/util/Timer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Timer;->purge()I
 
     return-void
 .end method

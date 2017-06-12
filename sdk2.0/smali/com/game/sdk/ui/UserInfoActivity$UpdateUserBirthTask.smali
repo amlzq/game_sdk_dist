@@ -37,15 +37,15 @@
     .param p2, "uInfo"    # Lcom/game/sdk/domain/UserInfo;
 
     .prologue
-    .line 280
+    .line 293
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 281
+    .line 294
     iput-object p2, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->uInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 282
+    .line 295
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 291
+    .line 304
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     new-instance v1, Lcom/game/sdk/engin/UpdateUserInfoEngin;
@@ -69,7 +69,7 @@
 
     invoke-static {v0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->access$15(Lcom/game/sdk/ui/UserInfoActivity;Lcom/game/sdk/engin/UpdateUserInfoEngin;)V
 
-    .line 292
+    .line 305
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->updateUserInfoEngin:Lcom/game/sdk/engin/UpdateUserInfoEngin;
@@ -107,35 +107,35 @@
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    .line 297
+    .line 310
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 298
+    .line 311
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     iget-object v0, v0, Lcom/game/sdk/ui/UserInfoActivity;->updateDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v0}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 299
+    .line 312
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 300
+    .line 313
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     const-string v1, "\u4fee\u6539\u6210\u529f"
 
     invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 304
+    .line 317
     :goto_0
     return-void
 
-    .line 302
+    .line 315
     :cond_0
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
@@ -162,9 +162,9 @@
     .locals 0
 
     .prologue
-    .line 286
+    .line 299
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 287
+    .line 300
     return-void
 .end method

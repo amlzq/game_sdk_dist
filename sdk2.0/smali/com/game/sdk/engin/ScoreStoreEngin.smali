@@ -108,18 +108,18 @@
     .end annotation
 
     .prologue
-    .line 73
+    .line 72
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .local p3, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ScoreStoreList;>;"
     if-nez p2, :cond_0
 
-    .line 74
+    .line 73
     new-instance p2, Ljava/util/HashMap;
 
     .end local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p2}, Ljava/util/HashMap;-><init>()V
 
-    .line 77
+    .line 76
     .restart local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     :try_start_0
@@ -139,15 +139,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 111
+    .line 110
     :goto_0
     return-void
 
-    .line 108
+    .line 107
     :catch_0
     move-exception v0
 
-    .line 109
+    .line 108
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -211,12 +211,13 @@
     return-object v0
 .end method
 
-.method public getScoreStoreList(Ljava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
-    .locals 4
-    .param p1, "userId"    # Ljava/lang/String;
+.method public getScoreStoreList(ILjava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
+    .locals 5
+    .param p1, "page"    # I
+    .param p2, "userId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
+            "(I",
             "Ljava/lang/String;",
             "Lcom/game/sdk/net/listeners/Callback",
             "<",
@@ -226,35 +227,45 @@
     .end annotation
 
     .prologue
-    .line 64
-    .local p2, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ScoreStoreList;>;"
+    .line 63
+    .local p3, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ScoreStoreList;>;"
     new-instance v1, Lcom/game/sdk/engin/ScoreStoreEngin$ParamsInfo;
 
     invoke-direct {v1}, Lcom/game/sdk/engin/ScoreStoreEngin$ParamsInfo;-><init>()V
 
-    .line 65
+    .line 64
     .local v1, "paramsInfo":Lcom/game/sdk/engin/ScoreStoreEngin$ParamsInfo;
-    iput-object p1, v1, Lcom/game/sdk/engin/ScoreStoreEngin$ParamsInfo;->userId:Ljava/lang/String;
+    iput-object p2, v1, Lcom/game/sdk/engin/ScoreStoreEngin$ParamsInfo;->userId:Ljava/lang/String;
 
-    .line 66
+    .line 65
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 67
+    .line 66
     .local v0, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v2, "page"
 
-    const-string v3, "1"
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 68
+    .line 67
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v2, v0, p2}, Lcom/game/sdk/engin/ScoreStoreEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
+    invoke-virtual {p0, v2, v0, p3}, Lcom/game/sdk/engin/ScoreStoreEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
 
-    .line 69
+    .line 68
     return-void
 .end method
 

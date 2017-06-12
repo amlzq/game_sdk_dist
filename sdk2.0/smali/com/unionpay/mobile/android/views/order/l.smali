@@ -13,6 +13,8 @@
 
 .field public static final e:Ljava/lang/Integer;
 
+.field public static final f:Ljava/lang/Integer;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -42,7 +44,7 @@
 
     sput-object v0, Lcom/unionpay/mobile/android/views/order/l;->c:Ljava/lang/Integer;
 
-    const/4 v0, 0x4
+    const/16 v0, 0x8
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -50,13 +52,21 @@
 
     sput-object v0, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
 
-    const/16 v0, 0x8
+    const/16 v0, 0x10
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
+
+    const/16 v0, 0x20
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/unionpay/mobile/android/views/order/l;->f:Ljava/lang/Integer;
 
     return-void
 .end method

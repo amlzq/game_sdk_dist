@@ -8,7 +8,7 @@
 
     invoke-direct {p0}, Lcom/unionpay/mobile/android/languages/c;-><init>()V
 
-    const-string v0, "\u00a9 2015 \u4e2d\u56fd\u94f6\u8054\u7248\u6743\u6240\u6709"
+    const-string v0, "\u00a9 2016 \u4e2d\u56fd\u94f6\u8054\u7248\u6743\u6240\u6709"
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->b:Ljava/lang/String;
 
@@ -288,25 +288,33 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bo:Ljava/lang/String;
 
-    const-string v0, "\u8fd4\u56de"
+    const-string v0, "Samsung Pay"
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bp:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bt:Ljava/lang/String;
 
-    const-string v0, "\u4f7f\u7528\u5176\u4ed6\u65b9\u5f0f"
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bq:Ljava/lang/String;
-
-    const-string v0, "\u624b\u673a\u53f7/\u90ae\u7bb1/\u7528\u6237\u540d"
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->br:Ljava/lang/String;
-
-    const-string v0, "\u8bf7\u8f93\u5165\u5bc6\u7801"
+    const-string v0, "\u6b63\u5728\u83b7\u53d6\u5361\u4fe1\u606f"
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bs:Ljava/lang/String;
 
+    const-string v0, "\u8fd4\u56de"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bu:Ljava/lang/String;
+
+    const-string v0, "\u4f7f\u7528\u5176\u4ed6\u65b9\u5f0f"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bv:Ljava/lang/String;
+
+    const-string v0, "\u624b\u673a\u53f7/\u90ae\u7bb1/\u7528\u6237\u540d"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bw:Ljava/lang/String;
+
+    const-string v0, "\u8bf7\u8f93\u5165\u5bc6\u7801"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bx:Ljava/lang/String;
+
     const-string v0, "\u76f4\u63a5\u4ed8\u6b3e(\u514d\u767b\u5f55)"
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->bt:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->by:Ljava/lang/String;
 
     const-string v0, "\u8bf7\u7a0d\u5019..."
 
@@ -380,7 +388,7 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->aF:Ljava/lang/String;
 
-    const-string v0, "\u8f6f\u4ef6\u7b7e\u540d\u5f02\u5e38\uff0c\u8bf7\u6838\u5b9e\u6765\u6e90\u3002"
+    const-string v0, "\u8f6f\u4ef6\u5f02\u5e38\uff0c\u8bf7\u6838\u5b9e\u6765\u6e90\u3002"
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/a;->aG:Ljava/lang/String;
 

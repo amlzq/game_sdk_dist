@@ -39,7 +39,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask$1;->this$1:Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;
 
-    .line 395
+    .line 587
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +52,7 @@
     .param p1, "response"    # Lcom/game/sdk/net/entry/Response;
 
     .prologue
-    .line 414
+    .line 607
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .end annotation
 
     .prologue
-    .line 400
+    .line 592
     .local p1, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/ModuleList;>;"
     iget-object v1, p1, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
@@ -79,6 +79,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 593
     iget-object v1, p1, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
     check-cast v1, Lcom/game/sdk/domain/ModuleList;
@@ -91,7 +92,7 @@
 
     if-lez v1, :cond_0
 
-    .line 401
+    .line 594
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask$1;->this$1:Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
@@ -107,7 +108,7 @@
 
     iput-object v1, v2, Lcom/game/sdk/ui/fragment/MainFragment;->moduleInfoList:Ljava/util/List;
 
-    .line 403
+    .line 596
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask$1;->this$1:Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
@@ -123,7 +124,7 @@
     move-result-object v2
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment;->mainModuleEngin:Lcom/game/sdk/engin/MainModuleEngin;
-    invoke-static {v2}, Lcom/game/sdk/ui/fragment/MainFragment;->access$10(Lcom/game/sdk/ui/fragment/MainFragment;)Lcom/game/sdk/engin/MainModuleEngin;
+    invoke-static {v2}, Lcom/game/sdk/ui/fragment/MainFragment;->access$11(Lcom/game/sdk/ui/fragment/MainFragment;)Lcom/game/sdk/engin/MainModuleEngin;
 
     move-result-object v2
 
@@ -141,20 +142,20 @@
     iget-object v3, v3, Lcom/game/sdk/ui/fragment/MainFragment;->moduleInfoList:Ljava/util/List;
 
     # invokes: Lcom/game/sdk/ui/fragment/MainFragment;->saveModuleList(Ljava/lang/String;Ljava/util/List;)V
-    invoke-static {v1, v2, v3}, Lcom/game/sdk/ui/fragment/MainFragment;->access$11(Lcom/game/sdk/ui/fragment/MainFragment;Ljava/lang/String;Ljava/util/List;)V
+    invoke-static {v1, v2, v3}, Lcom/game/sdk/ui/fragment/MainFragment;->access$12(Lcom/game/sdk/ui/fragment/MainFragment;Ljava/lang/String;Ljava/util/List;)V
 
-    .line 406
+    .line 599
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 407
+    .line 600
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 408
+    .line 601
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask$1;->this$1:Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
@@ -163,13 +164,13 @@
     move-result-object v1
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment;->handler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/MainFragment;->access$9(Lcom/game/sdk/ui/fragment/MainFragment;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/MainFragment;->access$10(Lcom/game/sdk/ui/fragment/MainFragment;)Landroid/os/Handler;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 410
+    .line 603
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void

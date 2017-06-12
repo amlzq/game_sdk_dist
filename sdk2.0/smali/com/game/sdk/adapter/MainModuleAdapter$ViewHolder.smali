@@ -19,6 +19,10 @@
 
 .field moduleTv:Landroid/widget/TextView;
 
+.field numLayout:Landroid/widget/RelativeLayout;
+
+.field numTv:Landroid/widget/TextView;
+
 .field final synthetic this$0:Lcom/game/sdk/adapter/MainModuleAdapter;
 
 
@@ -27,7 +31,7 @@
     .locals 0
 
     .prologue
-    .line 94
+    .line 97
     iput-object p1, p0, Lcom/game/sdk/adapter/MainModuleAdapter$ViewHolder;->this$0:Lcom/game/sdk/adapter/MainModuleAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

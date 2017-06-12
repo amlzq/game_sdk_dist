@@ -20,7 +20,7 @@
 
 .field private c:Lcom/unionpay/mobile/android/upwidget/c;
 
-.field private d:Lcom/unionpay/mobile/android/upwidget/e;
+.field private d:Lcom/unionpay/mobile/android/upwidget/g;
 
 .field private e:Ljava/lang/String;
 
@@ -124,27 +124,27 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->c:Lcom/unionpay/mobile/android/upwidget/c;
 
-    new-instance v0, Lcom/unionpay/mobile/android/upwidget/e;
+    new-instance v0, Lcom/unionpay/mobile/android/upwidget/g;
 
     iget-object v1, p1, Lcom/unionpay/mobile/android/nocard/views/o;->d:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->c:Lcom/unionpay/mobile/android/upwidget/c;
 
-    invoke-direct {v0, v1, v2}, Lcom/unionpay/mobile/android/upwidget/e;-><init>(Landroid/content/Context;Lcom/unionpay/mobile/android/upwidget/c;)V
+    invoke-direct {v0, v1, v2}, Lcom/unionpay/mobile/android/upwidget/g;-><init>(Landroid/content/Context;Lcom/unionpay/mobile/android/upwidget/c;)V
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/e;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/g;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/e;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/g;
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->i:Landroid/widget/AdapterView$OnItemClickListener;
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/upwidget/e;->a(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/upwidget/g;->a(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/e;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/g;
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->h:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/upwidget/e;->a(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/upwidget/g;->a(Landroid/view/View$OnClickListener;)V
 
     if-eqz p4, :cond_0
 
@@ -230,7 +230,7 @@
 
     const/high16 v3, 0x41700000    # 15.0f
 
-    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v2
 
@@ -256,7 +256,7 @@
 
     const/high16 v4, 0x41200000    # 10.0f
 
-    invoke-static {v2, v4}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v2, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v2
 
@@ -312,7 +312,7 @@
 
     const/high16 v4, 0x41200000    # 10.0f
 
-    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -383,7 +383,7 @@
 
     new-instance v0, Landroid/widget/PopupWindow;
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/e;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/o$b;->d:Lcom/unionpay/mobile/android/upwidget/g;
 
     const/4 v2, 0x1
 

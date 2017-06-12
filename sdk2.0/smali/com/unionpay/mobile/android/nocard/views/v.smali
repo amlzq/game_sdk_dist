@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/v;->a:Lcom/unionpay/mobile/android/nocard/views/o;
 
@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->b()Z
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->d()Z
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/v;->a:Lcom/unionpay/mobile/android/nocard/views/o;
 
@@ -51,7 +51,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->a()Lcom/unionpay/mobile/android/upviews/a$a;
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->b()Lcom/unionpay/mobile/android/upviews/a$a;
 
     move-result-object v1
 
@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->a()Lcom/unionpay/mobile/android/upviews/a$a;
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->b()Lcom/unionpay/mobile/android/upviews/a$a;
 
     move-result-object v0
 
@@ -182,11 +182,41 @@
 
     iget-object v1, v1, Lcom/unionpay/mobile/android/nocard/views/o;->b:Lcom/unionpay/mobile/android/widgets/m;
 
-    sget-object v2, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v2, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v2, v2, Lcom/unionpay/mobile/android/languages/c;->U:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Lcom/unionpay/mobile/android/widgets/m;->a(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/v;->a:Lcom/unionpay/mobile/android/nocard/views/o;
+
+    iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/v;->a:Lcom/unionpay/mobile/android/nocard/views/o;
+
+    iget-object v1, v1, Lcom/unionpay/mobile/android/nocard/views/o;->d:Landroid/content/Context;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v3, p0, Lcom/unionpay/mobile/android/nocard/views/v;->a:Lcom/unionpay/mobile/android/nocard/views/o;
+
+    iget-object v3, v3, Lcom/unionpay/mobile/android/nocard/views/o;->q:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "_apply"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/nocard/views/o;->a(Landroid/content/Context;Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/nocard/views/v;->a:Lcom/unionpay/mobile/android/nocard/views/o;
 

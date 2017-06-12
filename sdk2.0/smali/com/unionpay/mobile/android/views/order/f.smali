@@ -33,6 +33,16 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/f;->a:Lcom/unionpay/mobile/android/views/order/b;
 
+    iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/f;->a:Lcom/unionpay/mobile/android/views/order/b;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/views/order/b;->b:Landroid/content/Context;
+
+    const-string v1, "bankpay_support_bank"
+
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/views/order/b;->a(Landroid/content/Context;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/f;->a:Lcom/unionpay/mobile/android/views/order/b;
+
     iget-object v0, v0, Lcom/unionpay/mobile/android/views/order/b;->e:Lcom/unionpay/mobile/android/views/order/AbstractMethod$b;
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/views/order/f;->a:Lcom/unionpay/mobile/android/views/order/b;

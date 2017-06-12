@@ -45,7 +45,7 @@
 
     iput-object p5, p0, Lcom/game/sdk/FYGameSDK$2;->val$loginlistener:Lcom/game/sdk/domain/OnLoginListener;
 
-    .line 132
+    .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -55,7 +55,7 @@
     .locals 1
 
     .prologue
-    .line 132
+    .line 177
     iget-object v0, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
 
     return-object v0
@@ -67,52 +67,46 @@
     .locals 7
 
     .prologue
-    .line 136
-    iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
-
-    # invokes: Lcom/game/sdk/FYGameSDK;->preInit()V
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)V
-
-    .line 138
+    .line 183
     new-instance v0, Lcom/game/sdk/engin/InitEngin;
 
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
 
     # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$1(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
+    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v0, v2}, Lcom/game/sdk/engin/InitEngin;-><init>(Landroid/content/Context;)V
 
-    .line 140
+    .line 185
     .local v0, "initEngin":Lcom/game/sdk/engin/InitEngin;
     invoke-virtual {v0}, Lcom/game/sdk/engin/InitEngin;->run()Z
 
     move-result v1
 
-    .line 142
+    .line 187
     .local v1, "result":Z
-    if-eqz v1, :cond_0
-
-    .line 143
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->val$reinitDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v2}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 145
+    .line 189
+    if-eqz v1, :cond_2
+
+    .line 190
     sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
     if-eqz v2, :cond_1
 
-    .line 146
+    .line 191
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
 
     const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Lcom/game/sdk/FYGameSDK;->access$2(Lcom/game/sdk/FYGameSDK;Z)V
+    invoke-static {v2, v3}, Lcom/game/sdk/FYGameSDK;->access$3(Lcom/game/sdk/FYGameSDK;Z)V
 
-    .line 151
+    .line 196
     :goto_0
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
 
@@ -123,11 +117,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 152
+    .line 197
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
 
     # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
-    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$1(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
+    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
 
     move-result-object v2
 
@@ -143,17 +137,33 @@
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 160
+    .line 207
     :cond_0
+    :goto_1
     return-void
 
-    .line 148
+    .line 193
     :cond_1
     iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
 
     const/4 v3, 0x0
 
-    invoke-static {v2, v3}, Lcom/game/sdk/FYGameSDK;->access$2(Lcom/game/sdk/FYGameSDK;Z)V
+    invoke-static {v2, v3}, Lcom/game/sdk/FYGameSDK;->access$3(Lcom/game/sdk/FYGameSDK;Z)V
 
     goto :goto_0
+
+    .line 205
+    :cond_2
+    iget-object v2, p0, Lcom/game/sdk/FYGameSDK$2;->this$0:Lcom/game/sdk/FYGameSDK;
+
+    # getter for: Lcom/game/sdk/FYGameSDK;->acontext:Landroid/app/Activity;
+    invoke-static {v2}, Lcom/game/sdk/FYGameSDK;->access$0(Lcom/game/sdk/FYGameSDK;)Landroid/app/Activity;
+
+    move-result-object v2
+
+    const-string v3, "\u91cd\u65b0\u521d\u59cb\u5316\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5!"
+
+    invoke-static {v2, v3}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_1
 .end method

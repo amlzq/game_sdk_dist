@@ -31,7 +31,7 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/r;->b:Lcom/unionpay/mobile/android/nocard/views/o;
 
-    sget-object v1, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v1, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v1, v1, Lcom/unionpay/mobile/android/languages/c;->s:Ljava/lang/String;
 

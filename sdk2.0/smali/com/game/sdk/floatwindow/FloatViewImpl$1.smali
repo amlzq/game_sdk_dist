@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/floatwindow/FloatViewImpl$1;->this$0:Lcom/game/sdk/floatwindow/FloatViewImpl;
 
-    .line 235
+    .line 351
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +42,7 @@
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 238
+    .line 354
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
@@ -60,7 +60,26 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 239
+    .line 356
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "current speed ->"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    sget v2, Lcom/game/sdk/floatwindow/FloatViewImpl;->speed:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 357
     iget-object v1, p0, Lcom/game/sdk/floatwindow/FloatViewImpl$1;->this$0:Lcom/game/sdk/floatwindow/FloatViewImpl;
 
     # getter for: Lcom/game/sdk/floatwindow/FloatViewImpl;->isClick:Z
@@ -78,7 +97,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 240
+    .line 358
     new-instance v0, Landroid/content/Intent;
 
     iget-object v1, p0, Lcom/game/sdk/floatwindow/FloatViewImpl$1;->this$0:Lcom/game/sdk/floatwindow/FloatViewImpl;
@@ -92,13 +111,13 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 241
+    .line 359
     .local v0, "intent":Landroid/content/Intent;
     const/high16 v1, 0x10800000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 242
+    .line 360
     iget-object v1, p0, Lcom/game/sdk/floatwindow/FloatViewImpl$1;->this$0:Lcom/game/sdk/floatwindow/FloatViewImpl;
 
     # getter for: Lcom/game/sdk/floatwindow/FloatViewImpl;->mContext:Landroid/content/Context;
@@ -108,12 +127,12 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 243
+    .line 361
     iget-object v1, p0, Lcom/game/sdk/floatwindow/FloatViewImpl$1;->this$0:Lcom/game/sdk/floatwindow/FloatViewImpl;
 
     invoke-virtual {v1}, Lcom/game/sdk/floatwindow/FloatViewImpl;->removeFloat()V
 
-    .line 248
+    .line 366
     .end local v0    # "intent":Landroid/content/Intent;
     :cond_0
     return-void

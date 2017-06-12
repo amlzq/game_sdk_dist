@@ -3,80 +3,76 @@
 .source "ThreadPoolManager.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
+    }
+.end annotation
+
+
 # static fields
-.field private static tpm:Lcom/game/sdk/utils/ThreadPoolManager;
-
-
-# instance fields
-.field private service:Ljava/util/concurrent/ExecutorService;
+.field private static mThreadPollProxy:Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 2
+.method public constructor <init>()V
+    .locals 0
 
     .prologue
-    .line 14
+    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 16
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Runtime;->availableProcessors()I
-
-    move-result v0
-
-    .line 17
-    .local v0, "num":I
-    mul-int/lit8 v1, v0, 0x2
-
-    invoke-static {v1}, Ljava/util/concurrent/Executors;->newFixedThreadPool(I)Ljava/util/concurrent/ExecutorService;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/game/sdk/utils/ThreadPoolManager;->service:Ljava/util/concurrent/ExecutorService;
-
-    .line 18
     return-void
 .end method
 
-.method public static getInstance()Lcom/game/sdk/utils/ThreadPoolManager;
-    .locals 1
+.method public static getInstance()Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
+    .locals 6
 
     .prologue
-    .line 21
-    sget-object v0, Lcom/game/sdk/utils/ThreadPoolManager;->tpm:Lcom/game/sdk/utils/ThreadPoolManager;
+    .line 15
+    const-class v1, Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
+
+    monitor-enter v1
+
+    .line 16
+    :try_start_0
+    sget-object v0, Lcom/game/sdk/utils/ThreadPoolManager;->mThreadPollProxy:Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
     if-nez v0, :cond_0
 
-    .line 22
-    new-instance v0, Lcom/game/sdk/utils/ThreadPoolManager;
+    .line 17
+    new-instance v0, Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
-    invoke-direct {v0}, Lcom/game/sdk/utils/ThreadPoolManager;-><init>()V
+    const/4 v2, 0x3
 
-    sput-object v0, Lcom/game/sdk/utils/ThreadPoolManager;->tpm:Lcom/game/sdk/utils/ThreadPoolManager;
+    const/4 v3, 0x6
 
-    .line 24
+    const-wide/16 v4, 0x3e8
+
+    invoke-direct {v0, v2, v3, v4, v5}, Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;-><init>(IIJ)V
+
+    sput-object v0, Lcom/game/sdk/utils/ThreadPoolManager;->mThreadPollProxy:Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
+
+    .line 15
     :cond_0
-    sget-object v0, Lcom/game/sdk/utils/ThreadPoolManager;->tpm:Lcom/game/sdk/utils/ThreadPoolManager;
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 20
+    sget-object v0, Lcom/game/sdk/utils/ThreadPoolManager;->mThreadPollProxy:Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
     return-object v0
-.end method
 
+    .line 15
+    :catchall_0
+    move-exception v0
 
-# virtual methods
-.method public addTask(Ljava/lang/Runnable;)V
-    .locals 1
-    .param p1, "task"    # Ljava/lang/Runnable;
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .prologue
-    .line 28
-    iget-object v0, p0, Lcom/game/sdk/utils/ThreadPoolManager;->service:Ljava/util/concurrent/ExecutorService;
-
-    invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
-    .line 29
-    return-void
+    throw v0
 .end method

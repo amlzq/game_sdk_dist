@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="bg_layout">false</item>
+    <item type="id" name="sdk_current_game_layout">false</item>
+    <item type="id" name="sdk_current_selected_icon">false</item>
+    <item type="id" name="sdk_all_game_layout">false</item>
+    <item type="id" name="sdk_all_selected_icon">false</item>
     <item type="id" name="common_title_layout">false</item>
+    <item type="id" name="back_iv">false</item>
+    <item type="id" name="title_tv">false</item>
+    <item type="id" name="right_btn">false</item>
+    <item type="id" name="common_title">false</item>
+    <item type="id" name="type_sdk_view">false</item>
+    <item type="id" name="compaign_title_tv">false</item>
+    <item type="id" name="compaign_iv">false</item>
+    <item type="id" name="compaign_time_tx">false</item>
+    <item type="id" name="start_date_tv">false</item>
+    <item type="id" name="end_date_tv">false</item>
+    <item type="id" name="body_tv">false</item>
+    <item type="id" name="web_view">false</item>
+    <item type="id" name="compaign_grid_view">false</item>
+    <item type="id" name="no_data_layout">false</item>
+    <item type="id" name="no_data_iv">false</item>
+    <item type="id" name="compaign_tv">false</item>
+    <item type="id" name="compaign_date">false</item>
+    <item type="id" name="detail_btn">false</item>
+    <item type="id" name="ll_pw">false</item>
+    <item type="id" name="coupon_list_view">false</item>
+    <item type="id" name="good_name_tv">false</item>
+    <item type="id" name="good_worth_tv">false</item>
+    <item type="id" name="good_worth_text_tv">false</item>
+    <item type="id" name="use_date_layout">false</item>
+    <item type="id" name="validate_dt">false</item>
+    <item type="id" name="to_tv">false</item>
+    <item type="id" name="loading_icon">false</item>
+    <item type="id" name="tv_msg">false</item>
+    <item type="id" name="iv_float">false</item>
+    <item type="id" name="bg_layout">false</item>
     <item type="id" name="account_login_logo">false</item>
     <item type="id" name="top_line_view">false</item>
     <item type="id" name="account_login_layout">false</item>
@@ -16,21 +49,37 @@
     <item type="id" name="into_game_layout">false</item>
     <item type="id" name="into_game_btn">false</item>
     <item type="id" name="service_number_layout">false</item>
+    <item type="id" name="service_tel_tv">false</item>
+    <item type="id" name="service_qq_tv">false</item>
     <item type="id" name="change_account_tv">false</item>
     <item type="id" name="quick_register_layout">false</item>
     <item type="id" name="register_icon">false</item>
     <item type="id" name="quick_register_tv">false</item>
-    <item type="id" name="common_title">false</item>
+    <item type="id" name="line_layout">false</item>
     <item type="id" name="update_ps_layout">false</item>
     <item type="id" name="bind_layout">false</item>
     <item type="id" name="bind_tv">false</item>
     <item type="id" name="is_bind_tv">false</item>
+    <item type="id" name="version_code_tv">false</item>
+    <item type="id" name="platform_money_tv">false</item>
+    <item type="id" name="charge_10_layout">false</item>
     <item type="id" name="charge_10_tv">false</item>
+    <item type="id" name="real_money_10_tv">false</item>
+    <item type="id" name="charge_50_layout">false</item>
     <item type="id" name="charge_50_tv">false</item>
+    <item type="id" name="real_money_50_tv">false</item>
+    <item type="id" name="charge_100_layout">false</item>
     <item type="id" name="charge_100_tv">false</item>
+    <item type="id" name="real_money_100_tv">false</item>
+    <item type="id" name="charge_200_layout">false</item>
     <item type="id" name="charge_200_tv">false</item>
+    <item type="id" name="real_money_200_tv">false</item>
+    <item type="id" name="charge_500_layout">false</item>
     <item type="id" name="charge_500_tv">false</item>
+    <item type="id" name="real_money_500_tv">false</item>
+    <item type="id" name="charge_1000_layout">false</item>
     <item type="id" name="charge_1000_tv">false</item>
+    <item type="id" name="real_money_1000_tv">false</item>
     <item type="id" name="custom_money_ev">false</item>
     <item type="id" name="alipay_layout">false</item>
     <item type="id" name="alipay_iv">false</item>
@@ -39,7 +88,13 @@
     <item type="id" name="wxpay_iv">false</item>
     <item type="id" name="wxpay_selected_icon">false</item>
     <item type="id" name="charge_btn">false</item>
-    <item type="id" name="charge_record_list">false</item>
+    <item type="id" name="call_service_tv">false</item>
+    <item type="id" name="game_charge_layout">false</item>
+    <item type="id" name="charge_select_iv">false</item>
+    <item type="id" name="charge_wait_pay_tv">false</item>
+    <item type="id" name="charge_success_tv">false</item>
+    <item type="id" name="charge_fail_tv">false</item>
+    <item type="id" name="main_content">false</item>
     <item type="id" name="common_layout">false</item>
     <item type="id" name="update_info_et">false</item>
     <item type="id" name="sex_layout">false</item>
@@ -50,17 +105,14 @@
     <item type="id" name="update_btn">false</item>
     <item type="id" name="game_package_list">false</item>
     <item type="id" name="game_package_detail_list">false</item>
-    <item type="id" name="loading_view">false</item>
+    <item type="id" name="init_bg">false</item>
     <item type="id" name="login_content">false</item>
-    <item type="id" name="pay_layout">false</item>
     <item type="id" name="left_iv">false</item>
     <item type="id" name="close_iv">false</item>
     <item type="id" name="login_out_iv">false</item>
     <item type="id" name="login_out_btn">false</item>
     <item type="id" name="down_game_box_btn">false</item>
-    <item type="id" name="main_content">false</item>
-    <item type="id" name="guide_layout">false</item>
-    <item type="id" name="title_tv">false</item>
+    <item type="id" name="pay_layout">false</item>
     <item type="id" name="product_name_tv">false</item>
     <item type="id" name="order_text_tv">false</item>
     <item type="id" name="order_amount_tv">false</item>
@@ -68,16 +120,21 @@
     <item type="id" name="coupon_icon">false</item>
     <item type="id" name="coupon_use_info_tv">false</item>
     <item type="id" name="more_coupon_layout">false</item>
+    <item type="id" name="num_layout">false</item>
+    <item type="id" name="num_tv">false</item>
     <item type="id" name="game_coin_layout">false</item>
     <item type="id" name="game_icon">false</item>
     <item type="id" name="game_money_tv">false</item>
     <item type="id" name="game_coin_unit_tv">false</item>
     <item type="id" name="platform_coin_layout">false</item>
     <item type="id" name="platform_icon">false</item>
-    <item type="id" name="platform_money_tv">false</item>
     <item type="id" name="coin_unit_tv">false</item>
     <item type="id" name="real_pay_amount_tv">false</item>
     <item type="id" name="pay_game_btn">false</item>
+    <item type="id" name="message_title_logo">false</item>
+    <item type="id" name="quick_login_layout">false</item>
+    <item type="id" name="quick_left_icon">false</item>
+    <item type="id" name="other_login_tv">false</item>
     <item type="id" name="score_store_list">false</item>
     <item type="id" name="phone_number_et">false</item>
     <item type="id" name="validate_icon">false</item>
@@ -105,46 +162,39 @@
     <item type="id" name="user_name_tv">false</item>
     <item type="id" name="validate_code_et">false</item>
     <item type="id" name="submit_btn">false</item>
+    <item type="id" name="pop_layout">false</item>
+    <item type="id" name="box_cancel_btn">false</item>
+    <item type="id" name="box_down_btn">false</item>
+    <item type="id" name="charge_record_list">false</item>
     <item type="id" name="order_text">false</item>
     <item type="id" name="order_id_tv">false</item>
-    <item type="id" name="order_state_tv">false</item>
     <item type="id" name="charge_iv">false</item>
-    <item type="id" name="game_name_tv">false</item>
+    <item type="id" name="order_state_tv">false</item>
     <item type="id" name="charge_date_tv">false</item>
+    <item type="id" name="game_name_tv">false</item>
     <item type="id" name="charge_money_tv">false</item>
-    <item type="id" name="charge_way_tv">false</item>
-    <item type="id" name="back_iv">false</item>
-    <item type="id" name="type_sdk_view">false</item>
-    <item type="id" name="compaign_title_tv">false</item>
-    <item type="id" name="compaign_iv">false</item>
-    <item type="id" name="compaign_time_tx">false</item>
-    <item type="id" name="start_date_tv">false</item>
-    <item type="id" name="end_date_tv">false</item>
-    <item type="id" name="body_tv">false</item>
-    <item type="id" name="web_view">false</item>
-    <item type="id" name="compaign_grid_view">false</item>
-    <item type="id" name="compaign_tv">false</item>
-    <item type="id" name="compaign_date">false</item>
-    <item type="id" name="detail_btn">false</item>
-    <item type="id" name="ll_pw">false</item>
-    <item type="id" name="coupon_list_view">false</item>
-    <item type="id" name="good_name_tv">false</item>
-    <item type="id" name="good_worth_tv">false</item>
-    <item type="id" name="validate_dt">false</item>
-    <item type="id" name="to_tv">false</item>
-    <item type="id" name="loading_icon">false</item>
-    <item type="id" name="tv_msg">false</item>
-    <item type="id" name="iv_float">false</item>
-    <item type="id" name="item_lay">false</item>
-    <item type="id" name="rltop">false</item>
-    <item type="id" name="username">false</item>
-    <item type="id" name="logout">false</item>
-    <item type="id" name="menu_item">false</item>
-    <item type="id" name="float_item_user_lay">false</item>
-    <item type="id" name="float_item_gift_lay">false</item>
-    <item type="id" name="float_item_server_lay">false</item>
-    <item type="id" name="message">false</item>
-    <item type="id" name="badge">false</item>
+    <item type="id" name="charge_real_money_tv">false</item>
+    <item type="id" name="continue_pay_layout">false</item>
+    <item type="id" name="continue_pay_btn">false</item>
+    <item type="id" name="cancel_pay_btn">false</item>
+    <item type="id" name="user_head_layout">false</item>
+    <item type="id" name="user_member_level_tv">false</item>
+    <item type="id" name="nick_name_iv">false</item>
+    <item type="id" name="mobile_iv">false</item>
+    <item type="id" name="platform_count_layout">false</item>
+    <item type="id" name="game_count_layout">false</item>
+    <item type="id" name="platform_count_tv">false</item>
+    <item type="id" name="platform_refresh_iv">false</item>
+    <item type="id" name="charge_layout">false</item>
+    <item type="id" name="game_count_tv">false</item>
+    <item type="id" name="game_money_list_iv">false</item>
+    <item type="id" name="viewpager">false</item>
+    <item type="id" name="auto_login_ck">false</item>
+    <item type="id" name="user_message_layout">false</item>
+    <item type="id" name="qq_service_layout">false</item>
+    <item type="id" name="first_qq_service_layout">false</item>
+    <item type="id" name="second_qq_service_layout">false</item>
+    <item type="id" name="service_layout">false</item>
     <item type="id" name="game_coin_list">false</item>
     <item type="id" name="game_iv">false</item>
     <item type="id" name="game_detail_layout">false</item>
@@ -155,36 +205,28 @@
     <item type="id" name="logo">false</item>
     <item type="id" name="pb_text">false</item>
     <item type="id" name="pb">false</item>
+    <item type="id" name="load_more_layout">false</item>
+    <item type="id" name="no_more_layout">false</item>
+    <item type="id" name="no_more_tv">false</item>
+    <item type="id" name="logining_icon">false</item>
+    <item type="id" name="login_now_tv">false</item>
     <item type="id" name="welcome_user">false</item>
-    <item type="id" name="change_account">false</item>
     <item type="id" name="lv_pw">false</item>
     <item type="id" name="login_user_name_tv">false</item>
     <item type="id" name="rl_delete">false</item>
     <item type="id" name="delete_user_icon">false</item>
+    <item type="id" name="game_sdk_logo">false</item>
     <item type="id" name="share_iv">false</item>
-    <item type="id" name="user_head_layout">false</item>
-    <item type="id" name="mobile_iv">false</item>
-    <item type="id" name="game_count_layout">false</item>
-    <item type="id" name="platform_count_tv">false</item>
-    <item type="id" name="platform_refresh_iv">false</item>
-    <item type="id" name="charge_layout">false</item>
-    <item type="id" name="game_count_tv">false</item>
-    <item type="id" name="game_money_list_iv">false</item>
-    <item type="id" name="viewpager">false</item>
-    <item type="id" name="gride_point_layout">false</item>
-    <item type="id" name="auto_login_ck">false</item>
     <item type="id" name="module_iv">false</item>
     <item type="id" name="module_tv">false</item>
-    <item type="id" name="message_title_logo">false</item>
-    <item type="id" name="quick_login_layout">false</item>
-    <item type="id" name="quick_left_icon">false</item>
-    <item type="id" name="other_login_tv">false</item>
     <item type="id" name="main_module_grid_view">false</item>
     <item type="id" name="notice_layout">false</item>
     <item type="id" name="close_icon">false</item>
-    <item type="id" name="notice_content">false</item>
-    <item type="id" name="continue_pay_btn">false</item>
-    <item type="id" name="pay_success_btn">false</item>
+    <item type="id" name="notice_webview">false</item>
+    <item type="id" name="pay_config_btn">false</item>
+    <item type="id" name="pay_cancel_btn">false</item>
+    <item type="id" name="pay_exit_btn">false</item>
+    <item type="id" name="phone_layout">false</item>
     <item type="id" name="phone_login_logo">false</item>
     <item type="id" name="login_user_et">false</item>
     <item type="id" name="quick_play_logo">false</item>
@@ -195,16 +237,15 @@
     <item type="id" name="quick_play_layout">false</item>
     <item type="id" name="quick_play_iv">false</item>
     <item type="id" name="quick_play_tv">false</item>
-    <item type="id" name="score_tv">false</item>
+    <item type="id" name="score_store_grid_view">false</item>
     <item type="id" name="exchange_btn">false</item>
     <item type="id" name="call_layout">false</item>
     <item type="id" name="tel_iv">false</item>
     <item type="id" name="call_phone_tv">false</item>
     <item type="id" name="qq_iv">false</item>
-    <item type="id" name="weixin_iv">false</item>
-    <item type="id" name="weixin_text">false</item>
-    <item type="id" name="weixin_tv">false</item>
-    <item type="id" name="pop_layout">false</item>
+    <item type="id" name="qq_text">false</item>
+    <item type="id" name="kefu_qq_num1_tv">false</item>
+    <item type="id" name="kefu_qq_num2_tv">false</item>
     <item type="id" name="share_layout">false</item>
     <item type="id" name="wechat_layout">false</item>
     <item type="id" name="wechat_img">false</item>
@@ -213,14 +254,10 @@
     <item type="id" name="qq_img">false</item>
     <item type="id" name="weibo_layout">false</item>
     <item type="id" name="weibo_img">false</item>
-    <item type="id" name="line_layout">false</item>
     <item type="id" name="cancel_layout">false</item>
     <item type="id" name="btn_login">false</item>
     <item type="id" name="et_money">false</item>
     <item type="id" name="btn_charger">false</item>
-    <item type="id" name="old_ps_layout">false</item>
-    <item type="id" name="old_ps_et">false</item>
-    <item type="id" name="old_line">false</item>
     <item type="id" name="new_ps_et">false</item>
     <item type="id" name="confirm_ps_et">false</item>
 </resources>

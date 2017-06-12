@@ -364,7 +364,7 @@
 
     .line 87
     .local v2, "orderInfo":Ljava/lang/String;
-    invoke-static {}, Lcom/game/sdk/utils/ThreadPoolManager;->getInstance()Lcom/game/sdk/utils/ThreadPoolManager;
+    invoke-static {}, Lcom/game/sdk/utils/ThreadPoolManager;->getInstance()Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
     move-result-object v4
 
@@ -372,7 +372,7 @@
 
     invoke-direct {v5, p0, v2}, Lcom/game/sdk/utils/AlipayService$2;-><init>(Lcom/game/sdk/utils/AlipayService;Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Lcom/game/sdk/utils/ThreadPoolManager;->addTask(Ljava/lang/Runnable;)V
+    invoke-virtual {v4, v5}, Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;->addTask(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

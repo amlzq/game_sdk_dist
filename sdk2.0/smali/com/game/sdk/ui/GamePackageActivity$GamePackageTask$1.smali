@@ -39,7 +39,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask$1;->this$1:Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask;
 
-    .line 118
+    .line 126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +52,7 @@
     .param p1, "response"    # Lcom/game/sdk/net/entry/Response;
 
     .prologue
-    .line 137
+    .line 145
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .end annotation
 
     .prologue
-    .line 123
+    .line 131
     .local p1, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/GamePackageList;>;"
     iget-object v1, p1, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
@@ -91,7 +91,7 @@
 
     if-lez v1, :cond_0
 
-    .line 124
+    .line 132
     iget-object v1, p0, Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask$1;->this$1:Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask;
 
     # getter for: Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask;->this$0:Lcom/game/sdk/ui/GamePackageActivity;
@@ -107,18 +107,18 @@
 
     iput-object v1, v2, Lcom/game/sdk/ui/GamePackageActivity;->list:Ljava/util/List;
 
-    .line 127
+    .line 135
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 128
+    .line 136
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 129
+    .line 137
     iget-object v1, p0, Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask$1;->this$1:Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask;
 
     # getter for: Lcom/game/sdk/ui/GamePackageActivity$GamePackageTask;->this$0:Lcom/game/sdk/ui/GamePackageActivity;
@@ -133,7 +133,7 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 132
+    .line 140
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void

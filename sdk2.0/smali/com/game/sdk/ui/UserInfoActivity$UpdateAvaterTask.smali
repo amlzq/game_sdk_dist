@@ -37,15 +37,15 @@
     .param p2, "uUserInfo"    # Lcom/game/sdk/domain/UserInfo;
 
     .prologue
-    .line 475
+    .line 488
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateAvaterTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 476
+    .line 489
     iput-object p2, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateAvaterTask;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 477
+    .line 490
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 486
+    .line 499
     new-instance v0, Lcom/game/sdk/engin/UpdateAvaterEngin;
 
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateAvaterTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
@@ -67,7 +67,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/game/sdk/engin/UpdateAvaterEngin;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 487
+    .line 500
     .local v0, "acaterEngin":Lcom/game/sdk/engin/UpdateAvaterEngin;
     invoke-virtual {v0}, Lcom/game/sdk/engin/UpdateAvaterEngin;->updateUserAvater()Z
 
@@ -99,35 +99,35 @@
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    .line 492
+    .line 505
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 493
+    .line 506
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateAvaterTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     iget-object v1, v1, Lcom/game/sdk/ui/UserInfoActivity;->updateDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 494
+    .line 507
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 497
+    .line 510
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 498
+    .line 511
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 499
+    .line 512
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateAvaterTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->handler:Landroid/os/Handler;
@@ -137,17 +137,17 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 501
+    .line 514
     const-string v1, "\u4fee\u6539\u7528\u6237\u4fe1\u606f\u6210\u529f----"
 
     invoke-static {v1}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 506
+    .line 519
     .end local v0    # "msg":Landroid/os/Message;
     :goto_0
     return-void
 
-    .line 503
+    .line 516
     :cond_0
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$UpdateAvaterTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
@@ -155,7 +155,7 @@
 
     invoke-static {v1, v2}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 504
+    .line 517
     const-string v1, "\u4fee\u6539\u7528\u6237\u4fe1\u606f\u5931\u8d25----"
 
     invoke-static {v1}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
@@ -179,9 +179,9 @@
     .locals 0
 
     .prologue
-    .line 481
+    .line 494
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 482
+    .line 495
     return-void
 .end method

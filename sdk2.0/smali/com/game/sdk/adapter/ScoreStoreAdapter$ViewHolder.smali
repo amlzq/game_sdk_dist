@@ -21,8 +21,6 @@
 
 .field scoreGameIv:Landroid/widget/ImageView;
 
-.field scoreTv:Landroid/widget/TextView;
-
 .field final synthetic this$0:Lcom/game/sdk/adapter/ScoreStoreAdapter;
 
 
@@ -31,7 +29,7 @@
     .locals 0
 
     .prologue
-    .line 135
+    .line 129
     iput-object p1, p0, Lcom/game/sdk/adapter/ScoreStoreAdapter$ViewHolder;->this$0:Lcom/game/sdk/adapter/ScoreStoreAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

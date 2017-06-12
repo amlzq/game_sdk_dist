@@ -6,14 +6,14 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/unionpay/mobile/android/widgets/ai;
+.field final synthetic a:Lcom/unionpay/mobile/android/widgets/aj;
 
 
 # direct methods
-.method constructor <init>(Lcom/unionpay/mobile/android/widgets/ai;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/widgets/aj;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/ai;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/aj;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -23,35 +23,19 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/aj;
 
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/ai;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v0, v2}, Lcom/unionpay/mobile/android/widgets/ai;->a(Lcom/unionpay/mobile/android/widgets/ai;II)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/ai;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/ai;->a(Lcom/unionpay/mobile/android/widgets/ai;)Landroid/widget/PopupWindow;
+    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/aj;->a(Lcom/unionpay/mobile/android/widgets/aj;)Landroid/widget/PopupWindow;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/ai;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ak;->a:Lcom/unionpay/mobile/android/widgets/aj;
 
-    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/ai;->a(Lcom/unionpay/mobile/android/widgets/ai;)Landroid/widget/PopupWindow;
+    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/aj;->a(Lcom/unionpay/mobile/android/widgets/aj;)Landroid/widget/PopupWindow;
 
     move-result-object v0
 

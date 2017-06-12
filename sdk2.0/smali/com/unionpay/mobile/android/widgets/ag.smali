@@ -1,268 +1,249 @@
-.class public final Lcom/unionpay/mobile/android/widgets/ag;
-.super Lcom/unionpay/mobile/android/widgets/z;
+.class final Lcom/unionpay/mobile/android/widgets/ag;
+.super Ljava/lang/Object;
 
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/unionpay/mobile/android/widgets/ag$a;
-    }
-.end annotation
+# interfaces
+.implements Landroid/text/TextWatcher;
 
 
 # instance fields
-.field private n:Lcom/unionpay/mobile/android/widgets/ag$a;
+.field final synthetic a:Lcom/unionpay/mobile/android/widgets/af;
 
-.field private o:Ljava/lang/String;
+.field private b:Z
 
-.field private p:Ljava/lang/String;
+.field private c:I
+
+.field private d:Z
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;ILorg/json/JSONObject;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/widgets/af;)V
     .locals 1
+
+    iput-object p1, p0, Lcom/unionpay/mobile/android/widgets/ag;->a:Lcom/unionpay/mobile/android/widgets/af;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Z
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/unionpay/mobile/android/widgets/ag;-><init>(Landroid/content/Context;ILorg/json/JSONObject;B)V
+    iput-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->d:Z
 
     return-void
 .end method
 
-.method private constructor <init>(Landroid/content/Context;ILorg/json/JSONObject;B)V
-    .locals 4
+.method private a(Ljava/lang/CharSequence;I)Ljava/lang/String;
+    .locals 8
 
     const/4 v0, 0x0
 
-    const/4 v3, -0x1
+    const/16 v7, 0x20
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/unionpay/mobile/android/widgets/z;-><init>(Landroid/content/Context;ILorg/json/JSONObject;)V
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->n:Lcom/unionpay/mobile/android/widgets/ag$a;
+    move-result v2
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->o:Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->p:Ljava/lang/String;
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string v0, "button_label"
+    move v1, v0
 
-    invoke-static {p3, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    :goto_0
+    if-ge v1, v2, :cond_3
 
-    move-result-object v0
+    invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->o:Ljava/lang/String;
+    move-result v4
 
-    const-string v0, "button_action"
+    if-eq v4, v7, :cond_0
 
-    invoke-static {p3, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    add-int/lit8 v0, v0, 0x1
 
-    move-result-object v0
+    if-eqz v1, :cond_0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->p:Ljava/lang/String;
+    and-int/lit8 v5, v0, 0x3
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Lcom/unionpay/mobile/android/widgets/t;
+    const/4 v6, 0x1
 
-    new-instance v1, Landroid/text/InputFilter$LengthFilter;
+    if-ne v5, v6, :cond_0
 
-    const/16 v2, 0xb
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-direct {v1, v2}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
+    :cond_0
+    if-ne v1, p2, :cond_1
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/t;->a(Landroid/text/InputFilter;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->length()I
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Lcom/unionpay/mobile/android/widgets/t;
+    move-result v5
 
-    const/4 v1, 0x2
+    iput v5, p0, Lcom/unionpay/mobile/android/widgets/ag;->c:I
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/t;->a(I)V
+    :cond_1
+    if-eq v4, v7, :cond_2
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->o:Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    if-eqz v0, :cond_0
+    :cond_2
+    add-int/lit8 v1, v1, 0x1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->o:Ljava/lang/String;
+    goto :goto_0
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    :cond_3
+    if-ne p2, v2, :cond_4
+
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->length()I
 
     move-result v0
 
-    if-gtz v0, :cond_1
+    iput v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->c:I
 
-    :cond_0
-    :goto_0
-    return-void
+    :cond_4
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    :cond_1
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->a:I
-
-    sget v0, Lcom/unionpay/mobile/android/global/a;->b:I
-
-    new-instance v0, Landroid/widget/RelativeLayout$LayoutParams;
-
-    sget v1, Lcom/unionpay/mobile/android/global/b;->n:I
-
-    invoke-direct {v0, v3, v1}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
-
-    const/16 v1, 0x9
-
-    invoke-virtual {v0, v1, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    const/16 v1, 0xf
-
-    invoke-virtual {v0, v1, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Lcom/unionpay/mobile/android/widgets/t;
-
-    invoke-virtual {v1, v0}, Lcom/unionpay/mobile/android/widgets/t;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    new-instance v0, Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/ag;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
-
-    const/16 v1, 0x11
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
-
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ag;->o:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    const v1, -0x777778
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
-
-    sget v1, Lcom/unionpay/mobile/android/global/b;->k:F
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
-
-    new-instance v1, Lcom/unionpay/mobile/android/widgets/ah;
-
-    invoke-direct {v1, p0}, Lcom/unionpay/mobile/android/widgets/ah;-><init>(Lcom/unionpay/mobile/android/widgets/ag;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v2, -0x2
-
-    invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Lcom/unionpay/mobile/android/widgets/t;
-
-    invoke-virtual {v2, v0, v1}, Lcom/unionpay/mobile/android/widgets/t;->a(Landroid/view/View;Landroid/widget/LinearLayout$LayoutParams;)V
-
-    goto :goto_0
-.end method
-
-.method static synthetic a(Lcom/unionpay/mobile/android/widgets/ag;)Lcom/unionpay/mobile/android/widgets/ag$a;
-    .locals 1
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->n:Lcom/unionpay/mobile/android/widgets/ag$a;
-
-    return-object v0
-.end method
-
-.method static synthetic b(Lcom/unionpay/mobile/android/widgets/ag;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->p:Ljava/lang/String;
+    move-result-object v0
 
     return-object v0
 .end method
 
 
 # virtual methods
-.method public final a()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Lcom/unionpay/mobile/android/widgets/t;
-
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/t;->b()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public final a(Lcom/unionpay/mobile/android/widgets/ag$a;)V
+.method public final afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-
-    iput-object p1, p0, Lcom/unionpay/mobile/android/widgets/ag;->n:Lcom/unionpay/mobile/android/widgets/ag$a;
 
     return-void
 .end method
 
-.method public final b()Z
+.method public final beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 3
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    iget-boolean v1, p0, Lcom/unionpay/mobile/android/widgets/ag;->h:Z
+    if-ne p3, v2, :cond_0
 
-    if-eqz v1, :cond_1
+    if-nez p4, :cond_0
+
+    invoke-interface {p1, p2}, Ljava/lang/CharSequence;->charAt(I)C
+
+    move-result v0
+
+    const/16 v1, 0x20
+
+    if-ne v0, v1, :cond_0
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/widgets/ag;->d:Z
 
     :cond_0
+    return-void
+.end method
+
+.method public final onTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 4
+
+    const/16 v1, 0x17
+
+    const/4 v3, 0x0
+
+    iget-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Z
+
+    if-nez v0, :cond_0
+
     :goto_0
-    return v0
+    return-void
 
-    :cond_1
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ag;->i:Ljava/lang/String;
+    :cond_0
+    iget-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->d:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ag;->i:Ljava/lang/String;
+    add-int/lit8 v0, p2, -0x1
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-interface {p1, v3, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
-    move-result v1
+    move-result-object v0
 
-    if-nez v1, :cond_3
-
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/ag;->a()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/ag;->i:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    const/16 v1, 0xb
-
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/ag;->a()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ne v1, v2, :cond_2
+    if-ge p2, v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/ag;->a()Ljava/lang/String;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "1"
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result-object v0
 
-    move-result v1
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_2
+    move-result-object v0
+
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+
+    move-result v2
+
+    invoke-interface {p1, p2, v2}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_1
+    add-int/lit8 p2, p2, -0x1
+
+    iput-boolean v3, p0, Lcom/unionpay/mobile/android/widgets/ag;->d:Z
+
+    :goto_1
+    iput-boolean v3, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Z
+
+    add-int v2, p2, p4
+
+    invoke-direct {p0, v0, v2}, Lcom/unionpay/mobile/android/widgets/ag;->a(Ljava/lang/CharSequence;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/ag;->a:Lcom/unionpay/mobile/android/widgets/af;
+
+    iget-object v2, v2, Lcom/unionpay/mobile/android/widgets/af;->b:Lcom/unionpay/mobile/android/widgets/u;
+
+    invoke-virtual {v2, v0}, Lcom/unionpay/mobile/android/widgets/u;->c(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->a:Lcom/unionpay/mobile/android/widgets/af;
+
+    iget-object v2, v0, Lcom/unionpay/mobile/android/widgets/af;->b:Lcom/unionpay/mobile/android/widgets/u;
+
+    iget v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->c:I
+
+    if-gt v0, v1, :cond_2
+
+    iget v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->c:I
+
+    :goto_2
+    invoke-virtual {v2, v0}, Lcom/unionpay/mobile/android/widgets/u;->b(I)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/ag;->b:Z
 
     goto :goto_0
+
+    :cond_2
+    move v0, v1
+
+    goto :goto_2
+
+    :cond_3
+    move-object v0, p1
+
+    goto :goto_1
 .end method

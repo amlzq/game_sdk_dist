@@ -23,7 +23,17 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/w;->a:Lcom/unionpay/mobile/android/nocard/views/o;
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/w;->a:Lcom/unionpay/mobile/android/nocard/views/o;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/o;->d:Landroid/content/Context;
+
+    const-string v1, "loginpay_input_cardNO_next"
+
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/nocard/views/o;->a(Landroid/content/Context;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/w;->a:Lcom/unionpay/mobile/android/nocard/views/o;
 

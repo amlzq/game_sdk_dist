@@ -8,9 +8,11 @@
 # instance fields
 .field private a:Ljavax/net/ssl/X509TrustManager;
 
+.field private b:Landroid/content/Context;
+
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -24,6 +26,8 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/net/b;->a:Ljavax/net/ssl/X509TrustManager;
+
+    iput-object p1, p0, Lcom/unionpay/mobile/android/net/b;->b:Landroid/content/Context;
 
     invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
 
@@ -81,12 +85,16 @@
 .end method
 
 .method public final checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .locals 4
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;
         }
     .end annotation
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/net/b;->a:Ljavax/net/ssl/X509TrustManager;
 
@@ -99,67 +107,70 @@
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
+    new-instance v5, Ljava/util/ArrayList;
 
-    move-result-object v1
+    const/4 v0, 0x0
 
-    invoke-static {}, Lcom/unionpay/mobile/android/net/HttpNative;->a()Lcom/unionpay/mobile/android/net/HttpNative;
+    invoke-direct {v5, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    move-result-object v2
+    const-string v0, ".*O=(GeoTrust Inc\\.|VeriSign\\\\, Inc\\.|Symantec Corporation).*"
 
-    const/4 v3, 0x0
+    invoke-interface {v5, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Lcom/unionpay/mobile/android/net/HttpNative;->getIssuer(I)Ljava/lang/String;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/net/b;->b:Landroid/content/Context;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/unionpay/mobile/android/net/HttpNative;->a()Lcom/unionpay/mobile/android/net/HttpNative;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Lcom/unionpay/mobile/android/net/HttpNative;->getIssuer(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
+    invoke-static {v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/unionpay/mobile/android/net/HttpNative;->a()Lcom/unionpay/mobile/android/net/HttpNative;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v1
+    move-result v3
 
-    const/4 v2, 0x2
+    if-nez v3, :cond_0
 
-    invoke-virtual {v1, v2}, Lcom/unionpay/mobile/android/net/HttpNative;->getIssuer(I)Ljava/lang/String;
+    invoke-interface {v5, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    :cond_0
+    move v3, v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_0
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-ge v3, v0, :cond_6
+
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    invoke-virtual {v4}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    :goto_1
+    if-nez v0, :cond_2
 
     new-instance v0, Ljava/security/cert/CertificateException;
 
@@ -178,7 +189,14 @@
 
     throw v0
 
-    :cond_0
+    :cond_1
+    add-int/lit8 v0, v3, 0x1
+
+    move v3, v0
+
+    goto :goto_0
+
+    :cond_2
     const/4 v0, 0x0
 
     :try_start_1
@@ -186,67 +204,55 @@
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
+    new-instance v5, Ljava/util/ArrayList;
 
-    move-result-object v1
+    const/4 v0, 0x0
 
-    invoke-static {}, Lcom/unionpay/mobile/android/net/HttpNative;->a()Lcom/unionpay/mobile/android/net/HttpNative;
+    invoke-direct {v5, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    move-result-object v2
+    const-string v0, ".*CN=.*(\\.95516\\.com|\\.chinaunionpay\\.com|\\.unionpay\\.com|\\.unionpaysecure\\.com|\\.95516\\.net).*"
 
-    const/4 v3, 0x0
+    invoke-interface {v5, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Lcom/unionpay/mobile/android/net/HttpNative;->getSubject(I)Ljava/lang/String;
+    move v3, v2
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/unionpay/mobile/android/net/HttpNative;->a()Lcom/unionpay/mobile/android/net/HttpNative;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Lcom/unionpay/mobile/android/net/HttpNative;->getSubject(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/unionpay/mobile/android/net/HttpNative;->a()Lcom/unionpay/mobile/android/net/HttpNative;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    invoke-virtual {v1, v2}, Lcom/unionpay/mobile/android/net/HttpNative;->getSubject(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_2
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-ge v3, v0, :cond_5
+
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    invoke-virtual {v4}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    move v0, v1
+
+    :goto_3
+    if-nez v0, :cond_4
 
     new-instance v0, Ljava/security/cert/CertificateException;
 
@@ -256,8 +262,25 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    :cond_1
+    :cond_3
+    add-int/lit8 v0, v3, 0x1
+
+    move v3, v0
+
+    goto :goto_2
+
+    :cond_4
     return-void
+
+    :cond_5
+    move v0, v2
+
+    goto :goto_3
+
+    :cond_6
+    move v0, v2
+
+    goto :goto_1
 .end method
 
 .method public final getAcceptedIssuers()[Ljava/security/cert/X509Certificate;

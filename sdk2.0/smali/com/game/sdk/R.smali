@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/game/sdk/R$anim;,
         Lcom/game/sdk/R$attr;,
         Lcom/game/sdk/R$color;,
         Lcom/game/sdk/R$drawable;,

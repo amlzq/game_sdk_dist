@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/MainFragment$2;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
 
-    .line 226
+    .line 294
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +43,7 @@
     .param p2, "isChecked"    # Z
 
     .prologue
-    .line 230
+    .line 299
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/MainFragment$2;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
@@ -55,10 +55,12 @@
 
     move-result-object v0
 
+    .line 300
     const-string v1, "is_auto_login"
 
+    .line 299
     invoke-virtual {v0, v1, p2}, Lcom/game/sdk/utils/PreferenceUtil;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 231
+    .line 301
     return-void
 .end method

@@ -87,30 +87,30 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 47
+    .line 49
     invoke-direct {p0}, Lcom/game/sdk/ui/BaseActivity;-><init>()V
 
-    .line 89
+    .line 91
     iput-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->photo:Landroid/graphics/Bitmap;
 
-    .line 91
+    .line 93
     iput-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->headBitmap:Landroid/graphics/Bitmap;
 
-    .line 102
+    .line 104
     new-instance v0, Lcom/game/sdk/ui/UserInfoActivity$1;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/ui/UserInfoActivity$1;-><init>(Lcom/game/sdk/ui/UserInfoActivity;)V
 
     iput-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->handler:Landroid/os/Handler;
 
-    .line 307
+    .line 320
     new-instance v0, Lcom/game/sdk/ui/UserInfoActivity$2;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/ui/UserInfoActivity$2;-><init>(Lcom/game/sdk/ui/UserInfoActivity;)V
 
     iput-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->datelistener:Landroid/app/DatePickerDialog$OnDateSetListener;
 
-    .line 47
+    .line 49
     return-void
 .end method
 
@@ -118,7 +118,7 @@
     .locals 0
 
     .prologue
-    .line 95
+    .line 97
     iput p1, p0, Lcom/game/sdk/ui/UserInfoActivity;->month:I
 
     return-void
@@ -128,7 +128,7 @@
     .locals 0
 
     .prologue
-    .line 97
+    .line 99
     iput p1, p0, Lcom/game/sdk/ui/UserInfoActivity;->day:I
 
     return-void
@@ -138,7 +138,7 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 95
     iget v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->year:I
 
     return v0
@@ -148,7 +148,7 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 97
     iget v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->month:I
 
     return v0
@@ -158,7 +158,7 @@
     .locals 1
 
     .prologue
-    .line 97
+    .line 99
     iget v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->day:I
 
     return v0
@@ -168,7 +168,7 @@
     .locals 0
 
     .prologue
-    .line 99
+    .line 101
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity;->updateUserInfoEngin:Lcom/game/sdk/engin/UpdateUserInfoEngin;
 
     return-void
@@ -178,7 +178,7 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 101
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->updateUserInfoEngin:Lcom/game/sdk/engin/UpdateUserInfoEngin;
 
     return-object v0
@@ -188,7 +188,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 83
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->userInfoEngin:Lcom/game/sdk/engin/UserInfoEngin;
 
     return-object v0
@@ -198,7 +198,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 104
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->handler:Landroid/os/Handler;
 
     return-object v0
@@ -208,7 +208,7 @@
     .locals 1
 
     .prologue
-    .line 53
+    .line 55
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->userHeadIv:Lcom/game/sdk/view/CustomRoundImageView;
 
     return-object v0
@@ -218,7 +218,7 @@
     .locals 1
 
     .prologue
-    .line 55
+    .line 57
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->nicknNameTv:Landroid/widget/TextView;
 
     return-object v0
@@ -228,7 +228,7 @@
     .locals 1
 
     .prologue
-    .line 57
+    .line 59
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexTv:Landroid/widget/TextView;
 
     return-object v0
@@ -238,7 +238,7 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 61
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthTv:Landroid/widget/TextView;
 
     return-object v0
@@ -248,7 +248,7 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 63
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileTv:Landroid/widget/TextView;
 
     return-object v0
@@ -258,7 +258,7 @@
     .locals 1
 
     .prologue
-    .line 63
+    .line 65
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailTv:Landroid/widget/TextView;
 
     return-object v0
@@ -268,7 +268,7 @@
     .locals 1
 
     .prologue
-    .line 65
+    .line 67
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqTv:Landroid/widget/TextView;
 
     return-object v0
@@ -278,7 +278,7 @@
     .locals 0
 
     .prologue
-    .line 93
+    .line 95
     iput p1, p0, Lcom/game/sdk/ui/UserInfoActivity;->year:I
 
     return-void
@@ -290,8 +290,8 @@
     .locals 1
 
     .prologue
-    .line 144
-    const-string v0, "activity_user_info"
+    .line 146
+    const-string v0, "fysdk_activity_user_info"
 
     return-object v0
 .end method
@@ -300,7 +300,7 @@
     .locals 2
 
     .prologue
-    .line 201
+    .line 208
     new-instance v0, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;
 
     const/4 v1, 0x0
@@ -313,7 +313,7 @@
 
     invoke-virtual {v0, v1}, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 202
+    .line 209
     return-void
 .end method
 
@@ -321,301 +321,333 @@
     .locals 0
 
     .prologue
-    .line 149
+    .line 151
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->initVars()V
 
-    .line 150
+    .line 152
     return-void
 .end method
 
 .method public initViews()V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 154
+    .line 156
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->initViews()V
 
-    .line 156
-    new-instance v1, Lokhttp3/OkHttpClient;
-
-    invoke-direct {v1}, Lokhttp3/OkHttpClient;-><init>()V
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->mOkHttpClient:Lokhttp3/OkHttpClient;
-
-    .line 157
-    new-instance v1, Lcom/game/sdk/view/CustomDialog;
-
-    const-string v2, "\u6b63\u5728\u4fee\u6539"
-
-    invoke-direct {v1, p0, v2}, Lcom/game/sdk/view/CustomDialog;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->updateDialog:Lcom/game/sdk/view/CustomDialog;
-
     .line 158
-    new-instance v1, Lcom/game/sdk/domain/UserInfo;
+    new-instance v2, Lokhttp3/OkHttpClient;
 
-    invoke-direct {v1}, Lcom/game/sdk/domain/UserInfo;-><init>()V
+    invoke-direct {v2}, Lokhttp3/OkHttpClient;-><init>()V
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->mOkHttpClient:Lokhttp3/OkHttpClient;
+
+    .line 159
+    new-instance v2, Lcom/game/sdk/view/CustomDialog;
+
+    const-string v3, "\u6b63\u5728\u4fee\u6539"
+
+    invoke-direct {v2, p0, v3}, Lcom/game/sdk/view/CustomDialog;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->updateDialog:Lcom/game/sdk/view/CustomDialog;
 
     .line 160
-    const-string v1, "title_tv"
+    new-instance v2, Lcom/game/sdk/domain/UserInfo;
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+    invoke-direct {v2}, Lcom/game/sdk/domain/UserInfo;-><init>()V
 
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->titleTv:Landroid/widget/TextView;
-
-    .line 161
-    const-string v1, "back_iv"
-
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->backIv:Landroid/widget/ImageView;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
     .line 162
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->titleTv:Landroid/widget/TextView;
+    const-string v2, "title_tv"
 
-    const-string v2, "update_user_info_text"
-
-    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findStringByResId(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->titleTv:Landroid/widget/TextView;
+
+    .line 163
+    const-string v2, "back_iv"
+
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->backIv:Landroid/widget/ImageView;
 
     .line 164
-    const-string v1, "user_head_iv"
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->titleTv:Landroid/widget/TextView;
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    const-string v3, "update_user_info_text"
 
-    move-result-object v1
+    invoke-virtual {p0, v3}, Lcom/game/sdk/ui/UserInfoActivity;->findStringByResId(Ljava/lang/String;)Ljava/lang/String;
 
-    check-cast v1, Lcom/game/sdk/view/CustomRoundImageView;
+    move-result-object v3
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->userHeadIv:Lcom/game/sdk/view/CustomRoundImageView;
-
-    .line 165
-    const-string v1, "nick_name_tv"
-
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->nicknNameTv:Landroid/widget/TextView;
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 166
-    const-string v1, "sex_tv"
+    const-string v2, "user_head_iv"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexTv:Landroid/widget/TextView;
+    check-cast v2, Lcom/game/sdk/view/CustomRoundImageView;
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->userHeadIv:Lcom/game/sdk/view/CustomRoundImageView;
 
     .line 167
-    const-string v1, "birth_tv"
+    const-string v2, "nick_name_tv"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthTv:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->nicknNameTv:Landroid/widget/TextView;
 
     .line 168
-    const-string v1, "mobile_tv"
+    const-string v2, "sex_tv"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileTv:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexTv:Landroid/widget/TextView;
 
     .line 169
-    const-string v1, "email_tv"
+    const-string v2, "birth_tv"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailTv:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthTv:Landroid/widget/TextView;
 
     .line 170
-    const-string v1, "qq_tv"
+    const-string v2, "mobile_tv"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqTv:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileTv:Landroid/widget/TextView;
+
+    .line 171
+    const-string v2, "email_tv"
+
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailTv:Landroid/widget/TextView;
 
     .line 172
-    const-string v1, "head_layout"
+    const-string v2, "qq_tv"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/RelativeLayout;
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->headLayout:Landroid/widget/RelativeLayout;
-
-    .line 173
-    const-string v1, "nick_name_layout"
-
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/RelativeLayout;
-
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->nickNameLayout:Landroid/widget/RelativeLayout;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqTv:Landroid/widget/TextView;
 
     .line 174
-    const-string v1, "sex_layout"
+    const-string v2, "head_layout"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/RelativeLayout;
+    check-cast v2, Landroid/widget/RelativeLayout;
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexLayout:Landroid/widget/RelativeLayout;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->headLayout:Landroid/widget/RelativeLayout;
 
     .line 175
-    const-string v1, "birth_layout"
+    const-string v2, "nick_name_layout"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/RelativeLayout;
+    check-cast v2, Landroid/widget/RelativeLayout;
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthLayout:Landroid/widget/RelativeLayout;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->nickNameLayout:Landroid/widget/RelativeLayout;
 
     .line 176
-    const-string v1, "mobile_layout"
+    const-string v2, "sex_layout"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/RelativeLayout;
+    check-cast v2, Landroid/widget/RelativeLayout;
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileLayout:Landroid/widget/RelativeLayout;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexLayout:Landroid/widget/RelativeLayout;
 
     .line 177
-    const-string v1, "email_layout"
+    const-string v2, "birth_layout"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/RelativeLayout;
+    check-cast v2, Landroid/widget/RelativeLayout;
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailLayout:Landroid/widget/RelativeLayout;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthLayout:Landroid/widget/RelativeLayout;
 
     .line 178
-    const-string v1, "qq_layout"
+    const-string v2, "mobile_layout"
 
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/RelativeLayout;
+    check-cast v2, Landroid/widget/RelativeLayout;
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqLayout:Landroid/widget/RelativeLayout;
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileLayout:Landroid/widget/RelativeLayout;
+
+    .line 179
+    const-string v2, "email_layout"
+
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/RelativeLayout;
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailLayout:Landroid/widget/RelativeLayout;
 
     .line 180
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->backIv:Landroid/widget/ImageView;
+    const-string v2, "qq_layout"
 
-    invoke-virtual {v1, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/UserInfoActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
-    .line 181
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->headLayout:Landroid/widget/RelativeLayout;
+    move-result-object v2
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    check-cast v2, Landroid/widget/RelativeLayout;
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqLayout:Landroid/widget/RelativeLayout;
 
     .line 182
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->nickNameLayout:Landroid/widget/RelativeLayout;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->backIv:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 183
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexLayout:Landroid/widget/RelativeLayout;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->headLayout:Landroid/widget/RelativeLayout;
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 184
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthLayout:Landroid/widget/RelativeLayout;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->nickNameLayout:Landroid/widget/RelativeLayout;
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 185
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileLayout:Landroid/widget/RelativeLayout;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->sexLayout:Landroid/widget/RelativeLayout;
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 186
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailLayout:Landroid/widget/RelativeLayout;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->birthLayout:Landroid/widget/RelativeLayout;
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 187
-    iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqLayout:Landroid/widget/RelativeLayout;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->mobileLayout:Landroid/widget/RelativeLayout;
 
-    invoke-virtual {v1, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 188
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->emailLayout:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 189
-    new-instance v1, Lcom/game/sdk/engin/UserInfoEngin;
+    iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->qqLayout:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v2, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 191
+    new-instance v2, Lcom/game/sdk/engin/UserInfoEngin;
+
+    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v3, v3, Lcom/game/sdk/domain/UserInfo;->userId:Ljava/lang/String;
+
+    invoke-direct {v2, p0, v3}, Lcom/game/sdk/engin/UserInfoEngin;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    iput-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->userInfoEngin:Lcom/game/sdk/engin/UserInfoEngin;
+
+    .line 193
+    const-string v0, ""
+
+    .line 194
+    .local v0, "birth":Ljava/lang/String;
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    if-eqz v2, :cond_0
 
     sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->userId:Ljava/lang/String;
+    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->birth:Ljava/lang/String;
 
-    invoke-direct {v1, p0, v2}, Lcom/game/sdk/engin/UserInfoEngin;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v2}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    iput-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->userInfoEngin:Lcom/game/sdk/engin/UserInfoEngin;
+    move-result v2
 
-    .line 192
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v0
-
-    .line 194
-    .local v0, "mycalendar":Ljava/util/Calendar;
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x18
-
-    iput v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->year:I
+    if-nez v2, :cond_0
 
     .line 195
-    const/4 v1, 0x2
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    iget-object v0, v2, Lcom/game/sdk/domain/UserInfo;->birth:Ljava/lang/String;
 
-    move-result v1
+    .line 199
+    :cond_0
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    iput v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->month:I
+    move-result-object v1
 
-    .line 196
-    const/4 v1, 0x5
+    .line 200
+    .local v1, "mycalendar":Ljava/util/Calendar;
+    sget-object v2, Lcom/game/sdk/utils/TimeUtils;->DATE_FORMAT_DATE:Ljava/text/SimpleDateFormat;
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    invoke-static {v0, v2}, Lcom/game/sdk/utils/TimeUtils;->getDateTime(Ljava/lang/String;Ljava/text/SimpleDateFormat;)Ljava/util/Date;
 
-    move-result v1
+    move-result-object v2
 
-    iput v1, p0, Lcom/game/sdk/ui/UserInfoActivity;->day:I
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
 
-    .line 197
+    .line 201
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->year:I
+
+    .line 202
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->month:I
+
+    .line 203
+    const/4 v2, 0x5
+
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/game/sdk/ui/UserInfoActivity;->day:I
+
+    .line 204
     return-void
 .end method
 
@@ -626,10 +658,10 @@
     .param p3, "data"    # Landroid/content/Intent;
 
     .prologue
-    .line 369
+    .line 382
     invoke-super/range {p0 .. p3}, Lcom/game/sdk/ui/BaseActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 371
+    .line 384
     const/4 v1, -0x1
 
     move/from16 v0, p2
@@ -638,13 +670,13 @@
 
     if-eqz p3, :cond_5
 
-    .line 373
+    .line 386
     :try_start_0
     invoke-virtual/range {p3 .. p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v11
 
-    .line 374
+    .line 387
     .local v11, "extras":Landroid/os/Bundle;
     const/4 v1, 0x0
 
@@ -652,10 +684,10 @@
 
     iput-object v1, v0, Lcom/game/sdk/ui/UserInfoActivity;->photo:Landroid/graphics/Bitmap;
 
-    .line 375
+    .line 388
     if-eqz v11, :cond_0
 
-    .line 376
+    .line 389
     const-string v1, "data"
 
     invoke-virtual {v11, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -668,7 +700,7 @@
 
     iput-object v1, v0, Lcom/game/sdk/ui/UserInfoActivity;->photo:Landroid/graphics/Bitmap;
 
-    .line 379
+    .line 392
     :cond_0
     move-object/from16 v0, p0
 
@@ -676,12 +708,12 @@
 
     if-nez v1, :cond_4
 
-    .line 380
+    .line 393
     invoke-virtual/range {p3 .. p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v2
 
-    .line 382
+    .line 395
     .local v2, "selectedImage":Landroid/net/Uri;
     const/4 v1, 0x1
 
@@ -693,7 +725,7 @@
 
     aput-object v4, v3, v1
 
-    .line 383
+    .line 396
     .local v3, "filePathColumn":[Ljava/lang/String;
     invoke-virtual/range {p0 .. p0}, Lcom/game/sdk/ui/UserInfoActivity;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -709,18 +741,18 @@
 
     move-result-object v9
 
-    .line 384
+    .line 397
     .local v9, "cursor":Landroid/database/Cursor;
     const-string v16, ""
 
-    .line 385
+    .line 398
     .local v16, "picturePath":Ljava/lang/String;
     if-eqz v9, :cond_2
 
-    .line 386
+    .line 399
     invoke-interface {v9}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 387
+    .line 400
     const/4 v1, 0x0
 
     aget-object v1, v3, v1
@@ -729,16 +761,16 @@
 
     move-result v8
 
-    .line 388
+    .line 401
     .local v8, "columnIndex":I
     invoke-interface {v9, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v16
 
-    .line 389
+    .line 402
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
-    .line 393
+    .line 406
     .end local v8    # "columnIndex":I
     :goto_0
     const/4 v1, 0x1
@@ -747,69 +779,69 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 394
+    .line 407
     new-instance v13, Landroid/content/Intent;
 
     const-string v1, "com.android.camera.action.CROP"
 
     invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 395
+    .line 408
     .local v13, "intent":Landroid/content/Intent;
     const-string v1, "image/*"
 
     invoke-virtual {v13, v2, v1}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 396
+    .line 409
     const-string v1, "crop"
 
     const-string v4, "true"
 
     invoke-virtual {v13, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 397
+    .line 410
     const-string v1, "aspectX"
 
     const/4 v4, 0x1
 
     invoke-virtual {v13, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 398
+    .line 411
     const-string v1, "aspectY"
 
     const/4 v4, 0x1
 
     invoke-virtual {v13, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 399
+    .line 412
     const-string v1, "outputX"
 
     const/16 v4, 0xa0
 
     invoke-virtual {v13, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 400
+    .line 413
     const-string v1, "outputY"
 
     const/16 v4, 0xa0
 
     invoke-virtual {v13, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 401
+    .line 414
     const-string v1, "return-data"
 
     const/4 v4, 0x1
 
     invoke-virtual {v13, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 402
+    .line 415
     const/4 v1, 0x2
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v13, v1}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 463
+    .line 476
     .end local v2    # "selectedImage":Landroid/net/Uri;
     .end local v3    # "filePathColumn":[Ljava/lang/String;
     .end local v9    # "cursor":Landroid/database/Cursor;
@@ -820,7 +852,7 @@
     :goto_1
     return-void
 
-    .line 391
+    .line 404
     .restart local v2    # "selectedImage":Landroid/net/Uri;
     .restart local v3    # "filePathColumn":[Ljava/lang/String;
     .restart local v9    # "cursor":Landroid/database/Cursor;
@@ -833,7 +865,7 @@
 
     goto :goto_0
 
-    .line 405
+    .line 418
     :cond_3
     invoke-static/range {v16 .. v16}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
@@ -843,7 +875,7 @@
 
     iput-object v1, v0, Lcom/game/sdk/ui/UserInfoActivity;->photo:Landroid/graphics/Bitmap;
 
-    .line 408
+    .line 421
     .end local v2    # "selectedImage":Landroid/net/Uri;
     .end local v3    # "filePathColumn":[Ljava/lang/String;
     .end local v9    # "cursor":Landroid/database/Cursor;
@@ -855,7 +887,7 @@
 
     if-nez v1, :cond_6
 
-    .line 409
+    .line 422
     const-string v1, "\u83b7\u53d6\u56fe\u7247\u5931\u8d25"
 
     move-object/from16 v0, p0
@@ -866,31 +898,31 @@
 
     goto :goto_1
 
-    .line 453
+    .line 466
     .end local v11    # "extras":Landroid/os/Bundle;
     :catch_0
     move-exception v10
 
-    .line 454
+    .line 467
     .local v10, "e":Ljava/lang/Exception;
     new-instance v14, Landroid/os/Message;
 
     invoke-direct {v14}, Landroid/os/Message;-><init>()V
 
-    .line 455
+    .line 468
     .local v14, "msg":Landroid/os/Message;
     const/4 v1, 0x3
 
     iput v1, v14, Landroid/os/Message;->what:I
 
-    .line 456
+    .line 469
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/game/sdk/ui/UserInfoActivity;->handler:Landroid/os/Handler;
 
     invoke-virtual {v1, v14}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 460
+    .line 473
     .end local v10    # "e":Ljava/lang/Exception;
     .end local v14    # "msg":Landroid/os/Message;
     :cond_5
@@ -901,7 +933,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 461
+    .line 474
     new-instance v1, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;
 
     const/4 v4, 0x0
@@ -918,7 +950,7 @@
 
     goto :goto_1
 
-    .line 413
+    .line 426
     .restart local v11    # "extras":Landroid/os/Bundle;
     :cond_6
     :try_start_1
@@ -926,7 +958,7 @@
 
     invoke-direct/range {v17 .. v17}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 414
+    .line 427
     .local v17, "stream":Ljava/io/ByteArrayOutputStream;
     move-object/from16 v0, p0
 
@@ -940,12 +972,12 @@
 
     invoke-virtual {v1, v4, v5, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 417
+    .line 430
     invoke-virtual/range {v17 .. v17}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v7
 
-    .line 418
+    .line 431
     .local v7, "byteArray":[B
     const/4 v1, 0x0
 
@@ -953,7 +985,7 @@
 
     move-result-object v18
 
-    .line 419
+    .line 432
     .local v18, "streamStr":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -971,7 +1003,7 @@
 
     move-result-object v12
 
-    .line 421
+    .line 434
     .local v12, "face":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -979,19 +1011,19 @@
 
     invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->show()V
 
-    .line 422
+    .line 435
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/game/sdk/ui/UserInfoActivity;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
     iput-object v12, v1, Lcom/game/sdk/domain/UserInfo;->face:Ljava/lang/String;
 
-    .line 424
+    .line 437
     new-instance v15, Ljava/util/HashMap;
 
     invoke-direct {v15}, Ljava/util/HashMap;-><init>()V
 
-    .line 425
+    .line 438
     .local v15, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v1, "user_id"
 
@@ -1001,12 +1033,12 @@
 
     invoke-interface {v15, v1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 426
+    .line 439
     const-string v1, "face"
 
     invoke-interface {v15, v1, v12}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 428
+    .line 441
     invoke-static/range {p0 .. p0}, Lcom/game/sdk/engin/UpdateAvaterEngin;->getImpl(Landroid/content/Context;)Lcom/game/sdk/engin/UpdateAvaterEngin;
 
     move-result-object v1
@@ -1033,7 +1065,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 221
+    .line 234
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
@@ -1046,15 +1078,15 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 222
+    .line 235
     invoke-virtual {p0}, Lcom/game/sdk/ui/UserInfoActivity;->finish()V
 
-    .line 269
+    .line 282
     :cond_0
     :goto_0
     return-void
 
-    .line 226
+    .line 239
     :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1068,12 +1100,12 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 227
+    .line 240
     invoke-virtual {p0}, Lcom/game/sdk/ui/UserInfoActivity;->updateAvatar()V
 
     goto :goto_0
 
-    .line 231
+    .line 244
     :cond_2
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1087,14 +1119,14 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 232
+    .line 245
     new-instance v7, Landroid/content/Intent;
 
     const-class v1, Lcom/game/sdk/ui/CommonInfoActivity;
 
     invoke-direct {v7, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 233
+    .line 246
     .local v7, "intent":Landroid/content/Intent;
     const-string v1, "infoType"
 
@@ -1102,12 +1134,12 @@
 
     invoke-virtual {v7, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 234
+    .line 247
     invoke-virtual {p0, v7, v3}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 238
+    .line 251
     .end local v7    # "intent":Landroid/content/Intent;
     :cond_3
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -1122,14 +1154,14 @@
 
     if-ne v1, v2, :cond_4
 
-    .line 239
+    .line 252
     new-instance v7, Landroid/content/Intent;
 
     const-class v1, Lcom/game/sdk/ui/CommonInfoActivity;
 
     invoke-direct {v7, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 240
+    .line 253
     .restart local v7    # "intent":Landroid/content/Intent;
     const-string v1, "infoType"
 
@@ -1137,12 +1169,12 @@
 
     invoke-virtual {v7, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 241
+    .line 254
     invoke-virtual {p0, v7, v3}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 245
+    .line 258
     .end local v7    # "intent":Landroid/content/Intent;
     :cond_4
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -1157,14 +1189,14 @@
 
     if-ne v1, v2, :cond_5
 
-    .line 246
+    .line 259
     new-instance v7, Landroid/content/Intent;
 
     const-class v1, Lcom/game/sdk/ui/CommonInfoActivity;
 
     invoke-direct {v7, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 247
+    .line 260
     .restart local v7    # "intent":Landroid/content/Intent;
     const-string v1, "infoType"
 
@@ -1172,12 +1204,12 @@
 
     invoke-virtual {v7, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 248
+    .line 261
     invoke-virtual {p0, v7, v3}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 252
+    .line 265
     .end local v7    # "intent":Landroid/content/Intent;
     :cond_5
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -1192,14 +1224,14 @@
 
     if-ne v1, v2, :cond_6
 
-    .line 253
+    .line 266
     new-instance v7, Landroid/content/Intent;
 
     const-class v1, Lcom/game/sdk/ui/CommonInfoActivity;
 
     invoke-direct {v7, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 254
+    .line 267
     .restart local v7    # "intent":Landroid/content/Intent;
     const-string v1, "infoType"
 
@@ -1207,12 +1239,12 @@
 
     invoke-virtual {v7, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 255
+    .line 268
     invoke-virtual {p0, v7, v3}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 258
+    .line 271
     .end local v7    # "intent":Landroid/content/Intent;
     :cond_6
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -1227,12 +1259,12 @@
 
     if-ne v1, v2, :cond_7
 
-    .line 259
+    .line 272
     new-instance v0, Landroid/app/DatePickerDialog;
 
     const/4 v2, 0x3
 
-    .line 260
+    .line 273
     iget-object v3, p0, Lcom/game/sdk/ui/UserInfoActivity;->datelistener:Landroid/app/DatePickerDialog$OnDateSetListener;
 
     iget v4, p0, Lcom/game/sdk/ui/UserInfoActivity;->year:I
@@ -1243,16 +1275,16 @@
 
     move-object v1, p0
 
-    .line 259
+    .line 272
     invoke-direct/range {v0 .. v6}, Landroid/app/DatePickerDialog;-><init>(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V
 
-    .line 261
+    .line 274
     .local v0, "dateDialog":Landroid/app/DatePickerDialog;
     invoke-virtual {v0}, Landroid/app/DatePickerDialog;->show()V
 
     goto/16 :goto_0
 
-    .line 264
+    .line 277
     .end local v0    # "dateDialog":Landroid/app/DatePickerDialog;
     :cond_7
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -1267,14 +1299,14 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 265
+    .line 278
     new-instance v7, Landroid/content/Intent;
 
     const-class v1, Lcom/game/sdk/ui/UserInfoPhoneUpdateActivity;
 
     invoke-direct {v7, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 266
+    .line 279
     .restart local v7    # "intent":Landroid/content/Intent;
     invoke-virtual {p0, v7, v3}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
@@ -1309,32 +1341,53 @@
     .locals 0
 
     .prologue
-    .line 216
+    .line 229
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->onDestroy()V
 
-    .line 217
+    .line 230
     return-void
 .end method
 
 .method protected onPause()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 211
+    .line 222
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->onPause()V
 
-    .line 212
+    .line 223
+    const-string v0, "UserInfoActivity"
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageEnd(Ljava/lang/String;)V
+
+    .line 224
+    invoke-static {p0}, Lcom/umeng/analytics/MobclickAgent;->onPause(Landroid/content/Context;)V
+
+    .line 225
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 206
+    .line 213
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->onResume()V
 
-    .line 207
+    .line 214
+    const-string v0, "UserInfoActivity"
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageStart(Ljava/lang/String;)V
+
+    .line 215
+    invoke-static {p0}, Lcom/umeng/analytics/MobclickAgent;->onResume(Landroid/content/Context;)V
+
+    .line 217
+    const-string v0, "open_user_center_page"
+
+    invoke-static {p0, v0}, Lcom/umeng/analytics/MobclickAgent;->onEvent(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 218
     return-void
 .end method
 
@@ -1342,14 +1395,14 @@
     .locals 3
 
     .prologue
-    .line 332
+    .line 345
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.PICK"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 333
+    .line 346
     .local v0, "intent":Landroid/content/Intent;
     sget-object v1, Landroid/provider/MediaStore$Images$Media;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
@@ -1357,11 +1410,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 334
+    .line 347
     const/4 v1, 0x1
 
     invoke-virtual {p0, v0, v1}, Lcom/game/sdk/ui/UserInfoActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 335
+    .line 348
     return-void
 .end method

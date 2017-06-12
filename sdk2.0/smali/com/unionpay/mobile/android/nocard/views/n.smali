@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/n;->a:Lcom/unionpay/mobile/android/nocard/views/l;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/nocard/views/l;->r()V
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/nocard/views/l;->x()V
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/n;->a:Lcom/unionpay/mobile/android/nocard/views/l;
 

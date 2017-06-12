@@ -109,16 +109,13 @@
     .line 40
     iget-object v0, p0, Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 41
-    iput-object p1, p0, Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
-
-    .line 45
+    .line 44
     :goto_0
     return-void
 
-    .line 43
+    .line 42
     :cond_0
     iput-object p1, p0, Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
 
@@ -129,7 +126,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -144,7 +141,7 @@
     .param p1, "pos"    # I
 
     .prologue
-    .line 54
+    .line 53
     iget-object v0, p0, Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -159,7 +156,7 @@
     .param p1, "arg0"    # I
 
     .prologue
-    .line 59
+    .line 58
     int-to-long v0, p1
 
     return-wide v0
@@ -172,7 +169,7 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 66
+    .line 65
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
 
     invoke-interface {v3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -183,20 +180,20 @@
 
     iget-object v2, v3, Lcom/game/sdk/domain/CompAign;->img:Ljava/lang/String;
 
-    .line 67
+    .line 66
     .local v2, "url":Ljava/lang/String;
     move v1, p1
 
-    .line 68
+    .line 67
     .local v1, "pos":I
     if-nez p2, :cond_1
 
-    .line 69
+    .line 68
     new-instance v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;-><init>(Lcom/game/sdk/adapter/CompAignAdapter;)V
 
-    .line 70
+    .line 69
     .local v0, "holder":Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
@@ -204,7 +201,7 @@
 
     move-result-object v3
 
-    .line 71
+    .line 70
     iget-object v4, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
     const-string v5, "layout"
@@ -221,7 +218,7 @@
 
     move-result-object p2
 
-    .line 73
+    .line 72
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
     const-string v4, "id"
@@ -238,10 +235,10 @@
 
     check-cast v3, Landroid/widget/ImageView;
 
-    .line 72
+    .line 71
     iput-object v3, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->compAignIv:Landroid/widget/ImageView;
 
-    .line 75
+    .line 74
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
     const-string v4, "id"
@@ -258,10 +255,10 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 74
+    .line 73
     iput-object v3, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->compAignTv:Landroid/widget/TextView;
 
-    .line 77
+    .line 76
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
     const-string v4, "id"
@@ -278,10 +275,10 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 76
+    .line 75
     iput-object v3, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->compAignDateTv:Landroid/widget/TextView;
 
-    .line 78
+    .line 77
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
     const-string v4, "id"
@@ -300,10 +297,10 @@
 
     iput-object v3, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->detailBtn:Landroid/widget/Button;
 
-    .line 79
+    .line 78
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 84
+    .line 83
     :goto_0
     iget-object v4, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->compAignTv:Landroid/widget/TextView;
 
@@ -319,7 +316,7 @@
 
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 85
+    .line 84
     iget-object v4, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->compAignDateTv:Landroid/widget/TextView;
 
     new-instance v5, Ljava/lang/Long;
@@ -364,14 +361,14 @@
 
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 87
+    .line 86
     invoke-static {v2}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 88
+    .line 87
     iget-object v3, p0, Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Lcom/squareup/picasso/Picasso;->with(Landroid/content/Context;)Lcom/squareup/picasso/Picasso;
@@ -386,7 +383,7 @@
 
     invoke-virtual {v3, v4}, Lcom/squareup/picasso/RequestCreator;->into(Landroid/widget/ImageView;)V
 
-    .line 90
+    .line 89
     :cond_0
     iget-object v3, v0, Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;->detailBtn:Landroid/widget/Button;
 
@@ -396,10 +393,10 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 100
+    .line 99
     return-object p2
 
-    .line 81
+    .line 80
     .end local v0    # "holder":Lcom/game/sdk/adapter/CompAignAdapter$ViewHolder;
     :cond_1
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;

@@ -775,7 +775,7 @@
     invoke-static {p0, v5}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 137
-    invoke-static {}, Lcom/game/sdk/utils/ThreadPoolManager;->getInstance()Lcom/game/sdk/utils/ThreadPoolManager;
+    invoke-static {}, Lcom/game/sdk/utils/ThreadPoolManager;->getInstance()Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
     move-result-object v5
 
@@ -783,7 +783,7 @@
 
     invoke-direct {v6, p0}, Lcom/game/sdk/floatwindow/FloatWebActivity$3;-><init>(Lcom/game/sdk/floatwindow/FloatWebActivity;)V
 
-    invoke-virtual {v5, v6}, Lcom/game/sdk/utils/ThreadPoolManager;->addTask(Ljava/lang/Runnable;)V
+    invoke-virtual {v5, v6}, Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;->addTask(Ljava/lang/Runnable;)V
 
     .line 156
     .end local v3    # "pci":Lcom/game/sdk/domain/PaymentCallbackInfo;

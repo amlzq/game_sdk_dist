@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 154
+    .line 162
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/CompAignDetailFragment$CompAignDetailTask;->this$0:Lcom/game/sdk/ui/fragment/CompAignDetailFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -46,7 +46,7 @@
     .locals 0
 
     .prologue
-    .line 154
+    .line 162
     invoke-direct {p0, p1}, Lcom/game/sdk/ui/fragment/CompAignDetailFragment$CompAignDetailTask;-><init>(Lcom/game/sdk/ui/fragment/CompAignDetailFragment;)V
 
     return-void
@@ -59,7 +59,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 163
+    .line 171
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/CompAignDetailFragment$CompAignDetailTask;->this$0:Lcom/game/sdk/ui/fragment/CompAignDetailFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/CompAignDetailFragment;->compAignDetailEngin:Lcom/game/sdk/engin/CompAignDetailEngin;
@@ -93,29 +93,29 @@
     .param p1, "result"    # Lcom/game/sdk/domain/CompAignDetail;
 
     .prologue
-    .line 168
+    .line 176
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 169
+    .line 177
     if-eqz p1, :cond_0
 
-    .line 170
+    .line 178
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/CompAignDetailFragment$CompAignDetailTask;->this$0:Lcom/game/sdk/ui/fragment/CompAignDetailFragment;
 
     invoke-static {v1, p1}, Lcom/game/sdk/ui/fragment/CompAignDetailFragment;->access$10(Lcom/game/sdk/ui/fragment/CompAignDetailFragment;Lcom/game/sdk/domain/CompAignDetail;)V
 
-    .line 172
+    .line 180
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 173
+    .line 181
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 174
+    .line 182
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/CompAignDetailFragment$CompAignDetailTask;->this$0:Lcom/game/sdk/ui/fragment/CompAignDetailFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/CompAignDetailFragment;->handler:Landroid/os/Handler;
@@ -125,7 +125,7 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 176
+    .line 184
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
@@ -147,9 +147,9 @@
     .locals 0
 
     .prologue
-    .line 158
+    .line 166
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 159
+    .line 167
     return-void
 .end method

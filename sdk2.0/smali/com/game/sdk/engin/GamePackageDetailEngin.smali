@@ -172,12 +172,13 @@
     goto :goto_0
 .end method
 
-.method public getGamePackageDetailList(Ljava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
-    .locals 4
-    .param p1, "gameId"    # Ljava/lang/String;
+.method public getGamePackageDetailList(ILjava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
+    .locals 5
+    .param p1, "page"    # I
+    .param p2, "gameId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
+            "(I",
             "Ljava/lang/String;",
             "Lcom/game/sdk/net/listeners/Callback",
             "<",
@@ -188,7 +189,7 @@
 
     .prologue
     .line 64
-    .local p2, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/GamePackageDetailList;>;"
+    .local p3, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/GamePackageDetailList;>;"
     new-instance v1, Lcom/game/sdk/engin/GamePackageDetailEngin$ParamsInfo;
 
     invoke-direct {v1}, Lcom/game/sdk/engin/GamePackageDetailEngin$ParamsInfo;-><init>()V
@@ -203,19 +204,29 @@
     .local v0, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v2, "page"
 
-    const-string v3, "1"
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 68
     const-string v2, "game_id"
 
-    invoke-interface {v0, v2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 69
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v2, v0, p2}, Lcom/game/sdk/engin/GamePackageDetailEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
+    invoke-virtual {p0, v2, v0, p3}, Lcom/game/sdk/engin/GamePackageDetailEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
 
     .line 70
     return-void

@@ -76,7 +76,7 @@
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/l;->a:Lcom/unionpay/mobile/android/widgets/k;
 
-    invoke-virtual {v2}, Lcom/unionpay/mobile/android/widgets/k;->g()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/unionpay/mobile/android/widgets/k;->h()Ljava/lang/String;
 
     move-result-object v2
 
@@ -126,7 +126,7 @@
 
     :cond_0
     :try_start_1
-    sget-object v0, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v0, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v0, v0, Lcom/unionpay/mobile/android/languages/c;->aD:Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     const/4 v3, 0x0
 
-    sget-object v4, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v4, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v4, v4, Lcom/unionpay/mobile/android/languages/c;->C:Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 
     :cond_1
     :try_start_2
-    sget-object v0, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v0, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v0, v0, Lcom/unionpay/mobile/android/languages/c;->aC:Ljava/lang/String;
 
@@ -173,7 +173,7 @@
 
     const/4 v3, 0x0
 
-    sget-object v4, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v4, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v4, v4, Lcom/unionpay/mobile/android/languages/c;->C:Ljava/lang/String;
 
@@ -194,9 +194,9 @@
     :cond_2
     iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/l;->a:Lcom/unionpay/mobile/android/widgets/k;
 
-    iget-object v0, v0, Lcom/unionpay/mobile/android/widgets/k;->b:Lcom/unionpay/mobile/android/widgets/t;
+    iget-object v0, v0, Lcom/unionpay/mobile/android/widgets/k;->b:Lcom/unionpay/mobile/android/widgets/u;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/t;->e()V
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/u;->e()V
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/l;->a:Lcom/unionpay/mobile/android/widgets/k;
 

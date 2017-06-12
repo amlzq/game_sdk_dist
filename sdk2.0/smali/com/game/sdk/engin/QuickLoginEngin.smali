@@ -91,38 +91,45 @@
     return-object v0
 .end method
 
-.method public quickRun()Z
-    .locals 8
+.method public quickRun()Lcom/game/sdk/domain/LoginResult;
+    .locals 9
 
     .prologue
+    const/4 v8, 0x0
+
     const/4 v7, 0x1
 
-    .line 86
-    const/4 v2, 0x0
+    .line 90
+    new-instance v1, Lcom/game/sdk/domain/LoginResult;
 
-    .line 88
-    .local v2, "result":Z
+    invoke-direct {v1}, Lcom/game/sdk/domain/LoginResult;-><init>()V
+
+    .line 91
+    .local v1, "loginResult":Lcom/game/sdk/domain/LoginResult;
+    iput-boolean v8, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
+
+    .line 93
     :try_start_0
-    new-instance v1, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    .line 89
-    .local v1, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .line 94
+    .local v2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v4, "code"
 
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->validateCode:Ljava/lang/String;
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 90
+    .line 95
     const-string v4, "f"
 
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->gameid:Ljava/lang/String;
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 91
+    .line 96
     const-string v4, "is_quick"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -139,9 +146,9 @@
 
     move-result-object v5
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 93
+    .line 98
     iget-object v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mobileNumber:Ljava/lang/String;
 
     invoke-static {v4}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -150,24 +157,24 @@
 
     if-nez v4, :cond_0
 
-    .line 94
+    .line 99
     const-string v4, "m"
 
     iget-object v5, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mobileNumber:Ljava/lang/String;
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 98
+    .line 103
     :cond_0
     const/4 v4, 0x1
 
     const-class v5, Lcom/game/sdk/domain/QuickLoginInfo;
 
-    invoke-virtual {p0, v4, v5, v1}, Lcom/game/sdk/engin/QuickLoginEngin;->getResultInfo(ZLjava/lang/Class;Ljava/util/Map;)Lcom/game/sdk/domain/ResultInfo;
+    invoke-virtual {p0, v4, v5, v2}, Lcom/game/sdk/engin/QuickLoginEngin;->getResultInfo(ZLjava/lang/Class;Ljava/util/Map;)Lcom/game/sdk/domain/ResultInfo;
 
     move-result-object v3
 
-    .line 100
+    .line 105
     .local v3, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
     if-eqz v3, :cond_4
 
@@ -175,7 +182,7 @@
 
     if-ne v4, v7, :cond_4
 
-    .line 102
+    .line 107
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "\u4e00\u952e\u767b\u5f55\u540e\u7ed3\u679c----"
@@ -198,19 +205,19 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 104
+    .line 109
     sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     if-nez v4, :cond_1
 
-    .line 105
+    .line 110
     new-instance v4, Lcom/game/sdk/domain/UserInfo;
 
     invoke-direct {v4}, Lcom/game/sdk/domain/UserInfo;-><init>()V
 
     sput-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 108
+    .line 113
     :cond_1
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
@@ -218,17 +225,19 @@
 
     invoke-virtual {p0, v4}, Lcom/game/sdk/engin/QuickLoginEngin;->saveUserInfo(Lcom/game/sdk/domain/QuickLoginInfo;)V
 
-    .line 109
-    const/4 v2, 0x1
+    .line 114
+    const/4 v4, 0x1
 
-    .line 110
+    iput-boolean v4, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
+
+    .line 115
     sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
     iget-object v4, v4, Lcom/game/sdk/domain/InItInfo;->mqrNumLimit:Ljava/lang/String;
 
     if-eqz v4, :cond_3
 
-    .line 111
+    .line 116
     sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
     iget-object v4, v4, Lcom/game/sdk/domain/InItInfo;->mqrNumLimit:Ljava/lang/String;
@@ -237,14 +246,14 @@
 
     move-result v4
 
-    .line 110
+    .line 115
     :goto_0
     iput v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->loginCount:I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 132
-    .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .line 140
+    .end local v2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
     :cond_2
     :goto_1
@@ -254,7 +263,9 @@
 
     invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-boolean v5, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -264,18 +275,18 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 133
-    return v2
+    .line 141
+    return-object v1
 
-    .line 111
-    .restart local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .line 116
+    .restart local v2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .restart local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
     :cond_3
     const/16 v4, 0x64
 
     goto :goto_0
 
-    .line 114
+    .line 119
     :cond_4
     :try_start_1
     sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
@@ -288,7 +299,7 @@
 
     if-nez v4, :cond_2
 
-    .line 115
+    .line 120
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "\u5f53\u524d\u8bf7\u6c42\u7684\u6b21\u6570----"
@@ -307,7 +318,7 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 116
+    .line 121
     iget v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->loginCount:I
 
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
@@ -320,19 +331,41 @@
 
     if-ge v4, v5, :cond_2
 
-    .line 117
-    const-wide/16 v4, 0x1f4
+    .line 123
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    if-eqz v4, :cond_5
+
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v4, v4, Lcom/game/sdk/domain/InItInfo;->mqrDelay:Ljava/lang/String;
+
+    invoke-static {v4}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    .line 124
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v4, v4, Lcom/game/sdk/domain/InItInfo;->mqrDelay:Ljava/lang/String;
+
+    invoke-static {v4}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v4
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
 
-    .line 118
+    .line 126
+    :cond_5
     iget v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->loginCount:I
 
     add-int/lit8 v4, v4, 0x1
 
     iput v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->loginCount:I
 
-    .line 126
+    .line 134
     iget-boolean v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->isRetry:Z
 
     if-eqz v4, :cond_2
@@ -349,56 +382,63 @@
 
     move-result v5
 
-    .line 97
+    .line 102
     if-lt v4, v5, :cond_0
 
     goto :goto_1
 
-    .line 128
-    .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .line 136
+    .end local v2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
     :catch_0
     move-exception v0
 
-    .line 129
+    .line 137
     .local v0, "e":Ljava/lang/Exception;
-    const/4 v2, 0x0
+    iput-boolean v8, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
 
     goto :goto_1
 .end method
 
-.method public run()Z
-    .locals 8
+.method public run()Lcom/game/sdk/domain/LoginResult;
+    .locals 9
 
     .prologue
-    const/4 v7, 0x1
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
 
     .line 53
-    const/4 v2, 0x0
+    new-instance v1, Lcom/game/sdk/domain/LoginResult;
 
-    .line 56
-    .local v2, "result":Z
-    :try_start_0
-    new-instance v1, Ljava/util/HashMap;
+    invoke-direct {v1}, Lcom/game/sdk/domain/LoginResult;-><init>()V
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    .line 54
+    .local v1, "loginResult":Lcom/game/sdk/domain/LoginResult;
+    iput-boolean v7, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
 
     .line 57
-    .local v1, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    :try_start_0
+    new-instance v2, Ljava/util/HashMap;
+
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+
+    .line 58
+    .local v2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v4, "code"
 
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->validateCode:Ljava/lang/String;
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 58
+    .line 59
     const-string v4, "f"
 
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->gameid:Ljava/lang/String;
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 59
+    .line 60
     const-string v4, "is_quick"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -415,9 +455,9 @@
 
     move-result-object v5
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 61
+    .line 63
     iget-object v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mobileNumber:Ljava/lang/String;
 
     invoke-static {v4}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -426,32 +466,32 @@
 
     if-nez v4, :cond_0
 
-    .line 62
+    .line 64
     const-string v4, "m"
 
     iget-object v5, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mobileNumber:Ljava/lang/String;
 
-    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 65
+    .line 67
     :cond_0
     const/4 v4, 0x1
 
     const-class v5, Lcom/game/sdk/domain/QuickLoginInfo;
 
-    invoke-virtual {p0, v4, v5, v1}, Lcom/game/sdk/engin/QuickLoginEngin;->getResultInfo(ZLjava/lang/Class;Ljava/util/Map;)Lcom/game/sdk/domain/ResultInfo;
+    invoke-virtual {p0, v4, v5, v2}, Lcom/game/sdk/engin/QuickLoginEngin;->getResultInfo(ZLjava/lang/Class;Ljava/util/Map;)Lcom/game/sdk/domain/ResultInfo;
 
     move-result-object v3
 
-    .line 66
+    .line 68
     .local v3, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
     if-eqz v3, :cond_2
 
     iget v4, v3, Lcom/game/sdk/domain/ResultInfo;->code:I
 
-    if-ne v4, v7, :cond_2
+    if-ne v4, v8, :cond_2
 
-    .line 67
+    .line 69
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "\u624b\u673a\u53f7-\u9a8c\u8bc1\u7801\u65b9\u5f0f-\u767b\u5f55\u6210\u529f----"
@@ -474,35 +514,36 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 69
+    .line 71
     sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     if-nez v4, :cond_1
 
-    .line 70
+    .line 72
     new-instance v4, Lcom/game/sdk/domain/UserInfo;
 
     invoke-direct {v4}, Lcom/game/sdk/domain/UserInfo;-><init>()V
 
     sput-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 73
+    .line 75
     :cond_1
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
     check-cast v4, Lcom/game/sdk/domain/QuickLoginInfo;
 
     invoke-virtual {p0, v4}, Lcom/game/sdk/engin/QuickLoginEngin;->saveUserInfo(Lcom/game/sdk/domain/QuickLoginInfo;)V
+
+    .line 76
+    const/4 v4, 0x1
+
+    iput-boolean v4, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 74
-    const/4 v2, 0x1
-
-    .line 81
-    .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .line 85
+    .end local v2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
-    :cond_2
     :goto_0
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -510,7 +551,9 @@
 
     invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-boolean v5, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -520,209 +563,222 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 82
-    return v2
+    .line 86
+    return-object v1
 
-    .line 77
+    .line 78
+    .restart local v2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .restart local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
+    :cond_2
+    const/4 v4, 0x0
+
+    :try_start_1
+    iput-boolean v4, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
+
+    .line 79
+    iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->message:Ljava/lang/String;
+
+    iput-object v4, v1, Lcom/game/sdk/domain/LoginResult;->message:Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    .line 81
+    .end local v2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/QuickLoginInfo;>;"
     :catch_0
     move-exception v0
 
-    .line 78
+    .line 82
     .local v0, "e":Ljava/lang/Exception;
-    const/4 v2, 0x0
+    iput-boolean v7, v1, Lcom/game/sdk/domain/LoginResult;->result:Z
 
     goto :goto_0
 .end method
 
 .method public saveUserInfo(Lcom/game/sdk/domain/QuickLoginInfo;)V
-    .locals 7
+    .locals 6
     .param p1, "quickLoginInfo"    # Lcom/game/sdk/domain/QuickLoginInfo;
 
     .prologue
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    .line 145
-    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->mobile:Ljava/lang/String;
+    .line 153
+    iget-object v2, p1, Lcom/game/sdk/domain/QuickLoginInfo;->userName:Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v0, p1, Lcom/game/sdk/domain/QuickLoginInfo;->userName:Ljava/lang/String;
-
-    .line 148
-    .local v0, "accountNumber":Ljava/lang/String;
-    :goto_0
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Lcom/game/sdk/db/impl/UserLoginInfodao;->findUserLoginInfoByName(Ljava/lang/String;)Z
+    invoke-static {v2}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    .line 150
-    .local v2, "isExist":Z
-    if-nez v2, :cond_2
+    if-eqz v2, :cond_1
 
-    .line 151
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+    iget-object v0, p1, Lcom/game/sdk/domain/QuickLoginInfo;->mobile:Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    .line 156
+    .local v0, "accountNumber":Ljava/lang/String;
+    :goto_0
+    iget-object v2, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
 
-    move-result-object v3
+    invoke-static {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
 
-    iget-object v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->passWord:Ljava/lang/String;
+    move-result-object v2
 
-    .line 152
-    iget v5, p1, Lcom/game/sdk/domain/QuickLoginInfo;->isValiMobile:I
+    invoke-virtual {v2, v0}, Lcom/game/sdk/db/impl/UserLoginInfodao;->findUserLoginInfoByName(Ljava/lang/String;)Z
 
-    .line 151
-    invoke-virtual {v3, v0, v4, v5, v6}, Lcom/game/sdk/db/impl/UserLoginInfodao;->saveUserLoginInfo(Ljava/lang/String;Ljava/lang/String;II)V
+    move-result v1
 
-    .line 162
-    :goto_1
+    .line 158
+    .local v1, "isExist":Z
+    if-nez v1, :cond_2
+
+    .line 159
+    iget-object v2, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+
+    move-result-object v2
+
     iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->passWord:Ljava/lang/String;
 
-    invoke-static {v0, v3, v6}, Lcom/game/sdk/utils/GameBox2SDKUtil;->exchangeUserInfo(Ljava/lang/String;Ljava/lang/String;I)Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
+    .line 160
+    iget v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->isValiMobile:I
 
-    move-result-object v1
+    .line 159
+    invoke-virtual {v2, v0, v3, v4, v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->saveUserLoginInfo(Ljava/lang/String;Ljava/lang/String;II)V
 
-    .line 163
-    .local v1, "gUserInfo":Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+    .line 169
+    :goto_1
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    invoke-static {v3, v1}, Lcom/game/sdk/utils/GameBox2SDKUtil;->insertUserInfo(Landroid/content/Context;Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;)V
+    iput-object v0, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
 
-    .line 165
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    .line 170
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iput-object v0, v3, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->mobile:Ljava/lang/String;
 
-    .line 166
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    iput-object v3, v2, Lcom/game/sdk/domain/UserInfo;->mobile:Ljava/lang/String;
 
-    iget-object v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->passWord:Ljava/lang/String;
+    .line 171
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iput-object v4, v3, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->passWord:Ljava/lang/String;
 
-    .line 167
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    iput-object v3, v2, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
 
-    iget-object v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->userId:Ljava/lang/String;
+    .line 172
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iput-object v4, v3, Lcom/game/sdk/domain/UserInfo;->userId:Ljava/lang/String;
+    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->userId:Ljava/lang/String;
 
-    .line 168
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    iput-object v3, v2, Lcom/game/sdk/domain/UserInfo;->userId:Ljava/lang/String;
+
+    .line 173
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     iget-wide v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->lastLoginTime:J
 
-    iput-wide v4, v3, Lcom/game/sdk/domain/UserInfo;->logintime:J
-
-    .line 169
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget-object v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->sign:Ljava/lang/String;
-
-    iput-object v4, v3, Lcom/game/sdk/domain/UserInfo;->sign:Ljava/lang/String;
-
-    .line 170
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->isValiMobile:I
-
-    iput v4, v3, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
-
-    .line 171
-    const/4 v3, 0x1
-
-    sput-boolean v3, Lcom/game/sdk/domain/GoagalInfo;->isLogin:Z
-
-    .line 172
-    const/4 v3, 0x2
-
-    sput v3, Lcom/game/sdk/domain/GoagalInfo;->loginType:I
-
-    .line 173
-    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->gameNotice:Lcom/game/sdk/domain/NoticeMsg;
-
-    if-eqz v3, :cond_0
+    iput-wide v4, v2, Lcom/game/sdk/domain/UserInfo;->logintime:J
 
     .line 174
-    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->gameNotice:Lcom/game/sdk/domain/NoticeMsg;
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v3, v3, Lcom/game/sdk/domain/NoticeMsg;->body:Ljava/lang/String;
+    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->sign:Ljava/lang/String;
 
-    sput-object v3, Lcom/game/sdk/domain/GoagalInfo;->noticeMsg:Ljava/lang/String;
+    iput-object v3, v2, Lcom/game/sdk/domain/UserInfo;->sign:Ljava/lang/String;
+
+    .line 175
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->isValiMobile:I
+
+    iput v3, v2, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
+
+    .line 176
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->agentId:Ljava/lang/String;
+
+    iput-object v3, v2, Lcom/game/sdk/domain/UserInfo;->agentId:Ljava/lang/String;
+
+    .line 177
+    const/4 v2, 0x1
+
+    sput-boolean v2, Lcom/game/sdk/domain/GoagalInfo;->isLogin:Z
 
     .line 178
-    :cond_0
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->context:Landroid/content/Context;
+    const/4 v2, 0x2
 
-    invoke-static {v3}, Lcom/game/sdk/utils/PreferenceUtil;->getImpl(Landroid/content/Context;)Lcom/game/sdk/utils/PreferenceUtil;
+    sput v2, Lcom/game/sdk/domain/GoagalInfo;->loginType:I
+
+    .line 179
+    iget-object v2, p1, Lcom/game/sdk/domain/QuickLoginInfo;->gameNotice:Lcom/game/sdk/domain/NoticeMsg;
+
+    if-eqz v2, :cond_0
+
+    .line 180
+    iget-object v2, p1, Lcom/game/sdk/domain/QuickLoginInfo;->gameNotice:Lcom/game/sdk/domain/NoticeMsg;
+
+    iget-object v2, v2, Lcom/game/sdk/domain/NoticeMsg;->body:Ljava/lang/String;
+
+    sput-object v2, Lcom/game/sdk/domain/GoagalInfo;->noticeMsg:Ljava/lang/String;
+
+    .line 184
+    :cond_0
+    iget-object v2, p0, Lcom/game/sdk/engin/QuickLoginEngin;->context:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/game/sdk/utils/PreferenceUtil;->getImpl(Landroid/content/Context;)Lcom/game/sdk/utils/PreferenceUtil;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/game/sdk/utils/SystemUtil;->getPhoneIMEI(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+    sget v4, Lcom/game/sdk/domain/GoagalInfo;->loginType:I
 
-    invoke-static {v4}, Lcom/game/sdk/utils/SystemUtil;->getPhoneIMEI(Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {v2, v3, v4}, Lcom/game/sdk/utils/PreferenceUtil;->putInt(Ljava/lang/String;I)V
 
-    move-result-object v4
-
-    sget v5, Lcom/game/sdk/domain/GoagalInfo;->loginType:I
-
-    invoke-virtual {v3, v4, v5}, Lcom/game/sdk/utils/PreferenceUtil;->putInt(Ljava/lang/String;I)V
-
-    .line 181
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
-
-    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    invoke-static {v3, v4}, Lcom/game/sdk/utils/AccountInfoUtil;->insertUserInfo(Landroid/content/Context;Lcom/game/sdk/domain/UserInfo;)V
-
-    .line 182
+    .line 188
     return-void
 
-    .line 146
+    .line 154
     .end local v0    # "accountNumber":Ljava/lang/String;
-    .end local v1    # "gUserInfo":Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
-    .end local v2    # "isExist":Z
+    .end local v1    # "isExist":Z
     :cond_1
-    iget-object v0, p1, Lcom/game/sdk/domain/QuickLoginInfo;->mobile:Ljava/lang/String;
+    iget-object v0, p1, Lcom/game/sdk/domain/QuickLoginInfo;->userName:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 155
+    .line 163
     .restart local v0    # "accountNumber":Ljava/lang/String;
-    .restart local v2    # "isExist":Z
+    .restart local v1    # "isExist":Z
     :cond_2
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    invoke-static {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, v0}, Lcom/game/sdk/db/impl/UserLoginInfodao;->deleteUserLoginByName(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lcom/game/sdk/db/impl/UserLoginInfodao;->deleteUserLoginByName(Ljava/lang/String;)V
 
-    .line 157
-    iget-object v3, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
+    .line 165
+    iget-object v2, p0, Lcom/game/sdk/engin/QuickLoginEngin;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    invoke-static {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->passWord:Ljava/lang/String;
+    iget-object v3, p1, Lcom/game/sdk/domain/QuickLoginInfo;->passWord:Ljava/lang/String;
 
-    .line 158
-    iget v5, p1, Lcom/game/sdk/domain/QuickLoginInfo;->isValiMobile:I
+    .line 166
+    iget v4, p1, Lcom/game/sdk/domain/QuickLoginInfo;->isValiMobile:I
 
-    .line 157
-    invoke-virtual {v3, v0, v4, v5, v6}, Lcom/game/sdk/db/impl/UserLoginInfodao;->saveUserLoginInfo(Ljava/lang/String;Ljava/lang/String;II)V
+    .line 165
+    invoke-virtual {v2, v0, v3, v4, v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->saveUserLoginInfo(Ljava/lang/String;Ljava/lang/String;II)V
 
     goto :goto_1
 .end method

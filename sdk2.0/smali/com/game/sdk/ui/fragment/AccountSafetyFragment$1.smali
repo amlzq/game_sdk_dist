@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/AccountSafetyFragment$1;->this$0:Lcom/game/sdk/ui/fragment/AccountSafetyFragment;
 
-    .line 37
+    .line 40
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -39,16 +39,16 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 39
+    .line 42
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 47
+    .line 50
     :pswitch_0
     return-void
 
-    .line 39
+    .line 42
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
-    .line 290
+    .line 332
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,10 +47,10 @@
 
     const/4 v1, 0x0
 
-    .line 293
+    .line 335
     if-eqz p2, :cond_2
 
-    .line 294
+    .line 336
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     # getter for: Lcom/game/sdk/ui/PayActivity;->amount:F
@@ -58,15 +58,16 @@
 
     move-result v3
 
+    .line 337
     sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->ttb:Ljava/lang/String;
+    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->gttb:Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
     sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->ttb:Ljava/lang/String;
+    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->gttb:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
@@ -75,9 +76,9 @@
     :goto_0
     sub-float v0, v3, v0
 
-    invoke-static {v2, v0}, Lcom/game/sdk/ui/PayActivity;->access$8(Lcom/game/sdk/ui/PayActivity;F)V
+    invoke-static {v2, v0}, Lcom/game/sdk/ui/PayActivity;->access$11(Lcom/game/sdk/ui/PayActivity;F)V
 
-    .line 295
+    .line 338
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
@@ -97,13 +98,13 @@
 
     div-float/2addr v2, v4
 
-    invoke-static {v0, v2}, Lcom/game/sdk/ui/PayActivity;->access$8(Lcom/game/sdk/ui/PayActivity;F)V
+    invoke-static {v0, v2}, Lcom/game/sdk/ui/PayActivity;->access$11(Lcom/game/sdk/ui/PayActivity;F)V
 
-    .line 296
+    .line 339
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     # getter for: Lcom/game/sdk/ui/PayActivity;->realPayAmountTv:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/game/sdk/ui/PayActivity;->access$21(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/game/sdk/ui/PayActivity;->access$23(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -140,23 +141,23 @@
     :goto_1
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 302
+    .line 346
     :goto_2
     return-void
 
     :cond_0
     move v0, v1
 
-    .line 294
+    .line 337
     goto :goto_0
 
-    .line 296
+    .line 339
     :cond_1
     const-string v0, "0"
 
     goto :goto_1
 
-    .line 298
+    .line 341
     :cond_2
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
@@ -165,15 +166,16 @@
 
     move-result v3
 
+    .line 342
     sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->ttb:Ljava/lang/String;
+    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->gttb:Ljava/lang/String;
 
     if-eqz v0, :cond_3
 
     sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->ttb:Ljava/lang/String;
+    iget-object v0, v0, Lcom/game/sdk/domain/UserInfo;->gttb:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
@@ -182,9 +184,9 @@
     :goto_3
     add-float/2addr v0, v3
 
-    invoke-static {v2, v0}, Lcom/game/sdk/ui/PayActivity;->access$8(Lcom/game/sdk/ui/PayActivity;F)V
+    invoke-static {v2, v0}, Lcom/game/sdk/ui/PayActivity;->access$11(Lcom/game/sdk/ui/PayActivity;F)V
 
-    .line 299
+    .line 343
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
@@ -204,13 +206,13 @@
 
     div-float/2addr v2, v4
 
-    invoke-static {v0, v2}, Lcom/game/sdk/ui/PayActivity;->access$8(Lcom/game/sdk/ui/PayActivity;F)V
+    invoke-static {v0, v2}, Lcom/game/sdk/ui/PayActivity;->access$11(Lcom/game/sdk/ui/PayActivity;F)V
 
-    .line 300
+    .line 344
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity$4;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     # getter for: Lcom/game/sdk/ui/PayActivity;->realPayAmountTv:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/game/sdk/ui/PayActivity;->access$21(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/game/sdk/ui/PayActivity;->access$23(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -252,10 +254,10 @@
     :cond_3
     move v0, v1
 
-    .line 298
+    .line 342
     goto :goto_3
 
-    .line 300
+    .line 344
     :cond_4
     const-string v0, "0"
 

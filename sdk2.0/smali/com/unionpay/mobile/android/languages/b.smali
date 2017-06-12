@@ -8,7 +8,7 @@
 
     invoke-direct {p0}, Lcom/unionpay/mobile/android/languages/c;-><init>()V
 
-    const-string v0, "\u00a9 2015 UnionPay All Rights Reserved"
+    const-string v0, "\u00a9 2016 UnionPay All Rights Reserved"
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->b:Ljava/lang/String;
 
@@ -288,25 +288,33 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bo:Ljava/lang/String;
 
-    const-string v0, "Back"
+    const-string v0, "Samsung Pay"
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bp:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bt:Ljava/lang/String;
 
-    const-string v0, "Other Payment"
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bq:Ljava/lang/String;
-
-    const-string v0, "Mobile/Email/Account"
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->br:Ljava/lang/String;
-
-    const-string v0, "Password"
+    const-string v0, "Getting Card..."
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bs:Ljava/lang/String;
 
+    const-string v0, "Back"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bu:Ljava/lang/String;
+
+    const-string v0, "Other Payment"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bv:Ljava/lang/String;
+
+    const-string v0, "Mobile/Email/Account"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bw:Ljava/lang/String;
+
+    const-string v0, "Password"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bx:Ljava/lang/String;
+
     const-string v0, "Derect Pay"
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->bt:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->by:Ljava/lang/String;
 
     const-string v0, "Waiting..."
 
@@ -432,7 +440,7 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->aF:Ljava/lang/String;
 
-    const-string v0, "Signature does not matched, please check the software."
+    const-string v0, "Software abnormal, please check the software."
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/b;->aG:Ljava/lang/String;
 

@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:gravity="center" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="90.0dip">
-        <ImageView android:id="@id/game_iv" android:layout_width="75.0dip" android:layout_height="60.0dip" android:layout_marginLeft="10.0dip" android:src="@drawable/score_game_default_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/game_iv" android:layout_centerVertical="true">
-            <TextView android:textSize="16.0sp" android:textColor="@color/black1" android:layout_gravity="center_vertical" android:id="@id/game_name_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="阴阳师大天狗式阴阳皮肤" />
-            <LinearLayout android:layout_gravity="center|left" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
-                <TextView android:textColor="@color/score_color" android:gravity="center" android:id="@id/score_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="600" />
-                <TextView android:textColor="@color/black1" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/score_text" />
-            </LinearLayout>
+    <LinearLayout android:gravity="center" android:background="@drawable/common_input_bg" android:layout_width="fill_parent" android:layout_height="72.0dip">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/game_iv" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_margin="6.0dip" android:src="@drawable/score_game_default_icon" />
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:layout_gravity="center_vertical" android:id="@id/game_name_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:text="阴阳师大天狗式阴阳皮肤" />
+            <Button android:textSize="12.0sp" android:textColor="@color/border_line_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/exchange_btn" android:background="@drawable/border_line_btn" android:paddingLeft="6.0dip" android:paddingRight="6.0dip" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_margin="6.0dip" android:text="@string/exchange_text" />
         </LinearLayout>
-        <Button android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/exchange_btn" android:background="@drawable/common_btn" android:paddingLeft="6.0dip" android:paddingRight="6.0dip" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginRight="10.0dip" android:text="@string/exchange_text" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

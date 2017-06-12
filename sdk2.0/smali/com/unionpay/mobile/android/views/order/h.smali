@@ -47,7 +47,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/h;->b:Lcom/unionpay/mobile/android/views/order/CViewMethods;
 
@@ -65,7 +65,7 @@
 
     iget v1, p0, Lcom/unionpay/mobile/android/views/order/h;->a:I
 
-    invoke-interface {v0, v1}, Lcom/unionpay/mobile/android/views/order/CViewMethods$a;->b(I)V
+    invoke-interface {v0, v1}, Lcom/unionpay/mobile/android/views/order/CViewMethods$a;->c(I)V
 
     :cond_0
     return-void

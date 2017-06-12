@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoPhoneUpdateActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoPhoneUpdateActivity;
 
-    .line 50
+    .line 52
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -39,16 +39,16 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 52
+    .line 54
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 59
+    .line 61
     :pswitch_0
     return-void
 
-    .line 52
+    .line 54
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mView:Landroid/view/View;
+.field public mView:Landroid/view/View;
 
 
 # direct methods
@@ -25,7 +25,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 48
+    .line 49
     invoke-virtual {p0, p1}, Lcom/game/sdk/ui/fragment/BaseFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v0
@@ -40,7 +40,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 52
+    .line 53
     invoke-virtual {p0, p1}, Lcom/game/sdk/ui/fragment/BaseFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v0
@@ -55,7 +55,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 60
+    .line 61
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -74,7 +74,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 56
+    .line 57
     invoke-virtual {p0, p1}, Lcom/game/sdk/ui/fragment/BaseFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v0
@@ -89,7 +89,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 68
+    .line 69
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -120,7 +120,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 44
+    .line 45
     invoke-virtual {p0, p1}, Lcom/game/sdk/ui/fragment/BaseFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v0
@@ -135,7 +135,7 @@
     .param p1, "idString"    # Ljava/lang/String;
 
     .prologue
-    .line 64
+    .line 65
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BaseFragment;->mView:Landroid/view/View;
 
     invoke-virtual {p0, p1}, Lcom/game/sdk/ui/fragment/BaseFragment;->findIdByString(Ljava/lang/String;)I
@@ -156,7 +156,7 @@
     .locals 0
 
     .prologue
-    .line 41
+    .line 42
     return-void
 .end method
 
@@ -164,7 +164,7 @@
     .locals 0
 
     .prologue
-    .line 33
+    .line 34
     return-void
 .end method
 
@@ -172,7 +172,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 38
     return-void
 .end method
 
@@ -211,17 +211,17 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BaseFragment;->mView:Landroid/view/View;
 
-    .line 24
+    .line 25
     :cond_0
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initVars()V
 
-    .line 25
+    .line 26
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initViews()V
 
-    .line 26
+    .line 27
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initData()V
 
-    .line 27
+    .line 28
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BaseFragment;->mView:Landroid/view/View;
 
     return-object v0

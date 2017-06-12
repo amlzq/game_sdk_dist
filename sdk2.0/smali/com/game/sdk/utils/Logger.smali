@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 13
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,16 +37,16 @@
     .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 24
+    .line 25
     sget v0, Lcom/game/sdk/TTWAppService;->debug:I
 
     if-nez v0, :cond_0
 
-    .line 46
+    .line 47
     :goto_0
     return-void
 
-    .line 27
+    .line 28
     :cond_0
     const/4 v0, 0x2
 
@@ -54,7 +54,7 @@
 
     goto :goto_0
 
-    .line 29
+    .line 30
     :pswitch_0
     const-string v0, "game_sdk"
 
@@ -62,7 +62,7 @@
 
     goto :goto_0
 
-    .line 32
+    .line 33
     :pswitch_1
     const-string v0, "game_sdk"
 
@@ -70,7 +70,7 @@
 
     goto :goto_0
 
-    .line 35
+    .line 36
     :pswitch_2
     const-string v0, "game_sdk"
 
@@ -78,7 +78,7 @@
 
     goto :goto_0
 
-    .line 38
+    .line 39
     :pswitch_3
     const-string v0, "game_sdk"
 
@@ -86,7 +86,7 @@
 
     goto :goto_0
 
-    .line 41
+    .line 42
     :pswitch_4
     const-string v0, "game_sdk"
 
@@ -94,7 +94,7 @@
 
     goto :goto_0
 
-    .line 27
+    .line 28
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

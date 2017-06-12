@@ -33,7 +33,7 @@
 
     iput p2, p0, Lcom/game/sdk/adapter/CompAignAdapter$1;->val$pos:I
 
-    .line 90
+    .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,7 +46,7 @@
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 94
+    .line 93
     iget-object v0, p0, Lcom/game/sdk/adapter/CompAignAdapter$1;->this$0:Lcom/game/sdk/adapter/CompAignAdapter;
 
     # getter for: Lcom/game/sdk/adapter/CompAignAdapter;->compaignInfoList:Ljava/util/List;
@@ -62,7 +62,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 95
+    .line 94
     iget-object v0, p0, Lcom/game/sdk/adapter/CompAignAdapter$1;->this$0:Lcom/game/sdk/adapter/CompAignAdapter;
 
     # getter for: Lcom/game/sdk/adapter/CompAignAdapter;->mContext:Landroid/content/Context;
@@ -120,7 +120,7 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/game/sdk/ui/MainActivity;->detailFragment(Ljava/lang/String;I)V
 
-    .line 98
+    .line 97
     :cond_0
     return-void
 .end method

@@ -4,17 +4,24 @@
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
+.implements Lcom/game/sdk/ui/adapter/UserLoginListAdapter$CloseListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;
+        Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;,
+        Lcom/game/sdk/ui/fragment/AccountLoginFragment$NoUnderlineSpan;,
+        Lcom/game/sdk/ui/fragment/AccountLoginFragment$ReInitInfoTaskByUserId;
     }
 .end annotation
 
 
 # instance fields
+.field private accountLoginLayout:Landroid/widget/LinearLayout;
+
+.field autoLoginDialog:Lcom/game/sdk/view/LoginInDialog;
+
 .field private bgLayout:Landroid/widget/RelativeLayout;
 
 .field private changeAccountTv:Landroid/widget/TextView;
@@ -22,6 +29,8 @@
 .field private currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
 .field private forgetTv:Landroid/widget/TextView;
+
+.field handler:Landroid/os/Handler;
 
 .field private inflater:Landroid/view/LayoutInflater;
 
@@ -47,11 +56,26 @@
 
 .field private registerIv:Landroid/widget/ImageView;
 
-.field private serverLayout:Landroid/widget/RelativeLayout;
+.field private serverLayout:Landroid/widget/LinearLayout;
+
+.field private serviceQQTv:Landroid/widget/TextView;
+
+.field private serviceTelTv:Landroid/widget/TextView;
 
 .field private titleLayout:Landroid/widget/LinearLayout;
 
 .field private titleLogo:Landroid/widget/ImageView;
+
+.field private userList:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/game/sdk/domain/UserInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private userLoginInfos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -71,51 +95,59 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 55
-    invoke-direct {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$0(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Landroid/widget/PopupWindow;
     .locals 1
 
     .prologue
-    .line 98
+    .line 73
+    invoke-direct {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;-><init>()V
+
+    .line 132
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->handler:Landroid/os/Handler;
+
+    .line 73
+    return-void
+.end method
+
+.method static synthetic access$0(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Landroid/widget/EditText;
+    .locals 1
+
+    .prologue
+    .line 92
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Landroid/widget/EditText;
+    .locals 1
+
+    .prologue
+    .line 94
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Landroid/widget/PopupWindow;
+    .locals 1
+
+    .prologue
+    .line 122
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
     return-object v0
 .end method
 
-.method static synthetic access$1(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Ljava/util/List;
+.method static synthetic access$3(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Ljava/util/List;
     .locals 1
 
     .prologue
-    .line 102
+    .line 126
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2(Lcom/game/sdk/ui/fragment/AccountLoginFragment;Lcom/game/sdk/domain/UserInfo;)V
-    .locals 0
-
-    .prologue
-    .line 92
-    iput-object p1, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userinfoSelect:Lcom/game/sdk/domain/UserInfo;
-
-    return-void
-.end method
-
-.method static synthetic access$3(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Lcom/game/sdk/domain/UserInfo;
-    .locals 1
-
-    .prologue
-    .line 92
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userinfoSelect:Lcom/game/sdk/domain/UserInfo;
 
     return-object v0
 .end method
@@ -124,40 +156,39 @@
     .locals 0
 
     .prologue
-    .line 94
+    .line 116
+    iput-object p1, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userinfoSelect:Lcom/game/sdk/domain/UserInfo;
+
+    return-void
+.end method
+
+.method static synthetic access$5(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Lcom/game/sdk/domain/UserInfo;
+    .locals 1
+
+    .prologue
+    .line 116
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userinfoSelect:Lcom/game/sdk/domain/UserInfo;
+
+    return-object v0
+.end method
+
+.method static synthetic access$6(Lcom/game/sdk/ui/fragment/AccountLoginFragment;Lcom/game/sdk/domain/UserInfo;)V
+    .locals 0
+
+    .prologue
+    .line 118
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
     return-void
 .end method
 
-.method static synthetic access$5(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Landroid/widget/EditText;
-    .locals 1
-
-    .prologue
-    .line 72
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method static synthetic access$6(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)Landroid/widget/EditText;
-    .locals 1
-
-    .prologue
-    .line 74
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public getCommonUserInfosByType(I)Ljava/util/List;
-    .locals 6
-    .param p1, "type"    # I
+.method public getCommonUserInfosByType()Ljava/util/List;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I)",
+            "()",
             "Ljava/util/List",
             "<",
             "Lcom/game/sdk/domain/UserInfo;",
@@ -166,667 +197,1087 @@
     .end annotation
 
     .prologue
-    .line 143
-    new-instance v1, Ljava/util/ArrayList;
+    .line 202
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {v2}, Lcom/game/sdk/utils/AccountInfoUtil;->loadAllUserInfo(Landroid/content/Context;)Ljava/util/List;
 
-    .line 145
+    move-result-object v1
+
+    .line 204
     .local v1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/UserInfo;>;"
-    iget-object v4, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    invoke-static {v4}, Lcom/game/sdk/utils/GameBox2SDKUtil;->loadAllUserInfo(Landroid/content/Context;)Ljava/util/List;
-
-    move-result-object v3
-
-    .line 146
-    .local v3, "users":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;>;"
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_0
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    if-lt v0, v4, :cond_2
-
-    .line 155
     if-eqz v1, :cond_0
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
-    .line 156
+    .line 205
     :cond_0
-    iget-object v4, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    invoke-static {v4}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    invoke-static {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
 
-    move-result-object v4
+    move-result-object v2
 
-    const/4 v5, 0x1
-
-    invoke-virtual {v4, v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getUserLoginInfoByType(I)Ljava/util/List;
+    invoke-virtual {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getUserLoginInfoByType()Ljava/util/List;
 
     move-result-object v1
 
-    .line 158
+    .line 207
+    if-eqz v1, :cond_1
+
+    .line 208
+    const/4 v0, 0x0
+
+    .local v0, "i":I
+    :goto_0
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-lt v0, v2, :cond_2
+
+    .line 215
+    .end local v0    # "i":I
     :cond_1
     return-object v1
 
-    .line 147
+    .line 209
+    .restart local v0    # "i":I
     :cond_2
-    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
+    if-eqz v2, :cond_3
 
-    iget v4, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->type:I
+    .line 210
+    iget-object v3, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    if-ne v4, p1, :cond_3
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    .line 148
-    new-instance v2, Lcom/game/sdk/domain/UserInfo;
+    move-result-object v2
 
-    invoke-direct {v2}, Lcom/game/sdk/domain/UserInfo;-><init>()V
+    check-cast v2, Lcom/game/sdk/domain/UserInfo;
 
-    .line 149
-    .local v2, "temp":Lcom/game/sdk/domain/UserInfo;
-    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-static {v3, v2}, Lcom/game/sdk/utils/AccountInfoUtil;->insertUserInfo(Landroid/content/Context;Lcom/game/sdk/domain/UserInfo;)V
 
-    move-result-object v4
-
-    check-cast v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
-
-    iget-object v4, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
-
-    iput-object v4, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    .line 150
-    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
-
-    iget-object v4, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->pwd:Ljava/lang/String;
-
-    iput-object v4, v2, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
-
-    .line 151
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 146
-    .end local v2    # "temp":Lcom/game/sdk/domain/UserInfo;
+    .line 208
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 .end method
 
-.method public getLastUserInfo(I)Lcom/game/sdk/domain/UserInfo;
-    .locals 7
-    .param p1, "type"    # I
+.method public getLastUserInfo()Lcom/game/sdk/domain/UserInfo;
+    .locals 3
 
     .prologue
-    .line 162
-    const/4 v1, 0x0
-
-    .line 164
-    .local v1, "lastUserInfo":Lcom/game/sdk/domain/UserInfo;
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    .line 166
-    .local v2, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/UserInfo;>;"
-    iget-object v5, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    invoke-static {v5}, Lcom/game/sdk/utils/GameBox2SDKUtil;->loadAllUserInfo(Landroid/content/Context;)Ljava/util/List;
-
-    move-result-object v4
-
-    .line 167
-    .local v4, "users":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;>;"
+    .line 219
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 221
+    .local v0, "lastUserInfo":Lcom/game/sdk/domain/UserInfo;
+    iget-object v1, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userList:Ljava/util/List;
+
+    .line 223
+    .local v1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/UserInfo;>;"
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-lez v2, :cond_0
+
+    .line 224
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    .end local v0    # "lastUserInfo":Lcom/game/sdk/domain/UserInfo;
+    check-cast v0, Lcom/game/sdk/domain/UserInfo;
+
+    .line 228
+    .restart local v0    # "lastUserInfo":Lcom/game/sdk/domain/UserInfo;
     :goto_0
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    return-object v0
 
-    move-result v5
-
-    if-lt v0, v5, :cond_0
-
-    .line 176
-    if-eqz v2, :cond_2
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v5
-
-    if-lez v5, :cond_2
-
-    .line 177
-    const/4 v5, 0x0
-
-    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .end local v1    # "lastUserInfo":Lcom/game/sdk/domain/UserInfo;
-    check-cast v1, Lcom/game/sdk/domain/UserInfo;
-
-    .line 181
-    .restart local v1    # "lastUserInfo":Lcom/game/sdk/domain/UserInfo;
-    :goto_1
-    return-object v1
-
-    .line 168
+    .line 226
     :cond_0
-    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    move-result-object v5
+    invoke-static {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
 
-    check-cast v5, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
+    move-result-object v2
 
-    iget v5, v5, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->type:I
+    invoke-virtual {v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getUserInfoLastByType()Lcom/game/sdk/domain/UserInfo;
 
-    if-ne v5, p1, :cond_1
-
-    .line 169
-    new-instance v3, Lcom/game/sdk/domain/UserInfo;
-
-    invoke-direct {v3}, Lcom/game/sdk/domain/UserInfo;-><init>()V
-
-    .line 170
-    .local v3, "temp":Lcom/game/sdk/domain/UserInfo;
-    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
-
-    iget-object v5, v5, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
-
-    iput-object v5, v3, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    .line 171
-    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
-
-    iget-object v5, v5, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->pwd:Ljava/lang/String;
-
-    iput-object v5, v3, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
-
-    .line 172
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 167
-    .end local v3    # "temp":Lcom/game/sdk/domain/UserInfo;
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
+    move-result-object v0
 
     goto :goto_0
-
-    .line 179
-    :cond_2
-    iget-object v5, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    invoke-static {v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
-
-    move-result-object v5
-
-    const/4 v6, 0x1
-
-    invoke-virtual {v5, v6}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getUserInfoLastByType(I)Lcom/game/sdk/domain/UserInfo;
-
-    move-result-object v1
-
-    goto :goto_1
 .end method
 
 .method public getLayoutId()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 108
-    const-string v0, "account_login_fragment"
+    .line 138
+    const-string v0, "fysdk_account_login_fragment"
 
     return-object v0
 .end method
 
 .method public initData()V
-    .locals 2
+    .locals 7
 
     .prologue
-    .line 186
+    const/16 v6, 0x11
+
+    const/4 v5, 0x0
+
+    .line 233
     invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initData()V
 
-    .line 188
+    .line 235
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->initTheme()V
 
-    .line 190
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    .line 237
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    const-string v1, "layout_inflater"
+    const-string v3, "layout_inflater"
 
-    invoke-virtual {v0, v1}, Lcom/game/sdk/ui/LoginActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Lcom/game/sdk/ui/LoginActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/view/LayoutInflater;
+    check-cast v2, Landroid/view/LayoutInflater;
 
-    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->inflater:Landroid/view/LayoutInflater;
+    iput-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->inflater:Landroid/view/LayoutInflater;
 
-    .line 192
-    const/4 v0, 0x1
+    .line 239
+    invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getCommonUserInfosByType()Ljava/util/List;
 
-    invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getLastUserInfo(I)Lcom/game/sdk/domain/UserInfo;
+    move-result-object v2
 
-    move-result-object v0
+    iput-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userList:Ljava/util/List;
 
-    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
+    .line 242
+    invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getLastUserInfo()Lcom/game/sdk/domain/UserInfo;
 
-    .line 194
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
+    move-result-object v2
 
-    if-eqz v0, :cond_0
+    iput-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 195
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    .line 244
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
+    if-eqz v2, :cond_3
 
-    iget-object v1, v1, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+    .line 246
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    invoke-static {v0, v1}, Lcom/game/sdk/utils/AccountInfoUtil;->getUserInfoByName(Landroid/content/Context;Ljava/lang/String;)Lcom/game/sdk/domain/UserInfo;
+    iget-object v3, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    move-result-object v0
+    iget-object v3, v3, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
 
-    sput-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    invoke-static {v2, v3}, Lcom/game/sdk/utils/AccountInfoUtil;->getUserInfoByName(Landroid/content/Context;Ljava/lang/String;)Lcom/game/sdk/domain/UserInfo;
 
-    .line 196
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
+    move-result-object v2
 
-    sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    if-eqz v2, :cond_2
 
-    iget-object v1, v1, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+    .line 247
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    iget-object v3, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 197
-    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
+    iget-object v3, v3, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
 
-    sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    invoke-static {v2, v3}, Lcom/game/sdk/utils/AccountInfoUtil;->getUserInfoByName(Landroid/content/Context;Ljava/lang/String;)Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v1, v1, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    sput-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 202
+    .line 252
     :goto_0
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
+
+    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v3, v3, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 253
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
+
+    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v3, v3, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 258
+    :goto_1
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    if-eqz v2, :cond_5
+
+    .line 260
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v2, v2, Lcom/game/sdk/domain/InItInfo;->tel:Ljava/lang/String;
+
+    invoke-static {v2}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    .line 261
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v4, "\u5ba2\u670d\u7535\u8bdd\uff1a"
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v4, v4, Lcom/game/sdk/domain/InItInfo;->tel:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 272
+    :goto_2
+    new-instance v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment$NoUnderlineSpan;
+
+    invoke-direct {v0, p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$NoUnderlineSpan;-><init>(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)V
+
+    .line 273
+    .local v0, "mNoUnderlineSpan":Lcom/game/sdk/ui/fragment/AccountLoginFragment$NoUnderlineSpan;
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    instance-of v2, v2, Landroid/text/Spannable;
+
+    if-eqz v2, :cond_0
+
+    .line 274
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/text/Spannable;
+
+    .line 275
+    .local v1, "s":Landroid/text/Spannable;
+    invoke-interface {v1}, Landroid/text/Spannable;->length()I
+
+    move-result v2
+
+    invoke-interface {v1, v0, v5, v2, v6}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+
+    .line 278
+    .end local v1    # "s":Landroid/text/Spannable;
+    :cond_0
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceQQTv:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    instance-of v2, v2, Landroid/text/Spannable;
+
+    if-eqz v2, :cond_1
+
+    .line 279
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceQQTv:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/text/Spannable;
+
+    .line 280
+    .restart local v1    # "s":Landroid/text/Spannable;
+    invoke-interface {v1}, Landroid/text/Spannable;->length()I
+
+    move-result v2
+
+    invoke-interface {v1, v0, v5, v2, v6}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+
+    .line 287
+    .end local v0    # "mNoUnderlineSpan":Lcom/game/sdk/ui/fragment/AccountLoginFragment$NoUnderlineSpan;
+    .end local v1    # "s":Landroid/text/Spannable;
+    :cond_1
+    :goto_3
     return-void
 
-    .line 199
-    :cond_0
-    const/4 v0, 0x0
+    .line 249
+    :cond_2
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    sput-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    sput-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     goto :goto_0
+
+    .line 255
+    :cond_3
+    const/4 v2, 0x0
+
+    sput-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    goto :goto_1
+
+    .line 263
+    :cond_4
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    const-string v3, "\u5ba2\u670d\u7535\u8bdd\uff1a400-796-6071"
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_2
+
+    .line 283
+    :cond_5
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    const-string v3, "\u5ba2\u670d\u7535\u8bdd\uff1a400-796-6071"
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 284
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceQQTv:Landroid/widget/TextView;
+
+    const-string v3, "\u5ba2\u670dQQ\uff1a3453725652"
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_3
 .end method
 
 .method public initTheme()V
-    .locals 11
+    .locals 22
 
     .prologue
-    .line 208
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    .line 301
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->logoBitmp:Landroid/graphics/Bitmap;
+    if-eqz v19, :cond_5
 
-    if-eqz v8, :cond_0
+    .line 303
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    .line 209
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLogo:Landroid/widget/ImageView;
+    move-object/from16 v0, v19
 
-    sget-object v9, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->logoBitmp:Landroid/graphics/Bitmap;
 
-    iget-object v9, v9, Lcom/game/sdk/domain/InItInfo;->logoBitmp:Landroid/graphics/Bitmap;
+    move-object/from16 v19, v0
 
-    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    if-eqz v19, :cond_0
 
-    .line 212
+    .line 304
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLogo:Landroid/widget/ImageView;
+
+    move-object/from16 v19, v0
+
+    sget-object v20, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->logoBitmp:Landroid/graphics/Bitmap;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    .line 307
     :cond_0
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
+    move-object/from16 v0, v19
 
-    iget-object v1, v8, Lcom/game/sdk/domain/StyleInfo;->bgColor:Ljava/lang/String;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    .line 213
-    .local v1, "bgColor":Ljava/lang/String;
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    move-object/from16 v19, v0
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
+    if-eqz v19, :cond_5
 
-    iget-object v5, v8, Lcom/game/sdk/domain/StyleInfo;->headColor:Ljava/lang/String;
+    .line 309
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    .line 214
-    .local v5, "headColor":Ljava/lang/String;
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    move-object/from16 v0, v19
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    iget-object v3, v8, Lcom/game/sdk/domain/StyleInfo;->btnColor:Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    .line 215
-    .local v3, "btnColor":Ljava/lang/String;
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    move-object/from16 v0, v19
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
+    iget-object v3, v0, Lcom/game/sdk/domain/StyleInfo;->bgColor:Ljava/lang/String;
 
-    iget-object v6, v8, Lcom/game/sdk/domain/StyleInfo;->noticeColor:Ljava/lang/String;
+    .line 310
+    .local v3, "bgColor":Ljava/lang/String;
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    .line 216
-    .local v6, "noticeColor":Ljava/lang/String;
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    move-object/from16 v0, v19
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    iget-object v4, v8, Lcom/game/sdk/domain/StyleInfo;->fontColor:Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    .line 218
-    .local v4, "changeFontColor":Ljava/lang/String;
-    invoke-static {v1}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-object/from16 v0, v19
 
-    move-result v8
+    iget-object v11, v0, Lcom/game/sdk/domain/StyleInfo;->headColor:Ljava/lang/String;
 
-    if-nez v8, :cond_1
+    .line 311
+    .local v11, "headColor":Ljava/lang/String;
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    .line 219
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->bgLayout:Landroid/widget/RelativeLayout;
+    move-object/from16 v0, v19
 
-    invoke-virtual {v8}, Landroid/widget/RelativeLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    move-result-object v0
+    move-object/from16 v19, v0
 
-    check-cast v0, Landroid/graphics/drawable/GradientDrawable;
+    move-object/from16 v0, v19
 
-    .line 220
-    .local v0, "allBg":Landroid/graphics/drawable/GradientDrawable;
-    new-instance v8, Ljava/lang/StringBuilder;
+    iget-object v4, v0, Lcom/game/sdk/domain/StyleInfo;->btnColor:Ljava/lang/String;
 
-    const-string v9, "#"
+    .line 312
+    .local v4, "btnColor":Ljava/lang/String;
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v19
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    move-result-object v8
+    move-object/from16 v19, v0
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v8
+    iget-object v12, v0, Lcom/game/sdk/domain/StyleInfo;->noticeColor:Ljava/lang/String;
 
-    invoke-static {v8}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    .line 313
+    .local v12, "noticeColor":Ljava/lang/String;
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    move-result v8
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v8}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    .line 222
-    invoke-static {v5}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-object/from16 v19, v0
 
-    move-result v8
+    move-object/from16 v0, v19
 
-    if-nez v8, :cond_7
+    iget-object v5, v0, Lcom/game/sdk/domain/StyleInfo;->fontColor:Ljava/lang/String;
 
-    .line 223
-    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_6
-
-    .line 224
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v8}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/graphics/drawable/GradientDrawable;
-
-    .line 225
-    .local v7, "titleBg":Landroid/graphics/drawable/GradientDrawable;
-    const-string v8, "#00000000"
-
-    invoke-static {v8}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
-
-    .line 236
-    .end local v0    # "allBg":Landroid/graphics/drawable/GradientDrawable;
-    .end local v7    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
-    :cond_1
-    :goto_0
+    .line 315
+    .local v5, "changeFontColor":Ljava/lang/String;
     invoke-static {v3}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v19
 
-    if-nez v8, :cond_2
+    if-nez v19, :cond_1
 
-    .line 237
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameBtn:Landroid/widget/Button;
+    .line 316
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8}, Landroid/widget/Button;->getBackground()Landroid/graphics/drawable/Drawable;
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->bgLayout:Landroid/widget/RelativeLayout;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/widget/RelativeLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
     check-cast v2, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 238
-    .local v2, "btnBg":Landroid/graphics/drawable/GradientDrawable;
-    new-instance v8, Ljava/lang/StringBuilder;
+    .line 317
+    .local v2, "allBg":Landroid/graphics/drawable/GradientDrawable;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    const-string v9, "#"
+    const-string v20, "#"
 
-    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v19 .. v20}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v19
 
-    move-result-object v8
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v19
 
-    move-result-object v8
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v8}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    move-result-object v19
 
-    move-result v8
+    invoke-static/range {v19 .. v19}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
-    invoke-virtual {v2, v8}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    move-result v19
 
-    .line 240
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->quickRegisterTv:Landroid/widget/TextView;
+    move/from16 v0, v19
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    const-string v10, "#"
+    .line 320
+    invoke-static {v11}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result v19
 
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v19, :cond_7
 
-    move-result-object v9
+    .line 321
+    invoke-virtual {v3, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v19
 
-    move-result-object v9
+    if-eqz v19, :cond_6
 
-    invoke-static {v9}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    .line 322
+    move-object/from16 v0, p0
 
-    move-result v9
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setTextColor(I)V
+    move-object/from16 v19, v0
 
-    .line 243
-    .end local v2    # "btnBg":Landroid/graphics/drawable/GradientDrawable;
-    :cond_2
-    invoke-static {v6}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-virtual/range {v19 .. v19}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    move-result v8
+    move-result-object v17
 
-    if-nez v8, :cond_3
+    check-cast v17, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 244
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serverLayout:Landroid/widget/RelativeLayout;
+    .line 323
+    .local v17, "titleBg":Landroid/graphics/drawable/GradientDrawable;
+    const-string v19, "#00000000"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-static/range {v19 .. v19}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
-    const-string v10, "#"
+    move-result v19
 
-    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v1, v19
 
-    move-result-object v9
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v9}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/widget/RelativeLayout;->setBackgroundColor(I)V
-
-    .line 247
-    :cond_3
+    .line 334
+    .end local v2    # "allBg":Landroid/graphics/drawable/GradientDrawable;
+    .end local v17    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
+    :cond_1
+    :goto_0
     invoke-static {v4}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v19
 
-    if-nez v8, :cond_4
+    if-nez v19, :cond_2
 
-    .line 248
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->changeAccountTv:Landroid/widget/TextView;
+    .line 336
+    invoke-virtual/range {p0 .. p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    move-result-object v19
 
-    const-string v10, "#"
+    const/16 v20, 0x3
 
-    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static/range {v19 .. v20}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
 
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v14
 
-    move-result-object v9
+    .line 338
+    .local v14, "roundRadius":I
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v20, "#"
 
-    move-result-object v9
+    invoke-direct/range {v19 .. v20}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v9}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    move-object/from16 v0, v19
 
-    move-result v9
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setTextColor(I)V
+    move-result-object v19
 
-    .line 251
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v6
+
+    .line 340
+    .local v6, "fillColor":I
+    const-string v19, "#979696"
+
+    invoke-static/range {v19 .. v19}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v7
+
+    .line 343
+    .local v7, "fillColorPressed":I
+    new-instance v9, Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-direct {v9}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+
+    .line 344
+    .local v9, "gdNormal":Landroid/graphics/drawable/GradientDrawable;
+    invoke-virtual {v9, v6}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    .line 345
+    int-to-float v0, v14
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    invoke-virtual {v9, v0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+
+    .line 348
+    new-instance v10, Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-direct {v10}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+
+    .line 349
+    .local v10, "gdPressed":Landroid/graphics/drawable/GradientDrawable;
+    invoke-virtual {v10, v7}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    .line 350
+    int-to-float v0, v14
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    invoke-virtual {v10, v0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+
+    .line 352
+    new-instance v16, Landroid/graphics/drawable/StateListDrawable;
+
+    invoke-direct/range {v16 .. v16}, Landroid/graphics/drawable/StateListDrawable;-><init>()V
+
+    .line 355
+    .local v16, "stateDrawable":Landroid/graphics/drawable/StateListDrawable;
+    const v13, 0x10100a7
+
+    .line 356
+    .local v13, "pressed":I
+    const v18, 0x101009d
+
+    .line 357
+    .local v18, "window_focused":I
+    const v8, 0x101009c
+
+    .line 358
+    .local v8, "focused":I
+    const v15, 0x10100a1
+
+    .line 360
+    .local v15, "selected":I
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [I
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    aput v13, v19, v20
+
+    const/16 v20, 0x1
+
+    aput v18, v19, v20
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v10}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 361
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [I
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    aput v13, v19, v20
+
+    const/16 v20, 0x1
+
+    neg-int v0, v8
+
+    move/from16 v21, v0
+
+    aput v21, v19, v20
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v10}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 362
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [I
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    aput v15, v19, v20
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v10}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 363
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [I
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    aput v8, v19, v20
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v10}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 364
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [I
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    neg-int v0, v15
+
+    move/from16 v21, v0
+
+    aput v21, v19, v20
+
+    const/16 v20, 0x1
+
+    neg-int v0, v8
+
+    move/from16 v21, v0
+
+    aput v21, v19, v20
+
+    const/16 v20, 0x2
+
+    neg-int v0, v13
+
+    move/from16 v21, v0
+
+    aput v21, v19, v20
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v9}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 365
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameBtn:Landroid/widget/Button;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 368
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->quickRegisterTv:Landroid/widget/TextView;
+
+    move-object/from16 v19, v0
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    const-string v21, "#"
+
+    invoke-direct/range {v20 .. v21}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v20 .. v20}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v20
+
+    invoke-virtual/range {v19 .. v20}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 371
+    .end local v6    # "fillColor":I
+    .end local v7    # "fillColorPressed":I
+    .end local v8    # "focused":I
+    .end local v9    # "gdNormal":Landroid/graphics/drawable/GradientDrawable;
+    .end local v10    # "gdPressed":Landroid/graphics/drawable/GradientDrawable;
+    .end local v13    # "pressed":I
+    .end local v14    # "roundRadius":I
+    .end local v15    # "selected":I
+    .end local v16    # "stateDrawable":Landroid/graphics/drawable/StateListDrawable;
+    .end local v18    # "window_focused":I
+    :cond_2
+    invoke-static {v12}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_3
+
+    .line 372
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serverLayout:Landroid/widget/LinearLayout;
+
+    move-object/from16 v19, v0
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    const-string v21, "#"
+
+    invoke-direct/range {v20 .. v21}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v20 .. v20}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v20
+
+    invoke-virtual/range {v19 .. v20}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
+
+    .line 375
+    :cond_3
+    invoke-static {v5}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_4
+
+    .line 376
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->changeAccountTv:Landroid/widget/TextView;
+
+    move-object/from16 v19, v0
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    const-string v21, "#"
+
+    invoke-direct/range {v20 .. v21}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v20 .. v20}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v20
+
+    invoke-virtual/range {v19 .. v20}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 379
     :cond_4
-    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    sget-object v19, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->registerBitmp:Landroid/graphics/Bitmap;
+    move-object/from16 v0, v19
 
-    if-eqz v8, :cond_5
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->registerBitmp:Landroid/graphics/Bitmap;
 
-    .line 252
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->registerIv:Landroid/widget/ImageView;
+    move-object/from16 v19, v0
 
-    sget-object v9, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    if-eqz v19, :cond_5
 
-    iget-object v9, v9, Lcom/game/sdk/domain/InItInfo;->registerBitmp:Landroid/graphics/Bitmap;
+    .line 380
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->registerIv:Landroid/widget/ImageView;
 
-    .line 254
+    move-object/from16 v19, v0
+
+    sget-object v20, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->registerBitmp:Landroid/graphics/Bitmap;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    .line 384
+    .end local v3    # "bgColor":Ljava/lang/String;
+    .end local v4    # "btnColor":Ljava/lang/String;
+    .end local v5    # "changeFontColor":Ljava/lang/String;
+    .end local v11    # "headColor":Ljava/lang/String;
+    .end local v12    # "noticeColor":Ljava/lang/String;
     :cond_5
     return-void
 
-    .line 227
-    .restart local v0    # "allBg":Landroid/graphics/drawable/GradientDrawable;
+    .line 325
+    .restart local v2    # "allBg":Landroid/graphics/drawable/GradientDrawable;
+    .restart local v3    # "bgColor":Ljava/lang/String;
+    .restart local v4    # "btnColor":Ljava/lang/String;
+    .restart local v5    # "changeFontColor":Ljava/lang/String;
+    .restart local v11    # "headColor":Ljava/lang/String;
+    .restart local v12    # "noticeColor":Ljava/lang/String;
     :cond_6
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
 
-    move-result-object v7
+    move-object/from16 v19, v0
 
-    check-cast v7, Landroid/graphics/drawable/GradientDrawable;
+    invoke-virtual/range {v19 .. v19}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    .line 228
-    .restart local v7    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result-object v17
 
-    const-string v9, "#"
+    check-cast v17, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    .line 326
+    .restart local v17    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    sget-object v9, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    const-string v20, "#"
 
-    iget-object v9, v9, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
+    invoke-direct/range {v19 .. v20}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v9, v9, Lcom/game/sdk/domain/StyleInfo;->headColor:Ljava/lang/String;
+    sget-object v20, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v20
 
-    move-result-object v8
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->template:Lcom/game/sdk/domain/StyleInfo;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v8
+    move-object/from16 v0, v20
 
-    invoke-static {v8}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    iget-object v0, v0, Lcom/game/sdk/domain/StyleInfo;->headColor:Ljava/lang/String;
 
-    move-result v8
+    move-object/from16 v20, v0
 
-    invoke-virtual {v7, v8}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v19
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
     goto/16 :goto_0
 
-    .line 231
-    .end local v7    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
+    .line 329
+    .end local v17    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
     :cond_7
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
 
-    move-result-object v7
+    move-object/from16 v19, v0
 
-    check-cast v7, Landroid/graphics/drawable/GradientDrawable;
+    invoke-virtual/range {v19 .. v19}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    .line 232
-    .restart local v7    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
-    const-string v8, "#00000000"
+    move-result-object v17
 
-    invoke-static {v8}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    check-cast v17, Landroid/graphics/drawable/GradientDrawable;
 
-    move-result v8
+    .line 330
+    .restart local v17    # "titleBg":Landroid/graphics/drawable/GradientDrawable;
+    const-string v19, "#00000000"
 
-    invoke-virtual {v7, v8}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    invoke-static/range {v19 .. v19}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v19
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
     goto/16 :goto_0
 .end method
@@ -835,10 +1286,10 @@
     .locals 3
 
     .prologue
-    .line 113
+    .line 143
     invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initViews()V
 
-    .line 114
+    .line 144
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -847,7 +1298,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    .line 115
+    .line 145
     new-instance v0, Lcom/game/sdk/view/CustomDialog;
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
@@ -858,7 +1309,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameDialog:Lcom/game/sdk/view/CustomDialog;
 
-    .line 116
+    .line 147
     const-string v0, "change_account_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -867,7 +1318,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->changeAccountTv:Landroid/widget/TextView;
 
-    .line 117
+    .line 148
     const-string v0, "quick_register_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -876,7 +1327,18 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->quickRegisterTv:Landroid/widget/TextView;
 
-    .line 118
+    .line 149
+    const-string v0, "account_login_layout"
+
+    invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->accountLoginLayout:Landroid/widget/LinearLayout;
+
+    .line 150
     const-string v0, "quick_register_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -887,7 +1349,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->quickRegisterLayout:Landroid/widget/LinearLayout;
 
-    .line 119
+    .line 151
     const-string v0, "user_name_et"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findEditTextByString(Ljava/lang/String;)Landroid/widget/EditText;
@@ -896,7 +1358,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
 
-    .line 120
+    .line 152
     const-string v0, "password_et"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findEditTextByString(Ljava/lang/String;)Landroid/widget/EditText;
@@ -905,7 +1367,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
 
-    .line 121
+    .line 153
     const-string v0, "into_game_btn"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findButtonByString(Ljava/lang/String;)Landroid/widget/Button;
@@ -914,7 +1376,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameBtn:Landroid/widget/Button;
 
-    .line 123
+    .line 155
     const-string v0, "account_login_logo"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
@@ -923,7 +1385,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLogo:Landroid/widget/ImageView;
 
-    .line 124
+    .line 156
     const-string v0, "bg_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -934,7 +1396,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->bgLayout:Landroid/widget/RelativeLayout;
 
-    .line 125
+    .line 157
     const-string v0, "common_title_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -945,18 +1407,18 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->titleLayout:Landroid/widget/LinearLayout;
 
-    .line 126
+    .line 158
     const-string v0, "service_number_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/RelativeLayout;
+    check-cast v0, Landroid/widget/LinearLayout;
 
-    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serverLayout:Landroid/widget/RelativeLayout;
+    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serverLayout:Landroid/widget/LinearLayout;
 
-    .line 127
+    .line 159
     const-string v0, "register_icon"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
@@ -965,7 +1427,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->registerIv:Landroid/widget/ImageView;
 
-    .line 129
+    .line 161
     const-string v0, "forget_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -974,7 +1436,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->forgetTv:Landroid/widget/TextView;
 
-    .line 130
+    .line 162
     const-string v0, "more_account_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -985,629 +1447,828 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->moreAccountLayout:Landroid/widget/LinearLayout;
 
-    .line 131
+    .line 164
+    const-string v0, "service_tel_tv"
+
+    invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    .line 165
+    const-string v0, "service_qq_tv"
+
+    invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceQQTv:Landroid/widget/TextView;
+
+    .line 167
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->changeAccountTv:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 132
+    .line 168
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->quickRegisterLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 133
+    .line 169
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameBtn:Landroid/widget/Button;
 
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 134
+    .line 170
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->moreAccountLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 135
+    .line 171
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->forgetTv:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 136
+    .line 172
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceTelTv:Landroid/widget/TextView;
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 173
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->serviceQQTv:Landroid/widget/TextView;
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 174
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
+
+    new-instance v1, Lcom/game/sdk/ui/fragment/AccountLoginFragment$1;
+
+    invoke-direct {v1, p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$1;-><init>(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 195
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 14
+    .locals 13
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    const/4 v11, 0x0
-
-    const/16 v10, 0x10
-
-    const/4 v9, 0x6
-
-    const/4 v13, 0x0
-
-    const/4 v12, 0x1
-
-    .line 258
+    .line 388
     invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v7
-
-    const-string v8, "change_account_tv"
-
-    invoke-virtual {p0, v8}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
 
     move-result v8
 
-    if-ne v7, v8, :cond_1
+    const-string v9, "change_account_tv"
 
-    .line 259
-    const/4 v7, 0x2
+    invoke-virtual {p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
 
-    sput v7, Lcom/game/sdk/domain/GoagalInfo;->loginType:I
+    move-result v9
 
-    .line 260
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    if-ne v8, v9, :cond_1
 
-    invoke-virtual {v7, v12}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
+    .line 389
+    const/4 v8, 0x2
 
-    .line 379
+    sput v8, Lcom/game/sdk/domain/GoagalInfo;->loginType:I
+
+    .line 390
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
+
+    .line 513
     :cond_0
     :goto_0
     return-void
 
-    .line 264
+    .line 394
     :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-    move-result v7
-
-    const-string v8, "quick_register_layout"
-
-    invoke-virtual {p0, v8}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
-
     move-result v8
 
-    if-ne v7, v8, :cond_2
+    const-string v9, "service_qq_tv"
 
-    .line 265
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-virtual {p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
 
-    const/4 v8, 0x3
+    move-result v9
 
-    invoke-virtual {v7, v8}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
+    if-ne v8, v9, :cond_2
+
+    .line 395
+    const/4 v8, 0x0
+
+    sput v8, Lcom/game/sdk/domain/GoagalInfo;->qqKefuFrom:I
+
+    .line 396
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const/4 v9, 0x5
+
+    invoke-virtual {v8, v9}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
 
     goto :goto_0
 
-    .line 268
+    .line 400
     :cond_2
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-    move-result v7
+    move-result v8
 
-    const-string v8, "into_game_btn"
+    const-string v9, "quick_register_layout"
 
-    invoke-virtual {p0, v8}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
+    invoke-virtual {p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
+
+    move-result v9
+
+    if-ne v8, v9, :cond_3
+
+    .line 401
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const/4 v9, 0x3
+
+    invoke-virtual {v8, v9}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
+
+    goto :goto_0
+
+    .line 404
+    :cond_3
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v8
 
-    if-ne v7, v8, :cond_b
+    const-string v9, "into_game_btn"
 
-    .line 269
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-virtual {p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
 
-    invoke-static {v7}, Lcom/game/sdk/utils/NetworkImpl;->isNetWorkConneted(Landroid/content/Context;)Z
+    move-result v9
 
-    move-result v7
+    if-ne v8, v9, :cond_c
 
-    if-nez v7, :cond_3
+    .line 405
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    .line 270
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-static {v8}, Lcom/game/sdk/utils/NetworkImpl;->isNetWorkConneted(Landroid/content/Context;)Z
 
-    const-string v8, "\u7f51\u7edc\u4e0d\u7ed9\u529b\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u8bbe\u7f6e"
+    move-result v8
 
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    if-nez v8, :cond_4
 
-    goto :goto_0
+    .line 406
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    .line 274
-    :cond_3
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
+    const-string v9, "\u7f51\u7edc\u4e0d\u7ed9\u529b\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u8bbe\u7f6e"
 
-    invoke-virtual {v7}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v7
-
-    invoke-interface {v7}, Landroid/text/Editable;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 275
-    .local v5, "username":Ljava/lang/String;
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
-
-    invoke-virtual {v7}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v7
-
-    invoke-interface {v7}, Landroid/text/Editable;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 277
-    .local v2, "password":Ljava/lang/String;
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    .line 278
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    const-string v8, "\u8bf7\u8f93\u5165\u8d26\u53f7"
-
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 281
+    .line 410
     :cond_4
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
 
-    move-result v7
+    invoke-virtual {v8}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    if-eqz v7, :cond_5
+    move-result-object v8
 
-    .line 282
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-interface {v8}, Landroid/text/Editable;->toString()Ljava/lang/String;
 
-    const-string v8, "\u8bf7\u8f93\u5165\u5bc6\u7801"
+    move-result-object v8
 
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    goto :goto_0
+    move-result-object v6
 
-    .line 285
-    :cond_5
-    const-string v7, "[\u4e00-\u9fa5]"
+    .line 411
+    .local v6, "username":Ljava/lang/String;
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
 
-    invoke-static {v7}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+    invoke-virtual {v8}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Landroid/text/Editable;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 287
-    .local v3, "pat":Ljava/util/regex/Pattern;
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v7
-
-    if-lt v7, v9, :cond_6
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v7
-
-    if-gt v7, v10, :cond_6
-
-    invoke-virtual {v3, v5}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/util/regex/Matcher;->find()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    .line 288
-    :cond_6
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    const-string v8, "\u8d26\u53f7\u53ea\u80fd\u75316\u81f316\u4f4d\u82f1\u6587\u6216\u6570\u5b57\u7ec4\u6210"
-
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 291
-    :cond_7
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v7
-
-    if-lt v7, v9, :cond_8
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v7
-
-    if-gt v7, v10, :cond_8
-
-    invoke-virtual {v3, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/util/regex/Matcher;->find()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_9
-
-    .line 292
-    :cond_8
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    const-string v8, "\u5bc6\u7801\u53ea\u80fd\u75316\u81f316\u4f4d16\u4f4d\u82f1\u6587\u6216\u6570\u5b57\u7ec4\u6210"
-
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 296
-    :cond_9
-    sget-object v7, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    if-nez v7, :cond_a
-
-    .line 297
-    new-instance v7, Lcom/game/sdk/domain/UserInfo;
-
-    invoke-direct {v7}, Lcom/game/sdk/domain/UserInfo;-><init>()V
-
-    sput-object v7, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    .line 300
-    :cond_a
-    sget-object v7, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iput-object v5, v7, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    .line 301
-    sget-object v7, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iput-object v2, v7, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
-
-    .line 303
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameDialog:Lcom/game/sdk/view/CustomDialog;
-
-    invoke-virtual {v7}, Lcom/game/sdk/view/CustomDialog;->showDialog()V
-
-    .line 306
-    new-instance v7, Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;
-
-    invoke-direct {v7, p0, v11}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;-><init>(Lcom/game/sdk/ui/fragment/AccountLoginFragment;Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;)V
-
-    new-array v8, v13, [Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
-
-    .line 308
-    .end local v2    # "password":Ljava/lang/String;
-    .end local v3    # "pat":Ljava/util/regex/Pattern;
-    .end local v5    # "username":Ljava/lang/String;
-    :cond_b
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v7
-
-    const-string v8, "more_account_layout"
-
-    invoke-virtual {p0, v8}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
+    .line 413
+    .local v3, "password":Ljava/lang/String;
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v8
 
-    if-ne v7, v8, :cond_c
+    if-eqz v8, :cond_5
 
-    .line 309
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+    .line 414
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    if-eqz v7, :cond_d
+    const-string v9, "\u8bf7\u8f93\u5165\u8d26\u53f7"
 
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+    invoke-static {v8, v9}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-virtual {v7}, Landroid/widget/PopupWindow;->isShowing()Z
+    goto :goto_0
 
-    move-result v7
+    .line 417
+    :cond_5
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-eqz v7, :cond_d
+    move-result v8
 
-    .line 310
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+    if-eqz v8, :cond_6
 
-    invoke-virtual {v7}, Landroid/widget/PopupWindow;->dismiss()V
+    .line 418
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    .line 354
+    const-string v9, "\u8bf7\u8f93\u5165\u5bc6\u7801"
+
+    invoke-static {v8, v9}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 421
+    :cond_6
+    const-string v8, "[\u4e00-\u9fa5]"
+
+    invoke-static {v8}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v4
+
+    .line 423
+    .local v4, "pat":Ljava/util/regex/Pattern;
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    const/4 v9, 0x6
+
+    if-lt v8, v9, :cond_7
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    const/16 v9, 0x10
+
+    if-gt v8, v9, :cond_7
+
+    invoke-virtual {v4, v6}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    .line 424
+    :cond_7
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const-string v9, "\u8d26\u53f7\u53ea\u80fd\u75316\u81f316\u4f4d\u82f1\u6587\u6216\u6570\u5b57\u7ec4\u6210"
+
+    invoke-static {v8, v9}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 427
+    :cond_8
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    const/4 v9, 0x6
+
+    if-lt v8, v9, :cond_9
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    const/16 v9, 0x10
+
+    if-gt v8, v9, :cond_9
+
+    invoke-virtual {v4, v3}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/util/regex/Matcher;->find()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_a
+
+    .line 428
+    :cond_9
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const-string v9, "\u5bc6\u7801\u53ea\u80fd\u75316\u81f316\u4f4d16\u4f4d\u82f1\u6587\u6216\u6570\u5b57\u7ec4\u6210"
+
+    invoke-static {v8, v9}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 432
+    :cond_a
+    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    if-nez v8, :cond_b
+
+    .line 433
+    new-instance v8, Lcom/game/sdk/domain/UserInfo;
+
+    invoke-direct {v8}, Lcom/game/sdk/domain/UserInfo;-><init>()V
+
+    sput-object v8, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    .line 436
+    :cond_b
+    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iput-object v6, v8, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    .line 437
+    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iput-object v3, v8, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+
+    .line 439
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->intoGameDialog:Lcom/game/sdk/view/CustomDialog;
+
+    invoke-virtual {v8}, Lcom/game/sdk/view/CustomDialog;->showDialog()V
+
+    .line 442
+    new-instance v8, Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;
+
+    const/4 v9, 0x0
+
+    invoke-direct {v8, p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;-><init>(Lcom/game/sdk/ui/fragment/AccountLoginFragment;Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;)V
+
+    const/4 v9, 0x0
+
+    new-array v9, v9, [Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$LoginTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 444
+    .end local v3    # "password":Ljava/lang/String;
+    .end local v4    # "pat":Ljava/util/regex/Pattern;
+    .end local v6    # "username":Ljava/lang/String;
     :cond_c
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+
+    move-result v8
+
+    const-string v9, "more_account_layout"
+
+    invoke-virtual {p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
+
+    move-result v9
+
+    if-ne v8, v9, :cond_d
+
+    .line 445
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+
+    if-eqz v8, :cond_f
+
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+
+    invoke-virtual {v8}, Landroid/widget/PopupWindow;->isShowing()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_f
+
+    .line 446
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+
+    invoke-virtual {v8}, Landroid/widget/PopupWindow;->dismiss()V
+
+    .line 496
+    :cond_d
     :goto_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-    move-result v7
+    move-result v8
 
-    const-string v8, "forget_tv"
+    const-string v9, "forget_tv"
 
-    invoke-virtual {p0, v8}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
+    invoke-virtual {p0, v9}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->findIdByString(Ljava/lang/String;)I
+
+    move-result v9
+
+    if-ne v8, v9, :cond_e
+
+    .line 497
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const/4 v9, 0x6
+
+    invoke-virtual {v8, v9}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
+
+    .line 500
+    :cond_e
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v8
 
-    if-ne v7, v8, :cond_0
+    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    .line 356
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
+    const-string v10, "id"
 
-    invoke-virtual {v7}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    const-string v11, "service_tel_tv"
 
-    move-result-object v7
+    invoke-static {v9, v10, v11}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v7}, Landroid/text/Editable;->toString()Ljava/lang/String;
+    move-result v9
 
-    move-result-object v7
+    if-ne v8, v9, :cond_0
 
-    invoke-virtual {v7}, Ljava/lang/String;->trim()Ljava/lang/String;
+    .line 502
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    const-string v9, "isEmulator--->"
 
-    .line 358
-    .restart local v5    # "username":Ljava/lang/String;
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result v7
+    invoke-static {}, Lcom/game/sdk/utils/EmulatorCheckUtil;->isEmulator()Z
 
-    if-eqz v7, :cond_10
+    move-result v9
 
-    .line 359
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v8, "\u8bf7\u8f93\u5165\u8d26\u53f7"
+    move-result-object v8
 
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 504
+    invoke-static {}, Lcom/game/sdk/utils/EmulatorCheckUtil;->isEmulator()Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    .line 505
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    invoke-static {v8}, Lcom/game/sdk/utils/SystemUtil;->isValidContext(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    if-eqz v8, :cond_0
+
+    sget-object v8, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v8, v8, Lcom/game/sdk/domain/InItInfo;->tel:Ljava/lang/String;
+
+    invoke-static {v8}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    .line 506
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v8, "android.intent.action.DIAL"
+
+    invoke-direct {v1, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 507
+    .local v1, "intent":Landroid/content/Intent;
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    const-string v9, "tel:"
+
+    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    sget-object v9, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v9, v9, Lcom/game/sdk/domain/InItInfo;->tel:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    .line 508
+    .local v0, "data":Landroid/net/Uri;
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    .line 509
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    invoke-virtual {v8, v1}, Lcom/game/sdk/ui/LoginActivity;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 316
-    .end local v5    # "username":Ljava/lang/String;
-    :cond_d
-    invoke-virtual {p0, v12}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getCommonUserInfosByType(I)Ljava/util/List;
+    .line 449
+    .end local v0    # "data":Landroid/net/Uri;
+    .end local v1    # "intent":Landroid/content/Intent;
+    :cond_f
+    invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getCommonUserInfosByType()Ljava/util/List;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userList:Ljava/util/List;
+
+    .line 451
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
+
+    .line 452
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
+
+    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userList:Ljava/util/List;
+
+    invoke-interface {v8, v9}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    .line 454
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
+
+    if-eqz v8, :cond_0
+
+    .line 457
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+
+    if-nez v8, :cond_10
+
+    .line 458
+    new-instance v8, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+
+    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    iget-object v10, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
+
+    const/4 v11, 0x1
+
+    invoke-direct {v8, v9, v10, v11}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I)V
+
+    iput-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+
+    .line 460
+    :cond_10
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+
+    invoke-virtual {v8, p0}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;->setCloseListener(Lcom/game/sdk/ui/adapter/UserLoginListAdapter$CloseListener;)V
+
+    .line 462
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->accountLoginLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v8}, Landroid/widget/LinearLayout;->getWidth()I
+
+    move-result v8
+
+    int-to-double v8, v8
+
+    const-wide v10, 0x3feb333333333333L    # 0.85
+
+    mul-double/2addr v8, v10
+
+    double-to-int v5, v8
+
+    .line 466
+    .local v5, "pwidth":I
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+
+    if-nez v8, :cond_11
+
+    .line 467
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->inflater:Landroid/view/LayoutInflater;
+
+    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+
+    const-string v10, "layout"
+
+    const-string v11, "login_user_list"
+
+    invoke-static {v9, v10, v11}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v9
+
+    .line 468
+    const/4 v10, 0x0
+
+    .line 467
+    invoke-virtual {v8, v9, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v7
 
-    iput-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
-
-    .line 318
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
-
-    if-eqz v7, :cond_0
-
-    .line 321
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
-
-    if-nez v7, :cond_e
-
-    .line 322
-    new-instance v7, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
-
+    .line 469
+    .local v7, "view":Landroid/view/View;
     iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
 
-    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
+    const-string v9, "id"
 
-    invoke-direct {v7, v8, v9}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;-><init>(Landroid/content/Context;Ljava/util/List;)V
-
-    iput-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
-
-    .line 325
-    :cond_e
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    const/16 v8, 0x154
-
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
-
-    move-result v4
-
-    .line 326
-    .local v4, "pwidth":I
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
-
-    if-nez v7, :cond_f
-
-    .line 327
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->inflater:Landroid/view/LayoutInflater;
-
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
-
-    const-string v9, "layout"
-
-    const-string v10, "login_user_list"
+    const-string v10, "lv_pw"
 
     invoke-static {v8, v9, v10}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v8
 
-    invoke-virtual {v7, v8, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v6
+    move-result-object v2
 
-    .line 328
-    .local v6, "view":Landroid/view/View;
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    check-cast v2, Landroid/widget/ListView;
 
-    const-string v8, "id"
+    .line 470
+    .local v2, "lv_pw":Landroid/widget/ListView;
+    const/4 v8, 0x0
 
-    const-string v9, "lv_pw"
+    invoke-virtual {v2, v8}, Landroid/widget/ListView;->setCacheColorHint(I)V
 
-    invoke-static {v7, v8, v9}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    .line 471
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
 
-    move-result v7
+    invoke-virtual {v2, v8}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 472
+    new-instance v8, Lcom/game/sdk/ui/fragment/AccountLoginFragment$2;
 
-    move-result-object v1
+    invoke-direct {v8, p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$2;-><init>(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)V
 
-    check-cast v1, Landroid/widget/ListView;
+    invoke-virtual {v2, v8}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 329
-    .local v1, "lv_pw":Landroid/widget/ListView;
-    invoke-virtual {v1, v13}, Landroid/widget/ListView;->setCacheColorHint(I)V
+    .line 485
+    new-instance v8, Landroid/widget/PopupWindow;
 
-    .line 330
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+    const/4 v9, -0x2
 
-    invoke-virtual {v1, v7}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    const/4 v10, 0x1
 
-    .line 331
-    new-instance v7, Lcom/game/sdk/ui/fragment/AccountLoginFragment$1;
+    invoke-direct {v8, v7, v5, v9, v10}, Landroid/widget/PopupWindow;-><init>(Landroid/view/View;IIZ)V
 
-    invoke-direct {v7, p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment$1;-><init>(Lcom/game/sdk/ui/fragment/AccountLoginFragment;)V
+    iput-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    invoke-virtual {v1, v7}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    .line 486
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    .line 343
-    new-instance v7, Landroid/widget/PopupWindow;
+    new-instance v9, Landroid/graphics/drawable/ColorDrawable;
 
-    const/4 v8, -0x2
+    const/4 v10, 0x0
 
-    invoke-direct {v7, v6, v4, v8, v12}, Landroid/widget/PopupWindow;-><init>(Landroid/view/View;IIZ)V
+    invoke-direct {v9, v10}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    iput-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+    invoke-virtual {v8, v9}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 344
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+    .line 487
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    new-instance v8, Landroid/graphics/drawable/ColorDrawable;
+    invoke-virtual {v8, v7}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
 
-    invoke-direct {v8, v13}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
-
-    invoke-virtual {v7, v8}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 345
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
-
-    invoke-virtual {v7, v6}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
-
-    .line 350
-    .end local v1    # "lv_pw":Landroid/widget/ListView;
-    .end local v6    # "view":Landroid/view/View;
+    .line 492
+    .end local v2    # "lv_pw":Landroid/widget/ListView;
+    .end local v7    # "view":Landroid/view/View;
     :goto_2
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->moreAccountLayout:Landroid/widget/LinearLayout;
+    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->moreAccountLayout:Landroid/widget/LinearLayout;
 
-    .line 351
-    neg-int v9, v4
+    .line 493
+    neg-int v10, v5
 
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v10
+    move-result-object v11
 
-    const/16 v11, 0x30
+    const/16 v12, 0x30
 
-    invoke-static {v10, v11}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
+    invoke-static {v11, v12}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
 
-    move-result v10
+    move-result v11
 
-    add-int/2addr v9, v10
+    add-int/2addr v10, v11
 
-    .line 350
-    invoke-virtual {v7, v8, v9, v13}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;II)V
+    const/4 v11, 0x0
+
+    .line 492
+    invoke-virtual {v8, v9, v10, v11}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;II)V
 
     goto/16 :goto_1
 
-    .line 347
-    :cond_f
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+    .line 489
+    :cond_11
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
 
-    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
+    iget-object v9, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userLoginInfos:Ljava/util/List;
 
-    invoke-virtual {v7, v8}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;->initDataList(Ljava/util/List;)V
+    invoke-virtual {v8, v9}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;->initDataList(Ljava/util/List;)V
 
-    .line 348
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
+    .line 490
+    iget-object v8, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_adapter:Lcom/game/sdk/ui/adapter/UserLoginListAdapter;
 
-    invoke-virtual {v7}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v8}, Lcom/game/sdk/ui/adapter/UserLoginListAdapter;->notifyDataSetChanged()V
 
     goto :goto_2
+.end method
 
-    .line 363
-    .end local v4    # "pwidth":I
-    .restart local v5    # "username":Ljava/lang/String;
-    :cond_10
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+.method public onPause()V
+    .locals 1
 
-    invoke-static {v7}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    .prologue
+    .line 645
+    invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->onPause()V
 
-    move-result-object v7
+    .line 646
+    const-string v0, "AccountLoginFragment"
 
-    invoke-virtual {v7, v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getUserInfoByName(Ljava/lang/String;)Lcom/game/sdk/domain/UserInfo;
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageEnd(Ljava/lang/String;)V
 
-    move-result-object v0
+    .line 648
+    return-void
+.end method
 
-    .line 364
-    .local v0, "loginUserInfo":Lcom/game/sdk/domain/UserInfo;
-    if-eqz v0, :cond_13
+.method public onResume()V
+    .locals 1
 
-    .line 365
-    iget v7, v0, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
+    .prologue
+    .line 291
+    invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->onResume()V
 
-    if-ne v7, v12, :cond_11
+    .line 292
+    const-string v0, "AccountLoginFragment"
 
-    .line 366
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageStart(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v12}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
+    .line 294
+    return-void
+.end method
 
-    goto/16 :goto_0
+.method public popWindowClose()V
+    .locals 2
 
-    .line 368
-    :cond_11
-    iget-object v7, v0, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+    .prologue
+    .line 634
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    invoke-static {v7}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-eqz v0, :cond_0
 
-    move-result v7
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    if-nez v7, :cond_12
+    invoke-virtual {v0}, Landroid/widget/PopupWindow;->isShowing()Z
 
-    .line 369
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
+    move-result v0
 
-    iget-object v8, v0, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v7, v8}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    .line 635
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->pw_select_user:Landroid/widget/PopupWindow;
 
-    goto/16 :goto_0
+    invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
 
-    .line 371
-    :cond_12
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    .line 637
+    const/4 v0, 0x0
 
-    const-string v8, "\u8d26\u53f7\u672a\u7ed1\u5b9a\u624b\u673a\uff0c\u8bf7\u8054\u7cfb\u5ba2\u670d\u627e\u56de"
+    iput-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->currentUserInfo:Lcom/game/sdk/domain/UserInfo;
 
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    .line 638
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->userNameEt:Landroid/widget/EditText;
 
-    goto/16 :goto_0
+    const-string v1, ""
 
-    .line 375
-    :cond_13
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    const-string v8, "\u8d26\u53f7\u4e0d\u5b58\u5728\uff0c\u8bf7\u6ce8\u518c"
+    .line 639
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->passWordEt:Landroid/widget/EditText;
 
-    invoke-static {v7, v8}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    const-string v1, ""
 
-    .line 376
-    iget-object v7, p0, Lcom/game/sdk/ui/fragment/AccountLoginFragment;->loginActivity:Lcom/game/sdk/ui/LoginActivity;
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v7, v12}, Lcom/game/sdk/ui/LoginActivity;->changeFragment(I)V
-
-    goto/16 :goto_0
+    .line 641
+    :cond_0
+    return-void
 .end method

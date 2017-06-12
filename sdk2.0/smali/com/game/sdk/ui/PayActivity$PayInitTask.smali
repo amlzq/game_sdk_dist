@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 625
+    .line 725
     iput-object p1, p0, Lcom/game/sdk/ui/PayActivity$PayInitTask;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -46,7 +46,7 @@
     .locals 0
 
     .prologue
-    .line 625
+    .line 725
     invoke-direct {p0, p1}, Lcom/game/sdk/ui/PayActivity$PayInitTask;-><init>(Lcom/game/sdk/ui/PayActivity;)V
 
     return-void
@@ -59,11 +59,11 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 634
+    .line 734
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity$PayInitTask;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     # getter for: Lcom/game/sdk/ui/PayActivity;->payCoinEngin:Lcom/game/sdk/engin/PayCoinEngin;
-    invoke-static {v0}, Lcom/game/sdk/ui/PayActivity;->access$16(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/engin/PayCoinEngin;
+    invoke-static {v0}, Lcom/game/sdk/ui/PayActivity;->access$18(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/engin/PayCoinEngin;
 
     move-result-object v0
 
@@ -97,38 +97,38 @@
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    .line 639
+    .line 739
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 640
+    .line 740
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 642
+    .line 742
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 643
+    .line 743
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x2
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 644
+    .line 744
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity$PayInitTask;->this$0:Lcom/game/sdk/ui/PayActivity;
 
     # getter for: Lcom/game/sdk/ui/PayActivity;->handler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/game/sdk/ui/PayActivity;->access$17(Lcom/game/sdk/ui/PayActivity;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/game/sdk/ui/PayActivity;->access$19(Lcom/game/sdk/ui/PayActivity;)Landroid/os/Handler;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 646
+    .line 746
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
@@ -150,9 +150,9 @@
     .locals 0
 
     .prologue
-    .line 628
+    .line 728
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 629
+    .line 729
     return-void
 .end method

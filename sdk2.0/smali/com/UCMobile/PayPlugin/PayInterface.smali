@@ -36,7 +36,7 @@
 
     const-string v3, "UC.PayInterface.show() +++ "
 
-    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     sget-boolean v2, Lcom/UCMobile/PayPlugin/PayInterface;->a:Z
 
@@ -63,7 +63,7 @@
 
     const-string v1, "data == null!!!!"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v1, -0x1
 
@@ -165,7 +165,7 @@
 
     const-string v2, "UC.PayInterface.show() +++ "
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 

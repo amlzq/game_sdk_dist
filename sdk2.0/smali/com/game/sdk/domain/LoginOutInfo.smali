@@ -4,7 +4,25 @@
 
 
 # instance fields
+.field public gameIcon:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "game_icon"
+    .end annotation
+.end field
+
+.field public gameName:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "game_name"
+    .end annotation
+.end field
+
 .field public img:Ljava/lang/String;
+
+.field public packageName:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "package_name"
+    .end annotation
+.end field
 
 .field public type:I
 

@@ -34,20 +34,10 @@
     .locals 0
 
     .prologue
-    .line 510
+    .line 767
     iput-object p1, p0, Lcom/game/sdk/ui/ChargeActivity$PayInitTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/game/sdk/ui/ChargeActivity;Lcom/game/sdk/ui/ChargeActivity$PayInitTask;)V
-    .locals 0
-
-    .prologue
-    .line 510
-    invoke-direct {p0, p1}, Lcom/game/sdk/ui/ChargeActivity$PayInitTask;-><init>(Lcom/game/sdk/ui/ChargeActivity;)V
 
     return-void
 .end method
@@ -59,7 +49,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 518
+    .line 775
     iget-object v0, p0, Lcom/game/sdk/ui/ChargeActivity$PayInitTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     new-instance v1, Lcom/game/sdk/engin/PayCoinEngin;
@@ -72,13 +62,13 @@
 
     invoke-direct {v1, v2, v3}, Lcom/game/sdk/engin/PayCoinEngin;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lcom/game/sdk/ui/ChargeActivity;->access$11(Lcom/game/sdk/ui/ChargeActivity;Lcom/game/sdk/engin/PayCoinEngin;)V
+    invoke-static {v0, v1}, Lcom/game/sdk/ui/ChargeActivity;->access$13(Lcom/game/sdk/ui/ChargeActivity;Lcom/game/sdk/engin/PayCoinEngin;)V
 
-    .line 519
+    .line 776
     iget-object v0, p0, Lcom/game/sdk/ui/ChargeActivity$PayInitTask;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->payCoinEngin:Lcom/game/sdk/engin/PayCoinEngin;
-    invoke-static {v0}, Lcom/game/sdk/ui/ChargeActivity;->access$12(Lcom/game/sdk/ui/ChargeActivity;)Lcom/game/sdk/engin/PayCoinEngin;
+    invoke-static {v0}, Lcom/game/sdk/ui/ChargeActivity;->access$14(Lcom/game/sdk/ui/ChargeActivity;)Lcom/game/sdk/engin/PayCoinEngin;
 
     move-result-object v0
 
@@ -112,10 +102,10 @@
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    .line 524
+    .line 781
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 525
+    .line 782
     return-void
 .end method
 
@@ -135,9 +125,9 @@
     .locals 0
 
     .prologue
-    .line 513
+    .line 770
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 514
+    .line 771
     return-void
 .end method

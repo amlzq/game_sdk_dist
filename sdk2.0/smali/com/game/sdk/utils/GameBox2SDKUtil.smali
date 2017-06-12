@@ -51,7 +51,7 @@
 
     sput-object v0, Lcom/game/sdk/utils/GameBox2SDKUtil;->PATH:Ljava/lang/String;
 
-    .line 236
+    .line 234
     const/16 v0, 0x10
 
     new-array v0, v0, [C
@@ -60,10 +60,10 @@
 
     sput-object v0, Lcom/game/sdk/utils/GameBox2SDKUtil;->HEX:[C
 
-    .line 239
+    .line 237
     return-void
 
-    .line 236
+    .line 234
     nop
 
     :array_0
@@ -179,12 +179,12 @@
     .param p1, "userInfo"    # Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
 
     .prologue
-    .line 90
+    .line 88
     invoke-static {p0}, Lcom/game/sdk/utils/GameBox2SDKUtil;->loadAllUserInfo(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object v2
 
-    .line 91
+    .line 89
     .local v2, "userInfos":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;>;"
     const/4 v1, 0x0
 
@@ -196,14 +196,14 @@
 
     if-lt v1, v3, :cond_0
 
-    .line 98
+    .line 96
     :goto_1
     invoke-static {p0, v2}, Lcom/game/sdk/utils/GameBox2SDKUtil;->saveUserInfos(Landroid/content/Context;Ljava/util/List;)V
 
-    .line 99
+    .line 97
     return-void
 
-    .line 92
+    .line 90
     :cond_0
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -211,7 +211,7 @@
 
     check-cast v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
 
-    .line 93
+    .line 91
     .local v0, "_userInfo":Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
     iget-object v3, v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->phone:Ljava/lang/String;
 
@@ -233,13 +233,13 @@
 
     if-eqz v3, :cond_2
 
-    .line 94
+    .line 92
     :cond_1
     invoke-interface {v2, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto :goto_1
 
-    .line 91
+    .line 89
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
@@ -314,17 +314,17 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 163
+    .line 161
     invoke-static {}, Lcom/game/sdk/utils/GameBox2SDKUtil;->makeBaseDir()V
 
-    .line 164
+    .line 162
     new-instance v0, Ljava/io/File;
 
     sget-object v1, Lcom/game/sdk/utils/GameBox2SDKUtil;->PATH:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 165
+    .line 163
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -332,10 +332,10 @@
 
     if-nez v1, :cond_0
 
-    .line 166
+    .line 164
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 168
+    .line 166
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -371,7 +371,7 @@
     .param p0, "userInfo"    # Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
 
     .prologue
-    .line 242
+    .line 240
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "{\"phone\":\""
@@ -402,7 +402,7 @@
 
     move-result-object v0
 
-    .line 243
+    .line 241
     const-string v1, "\"pwd\":\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -433,7 +433,7 @@
 
     move-result-object v0
 
-    .line 242
+    .line 240
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -446,10 +446,10 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 254
+    .line 252
     const-string v1, ""
 
-    .line 255
+    .line 253
     .local v1, "uid":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
@@ -457,7 +457,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 256
+    .line 254
     const-string v2, "phone"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -466,36 +466,39 @@
 
     check-cast v0, Landroid/telephony/TelephonyManager;
 
-    .line 257
+    .line 255
     .local v0, "telephonyManager":Landroid/telephony/TelephonyManager;
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 259
+    .line 257
     .end local v0    # "telephonyManager":Landroid/telephony/TelephonyManager;
     :cond_0
+    if-eqz v1, :cond_1
+
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
-    .line 260
+    .line 258
+    :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 261
+    .line 259
     const-string v3, "android_id"
 
-    .line 260
+    .line 258
     invoke-static {v2, v3}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 263
-    :cond_1
+    .line 261
+    :cond_2
     return-object v1
 .end method
 
@@ -504,7 +507,7 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 159
+    .line 157
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -571,21 +574,23 @@
     :goto_0
     if-lt v1, v3, :cond_2
 
-    .line 83
+    .line 81
     :goto_1
     if-eqz v3, :cond_0
 
     if-nez v2, :cond_1
 
-    .line 84
+    .line 82
     :cond_0
-    invoke-interface {v4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const/4 v5, 0x0
 
-    .line 86
+    invoke-interface {v4, v5, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
+
+    .line 84
     :cond_1
     invoke-static {p0, v4}, Lcom/game/sdk/utils/GameBox2SDKUtil;->saveUserInfos(Landroid/content/Context;Ljava/util/List;)V
 
-    .line 87
+    .line 85
     return-void
 
     .line 71
@@ -616,42 +621,39 @@
 
     iget-object v5, v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
 
-    .line 74
     iget-object v6, p1, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
 
-    .line 72
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    .line 74
     if-eqz v5, :cond_4
 
-    .line 75
+    .line 73
     :cond_3
     iget-object v5, p1, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->phone:Ljava/lang/String;
 
     iput-object v5, v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->phone:Ljava/lang/String;
 
-    .line 76
+    .line 74
     iget-object v5, p1, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
 
     iput-object v5, v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
 
-    .line 77
+    .line 75
     iget-object v5, p1, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->pwd:Ljava/lang/String;
 
     iput-object v5, v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->pwd:Ljava/lang/String;
 
-    .line 78
+    .line 76
     iget v5, p1, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->type:I
 
     iput v5, v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->type:I
 
-    .line 79
+    .line 77
     const/4 v2, 0x1
 
-    .line 80
+    .line 78
     goto :goto_1
 
     .line 70
@@ -677,23 +679,23 @@
     .end annotation
 
     .prologue
-    .line 105
+    .line 103
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 106
+    .line 104
     .local v5, "userInfos":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;>;"
     const-string v6, ""
 
-    .line 108
+    .line 106
     .local v6, "userInfosStr":Ljava/lang/String;
     :try_start_0
     invoke-static {p0}, Lcom/game/sdk/utils/GameBox2SDKUtil;->getUserInfosFile(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v0
 
-    .line 109
+    .line 107
     .local v0, "file":Ljava/io/File;
     new-instance v7, Ljava/lang/String;
 
@@ -709,7 +711,7 @@
     .local v7, "userInfosStr":Ljava/lang/String;
     move-object v6, v7
 
-    .line 112
+    .line 110
     .end local v0    # "file":Ljava/io/File;
     .end local v7    # "userInfosStr":Ljava/lang/String;
     .restart local v6    # "userInfosStr":Ljava/lang/String;
@@ -720,7 +722,7 @@
 
     if-nez v8, :cond_0
 
-    .line 113
+    .line 111
     new-instance v8, Ljava/lang/String;
 
     invoke-static {v6}, Lcom/game/sdk/utils/Base64;->decode(Ljava/lang/String;)[B
@@ -733,13 +735,13 @@
 
     move-result-object v6
 
-    .line 115
+    .line 113
     :try_start_1
     new-instance v2, Lorg/json/JSONArray;
 
     invoke-direct {v2, v6}, Lorg/json/JSONArray;-><init>(Ljava/lang/String;)V
 
-    .line 116
+    .line 114
     .local v2, "jsonArray":Lorg/json/JSONArray;
     const/4 v1, 0x0
 
@@ -751,14 +753,14 @@
 
     if-lt v1, v8, :cond_1
 
-    .line 128
+    .line 126
     .end local v1    # "i":I
     .end local v2    # "jsonArray":Lorg/json/JSONArray;
     :cond_0
     :goto_2
     return-object v5
 
-    .line 117
+    .line 115
     .restart local v1    # "i":I
     .restart local v2    # "jsonArray":Lorg/json/JSONArray;
     :cond_1
@@ -766,13 +768,13 @@
 
     move-result-object v3
 
-    .line 118
+    .line 116
     .local v3, "jsonObject":Lorg/json/JSONObject;
     new-instance v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
 
     invoke-direct {v4}, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;-><init>()V
 
-    .line 119
+    .line 117
     .local v4, "userInfo":Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
     const-string v8, "phone"
 
@@ -782,7 +784,7 @@
 
     iput-object v8, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->phone:Ljava/lang/String;
 
-    .line 120
+    .line 118
     const-string v8, "name"
 
     invoke-virtual {v3, v8}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -791,7 +793,7 @@
 
     iput-object v8, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->name:Ljava/lang/String;
 
-    .line 121
+    .line 119
     const-string v8, "pwd"
 
     invoke-virtual {v3, v8}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -800,7 +802,7 @@
 
     iput-object v8, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->pwd:Ljava/lang/String;
 
-    .line 122
+    .line 120
     const-string v8, "type"
 
     invoke-virtual {v3, v8}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
@@ -809,17 +811,17 @@
 
     iput v8, v4, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;->type:I
 
-    .line 123
+    .line 121
     invoke-interface {v5, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 116
+    .line 114
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 125
+    .line 123
     .end local v1    # "i":I
     .end local v2    # "jsonArray":Lorg/json/JSONArray;
     .end local v3    # "jsonObject":Lorg/json/JSONObject;
@@ -829,7 +831,7 @@
 
     goto :goto_2
 
-    .line 110
+    .line 108
     :catch_1
     move-exception v8
 
@@ -840,14 +842,14 @@
     .locals 2
 
     .prologue
-    .line 247
+    .line 245
     new-instance v0, Ljava/io/File;
 
     sget-object v1, Lcom/game/sdk/utils/GameBox2SDKUtil;->PATH:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 248
+    .line 246
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -855,10 +857,10 @@
 
     if-nez v1, :cond_0
 
-    .line 249
+    .line 247
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 251
+    .line 249
     :cond_0
     return-void
 .end method
@@ -868,13 +870,13 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 212
+    .line 210
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v0
 
-    .line 213
+    .line 211
     .local v0, "data":[B
     const-string v4, "MD5"
 
@@ -882,13 +884,13 @@
 
     move-result-object v3
 
-    .line 214
+    .line 212
     .local v3, "md":Ljava/security/MessageDigest;
     invoke-virtual {v3, v0}, Ljava/security/MessageDigest;->digest([B)[B
 
     move-result-object v1
 
-    .line 215
+    .line 213
     .local v1, "digest":[B
     invoke-static {v1}, Lcom/game/sdk/utils/GameBox2SDKUtil;->toHex([B)Ljava/lang/String;
     :try_end_0
@@ -896,24 +898,24 @@
 
     move-result-object v4
 
-    .line 220
+    .line 218
     .end local v0    # "data":[B
     .end local v1    # "digest":[B
     .end local v3    # "md":Ljava/security/MessageDigest;
     :goto_0
     return-object v4
 
-    .line 216
+    .line 214
     :catch_0
     move-exception v2
 
-    .line 218
+    .line 216
     .local v2, "e":Ljava/lang/Exception;
     const-string v4, "Md5 Fail"
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 220
+    .line 218
     const/4 v4, 0x0
 
     goto :goto_0
@@ -929,17 +931,17 @@
     .end annotation
 
     .prologue
-    .line 187
+    .line 185
     const/4 v2, 0x0
 
-    .line 189
+    .line 187
     .local v2, "fin":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v4, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v4}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 190
+    .line 188
     .local v4, "out":Ljava/io/ByteArrayOutputStream;
     new-instance v3, Ljava/io/FileInputStream;
 
@@ -947,7 +949,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 191
+    .line 189
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .local v3, "fin":Ljava/io/FileInputStream;
     const/16 v6, 0x2000
@@ -955,11 +957,11 @@
     :try_start_1
     new-array v0, v6, [B
 
-    .line 192
+    .line 190
     .local v0, "buffer":[B
     const/4 v5, 0x0
 
-    .line 193
+    .line 191
     .local v5, "read":I
     :goto_0
     invoke-virtual {v3, v0}, Ljava/io/FileInputStream;->read([B)I
@@ -970,32 +972,32 @@
 
     if-ne v5, v6, :cond_1
 
-    .line 196
+    .line 194
     invoke-virtual {v4}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v1
 
-    .line 197
+    .line 195
     .local v1, "data":[B
     invoke-virtual {v4}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 200
+    .line 198
     if-eqz v3, :cond_0
 
-    .line 202
+    .line 200
     :try_start_2
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 198
+    .line 196
     :cond_0
     :goto_1
     return-object v1
 
-    .line 194
+    .line 192
     .end local v1    # "data":[B
     :cond_1
     const/4 v6, 0x0
@@ -1007,7 +1009,7 @@
 
     goto :goto_0
 
-    .line 199
+    .line 197
     .end local v0    # "buffer":[B
     .end local v5    # "read":I
     :catchall_0
@@ -1015,25 +1017,25 @@
 
     move-object v2, v3
 
-    .line 200
+    .line 198
     .end local v3    # "fin":Ljava/io/FileInputStream;
     .end local v4    # "out":Ljava/io/ByteArrayOutputStream;
     .restart local v2    # "fin":Ljava/io/FileInputStream;
     :goto_2
     if-eqz v2, :cond_2
 
-    .line 202
+    .line 200
     :try_start_4
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
-    .line 206
+    .line 204
     :cond_2
     :goto_3
     throw v6
 
-    .line 203
+    .line 201
     .end local v2    # "fin":Ljava/io/FileInputStream;
     .restart local v0    # "buffer":[B
     .restart local v1    # "data":[B
@@ -1056,7 +1058,7 @@
 
     goto :goto_3
 
-    .line 199
+    .line 197
     :catchall_1
     move-exception v6
 
@@ -1078,17 +1080,17 @@
     .end annotation
 
     .prologue
-    .line 132
+    .line 130
     .local p1, "userInfos":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;>;"
     const-string v4, "["
 
-    .line 133
+    .line 131
     .local v4, "userInfosStr":Ljava/lang/String;
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v3
 
-    .line 134
+    .line 132
     .local v3, "len":I
     const/4 v2, 0x0
 
@@ -1096,7 +1098,7 @@
     :goto_0
     if-lt v2, v3, :cond_0
 
-    .line 141
+    .line 139
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -1115,7 +1117,7 @@
 
     move-result-object v4
 
-    .line 142
+    .line 140
     invoke-static {v4}, Lcom/game/sdk/utils/Encrypt;->encode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
@@ -1128,12 +1130,12 @@
 
     move-result-object v4
 
-    .line 143
+    .line 141
     invoke-static {p0}, Lcom/game/sdk/utils/GameBox2SDKUtil;->getUserInfosFile(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v1
 
-    .line 145
+    .line 143
     .local v1, "file":Ljava/io/File;
     :try_start_0
     invoke-virtual {v4}, Ljava/lang/String;->getBytes()[B
@@ -1144,11 +1146,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 148
+    .line 146
     :goto_1
     return-void
 
-    .line 135
+    .line 133
     .end local v1    # "file":Ljava/io/File;
     :cond_0
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1157,7 +1159,7 @@
 
     check-cast v0, Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
 
-    .line 136
+    .line 134
     .local v0, "_userInfo":Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -1179,12 +1181,12 @@
 
     move-result-object v4
 
-    .line 137
+    .line 135
     add-int/lit8 v5, v3, -0x1
 
     if-eq v2, v5, :cond_1
 
-    .line 138
+    .line 136
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -1203,13 +1205,13 @@
 
     move-result-object v4
 
-    .line 134
+    .line 132
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 146
+    .line 144
     .end local v0    # "_userInfo":Lcom/game/sdk/utils/GameBox2SDKUtil$UserInfo;
     .restart local v1    # "file":Ljava/io/File;
     :catch_0
@@ -1223,12 +1225,12 @@
     .param p0, "b"    # [B
 
     .prologue
-    .line 227
+    .line 225
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 228
+    .line 226
     .local v0, "builder":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
@@ -1238,18 +1240,18 @@
 
     if-lt v1, v3, :cond_0
 
-    .line 233
+    .line 231
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     return-object v3
 
-    .line 229
+    .line 227
     :cond_0
     aget-byte v2, p0, v1
 
-    .line 230
+    .line 228
     .local v2, "v":I
     sget-object v3, Lcom/game/sdk/utils/GameBox2SDKUtil;->HEX:[C
 
@@ -1261,7 +1263,7 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 231
+    .line 229
     sget-object v3, Lcom/game/sdk/utils/GameBox2SDKUtil;->HEX:[C
 
     and-int/lit8 v4, v2, 0xf
@@ -1270,7 +1272,7 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 228
+    .line 226
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -1287,10 +1289,10 @@
     .end annotation
 
     .prologue
-    .line 172
+    .line 170
     const/4 v0, 0x0
 
-    .line 174
+    .line 172
     .local v0, "fou":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v1, Ljava/io/FileOutputStream;
@@ -1299,7 +1301,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 175
+    .line 173
     .end local v0    # "fou":Ljava/io/FileOutputStream;
     .local v1, "fou":Ljava/io/FileOutputStream;
     :try_start_1
@@ -1307,42 +1309,42 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 177
+    .line 175
     if-eqz v1, :cond_0
 
-    .line 179
+    .line 177
     :try_start_2
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 184
+    .line 182
     :cond_0
     :goto_0
     return-void
 
-    .line 176
+    .line 174
     .end local v1    # "fou":Ljava/io/FileOutputStream;
     .restart local v0    # "fou":Ljava/io/FileOutputStream;
     :catchall_0
     move-exception v2
 
-    .line 177
+    .line 175
     :goto_1
     if-eqz v0, :cond_1
 
-    .line 179
+    .line 177
     :try_start_3
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 183
+    .line 181
     :cond_1
     :goto_2
     throw v2
 
-    .line 180
+    .line 178
     :catch_0
     move-exception v3
 
@@ -1355,7 +1357,7 @@
 
     goto :goto_0
 
-    .line 176
+    .line 174
     :catchall_1
     move-exception v2
 

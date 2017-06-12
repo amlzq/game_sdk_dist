@@ -3,30 +3,220 @@
 
 
 # direct methods
-.method public static a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/text/SpannableString;
-    .locals 8
+.method public static a()Ljava/lang/String;
+    .locals 2
 
-    const/16 v7, 0x21
-
-    const/4 v2, 0x0
-
-    const-string v0, ""
-
-    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "zh"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "zh_CN"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string v0, "en_US"
+
+    goto :goto_0
+.end method
+
+.method public static a(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+
+    check-cast p0, Landroid/app/Activity;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v2, 0x1040
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v0
+
+    iget-object v0, v0, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    sget-object v0, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/languages/c;->a:Ljava/lang/String;
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method public static b()Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/io/File;
+
+    const-string v1, "/system/bin/su"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "1"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string v0, "0"
+
+    goto :goto_0
+.end method
+
+.method public static b(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    check-cast p0, Landroid/app/Activity;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string v0, ""
+
+    goto :goto_0
+.end method
+
+.method public static c()Ljava/lang/String;
+    .locals 3
+
+    sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string v1, " "
+
+    const-string v2, ""
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public static final c(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+
+    const-string v1, ""
+
+    :try_start_0
+    const-string v0, "wifi"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getMacAddress()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getMacAddress()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, ":"
+
+    const-string v2, ""
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string v0, ""
+
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v1
+
+    goto :goto_0
+.end method
+
+.method public static d()Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget v1, Lcom/unionpay/mobile/android/global/a;->I:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "*"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget v1, Lcom/unionpay/mobile/android/global/a;->t:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -34,314 +224,405 @@
 
     move-result-object v0
 
-    :cond_0
-    invoke-static {p2}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static d(Landroid/content/Context;)Ljava/lang/String;
+    .locals 4
+
+    :try_start_0
+    new-instance v0, Ljava/io/File;
+
+    const-string v1, "/system/bin/su"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x1
+
+    :goto_0
+    if-eqz v0, :cond_3
+
+    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/e;->c(Landroid/content/Context;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_1
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_0
+    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/PreferenceUtils;->a(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
     :cond_1
-    invoke-static {p3}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
+    const-string v1, "uppay"
 
-    move-result v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_2
+    const-string v3, "user="
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
+    return-object v0
 
     :cond_2
-    new-instance v4, Landroid/text/SpannableString;
+    const/4 v0, 0x0
 
-    invoke-direct {v4, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+    goto :goto_0
 
-    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
+    :cond_3
+    :try_start_1
+    const-string v0, "phone"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    const-string v0, ""
+
+    goto :goto_1
+.end method
+
+.method public static e()Ljava/lang/String;
+    .locals 7
+
+    const-string v1, ""
+
+    :try_start_0
+    const-string v0, "android.os.SystemProperties"
+
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+
+    move-result-object v2
+
+    const-string v3, "get"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Class;
+
+    const/4 v5, 0x0
+
+    const-class v6, Ljava/lang/String;
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x1
+
+    const-class v6, Ljava/lang/String;
+
+    aput-object v6, v4, v5
+
+    invoke-virtual {v0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    const-string v5, "gsm.version.baseband"
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    const-string v5, "no message"
+
+    aput-object v5, v3, v4
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    move-object v0, v1
+
+    goto :goto_0
+.end method
+
+.method public static e(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    :try_start_0
+    const-string v0, "phone"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string v0, ""
+
+    goto :goto_0
+.end method
+
+.method public static f()Ljava/lang/String;
+    .locals 2
+
+    const/4 v1, 0x0
+
+    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1, v1}, Ljava/util/TimeZone;->getDisplayName(ZI)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static f(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+
+    const-string v0, "connectivity"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/ConnectivityManager;
+
+    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "disConnect"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    move v1, v2
-
-    :goto_0
-    invoke-static {p2}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    move v3, v2
-
-    :goto_1
-    add-int/2addr v3, v1
-
-    new-instance v5, Landroid/text/style/ForegroundColorSpan;
-
-    const/high16 v6, -0x1000000
-
-    invoke-direct {v5, v6}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    invoke-virtual {v4, v5, v2, v0, v7}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    invoke-static {p1}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    const/4 v2, 0x6
-
-    if-eq v0, v2, :cond_6
-
-    invoke-static {p1}, Lcom/unionpay/mobile/android/utils/e;->c(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    :goto_2
-    new-instance v0, Landroid/text/style/ForegroundColorSpan;
-
-    invoke-static {p1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-direct {v0, v2}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
-
-    invoke-virtual {v4, v0, v1, v3, v7}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    :cond_3
-    return-object v4
-
-    :cond_4
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v1
 
-    goto :goto_0
+    if-nez v1, :cond_2
 
-    :cond_5
-    invoke-virtual {p2}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
-    move-result v3
+    move-result-object v1
 
-    goto :goto_1
+    sget-object v2, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
-    :cond_6
-    new-instance v0, Ljava/lang/StringBuilder;
+    if-ne v1, v2, :cond_1
 
-    const-string v2, "#"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v2, "mobile:"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getExtraInfo()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
-
-    goto :goto_2
-.end method
-
-.method public static final a(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
-
-    const-string v0, ""
-
-    if-nez p0, :cond_0
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    if-le v1, v2, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
     move-result-object v0
 
+    goto :goto_0
+
     :cond_1
-    return-object v0
-.end method
+    const-string v0, "mobile"
 
-.method public static final b(Ljava/lang/String;)Z
-    .locals 1
+    goto :goto_0
 
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    :cond_2
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    const/4 v1, 0x1
 
-    :cond_0
-    const/4 v0, 0x1
+    if-ne v0, v1, :cond_3
 
-    :goto_0
-    return v0
+    const-string v0, "wifi"
 
-    :cond_1
-    const/4 v0, 0x0
+    goto :goto_0
+
+    :cond_3
+    const-string v0, "other"
+
+    goto :goto_0
+
+    :cond_4
+    const-string v0, "disConnect"
 
     goto :goto_0
 .end method
 
-.method private static final c(Ljava/lang/String;)Z
-    .locals 6
+.method public static g(Landroid/content/Context;)Landroid/location/Location;
+    .locals 3
 
-    const/4 v0, 0x1
+    const-string v0, "location"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/location/LocationManager;
 
     const/4 v1, 0x0
 
-    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
+    :try_start_0
+    const-string v2, "gps"
+
+    invoke-virtual {v0, v2}, Landroid/location/LocationManager;->isProviderEnabled(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_0
 
-    const/16 v2, 0xb
+    const-string v2, "gps"
 
-    new-array v3, v2, [Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
 
-    const-string v2, "black"
-
-    aput-object v2, v3, v1
-
-    const-string v2, "darkgray"
-
-    aput-object v2, v3, v0
-
-    const/4 v2, 0x2
-
-    const-string v4, "gray"
-
-    aput-object v4, v3, v2
-
-    const/4 v2, 0x3
-
-    const-string v4, "lightgray"
-
-    aput-object v4, v3, v2
-
-    const/4 v2, 0x4
-
-    const-string v4, "white"
-
-    aput-object v4, v3, v2
-
-    const/4 v2, 0x5
-
-    const-string v4, "red"
-
-    aput-object v4, v3, v2
-
-    const/4 v2, 0x6
-
-    const-string v4, "green"
-
-    aput-object v4, v3, v2
-
-    const/4 v2, 0x7
-
-    const-string v4, "blue"
-
-    aput-object v4, v3, v2
-
-    const/16 v2, 0x8
-
-    const-string v4, "yellow"
-
-    aput-object v4, v3, v2
-
-    const/16 v2, 0x9
-
-    const-string v4, "cyan"
-
-    aput-object v4, v3, v2
-
-    const/16 v2, 0xa
-
-    const-string v4, "magenta"
-
-    aput-object v4, v3, v2
-
-    array-length v4, v3
-
-    move v2, v1
+    move-result-object v0
 
     :goto_0
-    if-ge v2, v4, :cond_1
-
-    aget-object v5, v3, v2
-
-    invoke-virtual {v5, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    :goto_1
-    return v0
+    return-object v0
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    const-string v2, "network"
+
+    invoke-virtual {v0, v2}, Landroid/location/LocationManager;->isProviderEnabled(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string v2, "network"
+
+    invoke-virtual {v0, v2}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
 
     goto :goto_0
 
-    :cond_1
-    move v0, v1
+    :catch_0
+    move-exception v0
 
-    goto :goto_1
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_0
+.end method
+
+.method public static h(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "phone"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
+    :try_start_0
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getLine1Number()Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string v0, ""
+
+    goto :goto_0
 .end method

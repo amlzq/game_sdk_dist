@@ -3,7 +3,7 @@
 
 
 # static fields
-.field public static by:Lcom/unionpay/mobile/android/languages/c;
+.field public static bD:Lcom/unionpay/mobile/android/languages/c;
 
 
 # instance fields
@@ -167,6 +167,12 @@
 
 .field public b:Ljava/lang/String;
 
+.field public bA:Ljava/lang/String;
+
+.field public bB:Ljava/lang/String;
+
+.field public bC:Ljava/lang/String;
+
 .field public ba:Ljava/lang/String;
 
 .field public bb:Ljava/lang/String;
@@ -214,6 +220,10 @@
 .field public bw:Ljava/lang/String;
 
 .field public bx:Ljava/lang/String;
+
+.field public by:Ljava/lang/String;
+
+.field public bz:Ljava/lang/String;
 
 .field public c:Ljava/lang/String;
 
@@ -270,7 +280,7 @@
 
     const/4 v0, 0x0
 
-    sput-object v0, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sput-object v0, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     return-void
 .end method
@@ -280,7 +290,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string v0, "3.1.0"
+    const-string v0, "3.3.5"
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->a:Ljava/lang/String;
 
@@ -776,21 +786,41 @@
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bt:Ljava/lang/String;
 
-    const-string v0, "\u4e0b\u4e00\u6b65"
+    const-string v0, ""
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bu:Ljava/lang/String;
 
-    const-string v0, "\u767b\u5f55\u94f6\u8054\u8d26\u6237\u4ed8\u6b3e"
+    const-string v0, ""
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bv:Ljava/lang/String;
 
-    const-string v0, "\u767b\u5f55"
+    const-string v0, ""
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bw:Ljava/lang/String;
 
-    const-string v0, "\u5176\u4ed6\u65b9\u5f0f\u4ed8\u6b3e"
+    const-string v0, ""
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bx:Ljava/lang/String;
+
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->by:Ljava/lang/String;
+
+    const-string v0, "\u4e0b\u4e00\u6b65"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bz:Ljava/lang/String;
+
+    const-string v0, "\u767b\u5f55\u94f6\u8054\u8d26\u6237\u4ed8\u6b3e"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bA:Ljava/lang/String;
+
+    const-string v0, "\u767b\u5f55"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bB:Ljava/lang/String;
+
+    const-string v0, "\u5176\u4ed6\u65b9\u5f0f\u4ed8\u6b3e"
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/languages/c;->bC:Ljava/lang/String;
 
     return-void
 .end method
@@ -818,7 +848,7 @@
 
     invoke-direct {v0}, Lcom/unionpay/mobile/android/languages/a;-><init>()V
 
-    sput-object v0, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sput-object v0, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     :goto_0
     return-void
@@ -828,7 +858,7 @@
 
     invoke-direct {v0}, Lcom/unionpay/mobile/android/languages/b;-><init>()V
 
-    sput-object v0, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sput-object v0, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     goto :goto_0
 .end method

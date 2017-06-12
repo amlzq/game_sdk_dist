@@ -19,58 +19,57 @@
         "<",
         "Ljava/lang/Integer;",
         "Ljava/lang/Integer;",
-        "Ljava/lang/Boolean;",
+        "Ljava/lang/Integer;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
+.field fileName:Ljava/lang/String;
+
 .field final synthetic this$0:Lcom/game/sdk/ui/LoginoutActivity;
 
-.field type:I
+.field url:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Lcom/game/sdk/ui/LoginoutActivity;I)V
-    .locals 1
-    .param p2, "type"    # I
+.method public constructor <init>(Lcom/game/sdk/ui/LoginoutActivity;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+    .param p2, "fileName"    # Ljava/lang/String;
+    .param p3, "url"    # Ljava/lang/String;
 
     .prologue
-    .line 112
+    .line 226
     iput-object p1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 110
-    const/4 v0, 0x1
+    .line 227
+    iput-object p2, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->fileName:Ljava/lang/String;
 
-    iput v0, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->type:I
+    .line 228
+    iput-object p3, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->url:Ljava/lang/String;
 
-    .line 113
-    iput p2, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->type:I
-
-    .line 114
+    .line 229
     return-void
 .end method
 
 
 # virtual methods
-.method protected varargs doInBackground([Ljava/lang/Integer;)Ljava/lang/Boolean;
+.method protected varargs doInBackground([Ljava/lang/Integer;)Ljava/lang/Integer;
     .locals 1
     .param p1, "params"    # [Ljava/lang/Integer;
 
     .prologue
-    .line 118
-    sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    .line 233
+    iget-object v0, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->url:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->gameBoxDownUrl:Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/game/sdk/utils/CheckUtil;->is404NotFound(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/game/sdk/utils/CheckUtil;->getFileLengthByUrl(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
@@ -84,110 +83,91 @@
     .line 1
     check-cast p1, [Ljava/lang/Integer;
 
-    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->doInBackground([Ljava/lang/Integer;)Ljava/lang/Boolean;
+    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->doInBackground([Ljava/lang/Integer;)Ljava/lang/Integer;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method protected onPostExecute(Ljava/lang/Boolean;)V
-    .locals 3
-    .param p1, "result"    # Ljava/lang/Boolean;
+.method protected onPostExecute(Ljava/lang/Integer;)V
+    .locals 6
+    .param p1, "result"    # Ljava/lang/Integer;
 
     .prologue
-    .line 123
+    .line 238
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 124
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+    .line 240
+    new-instance v0, Ljava/io/File;
 
-    move-result v1
+    iget-object v2, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->fileName:Ljava/lang/String;
 
-    if-nez v1, :cond_2
-
-    .line 126
-    iget v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->type:I
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
-
-    .line 127
-    new-instance v0, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
-
-    const-class v2, Lcom/game/sdk/service/DownGameBoxService;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    .line 128
-    .local v0, "intent":Landroid/content/Intent;
-    const-string v1, "downUrl"
-
-    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
-
-    iget-object v2, v2, Lcom/game/sdk/domain/InItInfo;->gameBoxDownUrl:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 129
-    iget-object v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
-
-    invoke-virtual {v1, v0}, Lcom/game/sdk/ui/LoginoutActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    .line 132
-    .end local v0    # "intent":Landroid/content/Intent;
-    :cond_0
-    iget v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->type:I
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_1
-
-    .line 133
-    new-instance v0, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
-
-    const-class v2, Lcom/game/sdk/service/DownOtherApkService;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    .line 134
-    .restart local v0    # "intent":Landroid/content/Intent;
-    const-string v1, "downUrl"
-
-    iget-object v2, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
-
-    # getter for: Lcom/game/sdk/ui/LoginoutActivity;->loginOutInfo:Lcom/game/sdk/domain/LoginOutInfo;
-    invoke-static {v2}, Lcom/game/sdk/ui/LoginoutActivity;->access$2(Lcom/game/sdk/ui/LoginoutActivity;)Lcom/game/sdk/domain/LoginOutInfo;
+    invoke-static {v2}, Lcom/game/sdk/utils/PathUtil;->getApkPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/game/sdk/domain/LoginOutInfo;->typeVal:Ljava/lang/String;
+    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    .line 242
+    .local v0, "downFile":Ljava/io/File;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    .line 135
-    iget-object v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
+    move-result v2
 
-    invoke-virtual {v1, v0}, Lcom/game/sdk/ui/LoginoutActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    int-to-long v2, v2
 
-    .line 141
-    .end local v0    # "intent":Landroid/content/Intent;
-    :cond_1
+    invoke-virtual {v0}, Ljava/io/File;->length()J
+
+    move-result-wide v4
+
+    cmp-long v2, v2, v4
+
+    if-eqz v2, :cond_0
+
+    .line 243
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+
+    .line 244
+    iget-object v2, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
+
+    iget-object v3, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->fileName:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->url:Ljava/lang/String;
+
+    invoke-virtual {v2, v3, v4}, Lcom/game/sdk/ui/LoginoutActivity;->downBoxApp(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 251
     :goto_0
     return-void
 
-    .line 139
-    :cond_2
-    iget-object v1, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
+    .line 246
+    :cond_0
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "\u4e0b\u8f7d\u5730\u5740\u6709\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
+    const-string v2, "android.intent.action.VIEW"
 
-    invoke-static {v1, v2}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 247
+    .local v1, "intent":Landroid/content/Intent;
+    const/high16 v2, 0x10000000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 248
+    invoke-static {v0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    const-string v3, "application/vnd.android.package-archive"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 249
+    iget-object v2, p0, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/LoginoutActivity;
+
+    invoke-virtual {v2, v1}, Lcom/game/sdk/ui/LoginoutActivity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -197,9 +177,9 @@
 
     .prologue
     .line 1
-    check-cast p1, Ljava/lang/Boolean;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->onPostExecute(Ljava/lang/Boolean;)V
+    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/LoginoutActivity$DownAsyncTask;->onPostExecute(Ljava/lang/Integer;)V
 
     return-void
 .end method

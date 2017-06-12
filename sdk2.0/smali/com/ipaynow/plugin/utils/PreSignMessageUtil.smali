@@ -13,6 +13,8 @@
 
 .field public mhtCurrencyType:Ljava/lang/String;
 
+.field public mhtLimitPay:Ljava/lang/String;
+
 .field public mhtOrderAmt:Ljava/lang/String;
 
 .field public mhtOrderDetail:Ljava/lang/String;
@@ -29,7 +31,11 @@
 
 .field public mhtReserved:Ljava/lang/String;
 
+.field public mhtSubAppId:Ljava/lang/String;
+
 .field public notifyUrl:Ljava/lang/String;
+
+.field private outputType:Ljava/lang/String;
 
 .field public payChannelType:Ljava/lang/String;
 
@@ -67,6 +73,12 @@
     iput-object v0, p0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->payChannelType:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtReserved:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->outputType:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtSubAppId:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtLimitPay:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->consumerId:Ljava/lang/String;
 
@@ -169,12 +181,42 @@
     goto :goto_1
 .end method
 
+.method private optionalParamsFilter(Ljava/lang/String;)Z
+    .locals 1
+
+    sget-object v0, Lcom/ipaynow/plugin/conf/PluginConfig;->f:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public generatePreSignMessage()Ljava/lang/String;
     .locals 9
 
-    const/4 v1, 0x0
+    const/4 v8, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v8}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setUsePreSignToolsFlag(Z)V
 
     new-instance v3, Ljava/util/HashMap;
 
@@ -189,22 +231,30 @@
 
     array-length v5, v4
 
-    const/4 v0, 0x0
-
-    move v2, v0
+    move v1, v2
 
     :goto_0
-    if-lt v2, v5, :cond_0
+    if-lt v1, v5, :cond_0
 
     invoke-static {v3}, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->createLinkString(Ljava/util/HashMap;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v0
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v8}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setAddMustRequestParamsFlag(Z)Lcom/ipaynow/plugin/manager/cache/MessageCache;
 
     :goto_1
     return-object v0
 
     :cond_0
-    aget-object v6, v4, v2
+    :try_start_1
+    aget-object v6, v4, v1
 
     invoke-virtual {v6}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
@@ -216,62 +266,49 @@
 
     check-cast v0, Ljava/lang/String;
 
+    invoke-static {v0}, Lcom/ipaynow/plugin/utils/StringUtils;->isBlank(Ljava/lang/String;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_1
 
-    const-string v8, ""
-
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {p0, v7}, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->optionalParamsFilter(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-nez v0, :cond_2
 
-    :cond_1
-    const-string v0, "mhtOrderTimeOut"
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v0
 
-    move-result v0
+    const/4 v1, 0x0
 
-    if-nez v0, :cond_3
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setAddMustRequestParamsFlag(Z)Lcom/ipaynow/plugin/manager/cache/MessageCache;
 
-    const-string v0, "payChannelType"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v1, "\u7f3a\u5c11\u5fc5\u586b\u53c2\u6570====="
 
-    move-result v0
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    if-nez v0, :cond_3
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "mhtReserved"
+    move-result-object v0
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v1, "====="
 
-    move-result v0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v0, :cond_3
+    move-result-object v0
 
-    const-string v0, "consumerId"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    const-string v0, "consumerName"
-
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    move-object v0, v1
+    move-result-object v0
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     invoke-virtual {v6}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v7
@@ -283,28 +320,40 @@
     check-cast v0, Ljava/lang/String;
 
     invoke-virtual {v3, v7, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_3
-    add-int/lit8 v0, v2, 0x1
+    :cond_2
+    add-int/lit8 v0, v1, 0x1
 
-    move v2, v0
+    move v1, v0
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    move-object v0, v1
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setAddMustRequestParamsFlag(Z)Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    const-string v0, ""
 
     goto :goto_1
 
     :catch_1
     move-exception v0
 
-    move-object v0, v1
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setAddMustRequestParamsFlag(Z)Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    const-string v0, ""
 
     goto :goto_1
 .end method

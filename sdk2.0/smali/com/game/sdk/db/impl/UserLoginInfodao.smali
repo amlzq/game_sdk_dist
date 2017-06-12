@@ -42,7 +42,7 @@
 
     const-string v1, "userlogin.db"
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
     invoke-direct {v0, p1, v1, v3, v2}, Lcom/game/sdk/db/DBHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
 
@@ -400,152 +400,122 @@
     return-object v4
 .end method
 
-.method public getUserInfoLastByType(I)Lcom/game/sdk/domain/UserInfo;
-    .locals 9
-    .param p1, "type"    # I
+.method public getUserInfoLastByType()Lcom/game/sdk/domain/UserInfo;
+    .locals 8
 
     .prologue
     .line 186
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     .line 187
-    .local v4, "ulinfo":Lcom/game/sdk/domain/UserInfo;
-    iget-object v7, p0, Lcom/game/sdk/db/impl/UserLoginInfodao;->dbHelper:Lcom/game/sdk/db/DBHelper;
+    .local v3, "ulinfo":Lcom/game/sdk/domain/UserInfo;
+    iget-object v6, p0, Lcom/game/sdk/db/impl/UserLoginInfodao;->dbHelper:Lcom/game/sdk/db/DBHelper;
 
-    invoke-virtual {v7}, Lcom/game/sdk/db/DBHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
-
-    move-result-object v3
-
-    .line 188
-    .local v3, "r_db":Landroid/database/sqlite/SQLiteDatabase;
-    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    .line 189
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    const-string v8, "select * from  userlogin where accounttype = "
-
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v3, v7, v8}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v1
-
-    .line 190
-    .local v1, "cursor":Landroid/database/Cursor;
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToLast()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    .line 191
-    new-instance v4, Lcom/game/sdk/domain/UserInfo;
-
-    .end local v4    # "ulinfo":Lcom/game/sdk/domain/UserInfo;
-    invoke-direct {v4}, Lcom/game/sdk/domain/UserInfo;-><init>()V
-
-    .line 192
-    .restart local v4    # "ulinfo":Lcom/game/sdk/domain/UserInfo;
-    const-string v7, "username"
-
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v7
-
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 193
-    .local v5, "username":Ljava/lang/String;
-    const-string v7, "password"
-
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v7
-
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-virtual {v6}, Lcom/game/sdk/db/DBHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
-    .line 194
-    .local v2, "pwd":Ljava/lang/String;
-    const-string v7, "validate"
-
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v7
-
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getInt(I)I
+    .line 188
+    .local v2, "r_db":Landroid/database/sqlite/SQLiteDatabase;
+    invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
 
     move-result v6
 
-    .line 195
-    .local v6, "validate":I
-    const-string v7, "accounttype"
+    if-eqz v6, :cond_1
 
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    .line 189
+    const-string v6, "select * from  userlogin"
 
-    move-result v7
+    const/4 v7, 0x0
 
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getInt(I)I
+    invoke-virtual {v2, v6, v7}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result v0
+    move-result-object v0
+
+    .line 190
+    .local v0, "cursor":Landroid/database/Cursor;
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToLast()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 191
+    new-instance v3, Lcom/game/sdk/domain/UserInfo;
+
+    .end local v3    # "ulinfo":Lcom/game/sdk/domain/UserInfo;
+    invoke-direct {v3}, Lcom/game/sdk/domain/UserInfo;-><init>()V
+
+    .line 192
+    .restart local v3    # "ulinfo":Lcom/game/sdk/domain/UserInfo;
+    const-string v6, "username"
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 193
+    .local v4, "username":Ljava/lang/String;
+    const-string v6, "password"
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 194
+    .local v1, "pwd":Ljava/lang/String;
+    const-string v6, "validate"
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-interface {v0, v6}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v5
 
     .line 197
-    .local v0, "accounttype":I
-    iput-object v5, v4, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+    .local v5, "validate":I
+    iput-object v4, v3, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
 
     .line 198
-    iput-object v2, v4, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+    iput-object v1, v3, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
 
     .line 199
-    iput v6, v4, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
-
-    .line 200
-    iput v0, v4, Lcom/game/sdk/domain/UserInfo;->accountType:I
+    iput v5, v3, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
 
     .line 203
-    .end local v0    # "accounttype":I
-    .end local v2    # "pwd":Ljava/lang/String;
-    .end local v5    # "username":Ljava/lang/String;
-    .end local v6    # "validate":I
+    .end local v1    # "pwd":Ljava/lang/String;
+    .end local v4    # "username":Ljava/lang/String;
+    .end local v5    # "validate":I
     :cond_0
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     .line 206
-    .end local v1    # "cursor":Landroid/database/Cursor;
+    .end local v0    # "cursor":Landroid/database/Cursor;
     :cond_1
-    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
     .line 207
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 208
-    return-object v4
+    return-object v3
 .end method
 
-.method public getUserLoginInfoByType(I)Ljava/util/List;
+.method public getUserLoginInfoByType()Ljava/util/List;
     .locals 11
-    .param p1, "type"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I)",
+            "()",
             "Ljava/util/List",
             "<",
             "Lcom/game/sdk/domain/UserInfo;",
@@ -574,19 +544,7 @@
     if-eqz v9, :cond_1
 
     .line 44
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    const-string v10, "select * from userlogin where accounttype = "
-
-    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
+    const-string v9, "select * from userlogin"
 
     const/4 v10, 0x0
 

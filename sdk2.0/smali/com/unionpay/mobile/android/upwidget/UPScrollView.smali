@@ -55,15 +55,15 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    new-instance v0, Lcom/unionpay/mobile/android/upwidget/t;
+    new-instance v0, Lcom/unionpay/mobile/android/upwidget/v;
 
-    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/upwidget/t;-><init>(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)V
+    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/upwidget/v;-><init>(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)V
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->d:Landroid/os/Handler;
 
-    new-instance v0, Lcom/unionpay/mobile/android/upwidget/s;
+    new-instance v0, Lcom/unionpay/mobile/android/upwidget/u;
 
-    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/upwidget/s;-><init>(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)V
+    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/upwidget/u;-><init>(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)V
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->c:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 

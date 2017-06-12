@@ -228,7 +228,7 @@
 
     const/high16 v4, 0x41700000    # 15.0f
 
-    invoke-static {v0, v4}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v0, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -279,6 +279,10 @@
     check-cast v0, Ljava/lang/String;
 
     if-eqz v0, :cond_2
+
+    invoke-static {v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v0
 
     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -475,7 +479,7 @@
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->d:Landroid/content/Context;
 
-    invoke-static {v1, v7}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v1, v7}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v1
 
@@ -575,13 +579,13 @@
     invoke-direct {p0, v1, v0}, Lcom/unionpay/mobile/android/views/order/CViewMethods;->a(Landroid/widget/LinearLayout;I)V
 
     :cond_4
-    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    sget-object v2, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
+    sget-object v2, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
@@ -607,7 +611,7 @@
 
     iget-object v3, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->d:Landroid/content/Context;
 
-    invoke-static {v3, v7}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v7}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -615,7 +619,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -624,13 +628,13 @@
     invoke-direct {p0, v1, v0}, Lcom/unionpay/mobile/android/views/order/CViewMethods;->a(Landroid/widget/LinearLayout;I)V
 
     :cond_5
-    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    sget-object v2, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
+    sget-object v2, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
@@ -656,7 +660,7 @@
 
     iget-object v3, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->d:Landroid/content/Context;
 
-    invoke-static {v3, v7}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v7}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -664,15 +668,64 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->e:Ljava/lang/Integer;
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->d:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    invoke-direct {p0, p0, v0}, Lcom/unionpay/mobile/android/views/order/CViewMethods;->a(Landroid/widget/LinearLayout;I)V
+    invoke-direct {p0, v1, v0}, Lcom/unionpay/mobile/android/views/order/CViewMethods;->a(Landroid/widget/LinearLayout;I)V
 
     :cond_6
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->f:Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    sget-object v2, Lcom/unionpay/mobile/android/views/order/l;->f:Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    iget v3, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->e:I
+
+    and-int/2addr v2, v3
+
+    if-ne v0, v2, :cond_7
+
+    new-instance v0, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->d:Landroid/content/Context;
+
+    invoke-direct {v0, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, v6}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
+
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v2, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    iget-object v3, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->d:Landroid/content/Context;
+
+    invoke-static {v3, v7}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
+
+    move-result v3
+
+    iput v3, v2, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
+
+    invoke-virtual {v1, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->f:Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-direct {p0, v1, v0}, Lcom/unionpay/mobile/android/views/order/CViewMethods;->a(Landroid/widget/LinearLayout;I)V
+
+    :cond_7
     new-instance v0, Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/views/order/CViewMethods;->d:Landroid/content/Context;

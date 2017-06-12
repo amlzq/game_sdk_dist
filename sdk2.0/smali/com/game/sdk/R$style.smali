@@ -15,19 +15,21 @@
 
 
 # static fields
-.field public static final AppBaseTheme:I = 0x7f060000
+.field public static final AppBaseTheme:I = 0x7f070000
 
-.field public static final AppTheme:I = 0x7f060001
+.field public static final AppTheme:I = 0x7f070001
 
-.field public static final CustomCheckboxTheme:I = 0x7f060006
+.field public static final CustomCheckboxTheme:I = 0x7f070007
 
-.field public static final CustomSdkDialog:I = 0x7f060002
+.field public static final CustomSdkDialog:I = 0x7f070003
 
-.field public static final Theme_notAnimation:I = 0x7f060004
+.field public static final CustomSdkTransparent:I = 0x7f070002
 
-.field public static final notAnimation:I = 0x7f060005
+.field public static final Theme_notAnimation:I = 0x7f070005
 
-.field public static final transcutestyle:I = 0x7f060003
+.field public static final notAnimation:I = 0x7f070006
+
+.field public static final transcutestyle:I = 0x7f070004
 
 
 # direct methods
@@ -35,7 +37,7 @@
     .locals 0
 
     .prologue
-    .line 562
+    .line 692
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

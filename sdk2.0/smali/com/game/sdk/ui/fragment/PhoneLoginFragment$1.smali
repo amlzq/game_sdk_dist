@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/PhoneLoginFragment$1;->this$0:Lcom/game/sdk/ui/fragment/PhoneLoginFragment;
 
-    .line 538
+    .line 886
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -39,22 +39,23 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 540
+    .line 888
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 541
+    .line 889
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 546
+    .line 901
+    :cond_0
     :goto_0
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 547
+    .line 902
     return-void
 
-    .line 543
+    .line 891
     :pswitch_0
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/PhoneLoginFragment$1;->this$0:Lcom/game/sdk/ui/fragment/PhoneLoginFragment;
 
@@ -71,9 +72,44 @@
 
     goto :goto_0
 
-    .line 541
+    .line 895
+    :pswitch_1
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/PhoneLoginFragment$1;->this$0:Lcom/game/sdk/ui/fragment/PhoneLoginFragment;
+
+    # getter for: Lcom/game/sdk/ui/fragment/PhoneLoginFragment;->smsContent:Ljava/lang/String;
+    invoke-static {v0}, Lcom/game/sdk/ui/fragment/PhoneLoginFragment;->access$1(Lcom/game/sdk/ui/fragment/PhoneLoginFragment;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 896
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/PhoneLoginFragment$1;->this$0:Lcom/game/sdk/ui/fragment/PhoneLoginFragment;
+
+    # getter for: Lcom/game/sdk/ui/fragment/PhoneLoginFragment;->validateEt:Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/game/sdk/ui/fragment/PhoneLoginFragment;->access$2(Lcom/game/sdk/ui/fragment/PhoneLoginFragment;)Landroid/widget/EditText;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/game/sdk/ui/fragment/PhoneLoginFragment$1;->this$0:Lcom/game/sdk/ui/fragment/PhoneLoginFragment;
+
+    # getter for: Lcom/game/sdk/ui/fragment/PhoneLoginFragment;->smsContent:Ljava/lang/String;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/PhoneLoginFragment;->access$1(Lcom/game/sdk/ui/fragment/PhoneLoginFragment;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 889
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

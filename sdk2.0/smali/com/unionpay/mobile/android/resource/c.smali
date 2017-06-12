@@ -232,7 +232,7 @@
 
     aget v6, v6, v8
 
-    invoke-static/range {v0 .. v6}, Lcom/unionpay/mobile/android/utils/d;->a(I[I[FFFFF)Landroid/graphics/drawable/Drawable;
+    invoke-static/range {v0 .. v6}, Lcom/unionpay/mobile/android/utils/g;->a(I[I[FFFFF)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -269,7 +269,7 @@
 
     move-result-object v0
 
-    invoke-static {v1, v2, v3, v0}, Lcom/unionpay/mobile/android/utils/d;->a(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v1, v2, v3, v0}, Lcom/unionpay/mobile/android/utils/g;->a(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -288,7 +288,7 @@
 
     aget v2, v2, v3
 
-    invoke-static {v0, v1, v2}, Lcom/unionpay/mobile/android/utils/d;->a(IIF)Landroid/graphics/drawable/ShapeDrawable;
+    invoke-static {v0, v1, v2}, Lcom/unionpay/mobile/android/utils/g;->a(IIF)Landroid/graphics/drawable/ShapeDrawable;
 
     move-result-object v0
 
@@ -454,7 +454,7 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v1, 0x1
 

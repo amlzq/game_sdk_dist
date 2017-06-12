@@ -20,8 +20,11 @@
 .method public abstract a(Z)V
 .end method
 
-.method public abstract b(Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract c(Ljava/lang/String;)V
 .end method
 
-.method public abstract c(Ljava/lang/String;)V
+.method public abstract c(Ljava/lang/String;Ljava/lang/String;)V
+.end method
+
+.method public abstract t()V
 .end method

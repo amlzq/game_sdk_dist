@@ -4,6 +4,12 @@
 
 
 # instance fields
+.field public couponCount:I
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "coupon_count"
+    .end annotation
+.end field
+
 .field public couponList:Ljava/util/List;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "coupon_list"

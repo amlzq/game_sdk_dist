@@ -2,34 +2,12 @@
 .super Ljava/lang/Object;
 
 
-# static fields
-.field private static loading:Landroid/app/ProgressDialog;
-
-.field private static params:Ljava/util/HashMap;
-
-.field private static visitor:Landroid/app/Activity;
+# instance fields
+.field private context:Landroid/content/Context;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    sput-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    sput-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->params:Ljava/util/HashMap;
-
-    const-string v0, "plugin_phone"
-
-    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public constructor <init>()V
+.method private constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,240 +15,288 @@
     return-void
 .end method
 
-.method static synthetic access$0()Landroid/app/ProgressDialog;
-    .locals 1
-
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1(Landroid/app/ProgressDialog;)V
+.method synthetic constructor <init>(Lcom/ipaynow/plugin/api/IpaynowPlugin;)V
     .locals 0
 
-    sput-object p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
+    invoke-direct {p0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;-><init>()V
 
     return-void
 .end method
 
-.method static synthetic access$2(Ljava/lang/String;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->showMessageDialog(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$3()Ljava/util/HashMap;
+.method public static getInstance()Lcom/ipaynow/plugin/api/IpaynowPlugin;
     .locals 1
 
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->params:Ljava/util/HashMap;
+    invoke-static {}, Lcom/ipaynow/plugin/api/b;->b()Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic access$4()Landroid/app/Activity;
-    .locals 1
 
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
+# virtual methods
+.method public getDefaultLoading()Lcom/ipaynow/plugin/view/IpaynowLoading;
+    .locals 2
+
+    new-instance v0, Lcom/ipaynow/plugin/view/DefaultLoadingDialog;
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/ipaynow/plugin/view/DefaultLoadingDialog;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
-.method public static pay(Landroid/app/Activity;Ljava/lang/String;)V
-    .locals 5
+.method public init(Landroid/content/Context;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
+    .locals 2
 
-    const/4 v4, 0x1
+    if-nez p1, :cond_0
 
-    const/4 v3, 0x0
+    const-string v0, "ipaynow"
+
+    const-string v1, "context \u53c2\u6570\u4e0d\u80fd\u4e3a\u7a7a"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setInitedFlag(Z)Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    :goto_0
+    return-object p0
+
+    :cond_0
+    iput-object p1, p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->context:Landroid/content/Context;
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setContext(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setInitedFlag(Z)Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    goto :goto_0
+.end method
+
+.method public pay(Lcom/ipaynow/plugin/manager/route/dto/RequestParams;)V
+    .locals 3
 
     const/4 v2, 0x0
 
-    invoke-static {}, Lcom/ipaynow/plugin/core/a;->c()Z
+    if-nez p1, :cond_1
 
-    move-result v0
+    new-instance v0, Lcom/ipaynow/plugin/utils/f;
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->context:Landroid/content/Context;
 
-    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
+    invoke-direct {v0, v1}, Lcom/ipaynow/plugin/utils/f;-><init>(Landroid/content/Context;)V
 
-    move-result v0
+    const-string v1, "\u8bf7\u4f20\u5165RequestParams\u5bf9\u8c61"
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/utils/f;->r(Ljava/lang/String;)Lcom/ipaynow/plugin/utils/f;
 
-    const-string v0, "\u5546\u6237\u6d3b\u52a8\u5df2\u88ab\u9500\u6bc1\uff0c\u8bf7\u91cd\u8bd5"
+    move-result-object v0
 
-    invoke-static {v0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->showMessageDialog(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/ipaynow/plugin/utils/f;->b(I)Lcom/ipaynow/plugin/utils/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/utils/f;->T()Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    sput-object p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    if-nez v0, :cond_2
-
-    new-instance v0, Landroid/app/ProgressDialog;
-
-    const/4 v1, 0x3
-
-    invoke-direct {v0, p0, v1}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
-
-    sput-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    :cond_2
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    const-string v1, "\u652f\u4ed8\u5b89\u5168\u73af\u5883\u626b\u63cf"
-
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
-
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    if-eqz v0, :cond_3
-
-    if-eqz p1, :cond_3
-
-    const-string v0, ""
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    :cond_3
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-
-    sput-object v2, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    const-string v0, "\u4f20\u5165\u53c2\u6570\u4e0d\u80fd\u4e3a\u7a7a"
-
-    invoke-static {v0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->showMessageDialog(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_4
-    invoke-static {p1, v4}, Lcom/ipaynow/plugin/utils/PluginTools;->a(Ljava/lang/String;Z)Ljava/util/HashMap;
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
 
     move-result-object v0
 
-    sput-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->params:Ljava/util/HashMap;
-
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    invoke-static {v0}, Lcom/ipaynow/plugin/core/a;->a(Landroid/app/Activity;)Z
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->isPluginStarted()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-
-    sput-object v2, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    const-string v0, "\u7f3a\u5c11\u6743\u9650"
-
-    invoke-static {v0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->showMessageDialog(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_5
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    invoke-static {v0}, Lcom/ipaynow/plugin/core/a;->b(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-
-    sput-object v2, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    const-string v0, "\u7f51\u7edc\u73af\u5883\u4e0d\u901a\u7545,\u8bf7\u7a0d\u540e\u91cd\u8bd5"
-
-    invoke-static {v0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->showMessageDialog(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_6
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/ipaynow/plugin/conf/PluginConfig;->init(Landroid/content/Context;)V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setPluginStarted(Z)V
 
     new-instance v0, Lcom/ipaynow/plugin/api/a;
 
-    invoke-direct {v0, v3}, Lcom/ipaynow/plugin/api/a;-><init>(B)V
+    invoke-direct {v0}, Lcom/ipaynow/plugin/api/a;-><init>()V
 
-    new-array v1, v4, [Ljava/lang/String;
+    iget-object v1, p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->context:Landroid/content/Context;
 
-    aput-object p1, v1, v3
+    invoke-virtual {v0, v1, p1}, Lcom/ipaynow/plugin/api/a;->a(Landroid/content/Context;Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/api/a;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/api/a;->a()V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setPluginStarted(Z)V
 
     goto :goto_0
 .end method
 
-.method private setEnvType(Ljava/lang/String;)V
-    .locals 1
+.method public pay(Ljava/lang/String;)V
+    .locals 3
 
-    sget-object v0, Lcom/ipaynow/plugin/conf/PluginConfig;->l:Ljava/lang/String;
+    const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-nez p1, :cond_1
 
-    const/4 v0, 0x0
+    new-instance v0, Lcom/ipaynow/plugin/utils/f;
 
-    sput-object v0, Lcom/ipaynow/plugin/conf/PluginConfig;->l:Ljava/lang/String;
+    iget-object v1, p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->context:Landroid/content/Context;
 
-    :cond_0
-    sput-object p1, Lcom/ipaynow/plugin/conf/PluginConfig;->l:Ljava/lang/String;
+    invoke-direct {v0, v1}, Lcom/ipaynow/plugin/utils/f;-><init>(Landroid/content/Context;)V
 
-    return-void
-.end method
+    const-string v1, "\u8bf7\u4f20\u5165\u63d2\u4ef6\u652f\u4ed8\u53c2\u6570"
 
-.method public static setPayLoading(Landroid/app/ProgressDialog;)V
-    .locals 1
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/utils/f;->r(Ljava/lang/String;)Lcom/ipaynow/plugin/utils/f;
 
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0, v2}, Lcom/ipaynow/plugin/utils/f;->b(I)Lcom/ipaynow/plugin/utils/f;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
-    sput-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    :cond_0
-    sput-object p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->loading:Landroid/app/ProgressDialog;
-
-    return-void
-.end method
-
-.method private static showMessageDialog(Ljava/lang/String;)V
-    .locals 2
-
-    sget-object v0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->visitor:Landroid/app/Activity;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, p0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/utils/f;->T()Landroid/widget/Toast;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->isPluginStarted()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setPluginStarted(Z)V
+
+    new-instance v0, Lcom/ipaynow/plugin/api/a;
+
+    invoke-direct {v0}, Lcom/ipaynow/plugin/api/a;-><init>()V
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/api/IpaynowPlugin;->context:Landroid/content/Context;
+
+    invoke-virtual {v0, v1, p1}, Lcom/ipaynow/plugin/api/a;->a(Landroid/content/Context;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/api/a;->a()V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setPluginStarted(Z)V
+
+    goto :goto_0
+.end method
+
+.method public setCallResultActivity(Landroid/app/Activity;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
+    .locals 1
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setMerchantCallResultActivity(Landroid/app/Activity;)Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    return-object p0
+.end method
+
+.method public setCallResultReceiver(Lcom/ipaynow/plugin/manager/route/impl/ReceivePayResult;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
+    .locals 1
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setMerchantCallResultReceive(Lcom/ipaynow/plugin/manager/route/impl/ReceivePayResult;)Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    return-object p0
+.end method
+
+.method public setCustomLoading(Lcom/ipaynow/plugin/view/IpaynowLoading;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
+    .locals 1
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setMhtLoading(Lcom/ipaynow/plugin/view/IpaynowLoading;)V
+
+    return-object p0
+.end method
+
+.method public unCkeckEnvironment()Lcom/ipaynow/plugin/api/IpaynowPlugin;
+    .locals 2
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->setCheckClient(Z)V
+
+    return-object p0
 .end method

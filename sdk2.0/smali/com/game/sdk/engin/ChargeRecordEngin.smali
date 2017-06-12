@@ -108,18 +108,18 @@
     .end annotation
 
     .prologue
-    .line 70
+    .line 74
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .local p3, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ChargeRecordList;>;"
     if-nez p2, :cond_0
 
-    .line 71
+    .line 75
     new-instance p2, Ljava/util/HashMap;
 
     .end local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p2}, Ljava/util/HashMap;-><init>()V
 
-    .line 74
+    .line 78
     .restart local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     :try_start_0
@@ -139,15 +139,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 108
+    .line 112
     :goto_0
     return-void
 
-    .line 105
+    .line 109
     :catch_0
     move-exception v0
 
-    .line 106
+    .line 110
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -172,15 +172,17 @@
     goto :goto_0
 .end method
 
-.method public getChargeRecordList(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
+.method public getChargeRecordList(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
     .locals 5
-    .param p1, "page"    # I
-    .param p2, "userId"    # Ljava/lang/String;
-    .param p3, "startTime"    # Ljava/lang/String;
-    .param p4, "endTime"    # Ljava/lang/String;
+    .param p1, "isAllGame"    # I
+    .param p2, "orderState"    # I
+    .param p3, "page"    # I
+    .param p4, "userId"    # Ljava/lang/String;
+    .param p5, "startTime"    # Ljava/lang/String;
+    .param p6, "endTime"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I",
+            "(III",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
@@ -193,14 +195,14 @@
 
     .prologue
     .line 58
-    .local p5, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ChargeRecordList;>;"
+    .local p7, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ChargeRecordList;>;"
     new-instance v1, Lcom/game/sdk/engin/ChargeRecordEngin$ParamsInfo;
 
     invoke-direct {v1}, Lcom/game/sdk/engin/ChargeRecordEngin$ParamsInfo;-><init>()V
 
     .line 59
     .local v1, "paramsInfo":Lcom/game/sdk/engin/ChargeRecordEngin$ParamsInfo;
-    iput-object p2, v1, Lcom/game/sdk/engin/ChargeRecordEngin$ParamsInfo;->userId:Ljava/lang/String;
+    iput-object p4, v1, Lcom/game/sdk/engin/ChargeRecordEngin$ParamsInfo;->userId:Ljava/lang/String;
 
     .line 60
     new-instance v0, Ljava/util/HashMap;
@@ -210,6 +212,38 @@
     .line 61
     .local v0, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v2, "page"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-static {p3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 62
+    const-string v2, "user_id"
+
+    invoke-interface {v0, v2, p4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 63
+    const-string v2, "start_time"
+
+    invoke-interface {v0, v2, p5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 64
+    const-string v2, "end_time"
+
+    invoke-interface {v0, v2, p6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 66
+    const-string v2, "is_all_game"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -225,27 +259,29 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 62
-    const-string v2, "user_id"
+    .line 67
+    const-string v2, "order_status"
 
-    invoke-interface {v0, v2, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    .line 63
-    const-string v2, "start_time"
+    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-interface {v0, v2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v4
 
-    .line 64
-    const-string v2, "end_time"
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v0, v2, p4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 65
+    move-result-object v3
+
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 69
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v2, v0, p5}, Lcom/game/sdk/engin/ChargeRecordEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
+    invoke-virtual {p0, v2, v0, p7}, Lcom/game/sdk/engin/ChargeRecordEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
 
-    .line 66
+    .line 70
     return-void
 .end method
 

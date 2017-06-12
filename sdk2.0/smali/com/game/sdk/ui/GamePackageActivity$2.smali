@@ -36,7 +36,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/GamePackageActivity$2;->this$0:Lcom/game/sdk/ui/GamePackageActivity;
 
-    .line 82
+    .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -60,7 +60,7 @@
     .end annotation
 
     .prologue
-    .line 85
+    .line 86
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Lcom/game/sdk/ui/GamePackageActivity$2;->this$0:Lcom/game/sdk/ui/GamePackageActivity;
 
@@ -78,7 +78,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 86
+    .line 87
     new-instance v0, Landroid/content/Intent;
 
     iget-object v1, p0, Lcom/game/sdk/ui/GamePackageActivity$2;->this$0:Lcom/game/sdk/ui/GamePackageActivity;
@@ -87,7 +87,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 87
+    .line 88
     .local v0, "intent":Landroid/content/Intent;
     const-string v2, "gameId"
 
@@ -105,12 +105,12 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 88
+    .line 89
     iget-object v1, p0, Lcom/game/sdk/ui/GamePackageActivity$2;->this$0:Lcom/game/sdk/ui/GamePackageActivity;
 
     invoke-virtual {v1, v0}, Lcom/game/sdk/ui/GamePackageActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 90
+    .line 91
     .end local v0    # "intent":Landroid/content/Intent;
     :cond_0
     return-void

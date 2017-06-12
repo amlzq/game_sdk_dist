@@ -52,22 +52,22 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 31
     invoke-direct {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;-><init>()V
 
-    .line 52
+    .line 54
     new-instance v0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$1;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment$1;-><init>(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)V
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->handler:Landroid/os/Handler;
 
-    .line 245
+    .line 263
     const/16 v0, 0x3c
 
     iput v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->secondes:I
 
-    .line 29
+    .line 31
     return-void
 .end method
 
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 31
+    .line 33
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     return-object v0
@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 49
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->sendDialog:Lcom/game/sdk/view/CustomDialog;
 
     return-object v0
@@ -95,7 +95,7 @@
     .locals 0
 
     .prologue
-    .line 250
+    .line 268
     invoke-direct {p0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->codeRefresh()V
 
     return-void
@@ -105,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 43
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->validateCodeEt:Landroid/widget/EditText;
 
     return-object v0
@@ -115,7 +115,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 51
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->bindDialog:Lcom/game/sdk/view/CustomDialog;
 
     return-object v0
@@ -125,7 +125,7 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 263
     iget v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->secondes:I
 
     return v0
@@ -135,7 +135,7 @@
     .locals 0
 
     .prologue
-    .line 245
+    .line 263
     iput p1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->secondes:I
 
     return-void
@@ -145,7 +145,7 @@
     .locals 1
 
     .prologue
-    .line 43
+    .line 45
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
 
     return-object v0
@@ -155,7 +155,7 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 54
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->handler:Landroid/os/Handler;
 
     return-object v0
@@ -165,17 +165,17 @@
     .locals 4
 
     .prologue
-    .line 251
+    .line 269
     const/16 v1, 0x3c
 
     iput v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->secondes:I
 
-    .line 252
+    .line 270
     new-instance v0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;-><init>(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)V
 
-    .line 273
+    .line 291
     .local v0, "runnable":Ljava/lang/Runnable;
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->handler:Landroid/os/Handler;
 
@@ -183,7 +183,7 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 274
+    .line 292
     return-void
 .end method
 
@@ -193,8 +193,8 @@
     .locals 1
 
     .prologue
-    .line 66
-    const-string v0, "bind_phone_fragment"
+    .line 68
+    const-string v0, "fysdk_bind_phone_fragment"
 
     return-object v0
 .end method
@@ -203,10 +203,10 @@
     .locals 2
 
     .prologue
-    .line 91
+    .line 93
     invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initData()V
 
-    .line 93
+    .line 95
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->userNameTv:Landroid/widget/TextView;
 
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
@@ -215,7 +215,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 94
+    .line 96
     return-void
 .end method
 
@@ -223,7 +223,7 @@
     .locals 0
 
     .prologue
-    .line 100
+    .line 102
     return-void
 .end method
 
@@ -231,10 +231,10 @@
     .locals 3
 
     .prologue
-    .line 71
+    .line 73
     invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initViews()V
 
-    .line 72
+    .line 74
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -243,7 +243,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
-    .line 73
+    .line 75
     new-instance v0, Lcom/game/sdk/view/CustomDialog;
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
@@ -254,7 +254,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->sendDialog:Lcom/game/sdk/view/CustomDialog;
 
-    .line 74
+    .line 76
     new-instance v0, Lcom/game/sdk/view/CustomDialog;
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
@@ -265,7 +265,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->bindDialog:Lcom/game/sdk/view/CustomDialog;
 
-    .line 75
+    .line 77
     const-string v0, "back_iv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
@@ -274,7 +274,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->backIv:Landroid/widget/ImageView;
 
-    .line 76
+    .line 78
     const-string v0, "title_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -283,7 +283,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->titleTv:Landroid/widget/TextView;
 
-    .line 77
+    .line 79
     const-string v0, "user_name_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -292,7 +292,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->userNameTv:Landroid/widget/TextView;
 
-    .line 78
+    .line 80
     const-string v0, "phone_number_et"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findEditTextByString(Ljava/lang/String;)Landroid/widget/EditText;
@@ -301,7 +301,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->phoneNumberEt:Landroid/widget/EditText;
 
-    .line 79
+    .line 81
     const-string v0, "validate_code_et"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findEditTextByString(Ljava/lang/String;)Landroid/widget/EditText;
@@ -310,7 +310,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->validateCodeEt:Landroid/widget/EditText;
 
-    .line 81
+    .line 83
     const-string v0, "get_validate_btn"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findButtonByString(Ljava/lang/String;)Landroid/widget/Button;
@@ -319,7 +319,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
 
-    .line 82
+    .line 84
     const-string v0, "submit_btn"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->findButtonByString(Ljava/lang/String;)Landroid/widget/Button;
@@ -328,7 +328,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->submitBtn:Landroid/widget/Button;
 
-    .line 83
+    .line 85
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->titleTv:Landroid/widget/TextView;
 
     const-string v1, "account_safety_text"
@@ -339,33 +339,35 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 84
+    .line 86
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->backIv:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 85
+    .line 87
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
 
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 86
+    .line 88
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->submitBtn:Landroid/widget/Button;
 
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 87
+    .line 89
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 6
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
+    const/4 v5, 0x1
+
     const/4 v4, 0x0
 
-    .line 104
+    .line 113
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v2
@@ -376,17 +378,33 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
-    .line 105
+    .line 114
+    sget v2, Lcom/game/sdk/domain/GoagalInfo;->bindMobileFrom:I
+
+    if-nez v2, :cond_0
+
+    .line 115
+    iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+
+    invoke-virtual {v2, v5}, Lcom/game/sdk/ui/MainActivity;->changeFragment(I)V
+
+    .line 117
+    :cond_0
+    sget v2, Lcom/game/sdk/domain/GoagalInfo;->bindMobileFrom:I
+
+    if-ne v2, v5, :cond_1
+
+    .line 118
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     const/4 v3, 0x6
 
     invoke-virtual {v2, v3}, Lcom/game/sdk/ui/MainActivity;->changeFragment(I)V
 
-    .line 108
-    :cond_0
+    .line 122
+    :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v2
@@ -397,9 +415,9 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_4
 
-    .line 109
+    .line 123
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->phoneNumberEt:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -414,35 +432,35 @@
 
     move-result-object v0
 
-    .line 110
+    .line 124
     .local v0, "phoneNumber":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    .line 111
+    .line 125
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     const-string v3, "\u8bf7\u8f93\u5165\u624b\u673a\u53f7"
 
     invoke-static {v2, v3}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 140
+    .line 154
     .end local v0    # "phoneNumber":Ljava/lang/String;
-    :cond_1
+    :cond_2
     :goto_0
     return-void
 
-    .line 115
+    .line 129
     .restart local v0    # "phoneNumber":Ljava/lang/String;
-    :cond_2
+    :cond_3
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->sendDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v2}, Lcom/game/sdk/view/CustomDialog;->showDialog()V
 
-    .line 116
+    .line 130
     new-instance v2, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;
 
     sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
@@ -455,9 +473,9 @@
 
     invoke-virtual {v2, v3}, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 119
+    .line 133
     .end local v0    # "phoneNumber":Ljava/lang/String;
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v2
@@ -468,18 +486,18 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_2
 
-    .line 120
+    .line 134
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     invoke-static {v2}, Lcom/game/sdk/utils/NetworkImpl;->isNetWorkConneted(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5
 
-    .line 121
+    .line 135
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     const-string v3, "\u7f51\u7edc\u4e0d\u7ed9\u529b\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u8bbe\u7f6e"
@@ -488,8 +506,8 @@
 
     goto :goto_0
 
-    .line 125
-    :cond_4
+    .line 139
+    :cond_5
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->phoneNumberEt:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -504,7 +522,7 @@
 
     move-result-object v0
 
-    .line 126
+    .line 140
     .restart local v0    # "phoneNumber":Ljava/lang/String;
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->validateCodeEt:Landroid/widget/EditText;
 
@@ -520,15 +538,15 @@
 
     move-result-object v1
 
-    .line 128
+    .line 142
     .local v1, "validateCode":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
-    .line 129
+    .line 143
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     const-string v3, "\u8bf7\u8f93\u5165\u624b\u673a\u53f7"
@@ -537,15 +555,15 @@
 
     goto :goto_0
 
-    .line 132
-    :cond_5
+    .line 146
+    :cond_6
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
-    .line 133
+    .line 147
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     const-string v3, "\u8bf7\u8f93\u5165\u9a8c\u8bc1\u7801"
@@ -554,13 +572,13 @@
 
     goto :goto_0
 
-    .line 137
-    :cond_6
+    .line 151
+    :cond_7
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->bindDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v2}, Lcom/game/sdk/view/CustomDialog;->show()V
 
-    .line 138
+    .line 152
     new-instance v2, Lcom/game/sdk/ui/fragment/BindPhoneFragment$BindPhoneTask;
 
     sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
@@ -574,4 +592,36 @@
     invoke-virtual {v2, v3}, Lcom/game/sdk/ui/fragment/BindPhoneFragment$BindPhoneTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     goto :goto_0
+.end method
+
+.method public onPause()V
+    .locals 1
+
+    .prologue
+    .line 296
+    invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->onPause()V
+
+    .line 298
+    const-string v0, "BindPhoneFragment"
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageEnd(Ljava/lang/String;)V
+
+    .line 299
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 1
+
+    .prologue
+    .line 106
+    invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->onResume()V
+
+    .line 108
+    const-string v0, "BindPhoneFragment"
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageStart(Ljava/lang/String;)V
+
+    .line 109
+    return-void
 .end method

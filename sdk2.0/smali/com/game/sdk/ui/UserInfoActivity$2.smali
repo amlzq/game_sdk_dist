@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
-    .line 307
+    .line 320
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +40,7 @@
     .param p1, "newBirth"    # Ljava/lang/String;
 
     .prologue
-    .line 327
+    .line 340
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->birthTv:Landroid/widget/TextView;
@@ -50,7 +50,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 328
+    .line 341
     return-void
 .end method
 
@@ -64,22 +64,22 @@
     .param p4, "dayOfMonth"    # I
 
     .prologue
-    .line 313
+    .line 326
     iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-static {v2, p2}, Lcom/game/sdk/ui/UserInfoActivity;->access$9(Lcom/game/sdk/ui/UserInfoActivity;I)V
 
-    .line 314
+    .line 327
     iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-static {v2, p3}, Lcom/game/sdk/ui/UserInfoActivity;->access$10(Lcom/game/sdk/ui/UserInfoActivity;I)V
 
-    .line 315
+    .line 328
     iget-object v2, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-static {v2, p4}, Lcom/game/sdk/ui/UserInfoActivity;->access$11(Lcom/game/sdk/ui/UserInfoActivity;I)V
 
-    .line 316
+    .line 329
     new-instance v2, Ljava/lang/StringBuilder;
 
     iget-object v3, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
@@ -135,20 +135,20 @@
 
     move-result-object v0
 
-    .line 318
+    .line 331
     .local v0, "newBirth":Ljava/lang/String;
     invoke-direct {p0, v0}, Lcom/game/sdk/ui/UserInfoActivity$2;->updateDate(Ljava/lang/String;)V
 
-    .line 320
+    .line 333
     new-instance v1, Lcom/game/sdk/domain/UserInfo;
 
     invoke-direct {v1}, Lcom/game/sdk/domain/UserInfo;-><init>()V
 
-    .line 321
+    .line 334
     .local v1, "uinfo":Lcom/game/sdk/domain/UserInfo;
     iput-object v0, v1, Lcom/game/sdk/domain/UserInfo;->birth:Ljava/lang/String;
 
-    .line 323
+    .line 336
     new-instance v2, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;
 
     iget-object v3, p0, Lcom/game/sdk/ui/UserInfoActivity$2;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
@@ -161,6 +161,6 @@
 
     invoke-virtual {v2, v3}, Lcom/game/sdk/ui/UserInfoActivity$UpdateUserBirthTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 324
+    .line 337
     return-void
 .end method

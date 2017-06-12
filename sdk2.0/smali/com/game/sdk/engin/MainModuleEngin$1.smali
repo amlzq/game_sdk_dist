@@ -38,7 +38,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/engin/MainModuleEngin$1;->this$0:Lcom/game/sdk/engin/MainModuleEngin;
 
-    .line 52
+    .line 56
     invoke-direct {p0}, Lcom/alibaba/fastjson/TypeReference;-><init>()V
 
     return-void

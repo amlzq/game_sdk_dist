@@ -33,7 +33,7 @@
 
     iput-object p2, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;
 
-    .line 76
+    .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,17 +46,17 @@
     .param p1, "response"    # Lcom/game/sdk/net/entry/Response;
 
     .prologue
-    .line 102
+    .line 108
     iget-object v0, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;
 
     if-eqz v0, :cond_0
 
-    .line 103
+    .line 109
     iget-object v0, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;
 
     invoke-interface {v0, p1}, Lcom/game/sdk/net/listeners/Callback;->onFailure(Lcom/game/sdk/net/entry/Response;)V
 
-    .line 105
+    .line 111
     :cond_0
     return-void
 .end method
@@ -66,10 +66,10 @@
     .param p1, "response"    # Lcom/game/sdk/net/entry/Response;
 
     .prologue
-    .line 79
+    .line 85
     const/4 v2, 0x0
 
-    .line 81
+    .line 87
     .local v2, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/ModuleList;>;"
     :try_start_0
     iget-object v3, p1, Lcom/game/sdk/net/entry/Response;->body:Ljava/lang/String;
@@ -94,51 +94,51 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 91
+    .line 97
     :goto_0
     iget-object v3, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;
 
     if-eqz v3, :cond_0
 
-    .line 92
+    .line 98
     if-eqz v2, :cond_1
 
-    .line 93
+    .line 99
     iget-object v3, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;
 
     invoke-interface {v3, v2}, Lcom/game/sdk/net/listeners/Callback;->onSuccess(Lcom/game/sdk/domain/ResultInfo;)V
 
-    .line 98
+    .line 104
     :cond_0
     :goto_1
     return-void
 
-    .line 84
+    .line 90
     :catch_0
     move-exception v1
 
-    .line 85
+    .line 91
     .local v1, "e":Ljava/lang/Exception;
     const-string v3, "\u670d\u52a1\u5668\u9519\u8bef\uff0c\u8bf7\u8054\u7cfb\u5ba2\u670d"
 
     iput-object v3, p1, Lcom/game/sdk/net/entry/Response;->body:Ljava/lang/String;
 
-    .line 86
+    .line 92
     iget-object v3, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;
 
     invoke-interface {v3, p1}, Lcom/game/sdk/net/listeners/Callback;->onFailure(Lcom/game/sdk/net/entry/Response;)V
 
-    .line 87
+    .line 93
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 88
+    .line 94
     const-string v3, "agetResultInfo\u5f02\u5e38->JSON\u89e3\u6790\u9519\u8bef\uff08\u670d\u52a1\u5668\u8fd4\u56de\u6570\u636e\u683c\u5f0f\u4e0d\u6b63\u786e\uff09"
 
     invoke-static {v3}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 95
+    .line 101
     .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     iget-object v3, p0, Lcom/game/sdk/engin/MainModuleEngin$2;->val$callback:Lcom/game/sdk/net/listeners/Callback;

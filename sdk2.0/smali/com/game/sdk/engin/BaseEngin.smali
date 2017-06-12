@@ -66,20 +66,20 @@
     .end annotation
 
     .prologue
-    .line 54
+    .line 48
     .local p0, "this":Lcom/game/sdk/engin/BaseEngin;, "Lcom/game/sdk/engin/BaseEngin<TT;>;"
     .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .local p3, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<TT;>;"
     if-nez p2, :cond_0
 
-    .line 55
+    .line 49
     new-instance p2, Ljava/util/HashMap;
 
     .end local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p2}, Ljava/util/HashMap;-><init>()V
 
-    .line 58
+    .line 52
     .restart local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     :try_start_0
@@ -99,15 +99,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 86
+    .line 80
     :goto_0
     return-void
 
-    .line 83
+    .line 77
     :catch_0
     move-exception v0
 
-    .line 84
+    .line 78
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -151,20 +151,20 @@
     .end annotation
 
     .prologue
-    .line 90
+    .line 84
     .local p0, "this":Lcom/game/sdk/engin/BaseEngin;, "Lcom/game/sdk/engin/BaseEngin<TT;>;"
     .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     .local p3, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .local p4, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<TT;>;"
     if-nez p3, :cond_0
 
-    .line 91
+    .line 85
     new-instance p3, Ljava/util/HashMap;
 
     .end local p3    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p3}, Ljava/util/HashMap;-><init>()V
 
-    .line 94
+    .line 88
     .restart local p3    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     :try_start_0
@@ -184,15 +184,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 122
+    .line 116
     :goto_0
     return-void
 
-    .line 119
+    .line 113
     :catch_0
     move-exception v0
 
-    .line 120
+    .line 114
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public getResultInfo(ZLjava/lang/Class;Ljava/util/Map;)Lcom/game/sdk/domain/ResultInfo;
-    .locals 8
+    .locals 7
     .param p1, "encodeResponse"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -251,137 +251,95 @@
     .line 34
     .restart local p3    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 36
-    .local v3, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
+    .local v2, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
     :try_start_0
     invoke-static {}, Lcom/game/sdk/net/impls/OKHttpRequest;->getImpl()Lcom/game/sdk/net/impls/OKHttpRequest;
 
-    move-result-object v4
+    move-result-object v3
 
     invoke-virtual {p0}, Lcom/game/sdk/engin/BaseEngin;->getUrl()Ljava/lang/String;
 
-    move-result-object v5
-
-    invoke-virtual {v4, v5, p3, p1}, Lcom/game/sdk/net/impls/OKHttpRequest;->post2(Ljava/lang/String;Ljava/util/Map;Z)Lcom/game/sdk/net/entry/Response;
-
-    move-result-object v2
-
-    .line 38
-    .local v2, "response":Lcom/game/sdk/net/entry/Response;
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    const-string v5, "response.body---"
-
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget-object v5, v2, Lcom/game/sdk/net/entry/Response;->body:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4, p3, p1}, Lcom/game/sdk/net/impls/OKHttpRequest;->post2(Ljava/lang/String;Ljava/util/Map;Z)Lcom/game/sdk/net/entry/Response;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+    .line 37
+    .local v1, "response":Lcom/game/sdk/net/entry/Response;
+    iget-object v3, v1, Lcom/game/sdk/net/entry/Response;->body:Ljava/lang/String;
 
-    .line 40
-    iget-object v4, v2, Lcom/game/sdk/net/entry/Response;->body:Ljava/lang/String;
+    new-instance v4, Lcom/game/sdk/engin/BaseEngin$1;
 
-    new-instance v5, Lcom/game/sdk/engin/BaseEngin$1;
+    const/4 v5, 0x1
 
-    const/4 v6, 0x1
-
-    new-array v6, v6, [Ljava/lang/reflect/Type;
-
-    const/4 v7, 0x0
-
-    aput-object p2, v6, v7
-
-    invoke-direct {v5, p0, v6}, Lcom/game/sdk/engin/BaseEngin$1;-><init>(Lcom/game/sdk/engin/BaseEngin;[Ljava/lang/reflect/Type;)V
+    new-array v5, v5, [Ljava/lang/reflect/Type;
 
     const/4 v6, 0x0
 
-    new-array v6, v6, [Lcom/alibaba/fastjson/parser/Feature;
+    aput-object p2, v5, v6
 
-    invoke-static {v4, v5, v6}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;Lcom/alibaba/fastjson/TypeReference;[Lcom/alibaba/fastjson/parser/Feature;)Ljava/lang/Object;
+    invoke-direct {v4, p0, v5}, Lcom/game/sdk/engin/BaseEngin$1;-><init>(Lcom/game/sdk/engin/BaseEngin;[Ljava/lang/reflect/Type;)V
 
-    move-result-object v4
+    const/4 v5, 0x0
 
-    move-object v0, v4
+    new-array v5, v5, [Lcom/alibaba/fastjson/parser/Feature;
 
-    check-cast v0, Lcom/game/sdk/domain/ResultInfo;
+    invoke-static {v3, v4, v5}, Lcom/alibaba/fastjson/JSON;->parseObject(Ljava/lang/String;Lcom/alibaba/fastjson/TypeReference;[Lcom/alibaba/fastjson/parser/Feature;)Ljava/lang/Object;
 
-    move-object v3, v0
+    move-result-object v2
 
-    .line 42
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    const-string v5, "response.body json\u8f6c\u6362\u540e---"
-
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+    .end local v2    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
+    check-cast v2, Lcom/game/sdk/domain/ResultInfo;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 49
-    .end local v2    # "response":Lcom/game/sdk/net/entry/Response;
+    .line 43
+    .end local v1    # "response":Lcom/game/sdk/net/entry/Response;
+    .restart local v2    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
     :goto_0
-    return-object v3
+    return-object v2
 
-    .line 44
+    .line 38
+    .end local v2    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    .line 45
-    .local v1, "e":Ljava/lang/Exception;
-    new-instance v3, Lcom/game/sdk/domain/ResultInfo;
+    .line 39
+    .local v0, "e":Ljava/lang/Exception;
+    new-instance v2, Lcom/game/sdk/domain/ResultInfo;
 
-    .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
-    invoke-direct {v3}, Lcom/game/sdk/domain/ResultInfo;-><init>()V
+    invoke-direct {v2}, Lcom/game/sdk/domain/ResultInfo;-><init>()V
 
-    .line 46
-    .restart local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
-    const/16 v4, -0x3e8
+    .line 40
+    .restart local v2    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<TT;>;"
+    const/16 v3, -0x3e8
 
-    iput v4, v3, Lcom/game/sdk/domain/ResultInfo;->code:I
+    iput v3, v2, Lcom/game/sdk/domain/ResultInfo;->code:I
 
-    .line 47
-    new-instance v4, Ljava/lang/StringBuilder;
+    .line 41
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v5, "getResultInfo\u5f02\u5e38:"
+    const-string v4, "getResultInfo\u5f02\u5e38:"
 
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
     goto :goto_0
 .end method

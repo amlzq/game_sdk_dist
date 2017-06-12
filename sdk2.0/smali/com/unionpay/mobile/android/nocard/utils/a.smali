@@ -16,7 +16,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const-string v0, "paydata"
 
@@ -26,9 +26,14 @@
 
     :cond_0
     :goto_0
-    return-object v0
+    if-nez v0, :cond_1
+
+    const-string v0, ""
 
     :cond_1
+    return-object v0
+
+    :cond_2
     const-string v1, "tn"
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
@@ -55,7 +60,7 @@
 
     const-string v2, "decodePayInfo +++ \n"
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p0, :cond_2
 
@@ -80,7 +85,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/g;->b(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/j;->b(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz v0, :cond_1
 
@@ -131,13 +136,13 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, "uppay"
 
     const-string v2, "decodePayInfo --- \n"
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v1
 
@@ -202,27 +207,27 @@
 
     move-result-object v3
 
-    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Landroid/content/Intent;->getDataString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_7
+    if-eqz v3, :cond_8
 
-    const-string v0, "reqOriginalId"
+    const-string v4, "reqOriginalId"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_7
+    if-eqz v4, :cond_8
 
-    const-string v0, "uppay"
+    const-string v4, "uppay"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -230,7 +235,7 @@
 
     invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4}, Landroid/os/Bundle;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/os/Bundle;->toString()Ljava/lang/String;
 
     move-result-object v6
 
@@ -242,19 +247,19 @@
 
     move-result-object v5
 
-    invoke-static {v0, v5}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const-string v5, "reqOriginalId"
 
-    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v3, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v5
 
-    iput v5, v0, Lcom/unionpay/mobile/android/plugin/c;->a:I
+    iput v5, v4, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
-    const-string v0, "uppay"
+    const-string v4, "uppay"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -262,7 +267,7 @@
 
     invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v6, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v6, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget v6, v6, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
@@ -274,85 +279,99 @@
 
     move-result-object v5
 
-    invoke-static {v0, v5}, Lcom/unionpay/mobile/android/utils/g;->b(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Lcom/unionpay/mobile/android/utils/j;->b(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const-string v5, "invokedbyplugin"
 
-    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v3, v5}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v5
 
-    iput-boolean v5, v0, Lcom/unionpay/mobile/android/plugin/c;->e:Z
+    iput-boolean v5, v4, Lcom/unionpay/mobile/android/plugin/c;->e:Z
 
     :goto_1
-    if-eqz v4, :cond_9
+    if-eqz v3, :cond_9
 
-    const-string v0, "dlgstyle"
+    const-string v4, "dlgstyle"
 
-    invoke-virtual {v4, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v3, v4, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v0
+    move-result v4
 
-    iput-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->aC:Z
+    iput-boolean v4, p1, Lcom/unionpay/mobile/android/model/b;->aM:Z
 
-    const-string v0, "url_index"
+    const-string v4, "url_index"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-static {v4}, Lcom/unionpay/mobile/android/utils/h;->c(Ljava/lang/String;)Z
+
+    move-result v5
 
     if-eqz v5, :cond_2
 
-    const-string v0, "[0-9]*"
+    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+    move-result v4
 
-    move-result-object v0
-
-    invoke-virtual {v0, v5}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v0
-
-    if-nez v0, :cond_8
-
-    move v0, v1
-
-    :goto_2
-    if-eqz v0, :cond_2
-
-    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p1, Lcom/unionpay/mobile/android/model/b;->aE:I
+    iput v4, p1, Lcom/unionpay/mobile/android/model/b;->aO:I
 
     :cond_2
-    const-string v0, "navbargb"
+    const-string v4, "server"
 
-    invoke-virtual {v4, v0, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v0
+    move-result-object v4
 
-    sput v0, Lcom/unionpay/mobile/android/global/a;->L:I
+    if-eqz v4, :cond_3
 
-    const-string v0, "divlinecolor"
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v4, v0, v7}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    move-result v5
 
-    move-result v0
+    if-nez v5, :cond_3
 
-    sput v0, Lcom/unionpay/mobile/android/global/a;->M:I
+    iput-object v4, p1, Lcom/unionpay/mobile/android/model/b;->bj:Ljava/lang/String;
 
+    :cond_3
+    const-string v4, "navbargb"
+
+    invoke-virtual {v3, v4, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    sput v4, Lcom/unionpay/mobile/android/global/a;->M:I
+
+    const-string v4, "divlinecolor"
+
+    invoke-virtual {v3, v4, v7}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    sput v4, Lcom/unionpay/mobile/android/global/a;->N:I
+
+    :goto_2
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
+
+    iget v4, v4, Lcom/unionpay/mobile/android/plugin/c;->a:I
+
+    sparse-switch v4, :sswitch_data_0
+
+    :cond_4
     :goto_3
-    iget-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->aC:Z
+    iget-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->aM:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
+
+    sget-boolean v0, Lcom/unionpay/mobile/android/model/b;->bl:Z
+
+    if-nez v0, :cond_5
 
     const/4 v0, -0x1
 
@@ -366,64 +385,64 @@
 
     sput v0, Lcom/unionpay/mobile/android/global/b;->d:I
 
-    :cond_3
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
-
-    iget v0, v0, Lcom/unionpay/mobile/android/plugin/c;->a:I
-
-    sparse-switch v0, :sswitch_data_0
-
-    :cond_4
-    :goto_4
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    :cond_5
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget v0, v0, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_5
+    if-eq v0, v3, :cond_6
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
+
+    iget v0, v0, Lcom/unionpay/mobile/android/plugin/c;->a:I
+
+    const/4 v3, 0x5
+
+    if-eq v0, v3, :cond_6
+
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget v0, v0, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
     const/4 v3, 0x3
 
-    if-ne v0, v3, :cond_6
+    if-ne v0, v3, :cond_7
 
-    :cond_5
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    :cond_6
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iput-boolean v2, v0, Lcom/unionpay/mobile/android/plugin/c;->d:Z
 
-    :cond_6
+    :cond_7
     iget-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->c:Z
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_11
 
-    const-string v0, "1.8"
+    const-string v0, "1.9"
 
-    :goto_5
+    :goto_4
     iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->a:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    :cond_7
-    if-eqz v3, :cond_0
+    :cond_8
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v4
 
-    if-lez v0, :cond_0
+    if-lez v4, :cond_0
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const/16 v5, 0x3e8
 
-    iput v5, v0, Lcom/unionpay/mobile/android/plugin/c;->a:I
+    iput v5, v4, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
-    const-string v0, "uppay"
+    const-string v4, "uppay"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -431,7 +450,7 @@
 
     invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -439,58 +458,53 @@
 
     move-result-object v5
 
-    invoke-static {v0, v5}, Lcom/unionpay/mobile/android/utils/g;->b(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Lcom/unionpay/mobile/android/utils/j;->b(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
-    :cond_8
-    move v0, v2
+    :cond_9
+    iput-boolean v1, p1, Lcom/unionpay/mobile/android/model/b;->aM:Z
+
+    sput v8, Lcom/unionpay/mobile/android/global/a;->M:I
+
+    sput v7, Lcom/unionpay/mobile/android/global/a;->N:I
 
     goto :goto_2
 
-    :cond_9
-    iput-boolean v1, p1, Lcom/unionpay/mobile/android/model/b;->aC:Z
-
-    sput v8, Lcom/unionpay/mobile/android/global/a;->L:I
-
-    sput v7, Lcom/unionpay/mobile/android/global/a;->M:I
-
-    goto :goto_3
-
     :sswitch_0
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
-    const-string v3, "ex_mode"
+    const-string v4, "ex_mode"
 
-    invoke-virtual {v4, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, v0, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
+    iput-object v4, v0, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
 
     const-string v0, "uppay"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "mServerIdentifier = "
 
-    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v5, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v5, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget-object v5, v5, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v4}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v4}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Landroid/os/Bundle;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Landroid/os/Bundle;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -498,44 +512,65 @@
 
     const-string v0, "appID"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
 
     if-nez v0, :cond_a
 
     const-string v0, ""
 
-    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
 
     :cond_a
-    const-string v0, "frontNotifyByPlugin"
+    const-string v0, "source"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     if-eqz v0, :cond_b
 
+    const-string v4, "samsung_out"
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/unionpay/mobile/android/model/b;->bl:Z
+
+    :cond_b
+    const-string v0, "frontNotifyByPlugin"
+
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_c
+
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_f
 
-    :cond_b
+    :cond_c
     move v0, v2
 
-    :goto_6
-    iput-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->P:Z
+    :goto_5
+    iput-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->U:Z
+
+    iget-boolean v0, p1, Lcom/unionpay/mobile/android/model/b;->f:Z
+
+    if-nez v0, :cond_e
 
     iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
     iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
 
@@ -547,31 +582,31 @@
 
     move-result v0
 
-    if-lez v0, :cond_d
+    if-lez v0, :cond_e
 
     const-string v0, "uppay"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "tn from bundle:"
 
-    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v5, p1, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v4}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, "2"
 
-    iget-object v3, p1, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
 
     iget-object v5, p1, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
 
@@ -581,32 +616,32 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_d
 
     move v1, v2
 
-    :cond_c
+    :cond_d
     iput-boolean v1, p1, Lcom/unionpay/mobile/android/model/b;->c:Z
 
     const-string v0, "uppay"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v3, "dw.isNewTypeTn="
+    const-string v4, "dw.isNewTypeTn="
 
-    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-boolean v3, p1, Lcom/unionpay/mobile/android/model/b;->c:Z
+    iget-boolean v4, p1, Lcom/unionpay/mobile/android/model/b;->c:Z
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -614,18 +649,18 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     move v1, v2
 
-    :cond_d
+    :cond_e
     const-string v0, "ResultURL"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->m:Ljava/lang/String;
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->r:Ljava/lang/String;
 
     const-string v0, "uppay"
 
@@ -635,7 +670,7 @@
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->m:Ljava/lang/String;
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->r:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -645,27 +680,27 @@
 
     move-result-object v3
 
-    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_e
+    :cond_f
     move v0, v1
 
-    goto :goto_6
+    goto :goto_5
 
     :sswitch_1
     const-string v0, "uppayuri"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v1, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
-    const-string v3, "resultIntentAction"
+    const-string v4, "resultIntentAction"
 
-    invoke-virtual {v4, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -679,7 +714,7 @@
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v4, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget-object v4, v4, Lcom/unionpay/mobile/android/plugin/c;->b:Ljava/lang/String;
 
@@ -691,46 +726,46 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v0, p1}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Ljava/lang/String;Lcom/unionpay/mobile/android/model/b;)Z
 
     move-result v1
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :sswitch_2
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
-    const-string v3, "ex_mode"
+    const-string v4, "ex_mode"
 
-    invoke-virtual {v4, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, v0, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
+    iput-object v4, v0, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
-    const-string v3, "tencentUID"
+    const-string v4, "tencentUID"
 
-    invoke-virtual {v4, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, v0, Lcom/unionpay/mobile/android/plugin/c;->g:Ljava/lang/String;
+    iput-object v4, v0, Lcom/unionpay/mobile/android/plugin/c;->g:Ljava/lang/String;
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
-    const-string v3, "tencentWID"
+    const-string v4, "tencentWID"
 
-    invoke-virtual {v4, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, v0, Lcom/unionpay/mobile/android/plugin/c;->h:Ljava/lang/String;
+    iput-object v4, v0, Lcom/unionpay/mobile/android/plugin/c;->h:Ljava/lang/String;
 
-    invoke-static {v4}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Landroid/os/Bundle;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Landroid/os/Bundle;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -752,13 +787,13 @@
 
     if-lez v0, :cond_4
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget-object v0, v0, Lcom/unionpay/mobile/android/plugin/c;->h:Ljava/lang/String;
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget-object v0, v0, Lcom/unionpay/mobile/android/plugin/c;->h:Ljava/lang/String;
 
@@ -774,12 +809,12 @@
 
     move v1, v2
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :sswitch_3
     const-string v0, "paydata"
 
-    invoke-virtual {v4, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -799,7 +834,7 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Lcom/unionpay/mobile/android/utils/g;->b(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Lcom/unionpay/mobile/android/utils/j;->b(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v0}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Ljava/lang/String;)Ljava/lang/String;
 
@@ -809,19 +844,111 @@
 
     move-result v1
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :sswitch_4
-    invoke-static {v3, p1}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Ljava/lang/String;Lcom/unionpay/mobile/android/model/b;)Z
+    invoke-static {v0, p1}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Ljava/lang/String;Lcom/unionpay/mobile/android/model/b;)Z
 
     move-result v1
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_f
+    :sswitch_5
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
+
+    const-string v4, "ex_mode"
+
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    iput-object v4, v0, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
+
+    const-string v0, "uppay"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const-string v5, "mServerIdentifier = "
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v5, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
+
+    iget-object v5, v5, Lcom/unionpay/mobile/android/plugin/c;->c:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v4}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v0, "appID"
+
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
+
+    if-nez v0, :cond_10
+
+    const-string v0, ""
+
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
+
+    :cond_10
+    const-string v0, "amt"
+
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->e:Ljava/lang/String;
+
+    const-string v0, "aid"
+
+    invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
+
+    iput-boolean v2, p1, Lcom/unionpay/mobile/android/model/b;->f:Z
+
+    iput-boolean v2, p1, Lcom/unionpay/mobile/android/model/b;->c:Z
+
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->e:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    iget-object v0, p1, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    move v1, v2
+
+    goto/16 :goto_3
+
+    :cond_11
     const-string v0, "1.4"
 
-    goto/16 :goto_5
+    goto/16 :goto_4
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -830,6 +957,7 @@
         0x2 -> :sswitch_0
         0x3 -> :sswitch_2
         0x4 -> :sswitch_3
+        0x5 -> :sswitch_5
         0x3e8 -> :sswitch_4
     .end sparse-switch
 .end method
@@ -861,7 +989,7 @@
 
     const-string v1, "uppay protocol params error!"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -874,11 +1002,11 @@
 
     const-string v4, "parseUPPayURIParams() +++ "
 
-    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v3, "uppay"
 
-    invoke-static {v3, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v3, "&"
 
@@ -969,7 +1097,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v0}, Lcom/unionpay/mobile/android/nocard/utils/a;->a(Ljava/lang/String;)Ljava/lang/String;
 
@@ -984,7 +1112,7 @@
 
     const-string v2, "parseUPPayURIParams() ---"
 
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     move v2, v0
 
@@ -1016,7 +1144,7 @@
     return v0
 
     :cond_1
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const-string v3, "00"
 
@@ -1112,7 +1240,7 @@
 
     if-eqz v6, :cond_4
 
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const-string v6, "01"
 
@@ -1135,7 +1263,7 @@
 
     if-eqz v6, :cond_5
 
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const-string v6, "02"
 
@@ -1158,7 +1286,7 @@
 
     if-eqz v2, :cond_2
 
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     const-string v6, "98"
 
@@ -1196,7 +1324,7 @@
 
     move-result-object v2
 
-    iput-object v2, p1, Lcom/unionpay/mobile/android/model/b;->m:Ljava/lang/String;
+    iput-object v2, p1, Lcom/unionpay/mobile/android/model/b;->r:Ljava/lang/String;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1222,11 +1350,11 @@
 
     if-lez v2, :cond_0
 
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->m:Ljava/lang/String;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->r:Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->m:Ljava/lang/String;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->r:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -1279,7 +1407,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v1
 

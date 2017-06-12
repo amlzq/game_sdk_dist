@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/os/Handler$Callback;
 
 
 # instance fields
@@ -22,26 +22,71 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
-
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/nocard/views/ao;->j()V
+.method public final handleMessage(Landroid/os/Message;)Z
+    .locals 3
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
 
     iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/ao;->a:Lcom/unionpay/mobile/android/model/b;
 
-    iget-object v0, v0, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget v0, v0, Lcom/unionpay/mobile/android/model/b;->aP:I
 
-    const-string v1, "cancel"
+    sget-object v1, Lcom/unionpay/mobile/android/views/order/l;->a:Ljava/lang/Integer;
 
-    iput-object v1, v0, Lcom/unionpay/mobile/android/plugin/c;->f:Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/nocard/views/ao;->k()V
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/ao;->a:Lcom/unionpay/mobile/android/model/b;
 
-    return-void
+    iget-boolean v0, v0, Lcom/unionpay/mobile/android/model/b;->J:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/ao;->a:Lcom/unionpay/mobile/android/model/b;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/model/b;->u:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
+
+    const/16 v1, 0xd
+
+    iget-object v2, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
+
+    iget-object v2, v2, Lcom/unionpay/mobile/android/nocard/views/ao;->p:Lcom/unionpay/mobile/android/model/e;
+
+    invoke-virtual {v0, v1, v2}, Lcom/unionpay/mobile/android/nocard/views/ao;->a(ILcom/unionpay/mobile/android/model/e;)V
+
+    :cond_0
+    :goto_0
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/nocard/views/ao;->a:Lcom/unionpay/mobile/android/model/b;
+
+    iget-boolean v0, v0, Lcom/unionpay/mobile/android/model/b;->aC:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/aq;->a:Lcom/unionpay/mobile/android/nocard/views/ao;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/nocard/views/ao;->c(Lcom/unionpay/mobile/android/nocard/views/ao;)V
+
+    goto :goto_0
 .end method

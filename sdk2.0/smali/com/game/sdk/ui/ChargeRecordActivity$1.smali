@@ -1,11 +1,14 @@
 .class Lcom/game/sdk/ui/ChargeRecordActivity$1;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "ChargeRecordActivity.java"
+
+# interfaces
+.implements Landroid/widget/PopupWindow$OnDismissListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/game/sdk/ui/ChargeRecordActivity;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/game/sdk/ui/ChargeRecordActivity;->initViews()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,60 +29,40 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/ChargeRecordActivity$1;->this$0:Lcom/game/sdk/ui/ChargeRecordActivity;
 
-    .line 40
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    .line 146
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
+.method public onDismiss()V
+    .locals 4
 
     .prologue
-    .line 42
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    packed-switch v0, :pswitch_data_0
-
-    .line 50
-    :goto_0
-    return-void
-
-    .line 44
-    :pswitch_0
+    .line 149
     iget-object v0, p0, Lcom/game/sdk/ui/ChargeRecordActivity$1;->this$0:Lcom/game/sdk/ui/ChargeRecordActivity;
 
-    # getter for: Lcom/game/sdk/ui/ChargeRecordActivity;->adapter:Lcom/game/sdk/adapter/ChargeRecordAdapter;
-    invoke-static {v0}, Lcom/game/sdk/ui/ChargeRecordActivity;->access$2(Lcom/game/sdk/ui/ChargeRecordActivity;)Lcom/game/sdk/adapter/ChargeRecordAdapter;
+    # getter for: Lcom/game/sdk/ui/ChargeRecordActivity;->chargeSelectIv:Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/game/sdk/ui/ChargeRecordActivity;->access$2(Lcom/game/sdk/ui/ChargeRecordActivity;)Landroid/widget/ImageView;
 
     move-result-object v0
 
+    .line 150
     iget-object v1, p0, Lcom/game/sdk/ui/ChargeRecordActivity$1;->this$0:Lcom/game/sdk/ui/ChargeRecordActivity;
 
-    iget-object v1, v1, Lcom/game/sdk/ui/ChargeRecordActivity;->chargeRecordList:Ljava/util/List;
+    const-string v2, "drawable"
 
-    invoke-virtual {v0, v1}, Lcom/game/sdk/adapter/ChargeRecordAdapter;->addNewList(Ljava/util/List;)V
+    const-string v3, "select_down_icon"
 
-    .line 45
-    iget-object v0, p0, Lcom/game/sdk/ui/ChargeRecordActivity$1;->this$0:Lcom/game/sdk/ui/ChargeRecordActivity;
+    invoke-static {v1, v2, v3}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/game/sdk/ui/ChargeRecordActivity;->adapter:Lcom/game/sdk/adapter/ChargeRecordAdapter;
-    invoke-static {v0}, Lcom/game/sdk/ui/ChargeRecordActivity;->access$2(Lcom/game/sdk/ui/ChargeRecordActivity;)Lcom/game/sdk/adapter/ChargeRecordAdapter;
+    move-result v1
 
-    move-result-object v0
+    .line 149
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    invoke-virtual {v0}, Lcom/game/sdk/adapter/ChargeRecordAdapter;->notifyDataSetChanged()V
-
-    goto :goto_0
-
-    .line 42
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
+    .line 151
+    return-void
 .end method

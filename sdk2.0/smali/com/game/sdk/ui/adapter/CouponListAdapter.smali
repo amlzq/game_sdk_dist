@@ -36,17 +36,17 @@
     .end annotation
 
     .prologue
-    .line 24
+    .line 26
     .local p2, "dataList":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/CouponInfo;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 25
+    .line 27
     iput-object p1, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
 
-    .line 26
+    .line 28
     iput-object p2, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
 
-    .line 27
+    .line 29
     const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -57,7 +57,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->inflater:Landroid/view/LayoutInflater;
 
-    .line 28
+    .line 30
     return-void
 .end method
 
@@ -67,7 +67,7 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 41
     iget-object v0, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -82,7 +82,7 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 44
+    .line 46
     iget-object v0, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -97,176 +97,299 @@
     .param p1, "position"    # I
 
     .prologue
-    .line 49
+    .line 51
     int-to-long v0, p1
 
     return-wide v0
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 9
+    .locals 10
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 54
+    .line 56
     if-nez p2, :cond_0
 
-    .line 55
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->inflater:Landroid/view/LayoutInflater;
+    .line 57
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->inflater:Landroid/view/LayoutInflater;
 
+    iget-object v7, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
+
+    const-string v8, "layout"
+
+    const-string v9, "coupon_list_item"
+
+    invoke-static {v7, v8, v9}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v7
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v7, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v5
+
+    .line 59
+    .local v5, "view":Landroid/view/View;
+    move-object p2, v5
+
+    .line 62
+    .end local v5    # "view":Landroid/view/View;
+    :cond_0
     iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
 
-    const-string v7, "layout"
+    const-string v7, "id"
 
-    const-string v8, "coupon_list_item"
+    const-string v8, "good_name_tv"
 
     invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v6
 
-    const/4 v7, 0x0
-
-    invoke-virtual {v5, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v4
-
-    .line 57
-    .local v4, "view":Landroid/view/View;
-    move-object p2, v4
-
-    .line 60
-    .end local v4    # "view":Landroid/view/View;
-    :cond_0
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
-
-    const-string v6, "id"
-
-    const-string v7, "good_name_tv"
-
-    invoke-static {v5, v6, v7}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v5
-
-    invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 59
+    .line 61
     check-cast v1, Landroid/widget/TextView;
 
-    .line 62
+    .line 64
     .local v1, "goodNameTv":Landroid/widget/TextView;
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
 
-    const-string v6, "id"
+    const-string v7, "id"
 
-    const-string v7, "good_worth_tv"
+    const-string v8, "good_worth_tv"
 
-    invoke-static {v5, v6, v7}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v5
+    move-result v6
 
-    invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 61
+    .line 63
     check-cast v2, Landroid/widget/TextView;
 
-    .line 64
+    .line 66
     .local v2, "goodWorthTv":Landroid/widget/TextView;
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
 
-    const-string v6, "id"
+    const-string v7, "id"
 
-    const-string v7, "start_date_tv"
+    const-string v8, "start_date_tv"
 
-    invoke-static {v5, v6, v7}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v5
+    move-result v6
 
-    invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 63
+    .line 65
     check-cast v3, Landroid/widget/TextView;
 
-    .line 65
+    .line 67
     .local v3, "startDateTv":Landroid/widget/TextView;
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
 
-    const-string v6, "id"
+    const-string v7, "id"
 
-    const-string v7, "end_date_tv"
+    const-string v8, "end_date_tv"
 
-    invoke-static {v5, v6, v7}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v5
+    move-result v6
 
-    invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 67
-    .local v0, "endDateTv":Landroid/widget/TextView;
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
-
-    invoke-interface {v5, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/game/sdk/domain/CouponInfo;
-
-    iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->goodsName:Ljava/lang/String;
-
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 68
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
-
-    invoke-interface {v5, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/game/sdk/domain/CouponInfo;
-
-    iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->goodsWorth:Ljava/lang/String;
-
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
     .line 69
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+    .local v0, "endDateTv":Landroid/widget/TextView;
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->mContext:Landroid/content/Context;
 
-    invoke-interface {v5, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    const-string v7, "id"
 
-    move-result-object v5
+    const-string v8, "use_date_layout"
 
-    check-cast v5, Lcom/game/sdk/domain/CouponInfo;
+    invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->goodsUcStartTime:Ljava/lang/String;
+    move-result v6
 
-    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    .line 70
-    iget-object v5, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+    move-result-object v4
 
-    invoke-interface {v5, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/game/sdk/domain/CouponInfo;
-
-    iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->goodsUcEndTime:Ljava/lang/String;
-
-    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    check-cast v4, Landroid/widget/LinearLayout;
 
     .line 71
+    .local v4, "useDateLayout":Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsName:Ljava/lang/String;
+
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 72
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsWorth:Ljava/lang/String;
+
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 74
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsUcStartTime:Ljava/lang/String;
+
+    invoke-static {v6}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsUcEndTime:Ljava/lang/String;
+
+    invoke-static {v6}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    .line 75
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsUcStartTime:Ljava/lang/String;
+
+    const-string v7, "0"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsUcEndTime:Ljava/lang/String;
+
+    const-string v7, "0"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    .line 76
+    const/4 v6, 0x4
+
+    invoke-virtual {v4, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    .line 84
+    :cond_1
+    :goto_0
     return-object p2
+
+    .line 78
+    :cond_2
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    .line 79
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsUcStartTime:Ljava/lang/String;
+
+    invoke-static {v6}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    sget-object v8, Lcom/game/sdk/utils/TimeUtils;->DATE_FORMAT_DATE:Ljava/text/SimpleDateFormat;
+
+    invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/TimeUtils;->getTime(JLjava/text/SimpleDateFormat;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 80
+    iget-object v6, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
+
+    invoke-interface {v6, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/game/sdk/domain/CouponInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/CouponInfo;->goodsUcEndTime:Ljava/lang/String;
+
+    invoke-static {v6}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    sget-object v8, Lcom/game/sdk/utils/TimeUtils;->DATE_FORMAT_DATE:Ljava/text/SimpleDateFormat;
+
+    invoke-static {v6, v7, v8}, Lcom/game/sdk/utils/TimeUtils;->getTime(JLjava/text/SimpleDateFormat;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
 .end method
 
 .method public initDataList(Ljava/util/List;)V
@@ -282,7 +405,7 @@
     .end annotation
 
     .prologue
-    .line 31
+    .line 33
     .local p1, "datas":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/CouponInfo;>;"
     iget-object v0, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
 
@@ -296,15 +419,15 @@
 
     if-lez v0, :cond_0
 
-    .line 32
+    .line 34
     iget-object v0, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 34
+    .line 36
     :cond_0
     iput-object p1, p0, Lcom/game/sdk/ui/adapter/CouponListAdapter;->couponInfos:Ljava/util/List;
 
-    .line 35
+    .line 37
     return-void
 .end method

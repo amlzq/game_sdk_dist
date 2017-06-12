@@ -33,7 +33,7 @@
 
     iput-object p2, p0, Lcom/game/sdk/ui/ChargeActivity$3;->val$orderInfo:Ljava/lang/String;
 
-    .line 395
+    .line 646
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,14 +45,14 @@
     .locals 4
 
     .prologue
-    .line 399
+    .line 650
     new-instance v0, Lcom/alipay/sdk/app/PayTask;
 
     iget-object v3, p0, Lcom/game/sdk/ui/ChargeActivity$3;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     invoke-direct {v0, v3}, Lcom/alipay/sdk/app/PayTask;-><init>(Landroid/app/Activity;)V
 
-    .line 401
+    .line 652
     .local v0, "alipay":Lcom/alipay/sdk/app/PayTask;
     iget-object v3, p0, Lcom/game/sdk/ui/ChargeActivity$3;->val$orderInfo:Ljava/lang/String;
 
@@ -60,31 +60,31 @@
 
     move-result-object v2
 
-    .line 403
+    .line 654
     .local v2, "result":Ljava/lang/String;
     new-instance v1, Landroid/os/Message;
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
 
-    .line 404
+    .line 655
     .local v1, "msg":Landroid/os/Message;
     const/4 v3, 0x0
 
     iput v3, v1, Landroid/os/Message;->what:I
 
-    .line 405
+    .line 656
     iput-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 406
+    .line 657
     iget-object v3, p0, Lcom/game/sdk/ui/ChargeActivity$3;->this$0:Lcom/game/sdk/ui/ChargeActivity;
 
     # getter for: Lcom/game/sdk/ui/ChargeActivity;->handler:Landroid/os/Handler;
-    invoke-static {v3}, Lcom/game/sdk/ui/ChargeActivity;->access$13(Lcom/game/sdk/ui/ChargeActivity;)Landroid/os/Handler;
+    invoke-static {v3}, Lcom/game/sdk/ui/ChargeActivity;->access$4(Lcom/game/sdk/ui/ChargeActivity;)Landroid/os/Handler;
 
     move-result-object v3
 
     invoke-virtual {v3, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 407
+    .line 658
     return-void
 .end method

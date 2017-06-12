@@ -36,7 +36,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/CompAignFragment$2;->this$0:Lcom/game/sdk/ui/fragment/CompAignFragment;
 
-    .line 87
+    .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -60,7 +60,7 @@
     .end annotation
 
     .prologue
-    .line 91
+    .line 109
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/CompAignFragment$2;->this$0:Lcom/game/sdk/ui/fragment/CompAignFragment;
 
@@ -78,7 +78,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 92
+    .line 110
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/CompAignFragment$2;->this$0:Lcom/game/sdk/ui/fragment/CompAignFragment;
 
     iget-object v1, v1, Lcom/game/sdk/ui/fragment/CompAignFragment;->compAignInfoList:Ljava/util/List;
@@ -91,12 +91,12 @@
 
     iget v0, v1, Lcom/game/sdk/domain/CompAign;->id:I
 
-    .line 93
+    .line 111
     .local v0, "activityId":I
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/CompAignFragment$2;->this$0:Lcom/game/sdk/ui/fragment/CompAignFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/CompAignFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/CompAignFragment;->access$3(Lcom/game/sdk/ui/fragment/CompAignFragment;)Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/CompAignFragment;->access$6(Lcom/game/sdk/ui/fragment/CompAignFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v2
 
@@ -126,7 +126,7 @@
 
     invoke-virtual {v2, v3, v1}, Lcom/game/sdk/ui/MainActivity;->detailFragment(Ljava/lang/String;I)V
 
-    .line 95
+    .line 113
     .end local v0    # "activityId":I
     :cond_0
     return-void

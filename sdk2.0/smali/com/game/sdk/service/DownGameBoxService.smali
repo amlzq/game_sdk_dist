@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 35
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/game/sdk/service/DownGameBoxService;->hasStop:Z
@@ -54,38 +54,38 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 28
+    .line 29
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 30
+    .line 31
     iput v1, p0, Lcom/game/sdk/service/DownGameBoxService;->MSG_UPDATE_PROGRESS:I
 
-    .line 32
+    .line 33
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/game/sdk/service/DownGameBoxService;->MSG_STOP_SEVICE:I
 
-    .line 38
+    .line 39
     const-string v0, ""
 
     iput-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->downUrl:Ljava/lang/String;
 
-    .line 44
+    .line 45
     const/16 v0, 0x6c
 
     iput v0, p0, Lcom/game/sdk/service/DownGameBoxService;->notifyId:I
 
-    .line 46
+    .line 47
     iput v1, p0, Lcom/game/sdk/service/DownGameBoxService;->progress:I
 
-    .line 58
+    .line 59
     new-instance v0, Lcom/game/sdk/service/DownGameBoxService$1;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/service/DownGameBoxService$1;-><init>(Lcom/game/sdk/service/DownGameBoxService;)V
 
     iput-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->handler:Landroid/os/Handler;
 
-    .line 28
+    .line 29
     return-void
 .end method
 
@@ -93,7 +93,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 35
     sget-boolean v0, Lcom/game/sdk/service/DownGameBoxService;->hasStop:Z
 
     return v0
@@ -103,7 +103,7 @@
     .locals 1
 
     .prologue
-    .line 46
+    .line 47
     iget v0, p0, Lcom/game/sdk/service/DownGameBoxService;->progress:I
 
     return v0
@@ -113,7 +113,7 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 47
     iput p1, p0, Lcom/game/sdk/service/DownGameBoxService;->progress:I
 
     return-void
@@ -123,7 +123,7 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 59
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->handler:Landroid/os/Handler;
 
     return-object v0
@@ -133,7 +133,7 @@
     .locals 1
 
     .prologue
-    .line 40
+    .line 41
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->nm:Landroid/app/NotificationManager;
 
     return-object v0
@@ -143,7 +143,7 @@
     .locals 4
 
     .prologue
-    .line 75
+    .line 76
     const-string v0, "notification"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/service/DownGameBoxService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -154,14 +154,14 @@
 
     iput-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->nm:Landroid/app/NotificationManager;
 
-    .line 76
+    .line 77
     new-instance v0, Landroid/support/v4/app/NotificationCompat$Builder;
 
     invoke-direct {v0, p0}, Landroid/support/v4/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 78
+    .line 79
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     const-string v1, "\u5f00\u59cb\u4e0b\u8f7d\u6e38\u620f\u76d2\u5b50"
@@ -178,7 +178,7 @@
 
     move-result-object v0
 
-    .line 79
+    .line 80
     const-string v1, "drawable"
 
     const-string v2, "down_logo"
@@ -191,7 +191,7 @@
 
     move-result-object v0
 
-    .line 81
+    .line 82
     const/16 v1, 0x64
 
     iget v2, p0, Lcom/game/sdk/service/DownGameBoxService;->progress:I
@@ -200,7 +200,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/NotificationCompat$Builder;->setProgress(IIZ)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 83
+    .line 84
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->nm:Landroid/app/NotificationManager;
 
     iget v1, p0, Lcom/game/sdk/service/DownGameBoxService;->notifyId:I
@@ -213,7 +213,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 84
+    .line 85
     return-void
 .end method
 
@@ -221,7 +221,7 @@
     .locals 1
 
     .prologue
-    .line 210
+    .line 223
     sget-boolean v0, Lcom/game/sdk/service/DownGameBoxService;->hasStop:Z
 
     return v0
@@ -234,12 +234,12 @@
     .param p1, "url"    # Ljava/lang/String;
 
     .prologue
-    .line 191
+    .line 204
     iget-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
     if-nez v1, :cond_0
 
-    .line 192
+    .line 205
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "client == null"
@@ -248,7 +248,7 @@
 
     throw v1
 
-    .line 194
+    .line 207
     :cond_0
     iget-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
@@ -272,7 +272,7 @@
 
     if-nez v2, :cond_3
 
-    .line 198
+    .line 211
     iget-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
     invoke-virtual {v1}, Lokhttp3/OkHttpClient;->dispatcher()Lokhttp3/Dispatcher;
@@ -295,10 +295,10 @@
 
     if-nez v2, :cond_4
 
-    .line 202
+    .line 215
     return-void
 
-    .line 194
+    .line 207
     :cond_3
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -306,7 +306,7 @@
 
     check-cast v0, Lokhttp3/Call;
 
-    .line 195
+    .line 208
     .local v0, "call":Lokhttp3/Call;
     invoke-interface {v0}, Lokhttp3/Call;->request()Lokhttp3/Request;
 
@@ -322,12 +322,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 196
+    .line 209
     invoke-interface {v0}, Lokhttp3/Call;->cancel()V
 
     goto :goto_0
 
-    .line 198
+    .line 211
     .end local v0    # "call":Lokhttp3/Call;
     :cond_4
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -336,7 +336,7 @@
 
     check-cast v0, Lokhttp3/Call;
 
-    .line 199
+    .line 212
     .restart local v0    # "call":Lokhttp3/Call;
     invoke-interface {v0}, Lokhttp3/Call;->request()Lokhttp3/Request;
 
@@ -352,7 +352,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 200
+    .line 213
     invoke-interface {v0}, Lokhttp3/Call;->cancel()V
 
     goto :goto_1
@@ -362,7 +362,7 @@
     .locals 1
 
     .prologue
-    .line 179
+    .line 192
     iget v0, p0, Lcom/game/sdk/service/DownGameBoxService;->progress:I
 
     int-to-float v0, v0
@@ -375,7 +375,7 @@
     .param p1, "arg0"    # Landroid/content/Intent;
 
     .prologue
-    .line 206
+    .line 219
     const/4 v0, 0x0
 
     return-object v0
@@ -385,15 +385,15 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 71
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/game/sdk/service/DownGameBoxService;->hasStop:Z
 
-    .line 71
+    .line 72
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    .line 72
+    .line 73
     return-void
 .end method
 
@@ -401,27 +401,27 @@
     .locals 2
 
     .prologue
-    .line 184
+    .line 197
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/game/sdk/service/DownGameBoxService;->hasStop:Z
 
-    .line 185
+    .line 198
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->downUrl:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/service/DownGameBoxService;->cancel(Ljava/lang/String;)V
 
-    .line 186
+    .line 199
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->nm:Landroid/app/NotificationManager;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 187
+    .line 200
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    .line 188
+    .line 201
     return-void
 .end method
 
@@ -432,12 +432,12 @@
     .param p3, "startId"    # I
 
     .prologue
-    .line 99
+    .line 100
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/game/sdk/service/DownGameBoxService;->progress:I
 
-    .line 101
+    .line 102
     const-string v1, "downUrl"
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -458,10 +458,10 @@
 
     if-lez v1, :cond_1
 
-    .line 102
+    .line 103
     invoke-direct {p0}, Lcom/game/sdk/service/DownGameBoxService;->createNotification()V
 
-    .line 103
+    .line 104
     const-string v1, "downUrl"
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -470,19 +470,19 @@
 
     iput-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->downUrl:Ljava/lang/String;
 
-    .line 105
+    .line 106
     iget-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
     if-nez v1, :cond_0
 
-    .line 106
+    .line 107
     new-instance v1, Lokhttp3/OkHttpClient;
 
     invoke-direct {v1}, Lokhttp3/OkHttpClient;-><init>()V
 
     iput-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
-    .line 109
+    .line 110
     :cond_0
     new-instance v1, Lokhttp3/Request$Builder;
 
@@ -504,7 +504,7 @@
 
     move-result-object v0
 
-    .line 110
+    .line 111
     .local v0, "request":Lokhttp3/Request;
     iget-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
@@ -518,14 +518,14 @@
 
     invoke-interface {v1, v2}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 175
+    .line 188
     .end local v0    # "request":Lokhttp3/Request;
     :goto_0
     const/4 v1, 0x1
 
     return v1
 
-    .line 168
+    .line 181
     :cond_1
     iget-object v1, p0, Lcom/game/sdk/service/DownGameBoxService;->handler:Landroid/os/Handler;
 
@@ -545,21 +545,21 @@
     .prologue
     const/16 v2, 0x64
 
-    .line 88
+    .line 89
     if-ne p1, v2, :cond_0
 
-    .line 89
+    .line 90
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->nm:Landroid/app/NotificationManager;
 
     iget v1, p0, Lcom/game/sdk/service/DownGameBoxService;->notifyId:I
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 94
+    .line 95
     :goto_0
     return-void
 
-    .line 92
+    .line 93
     :cond_0
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
 
@@ -567,7 +567,7 @@
 
     invoke-virtual {v0, v2, p1, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setProgress(IIZ)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 93
+    .line 94
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService;->nm:Landroid/app/NotificationManager;
 
     iget v1, p0, Lcom/game/sdk/service/DownGameBoxService;->notifyId:I

@@ -66,7 +66,7 @@
 
     const-string v3, "text1"
 
-    invoke-interface {v0}, Lcom/unionpay/mobile/android/model/c;->d()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/unionpay/mobile/android/model/c;->e()Ljava/lang/String;
 
     move-result-object v7
 
@@ -244,7 +244,7 @@
 
     const-string v0, "label"
 
-    sget-object v2, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v2, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v2, v2, Lcom/unionpay/mobile/android/languages/c;->z:Ljava/lang/String;
 
@@ -268,7 +268,7 @@
 
     const-string v0, "error_info"
 
-    sget-object v2, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v2, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
     iget-object v2, v2, Lcom/unionpay/mobile/android/languages/c;->aF:Ljava/lang/String;
 

@@ -1,138 +1,620 @@
 .class public Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;
-.super Landroid/app/Activity;
+.super Lcom/ipaynow/plugin/presenter/BasePresenter;
+
+
+# static fields
+.field private static synthetic s:[I
 
 
 # instance fields
-.field private a:Landroid/app/ProgressDialog;
+.field private a:I
 
 .field private appId:Ljava/lang/String;
 
-.field private b:I
+.field private b:Z
+
+.field private c:Z
+
+.field private d:Z
+
+.field private e:Ljava/lang/String;
+
+.field private f:Ljava/lang/String;
+
+.field private g:Landroid/webkit/WebView;
+
+.field private h:Ljava/lang/String;
+
+.field private i:I
+
+.field private j:Ljava/lang/String;
+
+.field private k:Ljava/util/Map;
+
+.field private l:Ljava/util/Map;
+
+.field private m:Ljava/util/Timer;
+
+.field mHandler:Landroid/os/Handler;
 
 .field private mhtOrderNo:Ljava/lang/String;
+
+.field private n:Ljava/util/TimerTask;
+
+.field private final o:I
+
+.field private p:Landroid/os/Bundle;
+
+.field private q:Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;
+
+.field private r:Ljava/lang/Thread;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x0
 
-    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+    const/4 v1, 0x0
 
-    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
+    invoke-direct {p0}, Lcom/ipaynow/plugin/presenter/BasePresenter;-><init>()V
 
-    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->appId:Ljava/lang/String;
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->appId:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mhtOrderNo:Ljava/lang/String;
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mhtOrderNo:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:I
 
-    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:I
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:Z
+
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->d:Z
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->e:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->f:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->h:Ljava/lang/String;
+
+    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->i:I
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->j:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->k:Ljava/util/Map;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->l:Ljava/util/Map;
+
+    const/16 v0, 0x2710
+
+    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->o:I
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->p:Landroid/os/Bundle;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->q:Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;
+
+    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->r:Ljava/lang/Thread;
+
+    new-instance v0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/a;
+
+    invoke-direct {v0, p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/a;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Landroid/app/ProgressDialog;
+.method private a()V
     .locals 1
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
+
+    invoke-interface {v0}, Lcom/ipaynow/plugin/view/IpaynowLoading;->dismiss()V
+
+    :cond_0
+    return-void
+.end method
+
+.method private a(Landroid/webkit/WebView;Ljava/lang/String;Ljava/util/Map;)V
+    .locals 1
+
+    if-nez p3, :cond_0
+
+    invoke-virtual {p1, p2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+
+    :goto_0
+    iget v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->i:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->i:I
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1, p2, p3}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;Ljava/util/Map;)V
+
+    goto :goto_0
+.end method
+
+.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->isFinishing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
+
+    invoke-interface {v0}, Lcom/ipaynow/plugin/view/IpaynowLoading;->dismiss()V
+
+    :cond_0
+    return-void
+.end method
+
+.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Landroid/webkit/WebView;Ljava/lang/String;Ljava/util/Map;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a(Landroid/webkit/WebView;Ljava/lang/String;Ljava/util/Map;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->j:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Ljava/util/Timer;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->m:Ljava/util/Timer;
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Ljava/util/TimerTask;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->n:Ljava/util/TimerTask;
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->d:Z
+
+    return-void
+.end method
+
+.method private a(Ljava/lang/String;)Z
+    .locals 5
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    invoke-static {p1}, Lcom/ipaynow/plugin/utils/StringUtils;->isBlank(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "weixin"
+
+    invoke-virtual {v2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    :cond_0
+    move v0, v1
+
+    :cond_1
+    :goto_0
+    return v0
+
+    :cond_2
+    new-instance v3, Landroid/content/Intent;
+
+    const-string v4, "android.intent.action.VIEW"
+
+    invoke-direct {v3, v4, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v4, 0x15
+
+    if-le v2, v4, :cond_3
+
+    new-instance v2, Ljava/lang/Thread;
+
+    new-instance v4, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/b;
+
+    invoke-direct {v4, p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/b;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+
+    invoke-direct {v2, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    iput-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->r:Ljava/lang/Thread;
+
+    iget-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->r:Ljava/lang/Thread;
+
+    invoke-virtual {v2}, Ljava/lang/Thread;->start()V
+
+    :goto_1
+    :try_start_0
+    invoke-virtual {p0, v3}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    goto :goto_0
+
+    :cond_3
+    new-instance v2, Ljava/lang/Thread;
+
+    new-instance v4, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/c;
+
+    invoke-direct {v4, p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/c;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+
+    invoke-direct {v2, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    iput-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->r:Ljava/lang/Thread;
+
+    iget-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->r:Ljava/lang/Thread;
+
+    invoke-virtual {v2}, Ljava/lang/Thread;->start()V
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v2
+
+    iput-boolean v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    invoke-virtual {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->isFinishing()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-direct {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a()V
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/route/MerchantRouteManager;->getInstance()Lcom/ipaynow/plugin/manager/route/MerchantRouteManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/ipaynow/plugin/conf/flags/IPAYNOW_ERROR_CODE;->PE007:Lcom/ipaynow/plugin/conf/flags/IPAYNOW_ERROR_CODE;
+
+    invoke-virtual {v3}, Lcom/ipaynow/plugin/conf/flags/IPAYNOW_ERROR_CODE;->name()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "\u5fae\u4fe1 \u672a\u5b89\u88c5"
+
+    invoke-virtual {v2, v3, v4}, Lcom/ipaynow/plugin/manager/route/MerchantRouteManager;->callMerchantFail(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->finishAllPresenter()V
+
+    invoke-static {}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->getInstance()Lcom/ipaynow/plugin/manager/cache/MessageCache;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/ipaynow/plugin/manager/cache/MessageCache;->clearAll()V
+
+    iput-boolean v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    goto :goto_0
+.end method
+
+.method static synthetic b(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a()V
+
+    return-void
+.end method
+
+.method static synthetic b(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private static synthetic b()[I
+    .locals 3
+
+    sget-object v0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->s:[I
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-static {}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->values()[Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    move-result-object v0
+
+    array-length v0, v0
+
+    new-array v0, v0, [I
+
+    :try_start_0
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ALIPAYISV_SK:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x5
+
+    aput v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_7
+
+    :goto_1
+    :try_start_1
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->EXCEPTION_SK:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x6
+
+    aput v2, v0, v1
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_6
+
+    :goto_2
+    :try_start_2
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ORDER_INIT:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    aput v2, v0, v1
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_5
+
+    :goto_3
+    :try_start_3
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->PREPAY_TRANS:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x4
+
+    aput v2, v0, v1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_4
+
+    :goto_4
+    :try_start_4
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->QUERY_SK001_RESULT:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x7
+
+    aput v2, v0, v1
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_3
+
+    :goto_5
+    :try_start_5
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->QUERY_TRADE_RESULT:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x8
+
+    aput v2, v0, v1
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_2
+
+    :goto_6
+    :try_start_6
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->UNKNOWN_FUNCODE:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    aput v2, v0, v1
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_1
+
+    :goto_7
+    :try_start_7
+    sget-object v1, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->VOUCHER_GET:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    aput v2, v0, v1
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_0
+
+    :goto_8
+    sput-object v0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->s:[I
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_8
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_7
+
+    :catch_2
+    move-exception v1
+
+    goto :goto_6
+
+    :catch_3
+    move-exception v1
+
+    goto :goto_5
+
+    :catch_4
+    move-exception v1
+
+    goto :goto_4
+
+    :catch_5
+    move-exception v1
+
+    goto :goto_3
+
+    :catch_6
+    move-exception v1
+
+    goto :goto_2
+
+    :catch_7
+    move-exception v1
+
+    goto :goto_1
+.end method
+
+.method static synthetic c(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    return-void
+.end method
+
+.method static synthetic d(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->d:Z
+
+    return v0
+.end method
+
+.method static synthetic e(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:Z
+
+    return v0
+.end method
+
+.method static synthetic f(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Ljava/util/Map;
+    .locals 1
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->l:Ljava/util/Map;
 
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+.method static synthetic g(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Landroid/webkit/WebView;
+    .locals 1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
 
-    return-void
+    return-object v0
 .end method
 
-.method private a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+.method static synthetic h(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Ljava/util/Timer;
+    .locals 1
 
-    new-instance v0, Landroid/content/Intent;
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->m:Ljava/util/Timer;
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    return-object v0
+.end method
 
-    new-instance v1, Landroid/os/Bundle;
+.method static synthetic i(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Ljava/util/TimerTask;
+    .locals 1
 
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->n:Ljava/util/TimerTask;
 
-    const-string v2, "respCode"
+    return-object v0
+.end method
 
-    invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+.method static synthetic j(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Ljava/lang/String;
+    .locals 1
 
-    sget-object v2, Lcom/ipaynow/plugin/conf/PluginConfig;->CALL_MERCHANT_TRADE_FAIL:Ljava/lang/String;
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->j:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    return-object v0
+.end method
 
-    move-result v2
+.method static synthetic k(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)I
+    .locals 1
 
-    if-nez v2, :cond_0
+    iget v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->i:I
 
-    sget-object v2, Lcom/ipaynow/plugin/conf/PluginConfig;->CALL_MERCHANT_TRADE_UNKNOWN:Ljava/lang/String;
+    return v0
+.end method
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+.method static synthetic l(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)Ljava/lang/String;
+    .locals 1
 
-    move-result v2
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->f:Ljava/lang/String;
 
-    if-eqz v2, :cond_1
-
-    :cond_0
-    const-string v2, "errorCode"
-
-    invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v2, "respMsg"
-
-    invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v1, v0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->setResult(ILandroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->finish()V
-
-    return-void
+    return-object v0
 .end method
 
 
 # virtual methods
-.method protected onCreate(Landroid/os/Bundle;)V
-    .locals 6
-
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->requestWindowFeature(I)Z
-
-    const v0, 0x103000f
-
-    invoke-virtual {p0, v0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->setTheme(I)V
-
-    new-instance v0, Landroid/app/ProgressDialog;
-
-    const/4 v1, 0x3
-
-    invoke-direct {v0, p0, v1}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
-
-    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
-
-    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
-
-    const-string v1, "\u652f\u4ed8\u5b89\u5168\u73af\u5883\u626b\u63cf"
-
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
+.method protected bindModel()V
+    .locals 2
 
     invoke-virtual {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->getIntent()Landroid/content/Intent;
 
@@ -142,155 +624,369 @@
 
     move-result-object v0
 
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->p:Landroid/os/Bundle;
+
+    new-instance v0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;-><init>(Lcom/ipaynow/plugin/presenter/impl/Presenter;Lcom/ipaynow/plugin/view/IpaynowLoading;)V
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->q:Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;
+
+    return-void
+.end method
+
+.method public bindView()V
+    .locals 3
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v2}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->requestWindowFeature(I)Z
+
+    const v0, 0x103007f
+
+    invoke-virtual {p0, v0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->setTheme(I)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
+
+    const-string v1, "\u6b63\u5728\u52a0\u8f7d\u5fae\u4fe1\u652f\u4ed8..."
+
+    invoke-interface {v0, v1}, Lcom/ipaynow/plugin/view/IpaynowLoading;->setLoadingMsg(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
+
+    invoke-interface {v0}, Lcom/ipaynow/plugin/view/IpaynowLoading;->show()Ljava/lang/Object;
+
+    new-instance v0, Landroid/webkit/WebView;
+
+    invoke-direct {v0, p0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    invoke-virtual {p0, v0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->setContentView(Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->e:Ljava/lang/String;
+
+    invoke-direct {p0, v0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->e:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->k:Ljava/util/Map;
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a(Landroid/webkit/WebView;Ljava/lang/String;Ljava/util/Map;)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    new-instance v1, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/d;
+
+    invoke-direct {v1, p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/d;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public initData()V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:Z
+
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->p:Landroid/os/Bundle;
+
     const-string v1, "appId"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->appId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->appId:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->p:Landroid/os/Bundle;
 
     const-string v1, "mhtOrderNo"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mhtOrderNo:Ljava/lang/String;
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mhtOrderNo:Ljava/lang/String;
 
-    new-instance v1, Landroid/content/Intent;
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->p:Landroid/os/Bundle;
 
-    const-string v2, "android.intent.action.VIEW"
+    const-string v1, "respOutputType"
 
-    const-string v3, "payVoucher"
-
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->f:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->p:Landroid/os/Bundle;
+
+    const-string v1, "tn"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->e:Ljava/lang/String;
 
-    :try_start_0
-    invoke-virtual {p0, v1}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->e:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->j:Ljava/lang/String;
+
+    const-string v0, "https://pay.ipaynow.cn"
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->h:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->h:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/ipaynow/plugin/utils/StringUtils;->isBlank(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "null"
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->k:Ljava/util/Map;
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->k:Ljava/util/Map;
+
+    const-string v1, "Referer"
+
+    iget-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->h:Ljava/lang/String;
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->k:Ljava/util/Map;
+
+    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->l:Ljava/util/Map;
+
+    :cond_1
+    return-void
+.end method
+
+.method public modelCallBack(Lcom/ipaynow/plugin/core/task/dto/TaskMessage;)V
+    .locals 2
+
+    invoke-static {}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b()[I
+
+    move-result-object v0
+
+    iget-object v1, p1, Lcom/ipaynow/plugin/core/task/dto/TaskMessage;->funcode:Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;
+
+    invoke-virtual {v1}, Lcom/ipaynow/plugin/conf/code/FUNCODE_CODE;->ordinal()I
+
+    move-result v1
+
+    aget v0, v0, v1
+
+    packed-switch v0, :pswitch_data_0
 
     :goto_0
     return-void
 
-    :catch_0
-    move-exception v0
+    :pswitch_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v0, Lcom/ipaynow/plugin/view/CommonAlertDialog;
+    const-string v1, "message = "
 
-    const-string v2, "\u63d0\u793a"
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v3, "\u8bf7\u5b89\u88c5\u5fae\u4fe1\u5ba2\u6237\u7aef"
+    invoke-virtual {p1}, Lcom/ipaynow/plugin/core/task/dto/TaskMessage;->toString()Ljava/lang/String;
 
-    new-instance v4, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/a;
+    move-result-object v1
 
-    invoke-direct {v4, p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/a;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;)V
-
-    const/4 v5, 0x0
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/ipaynow/plugin/view/CommonAlertDialog;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Landroid/content/DialogInterface$OnClickListener;)V
-
-    invoke-virtual {v0}, Lcom/ipaynow/plugin/view/CommonAlertDialog;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_0
-.end method
+    move-result-object v0
 
-.method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 2
+    invoke-static {v0}, Lcom/ipaynow/plugin/log/LogUtils;->i(Ljava/lang/Object;)V
+
+    new-instance v0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/j;
 
     const/4 v1, 0x0
 
-    const/4 v0, 0x4
+    invoke-direct {v0, p0, v1}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/j;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;B)V
 
-    if-ne p1, v0, :cond_0
+    invoke-interface {v0, p1}, Lcom/ipaynow/plugin/core/task/handle/impl/TaskHandler;->handleTaskResult(Lcom/ipaynow/plugin/core/task/dto/TaskMessage;)V
 
-    sget-object v0, Lcom/ipaynow/plugin/conf/PluginConfig;->CALL_MERCHANT_TRADE_CANCEL:Ljava/lang/String;
+    goto :goto_0
 
-    invoke-direct {p0, v0, v1, v1}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :pswitch_data_0
+    .packed-switch 0x7
+        :pswitch_0
+    .end packed-switch
+.end method
 
-    :cond_0
+.method protected onDestroy()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->destroy()V
+
+    invoke-super {p0}, Lcom/ipaynow/plugin/presenter/BasePresenter;->onDestroy()V
+
+    return-void
+.end method
+
+.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+    .locals 1
+
+    packed-switch p1, :pswitch_data_0
+
+    invoke-super {p0, p1, p2}, Lcom/ipaynow/plugin/presenter/BasePresenter;->onKeyDown(ILandroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :pswitch_0
     const/4 v0, 0x1
 
-    return v0
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x3
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method protected onRestoreInstanceState(Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/ipaynow/plugin/presenter/BasePresenter;->onRestoreInstanceState(Landroid/os/Bundle;)V
+
+    return-void
 .end method
 
 .method protected onResume()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    invoke-super {p0}, Lcom/ipaynow/plugin/presenter/BasePresenter;->onResume()V
 
-    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+    iget-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:Z
 
-    iget v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:I
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:I
 
     add-int/lit8 v0, v0, 0x1
 
-    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:I
+    iput v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:I
 
-    iget v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:I
+    iget v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:I
 
     rem-int/lit8 v0, v0, 0x2
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->g:Landroid/webkit/WebView;
 
-    const-string v1, "\u652f\u4ed8\u7ed3\u679c\u67e5\u8be2\u4e2d..."
+    invoke-virtual {v0}, Landroid/webkit/WebView;->stopLoading()V
 
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
 
-    new-instance v0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/b;
+    const-string v1, "\u6b63\u5728\u67e5\u8be2\u4ea4\u6613\u7ed3\u679c..."
 
-    invoke-direct {v0, p0, v3}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/b;-><init>(Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;B)V
+    invoke-interface {v0, v1}, Lcom/ipaynow/plugin/view/IpaynowLoading;->setLoadingMsg(Ljava/lang/String;)V
 
-    const/4 v1, 0x2
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->loading:Lcom/ipaynow/plugin/view/IpaynowLoading;
 
-    new-array v1, v1, [Ljava/lang/String;
+    invoke-interface {v0}, Lcom/ipaynow/plugin/view/IpaynowLoading;->show()Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->appId:Ljava/lang/String;
+    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->q:Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;
 
-    aput-object v2, v1, v3
+    iget-object v1, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->appId:Ljava/lang/String;
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mhtOrderNo:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->mhtOrderNo:Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/model/WechatNotifyModel;->toSK003(Ljava/lang/String;Ljava/lang/String;)V
 
-    aput-object v3, v1, v2
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/b;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->c:Z
 
-    :cond_0
-    return-void
+    goto :goto_0
 .end method
 
 .method protected onStop()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Activity;->onStop()V
+    invoke-super {p0}, Lcom/ipaynow/plugin/presenter/BasePresenter;->onStop()V
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_0
+    iput-boolean v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->b:Z
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a:Landroid/app/ProgressDialog;
+    invoke-direct {p0}, Lcom/ipaynow/plugin/inner_plugin/wechatwp/activity/WeChatNotifyActivity;->a()V
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+    return-void
+.end method
 
-    :cond_0
+.method public releaseViewResource()V
+    .locals 0
+
     return-void
 .end method

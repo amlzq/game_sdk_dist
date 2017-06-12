@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    .line 252
+    .line 270
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +41,7 @@
     .locals 5
 
     .prologue
-    .line 255
+    .line 273
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->secondes:I
@@ -55,7 +55,7 @@
 
     if-gtz v1, :cond_0
 
-    .line 256
+    .line 274
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -67,7 +67,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 257
+    .line 275
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -79,7 +79,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 258
+    .line 276
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -87,10 +87,11 @@
 
     move-result-object v0
 
-    .line 259
+    .line 277
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    invoke-virtual {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$0(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v1
 
@@ -104,7 +105,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
 
-    .line 260
+    .line 278
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -114,18 +115,20 @@
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    invoke-virtual {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$0(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/game/sdk/ui/MainActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 261
+    .line 279
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    invoke-virtual {v2}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v2}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$0(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v2
 
@@ -141,14 +144,14 @@
 
     move-result v1
 
-    .line 260
+    .line 278
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V
 
-    .line 271
+    .line 289
     :goto_0
     return-void
 
-    .line 264
+    .line 282
     :cond_0
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
@@ -161,7 +164,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 265
+    .line 283
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -198,7 +201,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 266
+    .line 284
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -206,10 +209,11 @@
 
     move-result-object v0
 
-    .line 267
+    .line 285
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    invoke-virtual {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$0(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v1
 
@@ -223,7 +227,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundResource(I)V
 
-    .line 268
+    .line 286
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getValidateBtn:Landroid/widget/Button;
@@ -233,18 +237,20 @@
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    invoke-virtual {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$0(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/game/sdk/ui/MainActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 269
+    .line 287
     iget-object v2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
-    invoke-virtual {v2}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v2}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$0(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)Lcom/game/sdk/ui/MainActivity;
 
     move-result-object v2
 
@@ -260,10 +266,10 @@
 
     move-result v1
 
-    .line 268
+    .line 286
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V
 
-    .line 270
+    .line 288
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$2;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->handler:Landroid/os/Handler;

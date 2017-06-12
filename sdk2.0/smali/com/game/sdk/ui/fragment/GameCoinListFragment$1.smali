@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$1;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
-    .line 49
+    .line 50
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -39,16 +39,16 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 51
+    .line 52
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 59
+    .line 60
     :goto_0
     return-void
 
-    .line 53
+    .line 54
     :pswitch_0
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$1;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v0, v1}, Lcom/game/sdk/adapter/GameCoinAdapter;->addNewList(Ljava/util/List;)V
 
-    .line 54
+    .line 55
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$1;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/GameCoinListFragment;->adapter:Lcom/game/sdk/adapter/GameCoinAdapter;
@@ -75,7 +75,7 @@
 
     goto :goto_0
 
-    .line 51
+    .line 52
     nop
 
     :pswitch_data_0

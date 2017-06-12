@@ -92,6 +92,11 @@
     .line 53
     iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
+    if-eqz v4, :cond_5
+
+    .line 54
+    iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
+
     iget-object v4, v4, Lcom/game/sdk/domain/UserInfo;->face:Ljava/lang/String;
 
     invoke-static {v4}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -100,7 +105,7 @@
 
     if-nez v4, :cond_0
 
-    .line 54
+    .line 55
     const-string v4, "face"
 
     iget-object v5, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
@@ -109,7 +114,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 57
+    .line 58
     :cond_0
     iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -121,7 +126,7 @@
 
     if-nez v4, :cond_1
 
-    .line 58
+    .line 59
     const-string v4, "nick_name"
 
     iget-object v5, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
@@ -130,7 +135,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 61
+    .line 62
     :cond_1
     iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -138,7 +143,7 @@
 
     if-lez v4, :cond_2
 
-    .line 62
+    .line 63
     const-string v4, "sex"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -159,7 +164,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 65
+    .line 66
     :cond_2
     iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -171,7 +176,7 @@
 
     if-nez v4, :cond_3
 
-    .line 66
+    .line 67
     const-string v4, "birth"
 
     iget-object v5, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
@@ -180,7 +185,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
+    .line 70
     :cond_3
     iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -192,7 +197,7 @@
 
     if-nez v4, :cond_4
 
-    .line 70
+    .line 71
     const-string v4, "email"
 
     iget-object v5, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
@@ -201,7 +206,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 73
+    .line 74
     :cond_4
     iget-object v4, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -213,7 +218,7 @@
 
     if-nez v4, :cond_5
 
-    .line 74
+    .line 75
     const-string v4, "qq"
 
     iget-object v5, p0, Lcom/game/sdk/engin/UpdateUserInfoEngin;->updateUserInfo:Lcom/game/sdk/domain/UserInfo;
@@ -222,7 +227,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 77
+    .line 79
     :cond_5
     const/4 v4, 0x1
 
@@ -232,7 +237,7 @@
 
     move-result-object v3
 
-    .line 79
+    .line 81
     .local v3, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/UpdateInfo;>;"
     if-eqz v3, :cond_6
 
@@ -240,20 +245,20 @@
 
     if-ne v4, v7, :cond_6
 
-    .line 80
+    .line 82
     const-string v4, "\u4fee\u6539\u7528\u6237\u4fe1\u606f\u6210\u529f!"
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 88
+    .line 90
     .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/UpdateInfo;>;"
     :goto_0
     return v2
 
-    .line 82
+    .line 84
     .restart local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .restart local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/UpdateInfo;>;"
     :cond_6
@@ -261,13 +266,13 @@
 
     goto :goto_0
 
-    .line 84
+    .line 86
     .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/UpdateInfo;>;"
     :catch_0
     move-exception v0
 
-    .line 85
+    .line 87
     .local v0, "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 

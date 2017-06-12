@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 385
+    .line 577
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -46,7 +46,7 @@
     .locals 0
 
     .prologue
-    .line 385
+    .line 577
     invoke-direct {p0, p1}, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;-><init>(Lcom/game/sdk/ui/fragment/MainFragment;)V
 
     return-void
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 385
+    .line 577
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
 
     return-object v0
@@ -83,11 +83,11 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 395
+    .line 587
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/MainFragment$MainModuleTask;->this$0:Lcom/game/sdk/ui/fragment/MainFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/MainFragment;->mainModuleEngin:Lcom/game/sdk/engin/MainModuleEngin;
-    invoke-static {v0}, Lcom/game/sdk/ui/fragment/MainFragment;->access$10(Lcom/game/sdk/ui/fragment/MainFragment;)Lcom/game/sdk/engin/MainModuleEngin;
+    invoke-static {v0}, Lcom/game/sdk/ui/fragment/MainFragment;->access$11(Lcom/game/sdk/ui/fragment/MainFragment;)Lcom/game/sdk/engin/MainModuleEngin;
 
     move-result-object v0
 
@@ -99,7 +99,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/game/sdk/engin/MainModuleEngin;->getModuleInfoList(ILcom/game/sdk/net/listeners/Callback;)V
 
-    .line 416
+    .line 609
     const/4 v0, 0x0
 
     return-object v0
@@ -122,10 +122,10 @@
     .param p1, "result"    # Ljava/lang/String;
 
     .prologue
-    .line 421
+    .line 614
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 422
+    .line 615
     return-void
 .end method
 
@@ -133,9 +133,9 @@
     .locals 0
 
     .prologue
-    .line 389
+    .line 581
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 390
+    .line 582
     return-void
 .end method

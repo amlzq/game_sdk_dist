@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/FYGameSDK$1$2;->this$1:Lcom/game/sdk/FYGameSDK$1;
 
-    .line 113
+    .line 155
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +41,22 @@
     .locals 2
 
     .prologue
-    .line 116
+    .line 158
+    iget-object v0, p0, Lcom/game/sdk/FYGameSDK$1$2;->this$1:Lcom/game/sdk/FYGameSDK$1;
+
+    # getter for: Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
+    invoke-static {v0}, Lcom/game/sdk/FYGameSDK$1;->access$0(Lcom/game/sdk/FYGameSDK$1;)Lcom/game/sdk/FYGameSDK;
+
+    move-result-object v0
+
+    # getter for: Lcom/game/sdk/FYGameSDK;->closeListener:Lcom/game/sdk/FYGameSDK$InitCloseListener;
+    invoke-static {v0}, Lcom/game/sdk/FYGameSDK;->access$2(Lcom/game/sdk/FYGameSDK;)Lcom/game/sdk/FYGameSDK$InitCloseListener;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/game/sdk/FYGameSDK$InitCloseListener;->initClose()V
+
+    .line 159
     iget-object v0, p0, Lcom/game/sdk/FYGameSDK$1$2;->this$1:Lcom/game/sdk/FYGameSDK$1;
 
     # getter for: Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
@@ -51,9 +66,9 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/game/sdk/FYGameSDK;->access$2(Lcom/game/sdk/FYGameSDK;Z)V
+    invoke-static {v0, v1}, Lcom/game/sdk/FYGameSDK;->access$3(Lcom/game/sdk/FYGameSDK;Z)V
 
-    .line 117
+    .line 160
     iget-object v0, p0, Lcom/game/sdk/FYGameSDK$1$2;->this$1:Lcom/game/sdk/FYGameSDK$1;
 
     # getter for: Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
@@ -65,21 +80,6 @@
 
     invoke-interface {v0}, Lcom/game/sdk/OnSDKInitListener;->initFailure()V
 
-    .line 118
-    iget-object v0, p0, Lcom/game/sdk/FYGameSDK$1$2;->this$1:Lcom/game/sdk/FYGameSDK$1;
-
-    # getter for: Lcom/game/sdk/FYGameSDK$1;->this$0:Lcom/game/sdk/FYGameSDK;
-    invoke-static {v0}, Lcom/game/sdk/FYGameSDK$1;->access$0(Lcom/game/sdk/FYGameSDK$1;)Lcom/game/sdk/FYGameSDK;
-
-    move-result-object v0
-
-    # getter for: Lcom/game/sdk/FYGameSDK;->closeListener:Lcom/game/sdk/FYGameSDK$InitCloseListener;
-    invoke-static {v0}, Lcom/game/sdk/FYGameSDK;->access$3(Lcom/game/sdk/FYGameSDK;)Lcom/game/sdk/FYGameSDK$InitCloseListener;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/game/sdk/FYGameSDK$InitCloseListener;->initClose()V
-
-    .line 119
+    .line 161
     return-void
 .end method

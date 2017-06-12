@@ -8,73 +8,81 @@
 
     const/4 v1, 0x0
 
-    const-string v0, "rules"
+    const-string v0, "promotion_change_info"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->u:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->bs:Ljava/lang/String;
+
+    const-string v0, "rules"
+
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->d(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->z:Lorg/json/JSONArray;
 
     const-string v0, "available_area_codes"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->d(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->Y:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ad:Lorg/json/JSONArray;
 
     const-string v0, "entrust_rules"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->d(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->y:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->D:Lorg/json/JSONArray;
 
     const-string v0, "pre_cmd"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->z:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->E:Ljava/lang/String;
 
     const-string v0, "title"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->v:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->A:Ljava/lang/String;
 
     const-string v0, "rules_button"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->x:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->C:Lorg/json/JSONObject;
 
     const-string v0, "service_checkbox"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ag:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->al:Lorg/json/JSONObject;
 
     const-string v0, "bind_card_checkbox"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ah:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->am:Lorg/json/JSONObject;
 
     const-string v0, "timeout_msg"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -86,28 +94,28 @@
 
     if-nez v2, :cond_0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->af:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ak:Ljava/lang/String;
 
     :cond_0
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/util/HashMap;
 
     const-string v0, "f55"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v2
 
     const-string v0, "order_amount"
 
-    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/util/HashMap;
+    iget-object v3, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/util/HashMap;
 
     const-string v4, "trans_amt"
 
@@ -124,11 +132,11 @@
 
     const-string v0, "order_currency"
 
-    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/util/HashMap;
+    iget-object v3, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/util/HashMap;
 
     const-string v4, "trans currcy code"
 
@@ -145,11 +153,11 @@
 
     const-string v0, "trans_type"
 
-    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/util/HashMap;
+    iget-object v3, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/util/HashMap;
 
     const-string v4, "trans_type"
 
@@ -166,11 +174,11 @@
 
     const-string v0, "mer_name"
 
-    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/util/HashMap;
+    iget-object v2, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/util/HashMap;
 
     const-string v3, "mer_name"
 
@@ -187,15 +195,31 @@
 
     const-string v0, "pan"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->al:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aq:Ljava/lang/String;
+
+    const-string v0, "encrypt_key"
+
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->be:Ljava/lang/String;
+
+    const-string v0, "auth_id"
+
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->bf:Ljava/lang/String;
 
     const-string v0, "fail_continue"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -211,14 +235,14 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/unionpay/mobile/android/model/b;->A:Z
+    iput-boolean v0, p0, Lcom/unionpay/mobile/android/model/b;->F:Z
 
     :cond_1
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->u:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->z:Lorg/json/JSONArray;
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->u:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->z:Lorg/json/JSONArray;
 
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
@@ -227,11 +251,11 @@
     if-gtz v0, :cond_8
 
     :cond_2
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->y:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->D:Lorg/json/JSONArray;
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->y:Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->D:Lorg/json/JSONArray;
 
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
@@ -248,7 +272,7 @@
     :cond_4
     const-string v0, "000000000000"
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_5
     const-string v0, "0156"
@@ -276,7 +300,7 @@
 
     if-nez p2, :cond_0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/model/b;->B:Lorg/json/JSONObject;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/model/b;->G:Lorg/json/JSONObject;
 
     :cond_0
     invoke-static {p0, p1}, Lcom/unionpay/mobile/android/nocard/utils/f;->a(Lcom/unionpay/mobile/android/model/b;Lorg/json/JSONObject;)I
@@ -286,42 +310,42 @@
     return v0
 .end method
 
-.method public static a(Lorg/json/JSONObject;)Lcom/unionpay/mobile/android/model/d;
+.method public static a(Lorg/json/JSONObject;)Lcom/unionpay/mobile/android/model/e;
     .locals 3
 
-    new-instance v0, Lcom/unionpay/mobile/android/model/e;
+    new-instance v0, Lcom/unionpay/mobile/android/model/f;
 
-    invoke-direct {v0}, Lcom/unionpay/mobile/android/model/e;-><init>()V
+    invoke-direct {v0}, Lcom/unionpay/mobile/android/model/f;-><init>()V
 
     const-string v1, "promotion"
 
-    invoke-static {p0, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p0, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
     const-string v2, "promotion"
 
-    invoke-virtual {v0, v2, v1}, Lcom/unionpay/mobile/android/model/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Lcom/unionpay/mobile/android/model/f;->a(Ljava/lang/String;Ljava/lang/Object;)V
 
     const-string v1, "instalment"
 
-    invoke-static {p0, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p0, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
     const-string v2, "instalment"
 
-    invoke-virtual {v0, v2, v1}, Lcom/unionpay/mobile/android/model/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Lcom/unionpay/mobile/android/model/f;->a(Ljava/lang/String;Ljava/lang/Object;)V
 
     const-string v1, "promotion_instalment_msgbox"
 
-    invoke-static {p0, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p0, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
     const-string v2, "promotion_instalment_msgbox"
 
-    invoke-virtual {v0, v2, v1}, Lcom/unionpay/mobile/android/model/e;->a(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Lcom/unionpay/mobile/android/model/f;->a(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-object v0
 .end method
@@ -349,13 +373,13 @@
 
     const-string v3, "type"
 
-    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     const-string v4, "readonly"
 
-    invoke-static {v2, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v4}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -405,7 +429,7 @@
     move v1, v2
 
     :goto_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->W:Ljava/util/List;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ab:Ljava/util/List;
 
     if-nez v0, :cond_0
 
@@ -413,16 +437,16 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->W:Ljava/util/List;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ab:Ljava/util/List;
 
     :cond_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->W:Ljava/util/List;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ab:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
     const-string v0, "user_cards"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->d(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->e(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v5
 
@@ -451,7 +475,7 @@
 
     check-cast v0, Lorg/json/JSONArray;
 
-    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONArray;I)Ljava/lang/String;
+    invoke-static {v0, v3}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONArray;I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -463,7 +487,7 @@
 
     const/4 v7, 0x1
 
-    invoke-static {v0, v7}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONArray;I)Ljava/lang/String;
+    invoke-static {v0, v7}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONArray;I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -473,15 +497,15 @@
 
     check-cast v0, Lorg/json/JSONArray;
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONArray;I)Ljava/lang/String;
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONArray;I)Ljava/lang/String;
 
     move-result-object v0
 
     new-instance v8, Lcom/unionpay/mobile/android/model/a;
 
-    invoke-direct {v8, v6, v7, v0, v3}, Lcom/unionpay/mobile/android/model/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;C)V
+    invoke-direct {v8, v6, v7, v0, v3}, Lcom/unionpay/mobile/android/model/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;B)V
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->W:Ljava/util/List;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ab:Ljava/util/List;
 
     invoke-interface {v0, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -494,67 +518,75 @@
     :cond_1
     const-string v0, "available_area_codes"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->d(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->Y:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ad:Lorg/json/JSONArray;
+
+    const-string v0, "promotion_change_info"
+
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->bs:Ljava/lang/String;
 
     const-string v0, "user_info"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->d(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->X:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ac:Lorg/json/JSONArray;
 
     const-string v0, "rules"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->d(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->u:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->z:Lorg/json/JSONArray;
 
     const-string v0, "service_url"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->U:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->Z:Lorg/json/JSONObject;
 
     const-string v0, "bind_url"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->V:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aa:Lorg/json/JSONObject;
 
     const-string v0, "empty_info"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->Z:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ae:Ljava/lang/String;
 
     const-string v0, "add_card_tip"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aO:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aY:Ljava/lang/String;
 
     const-string v0, "pan"
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->al:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aq:Ljava/lang/String;
 
     return v1
 
@@ -571,113 +603,113 @@
 
     const/4 v1, 0x0
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     const-string v1, "cardExpireMsgBox"
 
-    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     if-nez v1, :cond_0
 
     const-string v1, "openByCounterMsgBox"
 
-    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     :cond_0
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     if-nez v1, :cond_1
 
     const-string v1, "restrictPayMsgBox"
 
-    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     :cond_1
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     if-eqz v1, :cond_2
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     const-string v1, "title"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aw:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aG:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     const-string v1, "text"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ax:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aH:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     const-string v1, "func"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
     const-string v2, "cancel"
 
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/f;->b(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/i;->c(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
     const-string v2, "label"
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/unionpay/mobile/android/model/b;->aA:Ljava/lang/String;
+    iput-object v2, p0, Lcom/unionpay/mobile/android/model/b;->aK:Ljava/lang/String;
 
     const-string v2, "action"
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aB:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aL:Ljava/lang/String;
 
     const-string v0, "label"
 
-    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ay:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aI:Ljava/lang/String;
 
     const-string v0, "action"
 
-    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/i;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->az:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aJ:Ljava/lang/String;
 
     const/4 v0, 0x1
 

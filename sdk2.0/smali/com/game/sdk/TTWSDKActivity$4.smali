@@ -3,7 +3,7 @@
 .source "TTWSDKActivity.java"
 
 # interfaces
-.implements Lcom/game/sdk/domain/OnPaymentListener;
+.implements Lcom/game/sdk/domain/OnLoginListener;
 
 
 # annotations
@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/TTWSDKActivity$4;->this$0:Lcom/game/sdk/TTWSDKActivity;
 
-    .line 131
+    .line 122
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,124 +37,34 @@
 
 
 # virtual methods
-.method public paymentError(Lcom/game/sdk/domain/PaymentErrorMsg;)V
-    .locals 3
-    .param p1, "errorMsg"    # Lcom/game/sdk/domain/PaymentErrorMsg;
+.method public loginError(Lcom/game/sdk/domain/LoginErrorMsg;)V
+    .locals 2
+    .param p1, "errorMsg"    # Lcom/game/sdk/domain/LoginErrorMsg;
 
     .prologue
-    .line 143
+    .line 131
     iget-object v0, p0, Lcom/game/sdk/TTWSDKActivity$4;->this$0:Lcom/game/sdk/TTWSDKActivity;
 
-    invoke-virtual {v0}, Lcom/game/sdk/TTWSDKActivity;->getApplication()Landroid/app/Application;
+    iget-object v1, p1, Lcom/game/sdk/domain/LoginErrorMsg;->msg:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string v2, "\u5145\u503c\u5931\u8d25\uff1acode:"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget v2, p1, Lcom/game/sdk/domain/PaymentErrorMsg;->code:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "  ErrorMsg:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/game/sdk/domain/PaymentErrorMsg;->msg:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    .line 144
-    const-string v2, "  \u9884\u5145\u503c\u7684\u91d1\u989d\uff1a"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p1, Lcom/game/sdk/domain/PaymentErrorMsg;->money:F
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    .line 143
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    .line 144
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 145
+    .line 132
     return-void
 .end method
 
-.method public paymentSuccess(Lcom/game/sdk/domain/PaymentCallbackInfo;)V
-    .locals 3
-    .param p1, "callbackInfo"    # Lcom/game/sdk/domain/PaymentCallbackInfo;
+.method public loginSuccess(Lcom/game/sdk/domain/LogincallBack;)V
+    .locals 1
+    .param p1, "logincallback"    # Lcom/game/sdk/domain/LogincallBack;
 
     .prologue
-    .line 135
+    .line 126
     iget-object v0, p0, Lcom/game/sdk/TTWSDKActivity$4;->this$0:Lcom/game/sdk/TTWSDKActivity;
 
-    invoke-virtual {v0}, Lcom/game/sdk/TTWSDKActivity;->getApplication()Landroid/app/Application;
+    iget-object v0, v0, Lcom/game/sdk/TTWSDKActivity;->fyGmaeSDk:Lcom/game/sdk/FYGameSDK;
 
-    move-result-object v0
+    invoke-virtual {v0}, Lcom/game/sdk/FYGameSDK;->createFloatButton()V
 
-    .line 136
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string v2, "\u5145\u503c\u91d1\u989d\u6570\uff1a"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget v2, p1, Lcom/game/sdk/domain/PaymentCallbackInfo;->money:F
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " \u6d88\u606f\u63d0\u793a\uff1a"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/game/sdk/domain/PaymentCallbackInfo;->msg:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    .line 135
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    .line 137
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 138
+    .line 127
     return-void
 .end method

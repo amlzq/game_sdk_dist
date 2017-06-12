@@ -52,17 +52,17 @@
     .locals 1
 
     .prologue
-    .line 32
+    .line 33
     invoke-direct {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;-><init>()V
 
-    .line 49
+    .line 50
     new-instance v0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$1;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/ui/fragment/GameCoinListFragment$1;-><init>(Lcom/game/sdk/ui/fragment/GameCoinListFragment;)V
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->handler:Landroid/os/Handler;
 
-    .line 32
+    .line 33
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 43
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->adapter:Lcom/game/sdk/adapter/GameCoinAdapter;
 
     return-object v0
@@ -80,7 +80,7 @@
     .locals 1
 
     .prologue
-    .line 46
+    .line 47
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->gameCoinEngin:Lcom/game/sdk/engin/GameCoinEngin;
 
     return-object v0
@@ -90,7 +90,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 50
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->handler:Landroid/os/Handler;
 
     return-object v0
@@ -102,7 +102,7 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 65
     const-string v0, "game_coin_fragment"
 
     return-object v0
@@ -112,17 +112,17 @@
     .locals 3
 
     .prologue
-    .line 81
+    .line 82
     invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initData()V
 
-    .line 84
+    .line 85
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->gameCoinList:Ljava/util/List;
 
-    .line 85
+    .line 86
     new-instance v0, Lcom/game/sdk/adapter/GameCoinAdapter;
 
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -135,14 +135,14 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->adapter:Lcom/game/sdk/adapter/GameCoinAdapter;
 
-    .line 86
+    .line 87
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->listView:Landroid/widget/ListView;
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->adapter:Lcom/game/sdk/adapter/GameCoinAdapter;
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 87
+    .line 88
     new-instance v0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;
 
     const/4 v1, 0x0
@@ -155,7 +155,7 @@
 
     invoke-virtual {v0, v1}, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 88
+    .line 89
     return-void
 .end method
 
@@ -163,7 +163,7 @@
     .locals 0
 
     .prologue
-    .line 94
+    .line 95
     return-void
 .end method
 
@@ -171,10 +171,10 @@
     .locals 2
 
     .prologue
-    .line 69
+    .line 70
     invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->initViews()V
 
-    .line 70
+    .line 71
     invoke-virtual {p0}, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -183,7 +183,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
-    .line 71
+    .line 72
     const-string v0, "back_iv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
@@ -192,7 +192,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->backIv:Landroid/widget/ImageView;
 
-    .line 72
+    .line 73
     const-string v0, "title_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -201,7 +201,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->titleTv:Landroid/widget/TextView;
 
-    .line 73
+    .line 74
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->titleTv:Landroid/widget/TextView;
 
     const-string v1, "game_coin_list_text"
@@ -212,7 +212,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 74
+    .line 75
     const-string v0, "game_coin_list"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -223,7 +223,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->listView:Landroid/widget/ListView;
 
-    .line 75
+    .line 76
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     invoke-static {v0}, Lcom/game/sdk/engin/GameCoinEngin;->getImpl(Landroid/content/Context;)Lcom/game/sdk/engin/GameCoinEngin;
@@ -232,12 +232,12 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->gameCoinEngin:Lcom/game/sdk/engin/GameCoinEngin;
 
-    .line 76
+    .line 77
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->backIv:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 77
+    .line 78
     return-void
 .end method
 
@@ -246,7 +246,7 @@
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
-    .line 98
+    .line 106
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -259,14 +259,46 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 99
+    .line 107
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/game/sdk/ui/MainActivity;->changeFragment(I)V
 
-    .line 101
+    .line 109
     :cond_0
+    return-void
+.end method
+
+.method public onPause()V
+    .locals 1
+
+    .prologue
+    .line 161
+    invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->onPause()V
+
+    .line 162
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPause(Landroid/content/Context;)V
+
+    .line 164
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 1
+
+    .prologue
+    .line 99
+    invoke-super {p0}, Lcom/game/sdk/ui/fragment/BaseFragment;->onResume()V
+
+    .line 100
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onResume(Landroid/content/Context;)V
+
+    .line 102
     return-void
 .end method

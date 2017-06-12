@@ -42,190 +42,469 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 6
+    .locals 8
     .param p1, "v"    # Landroid/view/View;
 
     .prologue
     .line 114
-    iget-object v3, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
 
     # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$0(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$0(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v3}, Lcom/game/sdk/utils/CheckUtil;->isInstallGameBox(Landroid/content/Context;)Z
+    invoke-static {v5}, Lcom/game/sdk/utils/CheckUtil;->isInstallGameBox(Landroid/content/Context;)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_4
 
     .line 115
-    iget-object v3, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
 
     # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
-    invoke-static {v3}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v5
 
-    iget v4, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
+    iget v6, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
 
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v5
 
-    if-eqz v3, :cond_0
+    if-eqz v5, :cond_0
 
     .line 116
-    sget-object v3, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v3, v3, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
+    iget-object v5, v5, Lcom/game/sdk/domain/UserInfo;->password:Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/game/sdk/security/Encrypt;->encode(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/game/sdk/security/Encrypt;->encode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {v5}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v3}, Lcom/game/sdk/security/Base64;->encode([B)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 118
-    .local v1, "pwd":Ljava/lang/String;
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    const-string v4, "gamebox://?act=GiftDetailActivity&pwd="
-
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "&phone="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 119
-    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget-object v4, v4, Lcom/game/sdk/domain/UserInfo;->mobile:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "&username="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget-object v4, v4, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "&data="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    .line 120
-    iget-object v3, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
-
-    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
-    invoke-static {v3}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
-
-    move-result-object v3
-
-    iget v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
-
-    invoke-interface {v3, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/game/sdk/domain/GamePackageDetail;
-
-    iget v3, v3, Lcom/game/sdk/domain/GamePackageDetail;->id:I
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    .line 118
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v5}, Lcom/game/sdk/security/Base64;->encode([B)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 121
-    .local v2, "uri":Landroid/net/Uri;
-    new-instance v3, Ljava/lang/StringBuilder;
+    .line 118
+    .local v2, "pwd":Ljava/lang/String;
+    sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    const-string v4, "\u6e38\u620f\u793c\u5305\u9886\u53d6URI---"
+    iget-object v5, v5, Lcom/game/sdk/domain/UserInfo;->mobile:Ljava/lang/String;
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static {v5}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v2}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v1, v5, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    .line 120
+    .local v1, "mobile":Ljava/lang/String;
+    :goto_0
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
+
+    move-result-object v5
+
+    iget v6, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
+
+    invoke-interface {v5, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/game/sdk/domain/GamePackageDetail;
+
+    iget-object v5, v5, Lcom/game/sdk/domain/GamePackageDetail;->isPay:Ljava/lang/String;
+
+    const-string v6, "1"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    .line 122
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
+
+    move-result-object v5
+
+    iget v6, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
+
+    invoke-interface {v5, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/game/sdk/domain/GamePackageDetail;
+
+    iget-object v5, v5, Lcom/game/sdk/domain/GamePackageDetail;->goodsTypeId:Ljava/lang/String;
+
+    invoke-static {v5}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    .line 124
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    const-string v5, "{\"id\":\""
+
+    invoke-direct {v6, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
+
+    move-result-object v5
+
+    iget v7, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
+
+    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/game/sdk/domain/GamePackageDetail;
+
+    iget-object v5, v5, Lcom/game/sdk/domain/GamePackageDetail;->goodsTypeId:Ljava/lang/String;
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "\", \"title\":\"\u793c\u5305\"}"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/game/sdk/security/Base64;->encode([B)Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 125
+    .local v3, "tempData":Ljava/lang/String;
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    const-string v5, "tempData->{\"goods_type_id\":\""
+
+    invoke-direct {v6, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
+
+    move-result-object v5
+
+    iget v7, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
+
+    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/game/sdk/domain/GamePackageDetail;
+
+    iget-object v5, v5, Lcom/game/sdk/domain/GamePackageDetail;->goodsTypeId:Ljava/lang/String;
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "\", \"title\":\"\u793c\u5305\"}"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 126
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "gamebox://?act=GoodListActivity&pwd="
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "&phone="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 127
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "&username="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "&data="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 126
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 129
+    .local v4, "uri":Landroid/net/Uri;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    const-string v6, "\u79ef\u5206\u5546\u57ceURI---"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v3
+    invoke-virtual {v4}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+    move-result-object v6
 
-    .line 122
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 130
     new-instance v0, Landroid/content/Intent;
 
-    const-string v3, "android.intent.action.VIEW"
+    const-string v5, "android.intent.action.VIEW"
 
-    invoke-direct {v0, v3, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v0, v5, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 123
+    .line 131
     .local v0, "intent":Landroid/content/Intent;
-    iget-object v3, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
 
     # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$0(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$0(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v5, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 128
+    .line 150
     .end local v0    # "intent":Landroid/content/Intent;
-    .end local v1    # "pwd":Ljava/lang/String;
-    .end local v2    # "uri":Landroid/net/Uri;
+    .end local v1    # "mobile":Ljava/lang/String;
+    .end local v2    # "pwd":Ljava/lang/String;
+    .end local v3    # "tempData":Ljava/lang/String;
+    .end local v4    # "uri":Landroid/net/Uri;
     :cond_0
-    :goto_0
+    :goto_1
     return-void
 
-    .line 126
+    .line 118
+    .restart local v2    # "pwd":Ljava/lang/String;
     :cond_1
-    iget-object v3, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+    sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
-    iget-object v3, v3, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->downListener:Lcom/game/sdk/adapter/GamePackageDetailAdapter$DownApkListener;
+    iget-object v1, v5, Lcom/game/sdk/domain/UserInfo;->mobile:Ljava/lang/String;
 
-    invoke-interface {v3}, Lcom/game/sdk/adapter/GamePackageDetailAdapter$DownApkListener;->gameBoxDown()V
+    goto/16 :goto_0
 
-    goto :goto_0
+    .line 133
+    .restart local v1    # "mobile":Ljava/lang/String;
+    :cond_2
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mContext:Landroid/content/Context;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$0(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Landroid/content/Context;
+
+    move-result-object v5
+
+    const-string v6, "\u670d\u52a1\u5668\u6570\u636e\u9519\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
+
+    invoke-static {v5, v6}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    .line 137
+    :cond_3
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "gamebox://?act=GiftDetailActivity&pwd="
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "&phone="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 138
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "&username="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v6, v6, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "&data="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    .line 139
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$1(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Ljava/util/List;
+
+    move-result-object v5
+
+    iget v7, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->val$pos:I
+
+    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/game/sdk/domain/GamePackageDetail;
+
+    iget v5, v5, Lcom/game/sdk/domain/GamePackageDetail;->id:I
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    .line 137
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    .line 141
+    .restart local v4    # "uri":Landroid/net/Uri;
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "\u6e38\u620f\u793c\u5305\u9886\u53d6URI---"
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 142
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v5, "android.intent.action.VIEW"
+
+    invoke-direct {v0, v5, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    .line 143
+    .restart local v0    # "intent":Landroid/content/Intent;
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    # getter for: Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mContext:Landroid/content/Context;
+    invoke-static {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->access$0(Lcom/game/sdk/adapter/GamePackageDetailAdapter;)Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_1
+
+    .line 148
+    .end local v0    # "intent":Landroid/content/Intent;
+    .end local v1    # "mobile":Ljava/lang/String;
+    .end local v2    # "pwd":Ljava/lang/String;
+    .end local v4    # "uri":Landroid/net/Uri;
+    :cond_4
+    iget-object v5, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$1;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
+
+    iget-object v5, v5, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->downListener:Lcom/game/sdk/adapter/GamePackageDetailAdapter$DownApkListener;
+
+    invoke-interface {v5}, Lcom/game/sdk/adapter/GamePackageDetailAdapter$DownApkListener;->gameBoxDown()V
+
+    goto/16 :goto_1
 .end method

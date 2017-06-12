@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
 
-    .line 246
+    .line 345
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,117 +38,180 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 11
 
     .prologue
-    .line 249
+    .line 357
     :try_start_0
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+    new-instance v8, Landroid/content/Intent;
 
-    # getter for: Lcom/game/sdk/ui/QuickLoginActivity;->timeNumber:I
-    invoke-static {v1}, Lcom/game/sdk/ui/QuickLoginActivity;->access$2(Lcom/game/sdk/ui/QuickLoginActivity;)I
+    const-string v2, "SMS_SEND_ACTIOIN"
 
-    move-result v1
+    invoke-direct {v8, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/4 v2, 0x4
+    .line 358
+    .local v8, "itSend":Landroid/content/Intent;
+    iget-object v2, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
 
-    if-ge v1, v2, :cond_1
+    const/4 v5, 0x0
 
-    .line 250
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+    const/4 v10, 0x0
 
-    # getter for: Lcom/game/sdk/ui/QuickLoginActivity;->isSendSms:Z
-    invoke-static {v1}, Lcom/game/sdk/ui/QuickLoginActivity;->access$3(Lcom/game/sdk/ui/QuickLoginActivity;)Z
+    invoke-static {v2, v5, v8, v10}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result v1
+    move-result-object v4
 
-    if-nez v1, :cond_0
+    .line 360
+    .local v4, "mSendPI":Landroid/app/PendingIntent;
+    invoke-static {}, Landroid/telephony/SmsManager;->getDefault()Landroid/telephony/SmsManager;
 
-    .line 251
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+    move-result-object v0
 
-    # getter for: Lcom/game/sdk/ui/QuickLoginActivity;->handler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/game/sdk/ui/QuickLoginActivity;->access$4(Lcom/game/sdk/ui/QuickLoginActivity;)Landroid/os/Handler;
+    .line 362
+    .local v0, "smsManager":Landroid/telephony/SmsManager;
+    const-string v9, ""
+
+    .line 364
+    .local v9, "upCode":Ljava/lang/String;
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    if-eqz v2, :cond_0
+
+    .line 365
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v5, "user:"
+
+    invoke-direct {v2, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v5, v5, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    .line 368
+    :cond_0
+    iget-object v2, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+
+    sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget-object v5, v5, Lcom/game/sdk/domain/InItInfo;->smsMobileList:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Lcom/game/sdk/ui/QuickLoginActivity;->getSmsMobile(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    sget v2, Lcom/game/sdk/ui/QuickLoginActivity;->SEND_TIME:I
+    .line 369
+    .local v1, "smsMobile":Ljava/lang/String;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    int-to-long v2, v2
+    const-string v5, "\u63a5\u53d7\u53f7\u7801---"
 
-    invoke-virtual {v1, p0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-direct {v2, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 252
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    # getter for: Lcom/game/sdk/ui/QuickLoginActivity;->timeNumber:I
-    invoke-static {v1}, Lcom/game/sdk/ui/QuickLoginActivity;->access$2(Lcom/game/sdk/ui/QuickLoginActivity;)I
+    move-result-object v2
+
+    const-string v5, "---\u4e0a\u884c\u6ce8\u518c\u7801(\u5373\u6781\u901f\u6ce8\u518c\u7684\u8d26\u53f7)---"
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 371
+    invoke-virtual {v0, v9}, Landroid/telephony/SmsManager;->divideMessage(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v6
+
+    .line 372
+    .local v6, "divideContents":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v10
+
+    :goto_0
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    add-int/lit8 v2, v2, 0x1
+    if-nez v2, :cond_1
 
-    invoke-static {v1, v2}, Lcom/game/sdk/ui/QuickLoginActivity;->access$5(Lcom/game/sdk/ui/QuickLoginActivity;I)V
-
-    .line 265
-    :cond_0
-    :goto_0
+    .line 379
+    .end local v0    # "smsManager":Landroid/telephony/SmsManager;
+    .end local v1    # "smsMobile":Ljava/lang/String;
+    .end local v4    # "mSendPI":Landroid/app/PendingIntent;
+    .end local v6    # "divideContents":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .end local v8    # "itSend":Landroid/content/Intent;
+    .end local v9    # "upCode":Ljava/lang/String;
+    :goto_1
     return-void
 
-    .line 255
+    .line 372
+    .restart local v0    # "smsManager":Landroid/telephony/SmsManager;
+    .restart local v1    # "smsMobile":Ljava/lang/String;
+    .restart local v4    # "mSendPI":Landroid/app/PendingIntent;
+    .restart local v6    # "divideContents":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .restart local v8    # "itSend":Landroid/content/Intent;
+    .restart local v9    # "upCode":Ljava/lang/String;
     :cond_1
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    # getter for: Lcom/game/sdk/ui/QuickLoginActivity;->isSendSms:Z
-    invoke-static {v1}, Lcom/game/sdk/ui/QuickLoginActivity;->access$3(Lcom/game/sdk/ui/QuickLoginActivity;)Z
+    move-result-object v3
 
-    move-result v1
+    check-cast v3, Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    .line 373
+    .local v3, "text":Ljava/lang/String;
+    const/4 v2, 0x0
 
-    .line 256
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
+    const/4 v5, 0x0
 
-    iget-object v1, v1, Lcom/game/sdk/ui/QuickLoginActivity;->loginDialog:Lcom/game/sdk/view/CustomDialog;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
-
-    iget-object v1, v1, Lcom/game/sdk/ui/QuickLoginActivity;->loginDialog:Lcom/game/sdk/view/CustomDialog;
-
-    invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->isShowing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 257
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
-
-    iget-object v1, v1, Lcom/game/sdk/ui/QuickLoginActivity;->loginDialog:Lcom/game/sdk/view/CustomDialog;
-
-    invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
-
-    .line 259
-    :cond_2
-    iget-object v1, p0, Lcom/game/sdk/ui/QuickLoginActivity$1;->this$0:Lcom/game/sdk/ui/QuickLoginActivity;
-
-    invoke-virtual {v1}, Lcom/game/sdk/ui/QuickLoginActivity;->toLoginActivity()V
+    invoke-virtual/range {v0 .. v5}, Landroid/telephony/SmsManager;->sendTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 262
+    .line 376
+    .end local v0    # "smsManager":Landroid/telephony/SmsManager;
+    .end local v1    # "smsMobile":Ljava/lang/String;
+    .end local v3    # "text":Ljava/lang/String;
+    .end local v4    # "mSendPI":Landroid/app/PendingIntent;
+    .end local v6    # "divideContents":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .end local v8    # "itSend":Landroid/content/Intent;
+    .end local v9    # "upCode":Ljava/lang/String;
     :catch_0
-    move-exception v0
+    move-exception v7
 
-    .line 263
-    .local v0, "e":Ljava/lang/Exception;
-    const-string v1, "runnable---error"
+    .line 377
+    .local v7, "e":Ljava/lang/Exception;
+    const-string v2, "runnable---error"
 
-    invoke-static {v1}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method

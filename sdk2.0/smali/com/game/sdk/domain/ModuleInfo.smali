@@ -8,6 +8,8 @@
 
 .field public id:I
 
+.field public num:I
+
 .field public sort:I
 
 .field public status:I

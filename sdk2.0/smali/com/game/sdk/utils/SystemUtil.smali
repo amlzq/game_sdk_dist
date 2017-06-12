@@ -8,10 +8,72 @@
     .locals 0
 
     .prologue
-    .line 18
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method public static getAppName(Landroid/content/Context;)Ljava/lang/String;
+    .locals 6
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 206
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    .line 207
+    .local v3, "packageManager":Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v2
+
+    .line 208
+    .local v2, "packageInfo":Landroid/content/pm/PackageInfo;
+    iget-object v4, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v1, v4, Landroid/content/pm/ApplicationInfo;->labelRes:I
+
+    .line 209
+    .local v1, "labelRes":I
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
+
+    .line 213
+    .end local v1    # "labelRes":I
+    .end local v2    # "packageInfo":Landroid/content/pm/PackageInfo;
+    .end local v3    # "packageManager":Landroid/content/pm/PackageManager;
+    :goto_0
+    return-object v4
+
+    .line 210
+    :catch_0
+    move-exception v0
+
+    .line 211
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    .line 213
+    const/4 v4, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static getOperator(Landroid/content/Context;)Ljava/lang/String;
@@ -19,10 +81,10 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 27
+    .line 30
     const/4 v1, 0x0
 
-    .line 28
+    .line 31
     .local v1, "operatorNumber":I
     const-string v3, "phone"
 
@@ -32,17 +94,17 @@
 
     check-cast v2, Landroid/telephony/TelephonyManager;
 
-    .line 29
+    .line 32
     .local v2, "telManager":Landroid/telephony/TelephonyManager;
     invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 30
+    .line 33
     .local v0, "operator":Ljava/lang/String;
     if-eqz v0, :cond_1
 
-    .line 31
+    .line 34
     const-string v3, "46000"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -67,11 +129,11 @@
 
     if-eqz v3, :cond_2
 
-    .line 33
+    .line 36
     :cond_0
     const/4 v1, 0x0
 
-    .line 42
+    .line 45
     :cond_1
     :goto_0
     new-instance v3, Ljava/lang/StringBuilder;
@@ -88,7 +150,7 @@
 
     return-object v3
 
-    .line 34
+    .line 37
     :cond_2
     const-string v3, "46001"
 
@@ -98,10 +160,10 @@
 
     if-eqz v3, :cond_3
 
-    .line 36
+    .line 39
     const/4 v1, 0x1
 
-    .line 37
+    .line 40
     goto :goto_0
 
     :cond_3
@@ -113,7 +175,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 39
+    .line 42
     const/4 v1, 0x2
 
     goto :goto_0
@@ -124,7 +186,7 @@
     .param p0, "cxt"    # Landroid/content/Context;
 
     .prologue
-    .line 99
+    .line 102
     const-string v2, "phone"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -133,13 +195,13 @@
 
     check-cast v1, Landroid/telephony/TelephonyManager;
 
-    .line 101
+    .line 104
     .local v1, "tm":Landroid/telephony/TelephonyManager;
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 104
+    .line 107
     .local v0, "imei":Ljava/lang/String;
     if-eqz v0, :cond_0
 
@@ -149,7 +211,7 @@
 
     if-nez v2, :cond_1
 
-    .line 105
+    .line 108
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -193,7 +255,7 @@
 
     move-result-object v2
 
-    .line 106
+    .line 109
     sget-object v3, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -230,7 +292,7 @@
 
     move-result-object v2
 
-    .line 107
+    .line 110
     sget-object v3, Landroid/os/Build;->ID:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -267,7 +329,7 @@
 
     move-result-object v2
 
-    .line 108
+    .line 111
     sget-object v3, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -304,7 +366,7 @@
 
     move-result-object v2
 
-    .line 109
+    .line 112
     sget-object v3, Landroid/os/Build;->USER:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -317,12 +379,12 @@
 
     move-result-object v2
 
-    .line 105
+    .line 108
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 111
+    .line 114
     :cond_1
     return-object v0
 .end method
@@ -332,18 +394,18 @@
     .param p0, "cxt"    # Landroid/content/Context;
 
     .prologue
-    .line 121
+    .line 124
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 122
+    .line 125
     .local v2, "str":Ljava/lang/StringBuilder;
     new-instance v1, Ljava/util/Random;
 
     invoke-direct {v1}, Ljava/util/Random;-><init>()V
 
-    .line 124
+    .line 127
     .local v1, "random":Ljava/util/Random;
     const/4 v0, 0x0
 
@@ -353,7 +415,7 @@
 
     if-lt v0, v3, :cond_0
 
-    .line 127
+    .line 130
     new-instance v3, Ljava/lang/StringBuilder;
 
     const-string v4, "validateCode-----"
@@ -382,7 +444,7 @@
 
     invoke-static {v3}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 128
+    .line 131
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-static {}, Lcom/game/sdk/utils/TimeUtils;->getCurrentTimeInLong()J
@@ -409,7 +471,7 @@
 
     return-object v3
 
-    .line 125
+    .line 128
     :cond_0
     const/16 v3, 0xa
 
@@ -419,7 +481,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 124
+    .line 127
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -430,7 +492,7 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 164
+    .line 167
     const-string v3, "phone"
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -439,38 +501,38 @@
 
     check-cast v2, Landroid/telephony/TelephonyManager;
 
-    .line 165
+    .line 168
     .local v2, "telMgr":Landroid/telephony/TelephonyManager;
     invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimState()I
 
     move-result v1
 
-    .line 166
+    .line 169
     .local v1, "simState":I
     const/4 v0, 0x1
 
-    .line 167
+    .line 170
     .local v0, "result":Z
     packed-switch v1, :pswitch_data_0
 
-    .line 176
+    .line 179
     :goto_0
     return v0
 
-    .line 169
+    .line 172
     :pswitch_0
     const/4 v0, 0x0
 
-    .line 170
+    .line 173
     goto :goto_0
 
-    .line 172
+    .line 175
     :pswitch_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 167
+    .line 170
     nop
 
     :pswitch_data_0
@@ -486,10 +548,10 @@
     .param p1, "serviceName"    # Ljava/lang/String;
 
     .prologue
-    .line 140
+    .line 143
     const/4 v1, 0x0
 
-    .line 141
+    .line 144
     .local v1, "isWork":Z
     const-string v5, "activity"
 
@@ -499,7 +561,7 @@
 
     check-cast v3, Landroid/app/ActivityManager;
 
-    .line 142
+    .line 145
     .local v3, "myAM":Landroid/app/ActivityManager;
     const/16 v5, 0xc8
 
@@ -507,7 +569,7 @@
 
     move-result-object v4
 
-    .line 143
+    .line 146
     .local v4, "myList":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningServiceInfo;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
@@ -515,14 +577,14 @@
 
     if-gtz v5, :cond_0
 
-    .line 144
+    .line 147
     const/4 v5, 0x0
 
-    .line 154
+    .line 157
     :goto_0
     return v5
 
-    .line 146
+    .line 149
     :cond_0
     const/4 v0, 0x0
 
@@ -537,10 +599,10 @@
     :goto_2
     move v5, v1
 
-    .line 154
+    .line 157
     goto :goto_0
 
-    .line 148
+    .line 151
     :cond_1
     invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -558,7 +620,7 @@
 
     move-result-object v2
 
-    .line 149
+    .line 152
     .local v2, "mName":Ljava/lang/String;
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -566,17 +628,84 @@
 
     if-eqz v5, :cond_2
 
-    .line 150
+    .line 153
     const/4 v1, 0x1
 
-    .line 151
+    .line 154
     goto :goto_2
 
-    .line 146
+    .line 149
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
+.end method
+
+.method public static isValidContext(Landroid/content/Context;)Z
+    .locals 5
+    .param p0, "ctx"    # Landroid/content/Context;
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 184
+    move-object v0, p0
+
+    check-cast v0, Landroid/app/Activity;
+
+    .line 186
+    .local v0, "activity":Landroid/app/Activity;
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v4, 0x11
+
+    if-le v3, v4, :cond_2
+
+    .line 187
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->isDestroyed()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_0
+    move v1, v2
+
+    .line 196
+    :cond_1
+    :goto_0
+    return v1
+
+    .line 193
+    :cond_2
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_3
+    move v1, v2
+
+    .line 194
+    goto :goto_0
 .end method
 
 .method public static send2(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
@@ -588,14 +717,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 54
+    .line 57
     const-string v7, "sms_sent"
 
-    .line 55
+    .line 58
     .local v7, "SENT":Ljava/lang/String;
     const-string v6, "sms_delivered"
 
-    .line 57
+    .line 60
     .local v6, "DELIVERED":Ljava/lang/String;
     new-instance v1, Landroid/content/Intent;
 
@@ -605,7 +734,7 @@
 
     move-result-object v4
 
-    .line 58
+    .line 61
     .local v4, "sentPI":Landroid/app/PendingIntent;
     new-instance v1, Landroid/content/Intent;
 
@@ -615,26 +744,26 @@
 
     move-result-object v5
 
-    .line 60
+    .line 63
     .local v5, "deliveredPI":Landroid/app/PendingIntent;
     new-instance v1, Lcom/game/sdk/utils/SystemUtil$1;
 
     invoke-direct {v1}, Lcom/game/sdk/utils/SystemUtil$1;-><init>()V
 
-    .line 89
+    .line 92
     new-instance v2, Landroid/content/IntentFilter;
 
     invoke-direct {v2, v7}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 60
+    .line 63
     invoke-virtual {p0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 91
+    .line 94
     invoke-static {}, Landroid/telephony/SmsManager;->getDefault()Landroid/telephony/SmsManager;
 
     move-result-object v0
 
-    .line 92
+    .line 95
     .local v0, "smsm":Landroid/telephony/SmsManager;
     const/4 v2, 0x0
 
@@ -644,7 +773,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/telephony/SmsManager;->sendTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 93
+    .line 96
     return-void
 .end method
 
@@ -656,18 +785,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 46
+    .line 49
     invoke-static {}, Landroid/telephony/SmsManager;->getDefault()Landroid/telephony/SmsManager;
 
     move-result-object v0
 
-    .line 47
+    .line 50
     .local v0, "manager":Landroid/telephony/SmsManager;
     invoke-virtual {v0, p1}, Landroid/telephony/SmsManager;->divideMessage(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v6
 
-    .line 48
+    .line 51
     .local v6, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -680,10 +809,10 @@
 
     if-nez v1, :cond_0
 
-    .line 51
+    .line 54
     return-void
 
-    .line 48
+    .line 51
     :cond_0
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -698,7 +827,7 @@
 
     move-object v5, v2
 
-    .line 49
+    .line 52
     invoke-virtual/range {v0 .. v5}, Landroid/telephony/SmsManager;->sendTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
     goto :goto_0

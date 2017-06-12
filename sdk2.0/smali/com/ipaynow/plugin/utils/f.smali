@@ -1,102 +1,135 @@
-.class final Lcom/ipaynow/plugin/utils/f;
-.super Ljava/io/OutputStream;
+.class public final Lcom/ipaynow/plugin/utils/f;
+.super Ljava/lang/Object;
 
 
 # instance fields
-.field private final bD:Ljava/io/OutputStream;
+.field private bb:Landroid/widget/Toast;
+
+.field private bc:Ljava/lang/String;
+
+.field private bd:I
+
+.field private be:I
+
+.field private context:Landroid/content/Context;
+
+.field private duration:I
+
+.field private gravity:I
+
+.field private view:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Ljava/io/OutputStream;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
+    iput-object p1, p0, Lcom/ipaynow/plugin/utils/f;->context:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final close()V
-    .locals 0
+.method public final T()Landroid/widget/Toast;
+    .locals 4
 
-    return-void
-.end method
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->context:Landroid/content/Context;
 
-.method public final equals(Ljava/lang/Object;)Z
-    .locals 1
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
+    const-string v0, "Context\u4e3a\u7a7a"
 
-    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0}, Lcom/ipaynow/plugin/log/LogUtils;->w(Ljava/lang/Object;)V
 
-    move-result v0
+    :cond_0
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->view:Landroid/view/View;
 
-    return v0
-.end method
+    if-nez v0, :cond_1
 
-.method public final flush()V
-    .locals 1
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->context:Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
+    iget-object v1, p0, Lcom/ipaynow/plugin/utils/f;->bc:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
+    iget v2, p0, Lcom/ipaynow/plugin/utils/f;->duration:I
 
-    return-void
-.end method
-
-.method public final hashCode()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public final toString()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v0
 
+    :goto_0
     return-object v0
+
+    :cond_1
+    new-instance v0, Landroid/widget/Toast;
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/utils/f;->context:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Landroid/widget/Toast;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bb:Landroid/widget/Toast;
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bb:Landroid/widget/Toast;
+
+    iget v1, p0, Lcom/ipaynow/plugin/utils/f;->duration:I
+
+    invoke-virtual {v0, v1}, Landroid/widget/Toast;->setDuration(I)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bb:Landroid/widget/Toast;
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/utils/f;->bc:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/widget/Toast;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bb:Landroid/widget/Toast;
+
+    iget-object v1, p0, Lcom/ipaynow/plugin/utils/f;->view:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/widget/Toast;->setView(Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bb:Landroid/widget/Toast;
+
+    iget v1, p0, Lcom/ipaynow/plugin/utils/f;->gravity:I
+
+    iget v2, p0, Lcom/ipaynow/plugin/utils/f;->bd:I
+
+    iget v3, p0, Lcom/ipaynow/plugin/utils/f;->be:I
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/Toast;->setGravity(III)V
+
+    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bb:Landroid/widget/Toast;
+
+    goto :goto_0
 .end method
 
-.method public final write(I)V
+.method public final b(I)Lcom/ipaynow/plugin/utils/f;
     .locals 1
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
+    if-nez p1, :cond_0
 
-    invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write(I)V
+    const-string v0, "time\u4e3a0"
 
-    return-void
+    invoke-static {v0}, Lcom/ipaynow/plugin/log/LogUtils;->w(Ljava/lang/Object;)V
+
+    :cond_0
+    iput p1, p0, Lcom/ipaynow/plugin/utils/f;->duration:I
+
+    return-object p0
 .end method
 
-.method public final write([B)V
+.method public final r(Ljava/lang/String;)Lcom/ipaynow/plugin/utils/f;
     .locals 1
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
+    if-nez p1, :cond_0
 
-    invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write([B)V
+    const-string v0, "text\u4e3anull"
 
-    return-void
-.end method
+    invoke-static {v0}, Lcom/ipaynow/plugin/log/LogUtils;->w(Ljava/lang/Object;)V
 
-.method public final write([BII)V
-    .locals 1
+    :cond_0
+    iput-object p1, p0, Lcom/ipaynow/plugin/utils/f;->bc:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/ipaynow/plugin/utils/f;->bD:Ljava/io/OutputStream;
-
-    invoke-virtual {v0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
-
-    return-void
+    return-object p0
 .end method

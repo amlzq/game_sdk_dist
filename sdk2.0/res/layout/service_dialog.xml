@@ -5,23 +5,17 @@
         <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="50.0dip">
             <TextView android:textSize="18.0sp" android:textColor="@color/black1" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/tv_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/service_text" />
         </LinearLayout>
-        <LinearLayout android:gravity="center" android:background="@color/service_bg_color" android:layout_width="fill_parent" android:layout_height="30.0dip">
-            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:gravity="center" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/service_time_text" />
-        </LinearLayout>
+        <View android:background="@color/service_line_color" android:layout_width="fill_parent" android:layout_height="0.5dip" />
         <RelativeLayout android:orientation="horizontal" android:id="@id/call_layout" android:layout_width="fill_parent" android:layout_height="45.0dip">
             <ImageView android:id="@id/tel_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@drawable/tel_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:id="@id/call_phone_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13.0dip" android:text="@string/service_tel_text" android:layout_toRightOf="@id/tel_iv" android:layout_centerVertical="true" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:id="@id/call_phone_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/service_tel_text" android:layout_toRightOf="@id/tel_iv" android:layout_centerVertical="true" />
         </RelativeLayout>
         <View android:background="@color/service_line_color" android:layout_width="fill_parent" android:layout_height="0.5dip" />
-        <RelativeLayout android:layout_width="fill_parent" android:layout_height="45.0dip">
-            <ImageView android:id="@id/qq_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@drawable/service_qq_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13.0dip" android:text="@string/service_qq_text" android:layout_toRightOf="@id/qq_iv" android:layout_centerVertical="true" />
-        </RelativeLayout>
-        <View android:background="@color/service_line_color" android:layout_width="fill_parent" android:layout_height="0.5dip" />
-        <RelativeLayout android:visibility="gone" android:layout_width="fill_parent" android:layout_height="45.0dip">
-            <ImageView android:id="@id/weixin_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:src="@drawable/service_weixin_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:id="@id/weixin_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13.0dip" android:text="@string/weixin_number_text" android:layout_toRightOf="@id/weixin_iv" android:layout_centerVertical="true" />
-            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:id="@id/weixin_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/default_weixin_number_text" android:layout_toRightOf="@id/weixin_text" android:layout_centerVertical="true" />
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip">
+            <ImageView android:id="@id/qq_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/qq_kefu_icon" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:autoLink="phone" android:id="@id/qq_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="@string/qq_server_text" android:layout_toRightOf="@id/qq_iv" android:layout_centerVertical="true" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/kefu_qq_num1_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/kefu1_text" android:drawableLeft="@drawable/qq_service_num_icon" android:drawablePadding="2.0dip" android:layout_toRightOf="@id/qq_text" android:layout_centerVertical="true" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/black1" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/kefu_qq_num2_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="@string/kefu2_text" android:drawableLeft="@drawable/qq_service_num_icon" android:drawablePadding="2.0dip" android:layout_toRightOf="@id/kefu_qq_num1_tv" android:layout_centerVertical="true" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

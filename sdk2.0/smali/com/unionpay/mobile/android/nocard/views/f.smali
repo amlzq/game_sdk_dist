@@ -39,7 +39,7 @@
 
     iget-object v1, v1, Lcom/unionpay/mobile/android/nocard/views/b;->a:Lcom/unionpay/mobile/android/model/b;
 
-    iget-object v1, v1, Lcom/unionpay/mobile/android/model/b;->aB:Ljava/lang/String;
+    iget-object v1, v1, Lcom/unionpay/mobile/android/model/b;->aL:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/nocard/views/f;->a:Lorg/json/JSONObject;
 

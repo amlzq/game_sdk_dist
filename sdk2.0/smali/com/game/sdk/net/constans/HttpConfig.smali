@@ -4,6 +4,10 @@
 
 
 # static fields
+.field public static final ORDER_ERROR:I = -0x63
+
+.field public static final PHONE_IS_NOT_BIND:I = -0x2
+
 .field public static final PUBLIC_KEY_ERROR:I = -0x64
 
 .field public static final STATUS_OK:I = 0x1

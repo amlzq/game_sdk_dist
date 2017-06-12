@@ -105,6 +105,67 @@
     goto :goto_0
 .end method
 
+.method public static a(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    sget-boolean v0, Lcom/unionpay/mobile/android/global/a;->L:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "uppay-TD"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "event:"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", keys:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", values:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {v3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p0, p1}, Lcom/unionpay/sdk/UPAgent;->onEvent(Landroid/content/Context;Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method protected static a(Landroid/widget/TextView;)V
     .locals 3
 
@@ -124,7 +185,7 @@
 
     const v1, -0x666667
 
-    invoke-static {v0, v2, v2, v1}, Lcom/unionpay/mobile/android/utils/d;->a(IIII)Landroid/content/res/ColorStateList;
+    invoke-static {v0, v2, v2, v1}, Lcom/unionpay/mobile/android/utils/g;->a(IIII)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -241,7 +302,7 @@
 
     sget v6, Lcom/unionpay/mobile/android/global/b;->d:I
 
-    invoke-static {v3, v4, v5, v6}, Lcom/unionpay/mobile/android/utils/d;->a(IIII)Landroid/content/res/ColorStateList;
+    invoke-static {v3, v4, v5, v6}, Lcom/unionpay/mobile/android/utils/g;->a(IIII)Landroid/content/res/ColorStateList;
 
     move-result-object v3
 
@@ -279,7 +340,7 @@
 
     const/high16 v4, 0x41200000    # 10.0f
 
-    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -380,12 +441,6 @@
 .method public abstract b(Landroid/widget/RelativeLayout;)V
 .end method
 
-.method public final b(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public abstract c()Lcom/unionpay/mobile/android/upviews/a$a;
 .end method
 
@@ -393,6 +448,12 @@
 .end method
 
 .method public final c(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final c(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     return-void

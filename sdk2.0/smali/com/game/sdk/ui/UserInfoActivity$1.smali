@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
-    .line 102
+    .line 104
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -39,18 +39,22 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 104
+    .line 106
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 139
+    .line 141
     :cond_0
     :goto_0
     return-void
 
-    .line 106
+    .line 108
     :pswitch_0
+    sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    if-eqz v1, :cond_0
+
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     iget-object v1, v1, Lcom/game/sdk/domain/UserInfo;->face:Ljava/lang/String;
@@ -61,7 +65,7 @@
 
     if-nez v1, :cond_0
 
-    .line 107
+    .line 109
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-static {v1}, Lcom/squareup/picasso/Picasso;->with(Landroid/content/Context;)Lcom/squareup/picasso/Picasso;
@@ -85,7 +89,7 @@
 
     invoke-virtual {v1, v2}, Lcom/squareup/picasso/RequestCreator;->into(Landroid/widget/ImageView;)V
 
-    .line 108
+    .line 110
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     const-string v2, "\u4fee\u6539\u6210\u529f"
@@ -94,8 +98,12 @@
 
     goto :goto_0
 
-    .line 113
+    .line 115
     :pswitch_1
+    sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    if-eqz v1, :cond_1
+
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     iget-object v1, v1, Lcom/game/sdk/domain/UserInfo;->face:Ljava/lang/String;
@@ -106,7 +114,7 @@
 
     if-nez v1, :cond_1
 
-    .line 114
+    .line 116
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-static {v1}, Lcom/squareup/picasso/Picasso;->with(Landroid/content/Context;)Lcom/squareup/picasso/Picasso;
@@ -130,7 +138,7 @@
 
     invoke-virtual {v1, v2}, Lcom/squareup/picasso/RequestCreator;->into(Landroid/widget/ImageView;)V
 
-    .line 117
+    .line 119
     :cond_1
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
@@ -156,10 +164,10 @@
     :goto_1
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 119
+    .line 121
     const-string v0, ""
 
-    .line 120
+    .line 122
     .local v0, "tempSex":Ljava/lang/String;
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -169,10 +177,10 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 121
+    .line 123
     const-string v0, "\u7537"
 
-    .line 127
+    .line 129
     :goto_2
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
@@ -183,7 +191,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 128
+    .line 130
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->birthTv:Landroid/widget/TextView;
@@ -197,7 +205,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 129
+    .line 131
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->mobileTv:Landroid/widget/TextView;
@@ -211,7 +219,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 130
+    .line 132
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->emailTv:Landroid/widget/TextView;
@@ -225,7 +233,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 131
+    .line 133
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->qqTv:Landroid/widget/TextView;
@@ -241,7 +249,7 @@
 
     goto/16 :goto_0
 
-    .line 118
+    .line 120
     .end local v0    # "tempSex":Ljava/lang/String;
     :cond_2
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
@@ -250,7 +258,7 @@
 
     goto :goto_1
 
-    .line 122
+    .line 124
     .restart local v0    # "tempSex":Ljava/lang/String;
     :cond_3
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
@@ -261,19 +269,19 @@
 
     if-ne v1, v2, :cond_4
 
-    .line 123
+    .line 125
     const-string v0, "\u5973"
 
-    .line 124
+    .line 126
     goto :goto_2
 
-    .line 125
+    .line 127
     :cond_4
     const-string v0, "\u672a\u77e5"
 
     goto :goto_2
 
-    .line 134
+    .line 136
     .end local v0    # "tempSex":Ljava/lang/String;
     :pswitch_2
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$1;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
@@ -284,7 +292,7 @@
 
     goto/16 :goto_0
 
-    .line 104
+    .line 106
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

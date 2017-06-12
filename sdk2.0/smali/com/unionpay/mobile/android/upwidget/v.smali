@@ -1,156 +1,100 @@
-.class public final Lcom/unionpay/mobile/android/upwidget/v;
-.super Landroid/widget/LinearLayout;
+.class final Lcom/unionpay/mobile/android/upwidget/v;
+.super Landroid/os/Handler;
 
 
 # instance fields
-.field private a:Landroid/content/Context;
-
-.field private b:Landroid/widget/TextView;
+.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
 
 
 # direct methods
-.method private constructor <init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)V
-    .locals 6
+.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)V
+    .locals 0
 
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
 
-    const/16 v5, 0x10
-
-    const/4 v4, -0x2
-
-    invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Landroid/content/Context;
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Landroid/content/Context;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/unionpay/mobile/android/upwidget/v;->setOrientation(I)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Landroid/content/Context;
-
-    if-eqz p2, :cond_0
-
-    new-instance v1, Landroid/widget/ImageView;
-
-    invoke-direct {v1, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    sget v2, Lcom/unionpay/mobile/android/global/b;->o:I
-
-    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v3, v2, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    iput v5, v3, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
-
-    invoke-virtual {p0, v1, v3}, Lcom/unionpay/mobile/android/upwidget/v;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_0
-    new-instance v1, Landroid/widget/TextView;
-
-    invoke-direct {v1, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
-
-    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v0, v4, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    iput v5, v0, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
-
-    if-eqz p2, :cond_1
-
-    sget v1, Lcom/unionpay/mobile/android/global/a;->d:I
-
-    iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
-
-    :cond_1
-    iget-object v1, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
-
-    invoke-virtual {p0, v1, v0}, Lcom/unionpay/mobile/android/upwidget/v;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
-.end method
-
-.method public static a(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Lcom/unionpay/mobile/android/upwidget/v;
-    .locals 3
-
-    new-instance v0, Lcom/unionpay/mobile/android/upwidget/v;
-
-    invoke-direct {v0, p0, p1}, Lcom/unionpay/mobile/android/upwidget/v;-><init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)V
-
-    iget-object v1, v0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, v0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
-
-    const/high16 v2, 0x41800000    # 16.0f
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
-
-    :cond_0
-    const v1, -0xffb677    # -1.70523E38f
-
-    const/high16 v2, -0x10000
-
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/d;->a(II)Landroid/content/res/ColorStateList;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/upwidget/v;->a(Landroid/content/res/ColorStateList;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public final a(Landroid/content/res/ColorStateList;)V
-    .locals 1
+.method public final handleMessage(Landroid/os/Message;)V
+    .locals 6
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->getScrollY()I
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
+    move-result v1
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->b(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)I
+
+    move-result v0
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->a(Lcom/unionpay/mobile/android/upwidget/UPScrollView;I)I
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->a(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
+
+    invoke-static {v2}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->a(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+
+    move-result-object v2
+
+    const-wide/16 v4, 0x5
+
+    invoke-virtual {v0, v2, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     :cond_0
-    return-void
-.end method
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
 
-.method public final a(Ljava/lang/CharSequence;)V
-    .locals 1
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->c(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Ljava/lang/ref/WeakReference;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->c(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Ljava/lang/ref/WeakReference;
 
-    :cond_0
-    return-void
-.end method
+    move-result-object v0
 
-.method public final setOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 1
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->b:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/v;->a:Lcom/unionpay/mobile/android/upwidget/UPScrollView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPScrollView;->c(Lcom/unionpay/mobile/android/upwidget/UPScrollView;)Ljava/lang/ref/WeakReference;
 
-    :cond_0
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/unionpay/mobile/android/upwidget/UPScrollView$a;
+
+    invoke-interface {v0, v1}, Lcom/unionpay/mobile/android/upwidget/UPScrollView$a;->e(I)V
+
+    :cond_1
     return-void
 .end method

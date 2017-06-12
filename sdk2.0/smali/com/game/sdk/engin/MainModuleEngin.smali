@@ -34,10 +34,10 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 30
+    .line 32
     invoke-direct {p0, p1}, Lcom/game/sdk/engin/BaseEngin;-><init>(Landroid/content/Context;)V
 
-    .line 31
+    .line 33
     return-void
 .end method
 
@@ -46,17 +46,17 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 34
+    .line 36
     sget-object v0, Lcom/game/sdk/engin/MainModuleEngin;->mainModuleEngin:Lcom/game/sdk/engin/MainModuleEngin;
 
     if-nez v0, :cond_0
 
-    .line 35
+    .line 37
     const-class v1, Lcom/game/sdk/engin/MainModuleEngin;
 
     monitor-enter v1
 
-    .line 36
+    .line 38
     :try_start_0
     new-instance v0, Lcom/game/sdk/engin/MainModuleEngin;
 
@@ -64,18 +64,18 @@
 
     sput-object v0, Lcom/game/sdk/engin/MainModuleEngin;->mainModuleEngin:Lcom/game/sdk/engin/MainModuleEngin;
 
-    .line 35
+    .line 37
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 39
+    .line 41
     :cond_0
     sget-object v0, Lcom/game/sdk/engin/MainModuleEngin;->mainModuleEngin:Lcom/game/sdk/engin/MainModuleEngin;
 
     return-object v0
 
-    .line 35
+    .line 37
     :catchall_0
     move-exception v0
 
@@ -108,18 +108,18 @@
     .end annotation
 
     .prologue
-    .line 72
+    .line 78
     .local p2, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .local p3, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ModuleList;>;"
     if-nez p2, :cond_0
 
-    .line 73
+    .line 79
     new-instance p2, Ljava/util/HashMap;
 
     .end local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p2}, Ljava/util/HashMap;-><init>()V
 
-    .line 76
+    .line 82
     .restart local p2    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     :try_start_0
@@ -139,15 +139,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 110
+    .line 116
     :goto_0
     return-void
 
-    .line 107
+    .line 113
     :catch_0
     move-exception v0
 
-    .line 108
+    .line 114
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -186,29 +186,82 @@
     .end annotation
 
     .prologue
-    .line 63
+    .line 67
     .local p2, "callback":Lcom/game/sdk/net/listeners/Callback;, "Lcom/game/sdk/net/listeners/Callback<Lcom/game/sdk/domain/ModuleList;>;"
     new-instance v1, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;
 
     invoke-direct {v1}, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;-><init>()V
 
-    .line 65
+    .line 69
     .local v1, "paramsInfo":Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;
     iput p1, v1, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;->page:I
 
-    .line 66
+    .line 70
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->userId:Ljava/lang/String;
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->userId:Ljava/lang/String;
+
+    :goto_0
+    iput-object v2, v1, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;->user_id:Ljava/lang/String;
+
+    .line 71
+    invoke-static {}, Lcom/game/sdk/FYGameSDK;->defaultSDK()Lcom/game/sdk/FYGameSDK;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/game/sdk/FYGameSDK;->getVersion()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-static {}, Lcom/game/sdk/FYGameSDK;->defaultSDK()Lcom/game/sdk/FYGameSDK;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/game/sdk/FYGameSDK;->getVersion()Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_1
+    iput-object v2, v1, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;->version:Ljava/lang/String;
+
+    .line 72
     invoke-virtual {p0, v1}, Lcom/game/sdk/engin/MainModuleEngin;->getParams(Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;)Ljava/util/HashMap;
 
     move-result-object v0
 
-    .line 67
+    .line 73
     .local v0, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2, v0, p2}, Lcom/game/sdk/engin/MainModuleEngin;->agetResultInfo(ZLjava/util/Map;Lcom/game/sdk/net/listeners/Callback;)V
 
-    .line 68
+    .line 74
     return-void
+
+    .line 70
+    .end local v0    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    :cond_0
+    const-string v2, ""
+
+    goto :goto_0
+
+    .line 71
+    :cond_1
+    const-string v2, ""
+
+    goto :goto_1
 .end method
 
 .method public getParams(Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;)Ljava/util/HashMap;
@@ -228,7 +281,7 @@
     .end annotation
 
     .prologue
-    .line 52
+    .line 56
     invoke-static {p1}, Lcom/alibaba/fastjson/JSON;->toJSONString(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -254,7 +307,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 46
     sget-object v0, Lcom/game/sdk/net/constans/ServerConfig;->MAIN_MODULE_URL:Ljava/lang/String;
 
     return-object v0

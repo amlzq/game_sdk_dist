@@ -47,24 +47,24 @@
     .end annotation
 
     .prologue
-    .line 47
+    .line 48
     .local p2, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/GamePackageDetail;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 48
+    .line 49
     iput-object p1, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mContext:Landroid/content/Context;
 
-    .line 49
+    .line 50
     iput-object p2, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
 
-    .line 50
+    .line 51
     new-instance v0, Lokhttp3/OkHttpClient;
 
     invoke-direct {v0}, Lokhttp3/OkHttpClient;-><init>()V
 
     iput-object v0, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
-    .line 51
+    .line 52
     return-void
 .end method
 
@@ -72,7 +72,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 31
     iget-object v0, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 32
+    .line 33
     iget-object v0, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
 
     return-object v0
@@ -103,19 +103,16 @@
     .end annotation
 
     .prologue
-    .line 54
+    .line 55
     .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/GamePackageDetail;>;"
     iget-object v0, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
 
     if-eqz v0, :cond_0
 
-    .line 55
+    .line 56
     iget-object v0, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 56
-    iput-object p1, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->gamePackageDetailList:Ljava/util/List;
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 60
     :goto_0
@@ -377,7 +374,7 @@
 
     check-cast v3, Lcom/game/sdk/domain/GamePackageDetail;
 
-    iget-object v3, v3, Lcom/game/sdk/domain/GamePackageDetail;->totalNum:Ljava/lang/String;
+    iget-object v3, v3, Lcom/game/sdk/domain/GamePackageDetail;->remainNum:Ljava/lang/String;
 
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -405,7 +402,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 131
+    .line 153
     return-object p2
 
     .line 99
@@ -426,9 +423,9 @@
     .param p1, "downListener"    # Lcom/game/sdk/adapter/GamePackageDetailAdapter$DownApkListener;
 
     .prologue
-    .line 43
+    .line 44
     iput-object p1, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter;->downListener:Lcom/game/sdk/adapter/GamePackageDetailAdapter$DownApkListener;
 
-    .line 44
+    .line 45
     return-void
 .end method

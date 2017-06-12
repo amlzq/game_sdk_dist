@@ -4,6 +4,12 @@
 
 
 # instance fields
+.field public boxInfo:Lcom/game/sdk/domain/BoxInfo;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "box_info"
+    .end annotation
+.end field
+
 .field public bugUrl:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "bug_url"
@@ -16,21 +22,33 @@
 
 .field public floatBitmp:Landroid/graphics/Bitmap;
 
-.field public floatIco:Ljava/lang/String;
+.field public floatInfo:Lcom/game/sdk/domain/FloatInfo;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
-        name = "float_ico"
+        name = "floatico_info"
     .end annotation
 .end field
 
-.field public gameBoxDownUrl:Ljava/lang/String;
+.field public gameKefuQQ:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
-        name = "box_down_url"
+        name = "game_kefu_qq"
+    .end annotation
+.end field
+
+.field public isAutoClick:I
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "is_auto_click"
     .end annotation
 .end field
 
 .field public isMqr:I
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "is_mqr"
+    .end annotation
+.end field
+
+.field public isSpeedUp:I
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "is_speed_up"
     .end annotation
 .end field
 
@@ -51,6 +69,12 @@
 .field public logout:Lcom/game/sdk/domain/LoginOutInfo;
 
 .field public lunchBitmp:Landroid/graphics/Bitmap;
+
+.field public mqrDelay:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "mqr_delay"
+    .end annotation
+.end field
 
 .field public mqrNumLimit:Ljava/lang/String;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
@@ -89,6 +113,18 @@
 
 .field public registerBitmp:Landroid/graphics/Bitmap;
 
+.field public shareContent:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "share_content"
+    .end annotation
+.end field
+
+.field public smsMobileList:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "sms_mobile_list"
+    .end annotation
+.end field
+
 .field public style:Ljava/lang/String;
 
 .field public tel:Ljava/lang/String;
@@ -119,6 +155,8 @@
     .end annotation
 .end field
 
+.field public vertical:I
+
 .field public weixin:Ljava/lang/String;
 
 
@@ -139,7 +177,7 @@
     .locals 3
 
     .prologue
-    .line 87
+    .line 107
     :try_start_0
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
@@ -153,15 +191,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 93
+    .line 113
     :goto_0
     return-void
 
-    .line 88
+    .line 108
     :catch_0
     move-exception v0
 
-    .line 89
+    .line 109
     .local v0, "e":Ljava/lang/Exception;
     const-string v1, "#2AB1F2"
 
@@ -171,12 +209,12 @@
 
     iput v1, p0, Lcom/game/sdk/domain/InItInfo;->color:I
 
-    .line 90
+    .line 110
     const-string v1, "#2AB1F2"
 
     iput-object v1, p0, Lcom/game/sdk/domain/InItInfo;->themeColor:Ljava/lang/String;
 
-    .line 91
+    .line 111
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "\u521d\u59cb\u5316\u4fe1\u606f\u6709\u8bef->"

@@ -3,5 +3,5 @@
 
 
 # virtual methods
-.method public abstract b(I)Lcom/unionpay/mobile/android/nocard/views/b;
+.method public abstract a(ILcom/unionpay/mobile/android/model/e;)Lcom/unionpay/mobile/android/nocard/views/b;
 .end method

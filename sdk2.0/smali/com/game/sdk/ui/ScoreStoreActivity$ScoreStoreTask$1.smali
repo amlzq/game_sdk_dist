@@ -39,7 +39,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask$1;->this$1:Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;
 
-    .line 112
+    .line 210
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +52,7 @@
     .param p1, "response"    # Lcom/game/sdk/net/entry/Response;
 
     .prologue
-    .line 130
+    .line 228
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .end annotation
 
     .prologue
-    .line 117
+    .line 215
     .local p1, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/ScoreStoreList;>;"
     iget-object v1, p1, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
@@ -91,11 +91,11 @@
 
     if-lez v1, :cond_0
 
-    .line 118
+    .line 216
     iget-object v1, p0, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask$1;->this$1:Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;
 
     # getter for: Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;->this$0:Lcom/game/sdk/ui/ScoreStoreActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;->access$3(Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;)Lcom/game/sdk/ui/ScoreStoreActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;->access$2(Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;)Lcom/game/sdk/ui/ScoreStoreActivity;
 
     move-result-object v2
 
@@ -107,33 +107,33 @@
 
     iput-object v1, v2, Lcom/game/sdk/ui/ScoreStoreActivity;->gameCoinList:Ljava/util/List;
 
-    .line 121
+    .line 219
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 122
+    .line 220
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 123
+    .line 221
     iget-object v1, p0, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask$1;->this$1:Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;
 
     # getter for: Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;->this$0:Lcom/game/sdk/ui/ScoreStoreActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;->access$3(Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;)Lcom/game/sdk/ui/ScoreStoreActivity;
+    invoke-static {v1}, Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;->access$2(Lcom/game/sdk/ui/ScoreStoreActivity$ScoreStoreTask;)Lcom/game/sdk/ui/ScoreStoreActivity;
 
     move-result-object v1
 
     # getter for: Lcom/game/sdk/ui/ScoreStoreActivity;->handler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/game/sdk/ui/ScoreStoreActivity;->access$4(Lcom/game/sdk/ui/ScoreStoreActivity;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/game/sdk/ui/ScoreStoreActivity;->access$10(Lcom/game/sdk/ui/ScoreStoreActivity;)Landroid/os/Handler;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 125
+    .line 223
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void

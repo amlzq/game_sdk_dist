@@ -272,6 +272,27 @@
 
     iput v1, v0, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
 
+    .line 93
+    sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v1, p1, Lcom/game/sdk/domain/UserInfo;->kefuQQ:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/game/sdk/domain/UserInfo;->kefuQQ:Ljava/lang/String;
+
     .line 94
+    sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget v1, p1, Lcom/game/sdk/domain/UserInfo;->vipLevel:I
+
+    iput v1, v0, Lcom/game/sdk/domain/UserInfo;->vipLevel:I
+
+    .line 95
+    sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+
+    iget-object v1, p1, Lcom/game/sdk/domain/UserInfo;->shareContent:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/game/sdk/domain/UserInfo;->shareContent:Ljava/lang/String;
+
+    .line 96
     return-void
 .end method

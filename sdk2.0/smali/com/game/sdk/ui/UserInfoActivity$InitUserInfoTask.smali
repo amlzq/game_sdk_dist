@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 343
+    .line 356
     iput-object p1, p0, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -46,7 +46,7 @@
     .locals 0
 
     .prologue
-    .line 343
+    .line 356
     invoke-direct {p0, p1}, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;-><init>(Lcom/game/sdk/ui/UserInfoActivity;)V
 
     return-void
@@ -59,7 +59,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 352
+    .line 365
     iget-object v0, p0, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->userInfoEngin:Lcom/game/sdk/engin/UserInfoEngin;
@@ -97,28 +97,28 @@
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    .line 357
+    .line 370
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 358
+    .line 371
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 360
+    .line 373
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 361
+    .line 374
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x2
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 362
+    .line 375
     iget-object v1, p0, Lcom/game/sdk/ui/UserInfoActivity$InitUserInfoTask;->this$0:Lcom/game/sdk/ui/UserInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/UserInfoActivity;->handler:Landroid/os/Handler;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 364
+    .line 377
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
@@ -150,9 +150,9 @@
     .locals 0
 
     .prologue
-    .line 347
+    .line 360
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 348
+    .line 361
     return-void
 .end method

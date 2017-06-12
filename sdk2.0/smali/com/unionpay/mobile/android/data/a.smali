@@ -135,7 +135,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/e;->b(Ljava/lang/String;)Z
+    invoke-static {p0}, Lcom/unionpay/mobile/android/utils/h;->b(Ljava/lang/String;)Z
 
     move-result v2
 

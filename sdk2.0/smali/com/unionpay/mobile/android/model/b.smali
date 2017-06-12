@@ -3,55 +3,138 @@
 
 
 # static fields
-.field public static aQ:Z
+.field public static aA:Z
+
+.field public static aB:Z
+
+.field public static ba:Z
+
+.field public static bb:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/unionpay/mobile/android/model/d;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static bk:Z
+
+.field public static bl:Z
+
+.field public static bm:Z
+
+.field public static bn:Z
 
 
 # instance fields
-.field public A:Z
+.field public A:Ljava/lang/String;
 
-.field public B:Lorg/json/JSONObject;
+.field public B:Ljava/lang/String;
 
-.field public C:Lorg/json/JSONArray;
+.field public C:Lorg/json/JSONObject;
 
-.field public D:Lcom/unionpay/mobile/android/plugin/c;
+.field public D:Lorg/json/JSONArray;
 
-.field public E:Z
+.field public E:Ljava/lang/String;
 
 .field public F:Z
 
-.field public G:Z
+.field public G:Lorg/json/JSONObject;
 
-.field public H:Ljava/lang/String;
+.field public H:Lorg/json/JSONArray;
 
-.field public I:I
+.field public I:Lcom/unionpay/mobile/android/plugin/c;
 
-.field public J:Ljava/lang/String;
+.field public J:Z
 
-.field public K:Ljava/lang/String;
+.field public K:Z
 
-.field public L:Ljava/lang/String;
+.field public L:Z
 
 .field public M:Ljava/lang/String;
 
-.field public N:Ljava/lang/String;
+.field public N:I
 
-.field public O:Lorg/json/JSONArray;
+.field public O:Ljava/lang/String;
 
-.field public P:Z
+.field public P:Ljava/lang/String;
 
 .field public Q:Ljava/lang/String;
 
 .field public R:Ljava/lang/String;
 
-.field public S:Lorg/json/JSONArray;
+.field public S:Ljava/lang/String;
 
-.field public T:Lorg/json/JSONObject;
+.field public T:Lorg/json/JSONArray;
 
-.field public U:Lorg/json/JSONObject;
+.field public U:Z
 
-.field public V:Lorg/json/JSONObject;
+.field public V:Ljava/lang/String;
 
-.field public W:Ljava/util/List;
+.field public W:Ljava/lang/String;
+
+.field public X:Lorg/json/JSONArray;
+
+.field public Y:Lorg/json/JSONObject;
+
+.field public Z:Lorg/json/JSONObject;
+
+.field public a:Ljava/lang/String;
+
+.field public aC:Z
+
+.field public aD:Z
+
+.field public aE:Z
+
+.field public aF:Lorg/json/JSONObject;
+
+.field public aG:Ljava/lang/String;
+
+.field public aH:Ljava/lang/String;
+
+.field public aI:Ljava/lang/String;
+
+.field public aJ:Ljava/lang/String;
+
+.field public aK:Ljava/lang/String;
+
+.field public aL:Ljava/lang/String;
+
+.field public aM:Z
+
+.field public aN:I
+
+.field public aO:I
+
+.field public aP:I
+
+.field public aQ:I
+
+.field public aR:Ljava/lang/String;
+
+.field public aS:Ljava/lang/String;
+
+.field public aT:Ljava/lang/String;
+
+.field public aU:Lorg/json/JSONObject;
+
+.field public aV:Z
+
+.field public aW:Ljava/lang/String;
+
+.field public aX:Ljava/lang/String;
+
+.field public aY:Ljava/lang/String;
+
+.field public aZ:Z
+
+.field public aa:Lorg/json/JSONObject;
+
+.field public ab:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -62,117 +145,109 @@
     .end annotation
 .end field
 
-.field public X:Lorg/json/JSONArray;
+.field public ac:Lorg/json/JSONArray;
 
-.field public Y:Lorg/json/JSONArray;
-
-.field public Z:Ljava/lang/String;
-
-.field public a:Ljava/lang/String;
-
-.field public aA:Ljava/lang/String;
-
-.field public aB:Ljava/lang/String;
-
-.field public aC:Z
-
-.field public aD:I
-
-.field public aE:I
-
-.field public aF:I
-
-.field public aG:I
-
-.field public aH:Ljava/lang/String;
-
-.field public aI:Ljava/lang/String;
-
-.field public aJ:Ljava/lang/String;
-
-.field public aK:Lorg/json/JSONObject;
-
-.field public aL:Z
-
-.field public aM:Ljava/lang/String;
-
-.field public aN:Ljava/lang/String;
-
-.field public aO:Ljava/lang/String;
-
-.field public aP:Z
-
-.field public aa:Ljava/lang/String;
-
-.field public ab:Ljava/lang/String;
-
-.field public ac:I
-
-.field public ad:Ljava/lang/String;
+.field public ad:Lorg/json/JSONArray;
 
 .field public ae:Ljava/lang/String;
 
 .field public af:Ljava/lang/String;
 
-.field public ag:Lorg/json/JSONObject;
+.field public ag:Ljava/lang/String;
 
-.field public ah:Lorg/json/JSONObject;
+.field public ah:I
 
 .field public ai:Ljava/lang/String;
 
-.field public aj:I
+.field public aj:Ljava/lang/String;
 
 .field public ak:Ljava/lang/String;
 
-.field public al:Ljava/lang/String;
+.field public al:Lorg/json/JSONObject;
 
-.field public am:Ljava/lang/String;
+.field public am:Lorg/json/JSONObject;
 
 .field public an:Ljava/lang/String;
 
-.field public ao:Ljava/lang/String;
+.field public ao:I
 
-.field public ap:Lorg/json/JSONObject;
+.field public ap:Ljava/lang/String;
 
-.field public aq:Lorg/json/JSONObject;
+.field public aq:Ljava/lang/String;
 
-.field public ar:Z
+.field public ar:Ljava/lang/String;
 
-.field public as:Z
+.field public as:Ljava/lang/String;
 
-.field public at:Z
+.field public at:Ljava/lang/String;
 
-.field public au:Z
+.field public au:Lorg/json/JSONObject;
 
 .field public av:Lorg/json/JSONObject;
 
-.field public aw:Ljava/lang/String;
+.field public aw:Z
 
-.field public ax:Ljava/lang/String;
+.field public ax:Z
 
-.field public ay:Ljava/lang/String;
+.field public ay:Z
 
-.field public az:Ljava/lang/String;
+.field public az:Z
 
 .field public b:Ljava/lang/String;
+
+.field public bc:I
+
+.field public bd:I
+
+.field public be:Ljava/lang/String;
+
+.field public bf:Ljava/lang/String;
+
+.field public bg:Ljava/lang/String;
+
+.field public bh:Ljava/lang/String;
+
+.field public bi:Ljava/lang/String;
+
+.field public bj:Ljava/lang/String;
+
+.field public bo:Ljava/lang/String;
+
+.field public bp:Ljava/lang/String;
+
+.field public bq:Z
+
+.field public br:Lcom/unionpay/mobile/android/model/c;
+
+.field public bs:Ljava/lang/String;
 
 .field public c:Z
 
 .field public d:Ljava/lang/String;
 
-.field public e:Lorg/json/JSONArray;
+.field public e:Ljava/lang/String;
 
-.field public f:Lorg/json/JSONObject;
+.field public f:Z
 
-.field public g:Lorg/json/JSONObject;
+.field public g:Ljava/lang/String;
 
-.field public h:Ljava/lang/String;
+.field public h:Lorg/json/JSONArray;
 
-.field public i:Ljava/lang/String;
+.field public i:Lorg/json/JSONObject;
 
-.field public j:Ljava/lang/String;
+.field public j:Lorg/json/JSONObject;
 
-.field public k:Ljava/util/HashMap;
+.field public k:Ljava/lang/String;
+
+.field public l:Ljava/lang/String;
+
+.field public m:Ljava/lang/String;
+
+.field public n:Ljava/lang/String;
+
+.field public o:Ljava/lang/String;
+
+.field public p:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -184,7 +259,7 @@
     .end annotation
 .end field
 
-.field public l:Ljava/util/List;
+.field public q:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -195,48 +270,56 @@
     .end annotation
 .end field
 
-.field public m:Ljava/lang/String;
+.field public r:Ljava/lang/String;
 
-.field public n:Ljava/lang/String;
+.field public s:Ljava/lang/String;
 
-.field public o:Lorg/json/JSONArray;
+.field public t:Lorg/json/JSONArray;
 
-.field public p:Ljava/lang/String;
+.field public u:Ljava/lang/String;
 
-.field public q:Lorg/json/JSONObject;
+.field public v:Lorg/json/JSONObject;
 
-.field public r:Lorg/json/JSONObject;
-
-.field public s:Lorg/json/JSONObject;
-
-.field public t:Ljava/lang/String;
-
-.field public u:Lorg/json/JSONArray;
-
-.field public v:Ljava/lang/String;
-
-.field public w:Ljava/lang/String;
+.field public w:Lorg/json/JSONObject;
 
 .field public x:Lorg/json/JSONObject;
 
-.field public y:Lorg/json/JSONArray;
+.field public y:Ljava/lang/String;
 
-.field public z:Ljava/lang/String;
+.field public z:Lorg/json/JSONArray;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->aA:Z
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->aB:Z
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->ba:Z
 
     const/4 v0, 0x0
 
-    sput-boolean v0, Lcom/unionpay/mobile/android/model/b;->aQ:Z
+    sput-object v0, Lcom/unionpay/mobile/android/model/b;->bb:Ljava/util/List;
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->bk:Z
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->bl:Z
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->bm:Z
+
+    sput-boolean v1, Lcom/unionpay/mobile/android/model/b;->bn:Z
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
@@ -244,217 +327,209 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string v0, "1.8"
+    const-string v0, "1.9"
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->a:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->b:Ljava/lang/String;
 
     iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->c:Z
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->e:Lorg/json/JSONArray;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->f:Lorg/json/JSONObject;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->g:Lorg/json/JSONObject;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->h:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->i:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->d:Ljava/lang/String;
 
     const-string v0, ""
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->j:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->e:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/util/HashMap;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->f:Z
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->l:Ljava/util/List;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->g:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->h:Lorg/json/JSONArray;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->i:Lorg/json/JSONObject;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->j:Lorg/json/JSONObject;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->k:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->l:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->m:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->n:Ljava/lang/String;
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->o:Lorg/json/JSONArray;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->q:Lorg/json/JSONObject;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->r:Lorg/json/JSONObject;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->s:Lorg/json/JSONObject;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->t:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->u:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->n:Ljava/lang/String;
 
     const-string v0, ""
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->v:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->o:Ljava/lang/String;
 
-    const-string v0, ""
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->p:Ljava/util/HashMap;
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->w:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->q:Ljava/util/List;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->r:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->s:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->t:Lorg/json/JSONArray;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->u:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->v:Lorg/json/JSONObject;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->w:Lorg/json/JSONObject;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->x:Lorg/json/JSONObject;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->y:Lorg/json/JSONArray;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->y:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->z:Lorg/json/JSONArray;
 
     const-string v0, ""
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->z:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->A:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->A:Z
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->B:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->B:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->C:Lorg/json/JSONArray;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->C:Lorg/json/JSONObject;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->D:Lorg/json/JSONArray;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->E:Z
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->E:Ljava/lang/String;
 
     iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->F:Z
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->G:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->G:Lorg/json/JSONObject;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->H:Lorg/json/JSONArray;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->J:Z
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->K:Z
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->L:Z
 
     const-string v0, "0"
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->H:Ljava/lang/String;
-
-    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->I:I
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->J:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->K:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->L:Ljava/lang/String;
-
-    const-string v0, ""
-
     iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->M:Ljava/lang/String;
 
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->N:I
+
     const-string v0, ""
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->N:Ljava/lang/String;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->O:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->O:Lorg/json/JSONArray;
-
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->P:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->P:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->Q:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->R:Ljava/lang/String;
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->S:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->R:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->T:Lorg/json/JSONObject;
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->U:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->S:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->V:Lorg/json/JSONObject;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->T:Lorg/json/JSONArray;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->W:Ljava/util/List;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->U:Z
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->V:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->W:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->X:Lorg/json/JSONArray;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->Y:Lorg/json/JSONArray;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->Y:Lorg/json/JSONObject;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->Z:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->Z:Lorg/json/JSONObject;
 
-    const-string v0, ""
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aa:Lorg/json/JSONObject;
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aa:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ab:Ljava/util/List;
 
-    const-string v0, ""
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ac:Lorg/json/JSONArray;
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ab:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ad:Lorg/json/JSONArray;
 
-    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->ac:I
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ad:Ljava/lang/String;
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ae:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ae:Ljava/lang/String;
 
     const-string v0, ""
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->af:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ag:Lorg/json/JSONObject;
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ah:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ag:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ai:Ljava/lang/String;
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->ah:I
 
-    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->aj:I
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ai:Ljava/lang/String;
+
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->aj:Ljava/lang/String;
 
     const-string v0, ""
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ak:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->al:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->al:Lorg/json/JSONObject;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->am:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->am:Lorg/json/JSONObject;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->an:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ao:Ljava/lang/String;
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->ao:I
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ap:Lorg/json/JSONObject;
+    const-string v0, ""
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aq:Lorg/json/JSONObject;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->ap:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->ar:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aq:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->as:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ar:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->at:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->as:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->au:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->at:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->au:Lorg/json/JSONObject;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->av:Lorg/json/JSONObject;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aw:Ljava/lang/String;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aw:Z
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ax:Ljava/lang/String;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->ax:Z
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->ay:Ljava/lang/String;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->ay:Z
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->az:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aA:Ljava/lang/String;
-
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aB:Ljava/lang/String;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->az:Z
 
     iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aC:Z
 
-    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->aD:I
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aD:Z
 
-    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->aE:I
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aE:Z
 
-    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->a:Ljava/lang/Integer;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aF:Lorg/json/JSONObject;
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/unionpay/mobile/android/model/b;->aF:I
-
-    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->b:Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/unionpay/mobile/android/model/b;->aG:I
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aG:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aH:Ljava/lang/String;
 
@@ -462,31 +537,111 @@
 
     iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aJ:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aK:Lorg/json/JSONObject;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aK:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aL:Z
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aL:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aM:Ljava/lang/String;
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aM:Z
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aN:Ljava/lang/String;
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->aN:I
 
-    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aO:Ljava/lang/String;
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->aO:I
 
-    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aP:Z
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->a:Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/unionpay/mobile/android/model/b;->aP:I
+
+    sget-object v0, Lcom/unionpay/mobile/android/views/order/l;->b:Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/unionpay/mobile/android/model/b;->aQ:I
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aR:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aS:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aT:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aU:Lorg/json/JSONObject;
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aV:Z
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aW:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aX:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->aY:Ljava/lang/String;
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->aZ:Z
+
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->bc:I
+
+    iput v2, p0, Lcom/unionpay/mobile/android/model/b;->bd:I
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->be:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->bf:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->bg:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->bh:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->bi:Ljava/lang/String;
+
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->bj:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->bo:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->bp:Ljava/lang/String;
+
+    iput-boolean v2, p0, Lcom/unionpay/mobile/android/model/b;->bq:Z
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/model/b;->br:Lcom/unionpay/mobile/android/model/c;
+
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->bs:Ljava/lang/String;
 
     new-instance v0, Lcom/unionpay/mobile/android/plugin/c;
 
     invoke-direct {v0}, Lcom/unionpay/mobile/android/plugin/c;-><init>()V
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     new-instance v0, Ljava/util/ArrayList;
 
-    const/4 v1, 0x1
+    invoke-direct {v0, v3}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->q:Ljava/util/List;
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->l:Ljava/util/List;
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0, v3}, Ljava/util/ArrayList;-><init>(I)V
+
+    sput-object v0, Lcom/unionpay/mobile/android/model/b;->bb:Ljava/util/List;
+
+    sput-boolean v2, Lcom/unionpay/mobile/android/model/b;->bl:Z
+
+    sput-boolean v2, Lcom/unionpay/mobile/android/model/b;->bm:Z
+
+    sput-boolean v2, Lcom/unionpay/mobile/android/model/b;->bn:Z
+
+    sput-boolean v2, Lcom/unionpay/mobile/android/model/b;->aA:Z
+
+    sput-boolean v2, Lcom/unionpay/mobile/android/model/b;->aB:Z
+
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/model/b;->bj:Ljava/lang/String;
 
     return-void
 .end method
@@ -498,11 +653,11 @@
 
     const-string v0, "1"
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget v1, v1, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
@@ -510,11 +665,19 @@
 
     if-eq v1, v2, :cond_0
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->D:Lcom/unionpay/mobile/android/plugin/c;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
 
     iget v1, v1, Lcom/unionpay/mobile/android/plugin/c;->a:I
 
     const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_0
+
+    iget-object v1, p0, Lcom/unionpay/mobile/android/model/b;->I:Lcom/unionpay/mobile/android/plugin/c;
+
+    iget v1, v1, Lcom/unionpay/mobile/android/plugin/c;->a:I
+
+    const/4 v2, 0x5
 
     if-ne v1, v2, :cond_1
 

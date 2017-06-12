@@ -10,14 +10,18 @@
 
 .field final synthetic b:Ljava/lang/String;
 
+.field final synthetic c:Landroid/content/Context;
+
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+.method constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/unionpay/mobile/android/nocard/utils/e;->a:Ljava/lang/String;
 
     iput-object p2, p0, Lcom/unionpay/mobile/android/nocard/utils/e;->b:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/unionpay/mobile/android/nocard/utils/e;->c:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,7 +49,9 @@
 
     new-instance v1, Lcom/unionpay/mobile/android/net/c;
 
-    invoke-direct {v1, v0}, Lcom/unionpay/mobile/android/net/c;-><init>(Lcom/unionpay/mobile/android/net/d;)V
+    iget-object v2, p0, Lcom/unionpay/mobile/android/nocard/utils/e;->c:Landroid/content/Context;
+
+    invoke-direct {v1, v0, v2}, Lcom/unionpay/mobile/android/net/c;-><init>(Lcom/unionpay/mobile/android/net/d;Landroid/content/Context;)V
 
     invoke-virtual {v1}, Lcom/unionpay/mobile/android/net/c;->a()I
 

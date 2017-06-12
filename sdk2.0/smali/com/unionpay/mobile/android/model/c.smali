@@ -15,5 +15,8 @@
 .method public abstract c()I
 .end method
 
-.method public abstract d()Ljava/lang/String;
+.method public abstract d()I
+.end method
+
+.method public abstract e()Ljava/lang/String;
 .end method

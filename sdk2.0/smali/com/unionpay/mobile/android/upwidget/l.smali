@@ -6,14 +6,14 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/h;
+.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/j;
 
 
 # direct methods
-.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/h;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/j;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/l;->a:Lcom/unionpay/mobile/android/upwidget/h;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/l;->a:Lcom/unionpay/mobile/android/upwidget/j;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -23,35 +23,35 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/l;->a:Lcom/unionpay/mobile/android/upwidget/j;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/l;->a:Lcom/unionpay/mobile/android/upwidget/h;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/h;->h(Lcom/unionpay/mobile/android/upwidget/h;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/j;->f(Lcom/unionpay/mobile/android/upwidget/j;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/l;->a:Lcom/unionpay/mobile/android/upwidget/h;
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/h;->i(Lcom/unionpay/mobile/android/upwidget/h;)Landroid/widget/TextView;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v0
+    move-result v0
 
-    const/16 v1, 0x8
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/l;->a:Lcom/unionpay/mobile/android/upwidget/h;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/h;->j(Lcom/unionpay/mobile/android/upwidget/h;)Lcom/unionpay/mobile/android/widgets/ac;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/unionpay/mobile/android/widgets/ac;->setVisibility(I)V
+    check-cast v0, Landroid/view/View$OnClickListener;
 
+    invoke-interface {v0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

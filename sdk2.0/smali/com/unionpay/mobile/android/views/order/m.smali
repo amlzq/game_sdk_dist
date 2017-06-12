@@ -28,7 +28,7 @@
 
     const/high16 v0, 0x41200000    # 10.0f
 
-    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p1, v0}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
@@ -44,7 +44,7 @@
 
     const/high16 v1, 0x41700000    # 15.0f
 
-    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {p1, v1}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v1
 
@@ -232,7 +232,7 @@
 
     const-string v1, "init order detail = null!!!"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
     return-void
@@ -252,7 +252,7 @@
     :cond_5
     iget-object v1, p0, Lcom/unionpay/mobile/android/views/order/m;->a:Landroid/content/Context;
 
-    invoke-static {v1, p2, v2, v0}, Lcom/unionpay/mobile/android/nocard/views/bg;->a(Landroid/content/Context;Lorg/json/JSONArray;II)Landroid/widget/LinearLayout;
+    invoke-static {v1, p2, v2, v0}, Lcom/unionpay/mobile/android/nocard/views/bh;->a(Landroid/content/Context;Lorg/json/JSONArray;II)Landroid/widget/LinearLayout;
 
     move-result-object v1
 
@@ -270,7 +270,7 @@
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/views/order/m;->a:Landroid/content/Context;
 
-    invoke-static {v2, p2, v0, v1}, Lcom/unionpay/mobile/android/nocard/views/bg;->a(Landroid/content/Context;Lorg/json/JSONArray;II)Landroid/widget/LinearLayout;
+    invoke-static {v2, p2, v0, v1}, Lcom/unionpay/mobile/android/nocard/views/bh;->a(Landroid/content/Context;Lorg/json/JSONArray;II)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
@@ -278,17 +278,19 @@
 
     if-eqz p3, :cond_6
 
-    new-instance v0, Lcom/unionpay/mobile/android/widgets/ac;
+    new-instance v0, Lcom/unionpay/mobile/android/widgets/ad;
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/views/order/m;->a:Landroid/content/Context;
 
-    invoke-direct {v0, v1, p3}, Lcom/unionpay/mobile/android/widgets/ac;-><init>(Landroid/content/Context;Lorg/json/JSONObject;)V
+    const-string v2, ""
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/ac;->f()V
+    invoke-direct {v0, v1, p3, v2}, Lcom/unionpay/mobile/android/widgets/ad;-><init>(Landroid/content/Context;Lorg/json/JSONObject;Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/ad;->g()V
 
     sget v1, Lcom/unionpay/mobile/android/global/b;->m:F
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/ac;->a(F)V
+    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/ad;->a(F)V
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -298,7 +300,7 @@
 
     const/high16 v3, 0x41000000    # 8.0f
 
-    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v2
 

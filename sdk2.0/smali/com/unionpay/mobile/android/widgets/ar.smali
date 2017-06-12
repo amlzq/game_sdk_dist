@@ -1,81 +1,128 @@
-.class public final Lcom/unionpay/mobile/android/widgets/ar;
-.super Landroid/widget/LinearLayout;
+.class final Lcom/unionpay/mobile/android/widgets/ar;
+.super Ljava/lang/Thread;
 
 
 # instance fields
-.field private a:Lcom/unionpay/mobile/android/resource/c;
+.field final synthetic a:I
 
-.field private b:Landroid/widget/ImageView;
-
-.field private c:Landroid/widget/ImageView;
+.field final synthetic b:Lcom/unionpay/mobile/android/widgets/ap;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+.method constructor <init>(Lcom/unionpay/mobile/android/widgets/ap;I)V
+    .locals 0
 
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Lcom/unionpay/mobile/android/widgets/ap;
 
-    invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    iput p2, p0, Lcom/unionpay/mobile/android/widgets/ar;->a:I
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->a:Lcom/unionpay/mobile/android/resource/c;
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Landroid/widget/ImageView;
+    return-void
+.end method
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->c:Landroid/widget/ImageView;
 
-    invoke-static {p1}, Lcom/unionpay/mobile/android/resource/c;->a(Landroid/content/Context;)Lcom/unionpay/mobile/android/resource/c;
+# virtual methods
+.method public final run()V
+    .locals 10
 
-    move-result-object v0
+    const-wide/16 v8, 0x3e8
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->a:Lcom/unionpay/mobile/android/resource/c;
+    const/4 v6, 0x1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Lcom/unionpay/mobile/android/widgets/ap;
 
-    invoke-virtual {p0, v0}, Lcom/unionpay/mobile/android/widgets/ar;->setBackgroundColor(I)V
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/unionpay/mobile/android/widgets/ar;->setOrientation(I)V
-
-    new-instance v0, Landroid/widget/ImageView;
-
-    invoke-direct {v0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->c:Landroid/widget/ImageView;
-
-    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v1, -0x1
-
-    sget v2, Lcom/unionpay/mobile/android/global/a;->C:I
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    const/16 v1, 0x50
-
-    iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
-
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ar;->c:Landroid/widget/ImageView;
-
-    invoke-virtual {p0, v1, v0}, Lcom/unionpay/mobile/android/widgets/ar;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->a:Lcom/unionpay/mobile/android/resource/c;
-
-    const/16 v1, 0x3e9
-
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/resource/c;->a(I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/ap;->b(Lcom/unionpay/mobile/android/widgets/ap;)Landroid/os/Handler;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Landroid/widget/ImageView;
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Landroid/widget/ImageView;
+    move-result-wide v0
 
-    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    iget v2, p0, Lcom/unionpay/mobile/android/widgets/ar;->a:I
+
+    mul-int/lit16 v2, v2, 0x3e8
+
+    int-to-long v2, v2
+
+    add-long/2addr v0, v2
+
+    :goto_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    cmp-long v4, v2, v0
+
+    if-gtz v4, :cond_1
+
+    sub-long v2, v0, v2
+
+    iget v4, p0, Lcom/unionpay/mobile/android/widgets/ar;->a:I
+
+    int-to-long v4, v4
+
+    add-long/2addr v2, v4
+
+    div-long/2addr v2, v8
+
+    long-to-int v2, v2
+
+    if-lez v2, :cond_1
+
+    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    iput v4, v3, Landroid/os/Message;->what:I
+
+    iput v2, v3, Landroid/os/Message;->arg1:I
+
+    iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Lcom/unionpay/mobile/android/widgets/ap;
+
+    invoke-static {v2}, Lcom/unionpay/mobile/android/widgets/ap;->b(Lcom/unionpay/mobile/android/widgets/ap;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    const-wide/16 v2, 0x3e8
+
+    :try_start_0
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/widgets/ar;->sleep(J)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Lcom/unionpay/mobile/android/widgets/ap;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/ap;->b(Lcom/unionpay/mobile/android/widgets/ap;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_0
+    :goto_1
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/ar;->b:Lcom/unionpay/mobile/android/widgets/ap;
+
+    invoke-static {v0}, Lcom/unionpay/mobile/android/widgets/ap;->b(Lcom/unionpay/mobile/android/widgets/ap;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    goto :goto_1
 .end method

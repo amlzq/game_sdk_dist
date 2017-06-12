@@ -19,7 +19,7 @@
         "<",
         "Ljava/lang/Integer;",
         "Ljava/lang/Integer;",
-        "Ljava/lang/Boolean;",
+        "Ljava/lang/Integer;",
         ">;"
     }
 .end annotation
@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 163
+    .line 260
     iput-object p1, p0, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/GamePackageDetailActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -44,21 +44,23 @@
 
 
 # virtual methods
-.method protected varargs doInBackground([Ljava/lang/Integer;)Ljava/lang/Boolean;
+.method protected varargs doInBackground([Ljava/lang/Integer;)Ljava/lang/Integer;
     .locals 1
     .param p1, "params"    # [Ljava/lang/Integer;
 
     .prologue
-    .line 166
+    .line 263
     sget-object v0, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
 
-    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->gameBoxDownUrl:Ljava/lang/String;
+    iget-object v0, v0, Lcom/game/sdk/domain/InItInfo;->boxInfo:Lcom/game/sdk/domain/BoxInfo;
 
-    invoke-static {v0}, Lcom/game/sdk/utils/CheckUtil;->is404NotFound(Ljava/lang/String;)Z
+    iget-object v0, v0, Lcom/game/sdk/domain/BoxInfo;->boxDownUrl:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/game/sdk/utils/CheckUtil;->getFileLengthByUrl(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
@@ -72,64 +74,87 @@
     .line 1
     check-cast p1, [Ljava/lang/Integer;
 
-    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->doInBackground([Ljava/lang/Integer;)Ljava/lang/Boolean;
+    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->doInBackground([Ljava/lang/Integer;)Ljava/lang/Integer;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method protected onPostExecute(Ljava/lang/Boolean;)V
-    .locals 3
-    .param p1, "result"    # Ljava/lang/Boolean;
+.method protected onPostExecute(Ljava/lang/Integer;)V
+    .locals 6
+    .param p1, "result"    # Ljava/lang/Integer;
 
     .prologue
-    .line 171
+    .line 268
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 172
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+    .line 270
+    new-instance v0, Ljava/io/File;
 
-    move-result v1
+    const-string v2, "game_box"
 
-    if-nez v1, :cond_0
+    invoke-static {v2}, Lcom/game/sdk/utils/PathUtil;->getApkPath(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 173
-    new-instance v0, Landroid/content/Intent;
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/GamePackageDetailActivity;
+    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    const-class v2, Lcom/game/sdk/service/DownGameBoxService;
+    .line 272
+    .local v0, "downFile":Ljava/io/File;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    move-result v2
 
-    .line 174
-    .local v0, "intent":Landroid/content/Intent;
-    const-string v1, "downUrl"
+    int-to-long v2, v2
 
-    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+    invoke-virtual {v0}, Ljava/io/File;->length()J
 
-    iget-object v2, v2, Lcom/game/sdk/domain/InItInfo;->gameBoxDownUrl:Ljava/lang/String;
+    move-result-wide v4
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    cmp-long v2, v2, v4
 
-    .line 175
-    iget-object v1, p0, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/GamePackageDetailActivity;
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v1, v0}, Lcom/game/sdk/ui/GamePackageDetailActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    .line 273
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 179
-    .end local v0    # "intent":Landroid/content/Intent;
+    .line 274
+    iget-object v2, p0, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/GamePackageDetailActivity;
+
+    invoke-virtual {v2}, Lcom/game/sdk/ui/GamePackageDetailActivity;->downBoxApp()V
+
+    .line 281
     :goto_0
     return-void
 
-    .line 177
+    .line 276
     :cond_0
-    iget-object v1, p0, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/GamePackageDetailActivity;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "\u4e0b\u8f7d\u5730\u5740\u6709\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
+    const-string v2, "android.intent.action.VIEW"
 
-    invoke-static {v1, v2}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 277
+    .local v1, "intent":Landroid/content/Intent;
+    const/high16 v2, 0x10000000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 278
+    invoke-static {v0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    const-string v3, "application/vnd.android.package-archive"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 279
+    iget-object v2, p0, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->this$0:Lcom/game/sdk/ui/GamePackageDetailActivity;
+
+    invoke-virtual {v2, v1}, Lcom/game/sdk/ui/GamePackageDetailActivity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -139,9 +164,9 @@
 
     .prologue
     .line 1
-    check-cast p1, Ljava/lang/Boolean;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->onPostExecute(Ljava/lang/Boolean;)V
+    invoke-virtual {p0, p1}, Lcom/game/sdk/ui/GamePackageDetailActivity$DownAsyncTask;->onPostExecute(Ljava/lang/Integer;)V
 
     return-void
 .end method

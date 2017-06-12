@@ -17,20 +17,34 @@
 # instance fields
 .field public page:I
 
+.field public user_id:Ljava/lang/String;
+
+.field public version:Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
     .locals 1
 
     .prologue
-    .line 47
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
+    .line 50
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;->page:I
 
-    .line 47
+    .line 51
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;->user_id:Ljava/lang/String;
+
+    .line 52
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/game/sdk/engin/MainModuleEngin$ParamsInfo;->version:Ljava/lang/String;
+
+    .line 49
     return-void
 .end method

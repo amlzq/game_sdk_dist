@@ -3,5 +3,5 @@
 
 
 # virtual methods
-.method public abstract c()Lcom/unionpay/mobile/android/nocard/utils/UPPayEngine;
+.method public abstract e()Lcom/unionpay/mobile/android/nocard/utils/UPPayEngine;
 .end method

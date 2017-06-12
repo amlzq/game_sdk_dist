@@ -17,7 +17,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/unionpay/mobile/android/net/d;)V
+.method public constructor <init>(Lcom/unionpay/mobile/android/net/d;Landroid/content/Context;)V
     .locals 7
 
     const/4 v6, 0x0
@@ -92,7 +92,7 @@
 
     new-instance v4, Lcom/unionpay/mobile/android/net/a;
 
-    invoke-direct {v4}, Lcom/unionpay/mobile/android/net/a;-><init>()V
+    invoke-direct {v4, p2}, Lcom/unionpay/mobile/android/net/a;-><init>(Landroid/content/Context;)V
 
     const/16 v5, 0x1bb
 
@@ -136,7 +136,7 @@
 
     const-string v1, "HttpConn.connect() +++"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/net/c;->f:Lcom/unionpay/mobile/android/net/d;
 
@@ -146,7 +146,7 @@
 
     const-string v1, "params==null!!!"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return v4
@@ -354,7 +354,7 @@
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x4
 
@@ -363,7 +363,7 @@
 
     const-string v2, "HttpConn.connect() ---"
 
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     move v4, v0
 
@@ -427,7 +427,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljavax/net/ssl/SSLHandshakeException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
@@ -465,7 +465,7 @@
     move-result-object v0
 
     :goto_5
-    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v4
 
@@ -502,7 +502,7 @@
     move-result-object v0
 
     :goto_6
-    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v4
 
@@ -539,7 +539,7 @@
     move-result-object v0
 
     :goto_7
-    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v4
 
@@ -577,7 +577,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Ljava/lang/String;
 
@@ -606,7 +606,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -623,7 +623,7 @@
 
     const-string v2, "convert response to utf-8 error!!!!"
 
-    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/g;->c(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/unionpay/mobile/android/utils/j;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 

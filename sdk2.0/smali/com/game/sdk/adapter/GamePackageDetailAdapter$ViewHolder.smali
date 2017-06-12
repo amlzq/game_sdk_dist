@@ -33,7 +33,7 @@
     .locals 0
 
     .prologue
-    .line 134
+    .line 156
     iput-object p1, p0, Lcom/game/sdk/adapter/GamePackageDetailAdapter$ViewHolder;->this$0:Lcom/game/sdk/adapter/GamePackageDetailAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

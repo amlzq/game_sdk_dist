@@ -42,18 +42,18 @@
     .param p3, "phoneNumber"    # Ljava/lang/String;
 
     .prologue
-    .line 153
+    .line 167
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 154
+    .line 168
     iput-object p2, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->userName:Ljava/lang/String;
 
-    .line 155
+    .line 169
     iput-object p3, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->phoneNumber:Ljava/lang/String;
 
-    .line 156
+    .line 170
     return-void
 .end method
 
@@ -75,7 +75,7 @@
     .end annotation
 
     .prologue
-    .line 165
+    .line 179
     new-instance v0, Lcom/game/sdk/engin/BindPhoneValidateEngin;
 
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
@@ -91,7 +91,7 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/game/sdk/engin/BindPhoneValidateEngin;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 166
+    .line 180
     .local v0, "validateEngin":Lcom/game/sdk/engin/BindPhoneValidateEngin;
     invoke-virtual {v0}, Lcom/game/sdk/engin/BindPhoneValidateEngin;->run()Lcom/game/sdk/domain/ResultInfo;
 
@@ -130,10 +130,10 @@
     .local p1, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Ljava/lang/String;>;"
     const/4 v2, 0x1
 
-    .line 171
+    .line 185
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 172
+    .line 186
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->sendDialog:Lcom/game/sdk/view/CustomDialog;
@@ -143,14 +143,14 @@
 
     invoke-virtual {v0}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 173
+    .line 187
     if-eqz p1, :cond_0
 
     iget v0, p1, Lcom/game/sdk/domain/ResultInfo;->code:I
 
     if-ne v0, v2, :cond_0
 
-    .line 174
+    .line 188
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
@@ -162,21 +162,21 @@
 
     invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 175
+    .line 189
     const-string v0, "\u9a8c\u8bc1\u7801\u53d1\u9001\u6210\u529f----"
 
     invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 176
+    .line 190
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # invokes: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->codeRefresh()V
     invoke-static {v0}, Lcom/game/sdk/ui/fragment/BindPhoneFragment;->access$2(Lcom/game/sdk/ui/fragment/BindPhoneFragment;)V
 
-    .line 177
+    .line 191
     sput v2, Lcom/game/sdk/domain/GoagalInfo;->isGetValidate:I
 
-    .line 179
+    .line 193
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->validateCodeEt:Landroid/widget/EditText;
@@ -188,11 +188,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 189
+    .line 203
     :goto_0
     return-void
 
-    .line 180
+    .line 194
     :cond_0
     if-eqz p1, :cond_1
 
@@ -202,7 +202,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 181
+    .line 195
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
@@ -214,10 +214,10 @@
 
     invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 182
+    .line 196
     sput v2, Lcom/game/sdk/domain/GoagalInfo;->isGetValidate:I
 
-    .line 184
+    .line 198
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/BindPhoneFragment;->validateCodeEt:Landroid/widget/EditText;
@@ -231,7 +231,7 @@
 
     goto :goto_0
 
-    .line 186
+    .line 200
     :cond_1
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/BindPhoneFragment$ValidateCodeTask;->this$0:Lcom/game/sdk/ui/fragment/BindPhoneFragment;
 
@@ -244,7 +244,7 @@
 
     invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 187
+    .line 201
     const/4 v0, 0x0
 
     sput v0, Lcom/game/sdk/domain/GoagalInfo;->isGetValidate:I
@@ -268,9 +268,9 @@
     .locals 0
 
     .prologue
-    .line 160
+    .line 174
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 161
+    .line 175
     return-void
 .end method

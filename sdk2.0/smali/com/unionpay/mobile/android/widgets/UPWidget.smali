@@ -1,12 +1,14 @@
 .class public final Lcom/unionpay/mobile/android/widgets/UPWidget;
-.super Lcom/unionpay/mobile/android/widgets/z;
+.super Lcom/unionpay/mobile/android/widgets/aa;
 
 # interfaces
-.implements Lcom/unionpay/mobile/android/widgets/t$b;
+.implements Lcom/unionpay/mobile/android/widgets/u$b;
 
 
 # static fields
 .field private static final n:I
+
+.field private static r:I
 
 
 # instance fields
@@ -16,13 +18,11 @@
 
 .field private q:Ljava/lang/String;
 
-.field private r:I
-
 .field private s:Z
 
 .field private t:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-.field private u:Lcom/unionpay/mobile/android/widgets/ba;
+.field private u:Lcom/unionpay/mobile/android/widgets/bb;
 
 .field private v:Landroid/view/View$OnClickListener;
 
@@ -37,95 +37,93 @@
 
     sput v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->n:I
 
-    return-void
-.end method
+    const/4 v0, 0x0
 
-.method public constructor <init>(Landroid/content/Context;ILorg/json/JSONObject;)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/unionpay/mobile/android/widgets/z;-><init>(Landroid/content/Context;ILorg/json/JSONObject;)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->p:Z
-
-    iput-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->q:Ljava/lang/String;
-
-    iput v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
-
-    iput-boolean v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->s:Z
-
-    new-instance v0, Lcom/unionpay/mobile/android/widgets/av;
-
-    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/widgets/av;-><init>(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->t:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-
-    iput-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
-
-    new-instance v0, Lcom/unionpay/mobile/android/widgets/aw;
-
-    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/widgets/aw;-><init>(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->v:Landroid/view/View$OnClickListener;
-
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->u()V
-
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->d()V
+    sput v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;JILorg/json/JSONObject;)V
+.method public constructor <init>(Landroid/content/Context;JILorg/json/JSONObject;Ljava/lang/String;)V
     .locals 4
 
-    const/4 v2, 0x0
-
     const/4 v1, 0x0
 
-    invoke-direct {p0, p1, p4, p5}, Lcom/unionpay/mobile/android/widgets/z;-><init>(Landroid/content/Context;ILorg/json/JSONObject;)V
+    invoke-direct {p0, p1, p4, p5, p6}, Lcom/unionpay/mobile/android/widgets/aa;-><init>(Landroid/content/Context;ILorg/json/JSONObject;Ljava/lang/String;)V
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->p:Z
 
-    iput-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->q:Ljava/lang/String;
+    iput-object v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->q:Ljava/lang/String;
 
-    iput v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    const/4 v0, 0x0
 
-    iput-boolean v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->s:Z
-
-    new-instance v0, Lcom/unionpay/mobile/android/widgets/av;
-
-    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/widgets/av;-><init>(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
-
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->t:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-
-    iput-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iput-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->s:Z
 
     new-instance v0, Lcom/unionpay/mobile/android/widgets/aw;
 
     invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/widgets/aw;-><init>(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
+
+    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->t:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+    iput-object v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
+
+    new-instance v0, Lcom/unionpay/mobile/android/widgets/ax;
+
+    invoke-direct {v0, p0}, Lcom/unionpay/mobile/android/widgets/ax;-><init>(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->v:Landroid/view/View$OnClickListener;
 
     iput-wide p2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->o:J
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->u()V
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->d()V
+    invoke-virtual {v0, p0}, Lcom/unionpay/mobile/android/widgets/u;->a(Lcom/unionpay/mobile/android/widgets/u$b;)V
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
+
+    new-instance v1, Landroid/text/InputFilter$LengthFilter;
+
+    const/4 v2, 0x6
+
+    invoke-direct {v1, v2}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
+
+    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/u;->a(Landroid/text/InputFilter;)V
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
+
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/u;->f()V
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
+
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/u;->d()V
+
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->e()V
 
     return-void
+.end method
+
+.method private A()Landroid/view/View;
+    .locals 2
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->c:Landroid/content/Context;
+
+    check-cast v0, Landroid/app/Activity;
+
+    const/16 v1, 0x22b8
+
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method static synthetic a(Lcom/unionpay/mobile/android/widgets/UPWidget;)Landroid/view/View;
     .locals 1
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v0
 
@@ -151,22 +149,14 @@
 .method private native appendOnce(JLjava/lang/String;)V
 .end method
 
-.method static synthetic b(Lcom/unionpay/mobile/android/widgets/UPWidget;)I
-    .locals 1
-
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
-
-    return v0
-.end method
-
-.method static synthetic c(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
+.method static synthetic b(Lcom/unionpay/mobile/android/widgets/UPWidget;)V
     .locals 3
 
     const-string v0, "kb"
 
     const-string v1, "pwdInputFinished() +++"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, "kb"
 
@@ -176,7 +166,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sget v2, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -186,23 +176,20 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->j()V
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->k()V
 
     const-string v0, "kb"
 
     const-string v1, "pwdInputFinished() ---"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method private native clearAll(J)V
-.end method
-
-.method static synthetic d(Lcom/unionpay/mobile/android/widgets/UPWidget;)J
+.method static synthetic c(Lcom/unionpay/mobile/android/widgets/UPWidget;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->o:J
@@ -210,31 +197,10 @@
     return-wide v0
 .end method
 
+.method private native clearAll(J)V
+.end method
+
 .method private native deleteOnce(J)V
-.end method
-
-.method static synthetic e(Lcom/unionpay/mobile/android/widgets/UPWidget;)I
-    .locals 2
-
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
-
-    add-int/lit8 v1, v0, -0x1
-
-    iput v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
-
-    return v0
-.end method
-
-.method static synthetic f(Lcom/unionpay/mobile/android/widgets/UPWidget;)I
-    .locals 2
-
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
-
-    add-int/lit8 v1, v0, 0x1
-
-    iput v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
-
-    return v0
 .end method
 
 .method private native getMsg(J)Ljava/lang/String;
@@ -243,7 +209,7 @@
 .method private native getMsgExtra(JLjava/lang/String;)Ljava/lang/String;
 .end method
 
-.method static synthetic l()I
+.method static synthetic m()I
     .locals 1
 
     sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->n:I
@@ -251,44 +217,48 @@
     return v0
 .end method
 
-.method private u()V
-    .locals 3
+.method static synthetic n()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
+    sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
-    invoke-virtual {v0, p0}, Lcom/unionpay/mobile/android/widgets/t;->a(Lcom/unionpay/mobile/android/widgets/t$b;)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
-
-    new-instance v1, Landroid/text/InputFilter$LengthFilter;
-
-    const/4 v2, 0x6
-
-    invoke-direct {v1, v2}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
-
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/t;->a(Landroid/text/InputFilter;)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
-
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/t;->f()V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
-
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/t;->d()V
-
-    return-void
+    return v0
 .end method
 
-.method private v()V
+.method static synthetic o()I
     .locals 2
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+
+    add-int/lit8 v1, v0, -0x1
+
+    sput v1, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+
+    return v0
+.end method
+
+.method static synthetic p()I
+    .locals 2
+
+    sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    sput v1, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+
+    return v0
+.end method
+
+.method private z()V
+    .locals 2
+
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v0
 
@@ -301,40 +271,24 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/ba;->b()Z
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/bb;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/ba;->a()V
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/widgets/bb;->a()V
 
     :cond_1
     return-void
-.end method
-
-.method private w()Landroid/view/View;
-    .locals 2
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->c:Landroid/content/Context;
-
-    check-cast v0, Landroid/app/Activity;
-
-    const/16 v1, 0x22b8
-
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 
@@ -396,9 +350,9 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
+    iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
 
-    invoke-virtual {v2}, Lcom/unionpay/mobile/android/widgets/t;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v2}, Lcom/unionpay/mobile/android/widgets/u;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v2
 
@@ -406,7 +360,7 @@
 
     const/4 v0, 0x1
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v2
 
@@ -418,7 +372,7 @@
 
     move-result v2
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v3
 
@@ -443,14 +397,14 @@
     :cond_0
     if-eqz v0, :cond_2
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->k()V
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->l()V
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->i()Z
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->j()Z
 
     move-result v0
 
@@ -460,21 +414,21 @@
 
     const-string v1, "key board is closing.."
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, "uppay"
 
     const-string v1, "registerKeyboardDissmisslisner() +++"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_3
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->w()Landroid/view/View;
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->A()Landroid/view/View;
 
     move-result-object v0
 
@@ -491,12 +445,12 @@
 
     const-string v1, "registerKeyboardDissmisslisner() ---"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_4
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->v()V
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->z()V
 
     goto :goto_0
 .end method
@@ -508,13 +462,13 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->i()Z
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->j()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->k()V
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->l()V
 
     :cond_0
     return-void
@@ -539,7 +493,7 @@
 .method public final b()Z
     .locals 2
 
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     const/4 v1, 0x6
 
@@ -563,7 +517,7 @@
 
     const-string v1, "emptyCheck() +++ "
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, "uppay"
 
@@ -573,7 +527,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sget v2, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -583,15 +537,15 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, "uppay"
 
     const-string v1, "emptyCheck() --- "
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     if-eqz v0, :cond_0
 
@@ -606,10 +560,18 @@
     goto :goto_0
 .end method
 
-.method public final d()V
+.method protected final d()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "_bank_pwd"
+
+    return-object v0
+.end method
+
+.method public final e()V
     .locals 2
 
-    iget v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sget v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     if-lez v0, :cond_0
 
@@ -619,24 +581,24 @@
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sput v0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     :cond_0
     return-void
 .end method
 
-.method public final i()Z
+.method public final j()Z
     .locals 2
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
-    invoke-virtual {v1}, Lcom/unionpay/mobile/android/widgets/ba;->b()Z
+    invoke-virtual {v1}, Lcom/unionpay/mobile/android/widgets/bb;->b()Z
 
     move-result v1
 
@@ -648,47 +610,47 @@
     return v0
 .end method
 
-.method public final j()V
+.method public final k()V
     .locals 2
 
     const-string v0, "uppay"
 
     const-string v1, "closeCustomKeyboard() +++"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->i()Z
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->j()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->v()V
+    invoke-direct {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->z()V
 
     :cond_0
     const-string v0, "uppay"
 
     const-string v1, "closeCustomKeyboard() ---"
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/g;->a(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/j;->a(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method public final k()V
+.method public final l()V
     .locals 4
 
     iget-boolean v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->s:Z
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->i()Z
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->j()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    new-instance v0, Lcom/unionpay/mobile/android/widgets/ba;
+    new-instance v0, Lcom/unionpay/mobile/android/widgets/bb;
 
     invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->getContext()Landroid/content/Context;
 
@@ -696,15 +658,15 @@
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->v:Landroid/view/View$OnClickListener;
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/unionpay/mobile/android/widgets/ba;-><init>(Landroid/content/Context;Landroid/view/View$OnClickListener;Landroid/view/View;)V
+    invoke-direct {v0, v1, v2, p0}, Lcom/unionpay/mobile/android/widgets/bb;-><init>(Landroid/content/Context;Landroid/view/View$OnClickListener;Landroid/view/View;)V
 
-    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iput-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/ba;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->u:Lcom/unionpay/mobile/android/widgets/bb;
 
-    invoke-virtual {v0, p0}, Lcom/unionpay/mobile/android/widgets/ba;->a(Landroid/view/View;)V
+    invoke-virtual {v0, p0}, Lcom/unionpay/mobile/android/widgets/bb;->a(Landroid/view/View;)V
 
-    iget v2, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
+    sget v2, Lcom/unionpay/mobile/android/widgets/UPWidget;->r:I
 
     const-string v1, ""
 
@@ -736,17 +698,17 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/t;->c(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/u;->c(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/t;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/widgets/UPWidget;->b:Lcom/unionpay/mobile/android/widgets/u;
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/t;->b(I)V
+    invoke-virtual {v0, v1}, Lcom/unionpay/mobile/android/widgets/u;->b(I)V
 
     :cond_1
     return-void
@@ -755,9 +717,9 @@
 .method protected final onDetachedFromWindow()V
     .locals 0
 
-    invoke-super {p0}, Lcom/unionpay/mobile/android/widgets/z;->onDetachedFromWindow()V
+    invoke-super {p0}, Lcom/unionpay/mobile/android/widgets/aa;->onDetachedFromWindow()V
 
-    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->j()V
+    invoke-virtual {p0}, Lcom/unionpay/mobile/android/widgets/UPWidget;->k()V
 
     return-void
 .end method

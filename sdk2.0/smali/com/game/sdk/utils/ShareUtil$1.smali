@@ -55,7 +55,7 @@
 
     iput-object p5, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$shareDialog:Lcom/game/sdk/view/CustomDialog;
 
-    .line 47
+    .line 48
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
     return-void
@@ -93,22 +93,22 @@
     .end annotation
 
     .prologue
-    .line 51
+    .line 52
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 52
+    .line 53
     .local v3, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/net/Uri;>;"
     iget-object v6, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$images:Ljava/util/List;
 
     if-nez v6, :cond_1
 
-    .line 68
+    .line 69
     :cond_0
     return-object v3
 
-    .line 56
+    .line 57
     :cond_1
     iget-object v6, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$images:Ljava/util/List;
 
@@ -129,7 +129,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 59
+    .line 60
     .local v1, "imgUrl":Ljava/lang/String;
     :try_start_0
     new-instance v7, Lokhttp3/Request$Builder;
@@ -144,7 +144,7 @@
 
     move-result-object v4
 
-    .line 60
+    .line 61
     .local v4, "request":Lokhttp3/Request;
     sget-object v7, Lcom/game/sdk/utils/ShareUtil;->mOkHttpClient:Lokhttp3/OkHttpClient;
 
@@ -156,7 +156,7 @@
 
     move-result-object v5
 
-    .line 61
+    .line 62
     .local v5, "response":Lokhttp3/Response;
     invoke-virtual {v5}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
@@ -166,13 +166,13 @@
 
     move-result-object v2
 
-    .line 62
+    .line 63
     .local v2, "is":Ljava/io/InputStream;
     invoke-static {v2}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 63
+    .line 64
     .local v0, "bm":Landroid/graphics/Bitmap;
     iget-object v7, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$ctx:Landroid/content/Context;
 
@@ -186,7 +186,7 @@
 
     goto :goto_0
 
-    .line 65
+    .line 66
     .end local v0    # "bm":Landroid/graphics/Bitmap;
     .end local v2    # "is":Ljava/io/InputStream;
     .end local v4    # "request":Lokhttp3/Request;
@@ -222,11 +222,11 @@
     .end annotation
 
     .prologue
-    .line 72
+    .line 73
     .local p1, "uris":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/net/Uri;>;"
     const-string v0, "com.tencent.mm.ui.tools.ShareImgUI"
 
-    .line 73
+    .line 74
     .local v0, "activityName":Ljava/lang/String;
     iget v3, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$type:I
 
@@ -234,10 +234,10 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 74
+    .line 75
     const-string v0, "com.tencent.mm.ui.tools.ShareToTimeLineUI"
 
-    .line 76
+    .line 77
     :cond_0
     new-instance v2, Landroid/content/Intent;
 
@@ -245,7 +245,7 @@
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 77
+    .line 78
     .local v2, "intent":Landroid/content/Intent;
     new-instance v1, Landroid/content/ComponentName;
 
@@ -253,33 +253,33 @@
 
     invoke-direct {v1, v3, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 78
+    .line 79
     .local v1, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v2, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 79
+    .line 80
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
     if-lez v3, :cond_1
 
-    .line 80
+    .line 81
     const-string v3, "image/*"
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 81
+    .line 82
     const-string v3, "android.intent.action.SEND_MULTIPLE"
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 82
+    .line 83
     const-string v3, "android.intent.extra.STREAM"
 
     invoke-virtual {v2, v3, p1}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    .line 84
+    .line 85
     :cond_1
     const-string v3, "Kdescription"
 
@@ -287,7 +287,7 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 85
+    .line 86
     iget-object v3, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$ctx:Landroid/content/Context;
 
     const-string v4, "\u5206\u4eab"
@@ -298,11 +298,11 @@
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 86
+    .line 87
     iget-object v3, p0, Lcom/game/sdk/utils/ShareUtil$1;->val$shareDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v3}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 87
+    .line 88
     return-void
 .end method

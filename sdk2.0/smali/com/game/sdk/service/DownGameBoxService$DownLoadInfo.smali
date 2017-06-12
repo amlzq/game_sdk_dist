@@ -27,15 +27,15 @@
     .param p3, "downloadSize"    # J
 
     .prologue
-    .line 52
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 54
     iput-wide p3, p0, Lcom/game/sdk/service/DownGameBoxService$DownLoadInfo;->downloadSize:J
 
-    .line 54
+    .line 55
     iput-wide p1, p0, Lcom/game/sdk/service/DownGameBoxService$DownLoadInfo;->fileSize:J
 
-    .line 55
+    .line 56
     return-void
 .end method

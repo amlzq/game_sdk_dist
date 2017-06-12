@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/CompAignDetailFragment$1$1;->this$1:Lcom/game/sdk/ui/fragment/CompAignDetailFragment$1;
 
-    .line 76
+    .line 77
     invoke-direct {p0}, Landroid/webkit/WebViewClient;-><init>()V
 
     return-void
@@ -40,10 +40,10 @@
     .param p2, "url"    # Ljava/lang/String;
 
     .prologue
-    .line 81
+    .line 82
     invoke-virtual {p1, p2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 82
+    .line 83
     const/4 v0, 0x1
 
     return v0

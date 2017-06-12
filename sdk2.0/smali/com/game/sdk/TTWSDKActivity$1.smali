@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/TTWSDKActivity$1;->this$0:Lcom/game/sdk/TTWSDKActivity;
 
-    .line 51
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,17 +38,15 @@
 
 # virtual methods
 .method public initFailure()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 60
-    iget-object v0, p0, Lcom/game/sdk/TTWSDKActivity$1;->this$0:Lcom/game/sdk/TTWSDKActivity;
+    .line 63
+    const-string v0, "\u521d\u59cb\u5316\u5931\u8d25"
 
-    const-string v1, "\u521d\u59cb\u5316\u5931\u8d25"
+    invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 61
+    .line 65
     return-void
 .end method
 
@@ -56,14 +54,12 @@
     .locals 2
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/game/sdk/TTWSDKActivity$1;->this$0:Lcom/game/sdk/TTWSDKActivity;
+    .line 57
+    const-string v0, "\u521d\u59cb\u5316\u6210\u529f"
 
-    const-string v1, "\u521d\u59cb\u5316\u6210\u529f"
+    invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 55
+    .line 58
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "\u5904\u7406\u540e\u7684\u7ed3\u679c\u503c------"
@@ -86,6 +82,6 @@
 
     invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 56
+    .line 59
     return-void
 .end method

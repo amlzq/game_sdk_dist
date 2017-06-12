@@ -37,15 +37,15 @@
     .param p2, "uInfo"    # Lcom/game/sdk/domain/UserInfo;
 
     .prologue
-    .line 185
+    .line 218
     iput-object p1, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 186
+    .line 219
     iput-object p2, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->uInfo:Lcom/game/sdk/domain/UserInfo;
 
-    .line 187
+    .line 220
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 196
+    .line 229
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     new-instance v1, Lcom/game/sdk/engin/UpdateUserInfoEngin;
@@ -69,7 +69,7 @@
 
     invoke-static {v0, v1}, Lcom/game/sdk/ui/CommonInfoActivity;->access$2(Lcom/game/sdk/ui/CommonInfoActivity;Lcom/game/sdk/engin/UpdateUserInfoEngin;)V
 
-    .line 197
+    .line 230
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     # getter for: Lcom/game/sdk/ui/CommonInfoActivity;->updateUserInfoEngin:Lcom/game/sdk/engin/UpdateUserInfoEngin;
@@ -107,47 +107,47 @@
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    .line 202
+    .line 235
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 203
+    .line 236
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     iget-object v0, v0, Lcom/game/sdk/ui/CommonInfoActivity;->updateDialog:Lcom/game/sdk/view/CustomDialog;
 
     invoke-virtual {v0}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 204
+    .line 237
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 205
+    .line 238
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     const-string v1, "\u4fee\u6539\u6210\u529f"
 
     invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 206
+    .line 239
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Lcom/game/sdk/ui/CommonInfoActivity;->setResult(I)V
 
-    .line 207
+    .line 240
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
     invoke-virtual {v0}, Lcom/game/sdk/ui/CommonInfoActivity;->finish()V
 
-    .line 211
+    .line 244
     :goto_0
     return-void
 
-    .line 209
+    .line 242
     :cond_0
     iget-object v0, p0, Lcom/game/sdk/ui/CommonInfoActivity$UpdateInfoTask;->this$0:Lcom/game/sdk/ui/CommonInfoActivity;
 
@@ -174,9 +174,9 @@
     .locals 0
 
     .prologue
-    .line 191
+    .line 224
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 192
+    .line 225
     return-void
 .end method

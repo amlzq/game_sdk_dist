@@ -332,13 +332,13 @@
 
     const/high16 v1, 0x41400000    # 12.0f
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/m;->a:Landroid/content/Context;
 
-    invoke-static {v1, v8}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v1, v8}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/widgets/m;->a:Landroid/content/Context;
 
@@ -346,7 +346,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/unionpay/mobile/android/global/a;->L:I
+    sget v2, Lcom/unionpay/mobile/android/global/a;->M:I
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->setBackgroundColor(I)V
 
@@ -481,7 +481,7 @@
 
     iget-object v3, p0, Lcom/unionpay/mobile/android/widgets/m;->a:Landroid/content/Context;
 
-    invoke-static {v3, v8}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v8}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -729,7 +729,7 @@
 
     const v4, -0x593503
 
-    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/d;->a(II)Landroid/content/res/ColorStateList;
+    invoke-static {v3, v4}, Lcom/unionpay/mobile/android/utils/g;->a(II)Landroid/content/res/ColorStateList;
 
     move-result-object v3
 
@@ -946,7 +946,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v1
 
@@ -1039,7 +1039,7 @@
 
     const v5, -0x593503
 
-    invoke-static {v4, v5}, Lcom/unionpay/mobile/android/utils/d;->a(II)Landroid/content/res/ColorStateList;
+    invoke-static {v4, v5}, Lcom/unionpay/mobile/android/utils/g;->a(II)Landroid/content/res/ColorStateList;
 
     move-result-object v4
 
@@ -1141,7 +1141,7 @@
 
     const v5, -0x593503
 
-    invoke-static {v1, v5}, Lcom/unionpay/mobile/android/utils/d;->a(II)Landroid/content/res/ColorStateList;
+    invoke-static {v1, v5}, Lcom/unionpay/mobile/android/utils/g;->a(II)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 

@@ -1,82 +1,33 @@
 .class final Lcom/unionpay/mobile/android/upwidget/r;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
-.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
+.field final synthetic a:Lcom/unionpay/mobile/android/upwidget/q;
 
 
 # direct methods
-.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/upwidget/q;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/q;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final handleMessage(Landroid/os/Message;)V
-    .locals 4
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
 
-    invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/q;
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/q;->a(Lcom/unionpay/mobile/android/upwidget/q;)V
 
-    packed-switch v0, :pswitch_data_0
-
-    :cond_0
-    :goto_0
     return-void
-
-    :pswitch_0
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->a(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
-
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->invalidate()V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->b(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->b(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    if-lez v0, :cond_0
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/upwidget/r;->a:Lcom/unionpay/mobile/android/upwidget/UPRadiationView;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/upwidget/UPRadiationView;->c(Lcom/unionpay/mobile/android/upwidget/UPRadiationView;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    const-wide/16 v2, 0x32
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-    .end packed-switch
 .end method

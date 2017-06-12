@@ -16,6 +16,10 @@
 
 .field public static final ACCOUNT_SAFETY:Ljava/lang/String; = "ACCOUNT_SAFETY"
 
+.field public static final AGENT_INIT_IMAGE:Ljava/lang/String; = "agent_game_init_image"
+
+.field public static final AGENT_LOGO_IMAGE:Ljava/lang/String; = "agent_game_logo_image"
+
 .field public static final ALIPAY_CR:Ljava/lang/String; = "alipay"
 
 .field public static final CHARGE_RECORD:Ljava/lang/String; = "CHARGE_RECORD"
@@ -26,15 +30,29 @@
 
 .field public static final DEBUG:Z = false
 
+.field public static final DRAG_IMAGE:Ljava/lang/String; = "drag_image"
+
+.field public static final DRAG_LEFT_IMAGE:Ljava/lang/String; = "drag_left_image"
+
+.field public static final DRAG_RIGHT_IMAGE:Ljava/lang/String; = "drag_right_image"
+
+.field public static final GAME_CENTER:Ljava/lang/String; = "GAME_CENTER"
+
 .field public static final GAME_MONEY_CR:Ljava/lang/String; = "gamemoney"
 
 .field public static final GAME_PACKAGE:Ljava/lang/String; = "GAME_PACKAGE"
 
+.field public static final INIT_IMAGE:Ljava/lang/String; = "game_init_image"
+
 .field public static final ISFIRST_INSTALL:Ljava/lang/String; = "isfirst_install_config"
+
+.field public static final LAST_AGENT_ID:Ljava/lang/String; = "last_agent_id"
 
 .field public static final LOGIN_USER_PWD:Ljava/lang/String; = "login_user_pwd"
 
 .field public static final LOGIN_USER_USERNAME:Ljava/lang/String; = "login_user_username"
+
+.field public static final LOGO_IMAGE:Ljava/lang/String; = "game_logo_image"
 
 .field public static final MONEY_CR:Ljava/lang/String; = "money"
 
@@ -101,6 +119,12 @@
 .field public static final WXPAY_CR:Ljava/lang/String; = "wxpay"
 
 .field public static final isAutoLogin:Ljava/lang/String; = "is_auto_login"
+
+.field public static final isFirstAccount:Ljava/lang/String; = "is_first_account"
+
+.field public static final isFirstMobile:Ljava/lang/String; = "is_first_mobile"
+
+.field public static final isReadLastVersion:Ljava/lang/String; = "is_read_last_version"
 
 
 # direct methods

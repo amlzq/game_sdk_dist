@@ -15,11 +15,19 @@
 
 
 # instance fields
+.field cancelPayBtn:Landroid/widget/Button;
+
 .field chargeDateTv:Landroid/widget/TextView;
+
+.field chargeIv:Landroid/widget/ImageView;
 
 .field chargeMoneyTv:Landroid/widget/TextView;
 
-.field chargeWayTv:Landroid/widget/TextView;
+.field chargeRealMoneyTv:Landroid/widget/TextView;
+
+.field continuePayLayout:Landroid/widget/RelativeLayout;
+
+.field coutinuePayBtn:Landroid/widget/Button;
 
 .field gameNameTv:Landroid/widget/TextView;
 
@@ -35,7 +43,7 @@
     .locals 0
 
     .prologue
-    .line 87
+    .line 185
     iput-object p1, p0, Lcom/game/sdk/adapter/ChargeRecordAdapter$ViewHolder;->this$0:Lcom/game/sdk/adapter/ChargeRecordAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

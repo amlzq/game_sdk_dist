@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 10
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,10 +19,10 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 30
+    .line 33
     invoke-static {}, Lcom/game/sdk/utils/PathUtil;->makeBaseDir()V
 
-    .line 31
+    .line 34
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -47,7 +47,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 32
+    .line 35
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -55,10 +55,10 @@
 
     if-nez v1, :cond_0
 
-    .line 33
+    .line 36
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 35
+    .line 38
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -99,10 +99,10 @@
     .locals 3
 
     .prologue
-    .line 58
+    .line 61
     invoke-static {}, Lcom/game/sdk/utils/PathUtil;->makeBaseDir()V
 
-    .line 59
+    .line 62
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -127,7 +127,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 60
+    .line 63
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -135,10 +135,10 @@
 
     if-nez v1, :cond_0
 
-    .line 61
+    .line 64
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 63
+    .line 66
     :cond_0
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -151,10 +151,10 @@
     .locals 3
 
     .prologue
-    .line 67
+    .line 70
     invoke-static {}, Lcom/game/sdk/utils/PathUtil;->makeBaseDir()V
 
-    .line 68
+    .line 71
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -179,7 +179,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 69
+    .line 72
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -187,10 +187,10 @@
 
     if-nez v1, :cond_0
 
-    .line 70
+    .line 73
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 72
+    .line 75
     :cond_0
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -204,10 +204,10 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 15
+    .line 17
     invoke-static {}, Lcom/game/sdk/utils/PathUtil;->makeBaseDir()V
 
-    .line 16
+    .line 18
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -232,7 +232,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 17
+    .line 19
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -240,10 +240,10 @@
 
     if-nez v1, :cond_0
 
-    .line 18
+    .line 20
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 20
+    .line 22
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -280,14 +280,84 @@
     return-object v1
 .end method
 
+.method public static getSoPath(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+
+    .prologue
+    .line 86
+    new-instance v0, Ljava/io/File;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "6071Box"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "so"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 87
+    .local v0, "dir":Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 88
+    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+
+    .line 90
+    :cond_0
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method public static getThemeDir()Ljava/lang/String;
     .locals 3
 
     .prologue
-    .line 44
+    .line 47
     invoke-static {}, Lcom/game/sdk/utils/PathUtil;->makeBaseDir()V
 
-    .line 45
+    .line 48
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -312,7 +382,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 46
+    .line 49
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -320,10 +390,10 @@
 
     if-nez v1, :cond_0
 
-    .line 47
+    .line 50
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 49
+    .line 52
     :cond_0
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -336,14 +406,14 @@
     .locals 2
 
     .prologue
-    .line 77
+    .line 79
     new-instance v0, Ljava/io/File;
 
     sget-object v1, Lcom/game/sdk/net/constans/ServerConfig;->PATH:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 78
+    .line 80
     .local v0, "dir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -351,10 +421,10 @@
 
     if-nez v1, :cond_0
 
-    .line 79
+    .line 81
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 81
+    .line 83
     :cond_0
     return-void
 .end method

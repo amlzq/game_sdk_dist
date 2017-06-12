@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/service/DownGameBoxService$3;->this$0:Lcom/game/sdk/service/DownGameBoxService;
 
-    .line 168
+    .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 171
+    .line 184
     iget-object v0, p0, Lcom/game/sdk/service/DownGameBoxService$3;->this$0:Lcom/game/sdk/service/DownGameBoxService;
 
     const-string v1, "\u4e0b\u8f7d\u5730\u5740\u9519\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
@@ -54,6 +54,6 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 172
+    .line 185
     return-void
 .end method

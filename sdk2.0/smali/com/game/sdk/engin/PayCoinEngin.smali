@@ -27,16 +27,16 @@
     .param p2, "userId"    # Ljava/lang/String;
 
     .prologue
-    .line 30
+    .line 29
     invoke-direct {p0, p1}, Lcom/game/sdk/engin/BaseEngin;-><init>(Landroid/content/Context;)V
 
-    .line 31
+    .line 30
     iput-object p1, p0, Lcom/game/sdk/engin/PayCoinEngin;->mContext:Landroid/content/Context;
 
-    .line 32
+    .line 31
     iput-object p2, p0, Lcom/game/sdk/engin/PayCoinEngin;->userId:Ljava/lang/String;
 
-    .line 33
+    .line 32
     return-void
 .end method
 
@@ -55,7 +55,7 @@
     .end annotation
 
     .prologue
-    .line 76
+    .line 78
     .local p2, "couponInfoList":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/CouponInfo;>;"
     if-eqz p2, :cond_0
 
@@ -65,12 +65,12 @@
 
     if-lez v2, :cond_0
 
-    .line 77
+    .line 79
     invoke-static {p2}, Lcom/alibaba/fastjson/JSON;->toJSONString(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 78
+    .line 80
     .local v1, "moduleStr":Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -88,7 +88,7 @@
 
     invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 80
+    .line 82
     :try_start_0
     iget-object v2, p0, Lcom/game/sdk/engin/PayCoinEngin;->mContext:Landroid/content/Context;
 
@@ -100,18 +100,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 85
+    .line 87
     .end local v1    # "moduleStr":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 81
+    .line 83
     .restart local v1    # "moduleStr":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 82
+    .line 84
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
@@ -128,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 36
     sget-object v0, Lcom/game/sdk/net/constans/ServerConfig;->PAY_INIT_URL:Ljava/lang/String;
 
     return-object v0
@@ -140,17 +140,17 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 41
+    .line 40
     const/4 v2, 0x0
 
-    .line 43
+    .line 42
     .local v2, "result":Z
     :try_start_0
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 44
+    .line 43
     .local v1, "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v4, "user_id"
 
@@ -158,7 +158,7 @@
 
     invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 45
+    .line 44
     const/4 v4, 0x1
 
     const-class v5, Lcom/game/sdk/domain/CoinInfo;
@@ -167,15 +167,15 @@
 
     move-result-object v3
 
-    .line 47
+    .line 46
     .local v3, "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/CoinInfo;>;"
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     iget v4, v3, Lcom/game/sdk/domain/ResultInfo;->code:I
 
-    if-ne v4, v6, :cond_1
+    if-ne v4, v6, :cond_2
 
-    .line 48
+    .line 47
     new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "payinit\u83b7\u53d6\u7ed3\u679c----"
@@ -198,12 +198,12 @@
 
     invoke-static {v4}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 50
+    .line 49
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
     if-eqz v4, :cond_0
 
-    .line 51
+    .line 50
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
@@ -214,7 +214,7 @@
 
     iput-object v4, v5, Lcom/game/sdk/domain/UserInfo;->ttb:Ljava/lang/String;
 
-    .line 52
+    .line 51
     sget-object v5, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
@@ -225,16 +225,16 @@
 
     iput-object v4, v5, Lcom/game/sdk/domain/UserInfo;->gttb:Ljava/lang/String;
 
-    .line 53
+    .line 52
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
     check-cast v4, Lcom/game/sdk/domain/CoinInfo;
 
     iget-object v4, v4, Lcom/game/sdk/domain/CoinInfo;->couponList:Ljava/util/List;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 54
+    .line 53
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
     check-cast v4, Lcom/game/sdk/domain/CoinInfo;
@@ -243,48 +243,56 @@
 
     sput-object v4, Lcom/game/sdk/domain/GoagalInfo;->couponList:Ljava/util/List;
 
-    .line 55
-    invoke-virtual {p0}, Lcom/game/sdk/engin/PayCoinEngin;->getUrl()Ljava/lang/String;
-
-    move-result-object v5
-
+    .line 54
     iget-object v4, v3, Lcom/game/sdk/domain/ResultInfo;->data:Ljava/lang/Object;
 
     check-cast v4, Lcom/game/sdk/domain/CoinInfo;
 
-    iget-object v4, v4, Lcom/game/sdk/domain/CoinInfo;->couponList:Ljava/util/List;
+    iget v4, v4, Lcom/game/sdk/domain/CoinInfo;->couponCount:I
 
-    invoke-direct {p0, v5, v4}, Lcom/game/sdk/engin/PayCoinEngin;->saveCouponInfoList(Ljava/lang/String;Ljava/util/List;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 59
-    :cond_0
-    const/4 v2, 0x1
-
-    .line 66
-    .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/CoinInfo;>;"
-    :goto_0
-    return v2
+    sput v4, Lcom/game/sdk/domain/GoagalInfo;->couponCount:I
 
     .line 61
+    :cond_0
+    :goto_0
+    const/4 v2, 0x1
+
+    .line 68
+    .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/CoinInfo;>;"
+    :goto_1
+    return v2
+
+    .line 57
     .restart local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .restart local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/CoinInfo;>;"
     :cond_1
-    const/4 v2, 0x0
+    const/4 v4, 0x0
+
+    sput-object v4, Lcom/game/sdk/domain/GoagalInfo;->couponList:Ljava/util/List;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 63
+    .line 65
     .end local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/CoinInfo;>;"
     :catch_0
     move-exception v0
 
-    .line 64
+    .line 66
     .local v0, "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_1
+
+    .line 63
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v1    # "params":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .restart local v3    # "resultInfo":Lcom/game/sdk/domain/ResultInfo;, "Lcom/game/sdk/domain/ResultInfo<Lcom/game/sdk/domain/CoinInfo;>;"
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_1
 .end method

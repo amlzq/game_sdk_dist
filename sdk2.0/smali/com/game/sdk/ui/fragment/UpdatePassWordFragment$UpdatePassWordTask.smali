@@ -43,21 +43,21 @@
     .param p4, "newPassWord"    # Ljava/lang/String;
 
     .prologue
-    .line 157
+    .line 153
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 158
+    .line 154
     iput-object p2, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->userName:Ljava/lang/String;
 
-    .line 159
+    .line 155
     iput-object p3, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->oldPassWord:Ljava/lang/String;
 
-    .line 160
+    .line 156
     iput-object p4, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->newPassWord:Ljava/lang/String;
 
-    .line 161
+    .line 157
     return-void
 .end method
 
@@ -68,7 +68,7 @@
     .param p1, "params"    # [Ljava/lang/String;
 
     .prologue
-    .line 170
+    .line 166
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
     new-instance v1, Lcom/game/sdk/engin/UpdatePassWordEngin;
@@ -90,7 +90,7 @@
 
     invoke-static {v0, v1}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$1(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;Lcom/game/sdk/engin/UpdatePassWordEngin;)V
 
-    .line 171
+    .line 167
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->updatePassWordEngin:Lcom/game/sdk/engin/UpdatePassWordEngin;
@@ -124,148 +124,67 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Boolean;)V
-    .locals 6
+    .locals 2
     .param p1, "result"    # Ljava/lang/Boolean;
 
     .prologue
-    const/4 v5, 0x0
-
-    .line 176
+    .line 172
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 177
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
+    .line 173
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
-    iget-object v1, v1, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->updateDialog:Lcom/game/sdk/view/CustomDialog;
+    iget-object v0, v0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->updateDialog:Lcom/game/sdk/view/CustomDialog;
 
-    invoke-virtual {v1}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
+    invoke-virtual {v0}, Lcom/game/sdk/view/CustomDialog;->dismiss()V
 
-    .line 178
+    .line 174
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 179
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
-
-    # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
-
-    move-result-object v1
-
-    const-string v2, "\u4fee\u6539\u5bc6\u7801\u6210\u529f"
-
-    invoke-static {v1, v2}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 183
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
-
-    # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->findUserLoginInfoByName(Ljava/lang/String;)Z
 
     move-result v0
 
-    .line 184
-    .local v0, "isExist":Z
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 185
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
+    .line 175
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v0}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    const-string v1, "\u4fee\u6539\u5bc6\u7801\u6210\u529f"
 
-    move-result-object v1
+    invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
-    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
+    .line 176
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
-    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
+    # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v0}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
 
-    iget-object v3, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
+    move-result-object v0
 
-    # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->newPs:Ljava/lang/String;
-    invoke-static {v3}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$3(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Ljava/lang/String;
+    const/4 v1, 0x6
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Lcom/game/sdk/ui/MainActivity;->changeFragment(I)V
 
-    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget v4, v4, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
-
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->saveUserLoginInfo(Ljava/lang/String;Ljava/lang/String;II)V
-
-    .line 194
-    .end local v0    # "isExist":Z
-    :cond_0
+    .line 180
     :goto_0
     return-void
 
-    .line 188
-    .restart local v0    # "isExist":Z
-    :cond_1
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
+    .line 178
+    :cond_0
+    iget-object v0, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
+    invoke-static {v0}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
+    const-string v1, "\u4fee\u6539\u5bc6\u7801\u5931\u8d25,\u8bf7\u7a0d\u540e\u91cd\u8bd5"
 
-    move-result-object v1
-
-    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Lcom/game/sdk/db/impl/UserLoginInfodao;->deleteUserLoginByName(Ljava/lang/String;)V
-
-    .line 190
-    iget-object v1, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
-
-    # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->mainActivity:Lcom/game/sdk/ui/MainActivity;
-    invoke-static {v1}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$0(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Lcom/game/sdk/ui/MainActivity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/game/sdk/db/impl/UserLoginInfodao;->getInstance(Landroid/content/Context;)Lcom/game/sdk/db/impl/UserLoginInfodao;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget-object v2, v2, Lcom/game/sdk/domain/UserInfo;->username:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment$UpdatePassWordTask;->this$0:Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;
-
-    # getter for: Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->newPs:Ljava/lang/String;
-    invoke-static {v3}, Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;->access$3(Lcom/game/sdk/ui/fragment/UpdatePassWordFragment;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
-
-    iget v4, v4, Lcom/game/sdk/domain/UserInfo;->validateMobile:I
-
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/game/sdk/db/impl/UserLoginInfodao;->saveUserLoginInfo(Ljava/lang/String;Ljava/lang/String;II)V
+    invoke-static {v0, v1}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -286,9 +205,9 @@
     .locals 0
 
     .prologue
-    .line 165
+    .line 161
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 166
+    .line 162
     return-void
 .end method

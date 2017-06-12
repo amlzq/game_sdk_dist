@@ -4,17 +4,21 @@
 
 
 # static fields
-.field public static final BASE_URL:Ljava/lang/String; = "http://test.6071.com/api/index2/"
+.field public static final BASE_URL:Ljava/lang/String; = "http://api.6071.com/index2/"
 
 .field public static final BIND_PHONE_URL:Ljava/lang/String;
 
 .field public static final BIND_PHONE_VALIDATE_URL:Ljava/lang/String;
+
+.field public static final CHARGE_INIT_URL:Ljava/lang/String;
 
 .field public static final CHARGE_LIST_URL:Ljava/lang/String;
 
 .field public static final COMPAIGN_DETAIL_URL:Ljava/lang/String;
 
 .field public static final COMPAIGN_LIST_URL:Ljava/lang/String;
+
+.field public static final CONTINUE_PAY_URL:Ljava/lang/String;
 
 .field public static final DEBUG:Z = false
 
@@ -40,6 +44,8 @@
 
 .field public static final PAY_CALL_WEIXIN_URL:Ljava/lang/String;
 
+.field public static final PAY_CANCEL_URL:Ljava/lang/String;
+
 .field public static final PAY_INIT_URL:Ljava/lang/String;
 
 .field public static final PAY_URL:Ljava/lang/String;
@@ -50,11 +56,15 @@
 
 .field public static final SCORE_STORE_LIST_URL:Ljava/lang/String;
 
+.field public static final UPDATE_MT_CODE_URL:Ljava/lang/String;
+
 .field public static final UPDATE_PASS_WORD_URL:Ljava/lang/String;
 
 .field public static final UPDATE_USER_INFO_URL:Ljava/lang/String;
 
 .field public static final USER_INFO_URL:Ljava/lang/String;
+
+.field public static final WX_CONTINUE_PAY_URL:Ljava/lang/String;
 
 
 # direct methods
@@ -637,6 +647,131 @@
 
     sput-object v0, Lcom/game/sdk/net/constans/ServerConfig;->COMPAIGN_DETAIL_URL:Ljava/lang/String;
 
+    .line 67
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/game/sdk/net/constans/ServerConfig;->getBaseUrl()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "pay_opt"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/game/sdk/net/constans/ServerConfig;->CHARGE_INIT_URL:Ljava/lang/String;
+
+    .line 70
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/game/sdk/net/constans/ServerConfig;->getBaseUrl()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "continue_pay"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/game/sdk/net/constans/ServerConfig;->CONTINUE_PAY_URL:Ljava/lang/String;
+
+    .line 73
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/game/sdk/net/constans/ServerConfig;->getBaseUrl()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "continue_pay_wx"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/game/sdk/net/constans/ServerConfig;->WX_CONTINUE_PAY_URL:Ljava/lang/String;
+
+    .line 76
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/game/sdk/net/constans/ServerConfig;->getBaseUrl()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "upd_mtCodes"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/game/sdk/net/constans/ServerConfig;->UPDATE_MT_CODE_URL:Ljava/lang/String;
+
+    .line 79
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/game/sdk/net/constans/ServerConfig;->getBaseUrl()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "cancel_pay"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/game/sdk/net/constans/ServerConfig;->PAY_CANCEL_URL:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -654,8 +789,8 @@
     .locals 1
 
     .prologue
-    .line 67
-    const-string v0, "http://test.6071.com/api/index2/"
+    .line 82
+    const-string v0, "http://api.6071.com/index2/"
 
     return-object v0
 .end method
@@ -665,7 +800,7 @@
     .param p0, "payWay"    # Ljava/lang/String;
 
     .prologue
-    .line 71
+    .line 86
     const-string v0, "alipay"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

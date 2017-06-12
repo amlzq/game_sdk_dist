@@ -6,14 +6,14 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/unionpay/mobile/android/nocard/views/as;
+.field final synthetic a:Lcom/unionpay/mobile/android/nocard/views/at;
 
 
 # direct methods
-.method constructor <init>(Lcom/unionpay/mobile/android/nocard/views/as;)V
+.method constructor <init>(Lcom/unionpay/mobile/android/nocard/views/at;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unionpay/mobile/android/nocard/views/ba;->a:Lcom/unionpay/mobile/android/nocard/views/as;
+    iput-object p1, p0, Lcom/unionpay/mobile/android/nocard/views/ba;->a:Lcom/unionpay/mobile/android/nocard/views/at;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -25,13 +25,9 @@
 .method public final onClick(Landroid/view/View;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/ba;->a:Lcom/unionpay/mobile/android/nocard/views/as;
+    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/ba;->a:Lcom/unionpay/mobile/android/nocard/views/at;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/nocard/views/as;->j()V
-
-    iget-object v0, p0, Lcom/unionpay/mobile/android/nocard/views/ba;->a:Lcom/unionpay/mobile/android/nocard/views/as;
-
-    invoke-static {v0}, Lcom/unionpay/mobile/android/nocard/views/as;->h(Lcom/unionpay/mobile/android/nocard/views/as;)I
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/nocard/views/at;->j()V
 
     return-void
 .end method

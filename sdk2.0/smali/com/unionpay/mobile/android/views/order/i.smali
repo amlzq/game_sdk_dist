@@ -96,9 +96,9 @@
 
     const-string v2, "placeholder"
 
-    sget-object v3, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v3, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
-    iget-object v3, v3, Lcom/unionpay/mobile/android/languages/c;->br:Ljava/lang/String;
+    iget-object v3, v3, Lcom/unionpay/mobile/android/languages/c;->bw:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -128,9 +128,9 @@
 
     const-string v2, "placeholder"
 
-    sget-object v3, Lcom/unionpay/mobile/android/languages/c;->by:Lcom/unionpay/mobile/android/languages/c;
+    sget-object v3, Lcom/unionpay/mobile/android/languages/c;->bD:Lcom/unionpay/mobile/android/languages/c;
 
-    iget-object v3, v3, Lcom/unionpay/mobile/android/languages/c;->bs:Ljava/lang/String;
+    iget-object v3, v3, Lcom/unionpay/mobile/android/languages/c;->bx:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
@@ -211,6 +211,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    const v1, -0xcccccd
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
     sget v1, Lcom/unionpay/mobile/android/global/b;->k:F
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
@@ -231,7 +235,7 @@
 
     const/high16 v3, 0x41200000    # 10.0f
 
-    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v2, v3}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v2
 
@@ -308,9 +312,9 @@
 .end method
 
 .method public final b(Landroid/widget/RelativeLayout;)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
     new-instance v0, Lcom/unionpay/mobile/android/upviews/a;
 
@@ -326,13 +330,15 @@
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/unionpay/mobile/android/upviews/a;-><init>(Landroid/content/Context;Lorg/json/JSONArray;Lcom/unionpay/mobile/android/upviews/a$b;)V
+    const-string v3, ""
+
+    invoke-direct {v0, v1, v2, p0, v3}, Lcom/unionpay/mobile/android/upviews/a;-><init>(Landroid/content/Context;Lorg/json/JSONArray;Lcom/unionpay/mobile/android/upviews/a$b;Ljava/lang/String;)V
 
     iput-object v0, p0, Lcom/unionpay/mobile/android/views/order/i;->i:Lcom/unionpay/mobile/android/upviews/a;
 
     new-instance v0, Landroid/widget/RelativeLayout$LayoutParams;
 
-    invoke-direct {v0, v3, v3}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v4, v4}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
     sget v1, Lcom/unionpay/mobile/android/global/a;->f:I
 
@@ -354,7 +360,7 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/i;->i:Lcom/unionpay/mobile/android/upviews/a;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->a()Lcom/unionpay/mobile/android/upviews/a$a;
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->b()Lcom/unionpay/mobile/android/upviews/a$a;
 
     move-result-object v0
 
@@ -433,7 +439,7 @@
 
     iget-object v2, p0, Lcom/unionpay/mobile/android/views/order/i;->b:Landroid/content/Context;
 
-    invoke-static {v2, v6}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v2, v6}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v2
 
@@ -498,7 +504,7 @@
 
     iget-object v3, p0, Lcom/unionpay/mobile/android/views/order/i;->b:Landroid/content/Context;
 
-    invoke-static {v3, v6}, Lcom/unionpay/mobile/android/utils/c;->a(Landroid/content/Context;F)I
+    invoke-static {v3, v6}, Lcom/unionpay/mobile/android/utils/f;->a(Landroid/content/Context;F)I
 
     move-result v3
 
@@ -555,7 +561,7 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/i;->i:Lcom/unionpay/mobile/android/upviews/a;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->c()Z
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->e()Z
 
     move-result v0
 
@@ -622,8 +628,14 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/i;->i:Lcom/unionpay/mobile/android/upviews/a;
 
-    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->d()V
+    invoke-virtual {v0}, Lcom/unionpay/mobile/android/upviews/a;->f()V
 
     :cond_0
+    return-void
+.end method
+
+.method public final t()V
+    .locals 0
+
     return-void
 .end method

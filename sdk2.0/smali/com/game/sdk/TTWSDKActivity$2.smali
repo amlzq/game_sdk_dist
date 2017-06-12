@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/TTWSDKActivity$2;->this$0:Lcom/game/sdk/TTWSDKActivity;
 
-    .line 62
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,26 +38,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 65
-    iget-object v0, p0, Lcom/game/sdk/TTWSDKActivity$2;->this$0:Lcom/game/sdk/TTWSDKActivity;
+    .line 69
+    const-string v0, "\u5207\u6362\u8d26\u53f7\u56de\u8c03--->"
 
-    invoke-virtual {v0}, Lcom/game/sdk/TTWSDKActivity;->getApplication()Landroid/app/Application;
+    invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    move-result-object v0
-
-    const-string v1, "\u9000\u51fa\u6e38\u620f\u56de\u8c03"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 66
+    .line 73
     return-void
 .end method

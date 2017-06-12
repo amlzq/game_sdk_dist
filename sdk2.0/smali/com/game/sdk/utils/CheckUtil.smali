@@ -164,6 +164,74 @@
     return-object v0
 .end method
 
+.method public static getFileLengthByUrl(Ljava/lang/String;)I
+    .locals 6
+    .param p0, "urlStr"    # Ljava/lang/String;
+
+    .prologue
+    .line 229
+    const/4 v1, -0x1
+
+    .line 231
+    .local v1, "fileLength":I
+    :try_start_0
+    new-instance v3, Ljava/net/URL;
+
+    invoke-direct {v3, p0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+
+    .line 232
+    .local v3, "url":Ljava/net/URL;
+    invoke-virtual {v3}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/net/HttpURLConnection;
+
+    .line 233
+    .local v2, "httpURLConnection":Ljava/net/HttpURLConnection;
+    const-string v4, "Accept-Encoding"
+
+    const-string v5, "identity"
+
+    invoke-virtual {v2, v4, v5}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 234
+    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->connect()V
+
+    .line 236
+    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->getResponseCode()I
+
+    move-result v4
+
+    const/16 v5, 0xc8
+
+    if-ne v4, v5, :cond_0
+
+    .line 237
+    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->getContentLength()I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    .line 242
+    .end local v2    # "httpURLConnection":Ljava/net/HttpURLConnection;
+    .end local v3    # "url":Ljava/net/URL;
+    :cond_0
+    :goto_0
+    return v1
+
+    .line 239
+    :catch_0
+    move-exception v0
+
+    .line 240
+    .local v0, "e":Ljava/lang/Exception;
+    const/4 v1, -0x1
+
+    goto :goto_0
+.end method
+
 .method public static getNetworkType(Landroid/content/Context;)I
     .locals 7
     .param p0, "context"    # Landroid/content/Context;
@@ -793,7 +861,7 @@
 
     .line 91
     .local v1, "pn":Ljava/lang/String;
-    const-string v2, "com.tencent.mobileqq"
+    const-string v2, "com.sina.weibo"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -10,6 +10,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/game/sdk/ui/PayActivity$NoDoubleClickListener;,
+        Lcom/game/sdk/ui/PayActivity$PayCancelTask;,
         Lcom/game/sdk/ui/PayActivity$PayGameTask;,
         Lcom/game/sdk/ui/PayActivity$PayInitTask;
     }
@@ -47,6 +49,8 @@
 
 .field private couponCheckBox:Landroid/widget/CheckBox;
 
+.field private couponCountTv:Landroid/widget/TextView;
+
 .field private couponInfoList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -79,6 +83,8 @@
 .field private inflater:Landroid/view/LayoutInflater;
 
 .field private lastCoupon:Lcom/game/sdk/domain/CouponInfo;
+
+.field private mIpaynowplugin:Lcom/ipaynow/plugin/api/IpaynowPlugin;
 
 .field private moreCouponLayout:Landroid/widget/LinearLayout;
 
@@ -128,12 +134,12 @@
     .locals 1
 
     .prologue
-    .line 138
+    .line 149
     const-string v0, "0"
 
     sput-object v0, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
 
-    .line 726
+    .line 826
     const/4 v0, 0x0
 
     sput-object v0, Lcom/game/sdk/ui/PayActivity;->preSignStr:Ljava/lang/String;
@@ -145,128 +151,133 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 73
     invoke-direct {p0}, Lcom/game/sdk/ui/BaseActivity;-><init>()V
 
-    .line 110
+    .line 121
     const-string v0, "alipay"
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
-    .line 147
+    .line 131
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/game/sdk/ui/PayActivity;->totalPrice:F
+
+    .line 160
     new-instance v0, Lcom/game/sdk/ui/PayActivity$1;
 
     invoke-direct {v0, p0}, Lcom/game/sdk/ui/PayActivity$1;-><init>(Lcom/game/sdk/ui/PayActivity;)V
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->handler:Landroid/os/Handler;
 
-    .line 724
+    .line 824
     new-instance v0, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     invoke-direct {v0}, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;-><init>()V
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
-    .line 64
+    .line 73
     return-void
 .end method
 
-.method static synthetic access$10(Lcom/game/sdk/ui/PayActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
+.method static synthetic access$10(Lcom/game/sdk/ui/PayActivity;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 145
+    iput-object p1, p0, Lcom/game/sdk/ui/PayActivity;->orderid:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static synthetic access$11(Lcom/game/sdk/ui/PayActivity;F)V
+    .locals 0
+
+    .prologue
+    .line 129
+    iput p1, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
+
+    return-void
+.end method
+
+.method static synthetic access$12(Lcom/game/sdk/ui/PayActivity;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 724
+    .line 121
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$13(Lcom/game/sdk/ui/PayActivity;)Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
+    .locals 1
+
+    .prologue
+    .line 824
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     return-object v0
 .end method
 
-.method static synthetic access$11(Lcom/game/sdk/ui/PayActivity;)Ljava/lang/String;
+.method static synthetic access$14(Lcom/game/sdk/ui/PayActivity;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 134
+    .line 145
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->orderid:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$12(Ljava/lang/String;)V
+.method static synthetic access$15(Ljava/lang/String;)V
     .locals 0
 
     .prologue
-    .line 726
+    .line 826
     sput-object p0, Lcom/game/sdk/ui/PayActivity;->preSignStr:Ljava/lang/String;
 
     return-void
 .end method
 
-.method static synthetic access$13()Ljava/lang/String;
+.method static synthetic access$16()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 726
+    .line 826
     sget-object v0, Lcom/game/sdk/ui/PayActivity;->preSignStr:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$14(Landroid/app/ProgressDialog;)V
-    .locals 0
-
-    .prologue
-    .line 725
-    sput-object p0, Lcom/game/sdk/ui/PayActivity;->progressDialog:Landroid/app/ProgressDialog;
-
-    return-void
-.end method
-
-.method static synthetic access$15()Landroid/app/ProgressDialog;
+.method static synthetic access$17(Lcom/game/sdk/ui/PayActivity;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
     .locals 1
 
     .prologue
-    .line 725
-    sget-object v0, Lcom/game/sdk/ui/PayActivity;->progressDialog:Landroid/app/ProgressDialog;
+    .line 157
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->mIpaynowplugin:Lcom/ipaynow/plugin/api/IpaynowPlugin;
 
     return-object v0
 .end method
 
-.method static synthetic access$16(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/engin/PayCoinEngin;
+.method static synthetic access$18(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/engin/PayCoinEngin;
     .locals 1
 
     .prologue
-    .line 108
+    .line 119
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payCoinEngin:Lcom/game/sdk/engin/PayCoinEngin;
 
     return-object v0
 .end method
 
-.method static synthetic access$17(Lcom/game/sdk/ui/PayActivity;)Landroid/os/Handler;
+.method static synthetic access$19(Lcom/game/sdk/ui/PayActivity;)Landroid/os/Handler;
     .locals 1
 
     .prologue
-    .line 147
+    .line 160
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->handler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$18(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
-    .locals 1
-
-    .prologue
-    .line 78
-    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponUseInfoTv:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$19(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/CheckBox;
-    .locals 1
-
-    .prologue
-    .line 90
-    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponCheckBox:Landroid/widget/CheckBox;
 
     return-object v0
 .end method
@@ -275,77 +286,107 @@
     .locals 1
 
     .prologue
-    .line 118
+    .line 129
     iget v0, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
 
     return v0
 .end method
 
-.method static synthetic access$20(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/domain/CouponInfo;
+.method static synthetic access$20(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
     .locals 1
 
     .prologue
-    .line 114
+    .line 87
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponUseInfoTv:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$21(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/CheckBox;
+    .locals 1
+
+    .prologue
+    .line 101
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponCheckBox:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
+.method static synthetic access$22(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/domain/CouponInfo;
+    .locals 1
+
+    .prologue
+    .line 125
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->currentCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     return-object v0
 .end method
 
-.method static synthetic access$21(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
+.method static synthetic access$23(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
     .locals 1
 
     .prologue
-    .line 76
+    .line 85
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->realPayAmountTv:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$22(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/domain/CouponInfo;)V
+.method static synthetic access$24(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/domain/CouponInfo;)V
     .locals 0
 
     .prologue
-    .line 116
+    .line 127
     iput-object p1, p0, Lcom/game/sdk/ui/PayActivity;->lastCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     return-void
 .end method
 
-.method static synthetic access$23(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/PopupWindow;
+.method static synthetic access$25(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/PopupWindow;
     .locals 1
 
     .prologue
-    .line 98
+    .line 109
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
     return-object v0
 .end method
 
-.method static synthetic access$24(Lcom/game/sdk/ui/PayActivity;)Ljava/util/List;
+.method static synthetic access$26(Lcom/game/sdk/ui/PayActivity;)Ljava/util/List;
     .locals 1
 
     .prologue
-    .line 106
+    .line 117
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method static synthetic access$25(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/domain/CouponInfo;)V
+.method static synthetic access$27(Lcom/game/sdk/ui/PayActivity;)F
+    .locals 1
+
+    .prologue
+    .line 131
+    iget v0, p0, Lcom/game/sdk/ui/PayActivity;->totalPrice:F
+
+    return v0
+.end method
+
+.method static synthetic access$28(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/domain/CouponInfo;)V
     .locals 0
 
     .prologue
-    .line 114
+    .line 125
     iput-object p1, p0, Lcom/game/sdk/ui/PayActivity;->currentCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     return-void
 .end method
 
-.method static synthetic access$26(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/domain/CouponInfo;
+.method static synthetic access$29(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/domain/CouponInfo;
     .locals 1
 
     .prologue
-    .line 116
+    .line 127
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->lastCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     return-object v0
@@ -355,68 +396,68 @@
     .locals 1
 
     .prologue
-    .line 80
-    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformMoneyTv:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$4(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
-    .locals 1
-
-    .prologue
-    .line 82
+    .line 91
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->gameMoneyTv:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$5(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/engin/ChargeEngin;)V
+.method static synthetic access$4(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/CheckBox;
+    .locals 1
+
+    .prologue
+    .line 105
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->gameCoinCheckBox:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
+.method static synthetic access$5(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
+    .locals 1
+
+    .prologue
+    .line 89
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformMoneyTv:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$6(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/CheckBox;
+    .locals 1
+
+    .prologue
+    .line 103
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformCoinCheckBox:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
+.method static synthetic access$7(Lcom/game/sdk/ui/PayActivity;)Landroid/widget/TextView;
+    .locals 1
+
+    .prologue
+    .line 97
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponCountTv:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$8(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/engin/ChargeEngin;)V
     .locals 0
 
     .prologue
-    .line 112
+    .line 123
     iput-object p1, p0, Lcom/game/sdk/ui/PayActivity;->chargeEngin:Lcom/game/sdk/engin/ChargeEngin;
 
     return-void
 .end method
 
-.method static synthetic access$6(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/engin/ChargeEngin;
+.method static synthetic access$9(Lcom/game/sdk/ui/PayActivity;)Lcom/game/sdk/engin/ChargeEngin;
     .locals 1
 
     .prologue
-    .line 112
+    .line 123
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->chargeEngin:Lcom/game/sdk/engin/ChargeEngin;
-
-    return-object v0
-.end method
-
-.method static synthetic access$7(Lcom/game/sdk/ui/PayActivity;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 134
-    iput-object p1, p0, Lcom/game/sdk/ui/PayActivity;->orderid:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method static synthetic access$8(Lcom/game/sdk/ui/PayActivity;F)V
-    .locals 0
-
-    .prologue
-    .line 118
-    iput p1, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
-
-    return-void
-.end method
-
-.method static synthetic access$9(Lcom/game/sdk/ui/PayActivity;)Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 110
-    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -437,10 +478,10 @@
     .end annotation
 
     .prologue
-    .line 341
+    .line 400
     const/4 v1, 0x0
 
-    .line 343
+    .line 402
     .local v1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/CouponInfo;>;"
     :try_start_0
     invoke-static {p0}, Lcom/game/sdk/utils/PreferenceUtil;->getImpl(Landroid/content/Context;)Lcom/game/sdk/utils/PreferenceUtil;
@@ -453,7 +494,7 @@
 
     move-result-object v2
 
-    .line 344
+    .line 403
     .local v2, "moduleStr":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -471,14 +512,14 @@
 
     invoke-static {v3}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 345
+    .line 404
     invoke-static {v2}, Lcom/game/sdk/utils/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 346
+    .line 405
     const-class v3, Lcom/game/sdk/domain/CouponInfo;
 
     invoke-static {v2, v3}, Lcom/alibaba/fastjson/JSON;->parseArray(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;
@@ -487,17 +528,17 @@
 
     move-result-object v1
 
-    .line 351
+    .line 410
     .end local v2    # "moduleStr":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v1
 
-    .line 348
+    .line 407
     :catch_0
     move-exception v0
 
-    .line 349
+    .line 408
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
@@ -519,36 +560,36 @@
     .end annotation
 
     .prologue
-    .line 690
+    .line 790
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 691
+    .line 791
     .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v2, "partner=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 692
+    .line 792
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 693
+    .line 793
     const-string v2, "\"&out_trade_no=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 694
+    .line 794
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->orderid:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 695
+    .line 795
     const-string v2, "\"&subject=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 696
+    .line 796
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->productname:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -557,12 +598,12 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 697
+    .line 797
     const-string v2, "\"&body=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 698
+    .line 798
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->productdesc:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -571,33 +612,33 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 699
+    .line 799
     const-string v2, "\"&total_fee=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 700
+    .line 800
     iget v2, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 701
+    .line 801
     const-string v2, "\"&notify_url=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 703
+    .line 803
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
     invoke-static {v2}, Lcom/game/sdk/net/constans/ServerConfig;->getPayCallUrl(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 707
+    .line 807
     .local v1, "url":Ljava/lang/String;
     invoke-static {v1}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 708
+    .line 808
     const-string v2, "UTF-8"
 
     invoke-static {v1, v2}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -606,40 +647,40 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 709
+    .line 809
     const-string v2, "\"&service=\"mobile.securitypay.pay"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 710
+    .line 810
     const-string v2, "\"&_input_charset=\"UTF-8"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 713
+    .line 813
     const-string v2, "\"&payment_type=\"1"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 714
+    .line 814
     const-string v2, "\"&seller_id=\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 715
+    .line 815
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 718
+    .line 818
     const-string v2, "\"&it_b_pay=\"1m"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 719
+    .line 819
     const-string v2, "\""
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 720
+    .line 820
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2, v0}, Ljava/lang/String;-><init>(Ljava/lang/StringBuilder;)V
@@ -651,7 +692,7 @@
     .locals 1
 
     .prologue
-    .line 686
+    .line 786
     const-string v0, "sign_type=\"RSA\""
 
     return-object v0
@@ -661,28 +702,28 @@
     .locals 4
 
     .prologue
-    .line 729
+    .line 829
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v2, "{appid}"
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->appId:Ljava/lang/String;
 
-    .line 730
+    .line 830
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v2, "UTF-8"
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtCharset:Ljava/lang/String;
 
-    .line 731
+    .line 831
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v2, "156"
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtCurrencyType:Ljava/lang/String;
 
-    .line 733
+    .line 833
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     iget v2, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
@@ -699,21 +740,21 @@
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderAmt:Ljava/lang/String;
 
-    .line 735
+    .line 835
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->productdesc:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderDetail:Ljava/lang/String;
 
-    .line 737
+    .line 837
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->productname:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderName:Ljava/lang/String;
 
-    .line 739
+    .line 839
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
@@ -724,66 +765,90 @@
 
     iput-object v3, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderStartTime:Ljava/lang/String;
 
-    .line 743
+    .line 842
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v2, "3600"
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderTimeOut:Ljava/lang/String;
 
-    .line 744
+    .line 843
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v2, "01"
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderType:Ljava/lang/String;
 
-    .line 745
+    .line 844
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->attach:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtReserved:Ljava/lang/String;
 
-    .line 747
+    .line 846
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/game/sdk/net/constans/ServerConfig;->getPayCallUrl(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 748
+    .line 847
     .local v0, "url":Ljava/lang/String;
     invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 749
+    .line 848
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     iput-object v0, v1, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->notifyUrl:Ljava/lang/String;
 
-    .line 750
+    .line 849
     return-void
 .end method
 
 
 # virtual methods
 .method public continuePay()V
-    .locals 0
+    .locals 2
 
     .prologue
-    .line 788
-    invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->pay()V
+    .line 985
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->orderid:Ljava/lang/String;
 
-    .line 789
+    if-eqz v0, :cond_0
+
+    .line 986
+    new-instance v0, Lcom/game/sdk/ui/PayActivity$PayCancelTask;
+
+    iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->orderid:Ljava/lang/String;
+
+    invoke-direct {v0, p0, v1}, Lcom/game/sdk/ui/PayActivity$PayCancelTask;-><init>(Lcom/game/sdk/ui/PayActivity;Ljava/lang/String;)V
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/game/sdk/ui/PayActivity$PayCancelTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 990
+    :goto_0
     return-void
+
+    .line 988
+    :cond_0
+    const-string v0, "\u8ba2\u5355\u6709\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5!"
+
+    invoke-static {p0, v0}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public getLayoutId()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 209
-    const-string v0, "activity_payment"
+    .line 254
+    const-string v0, "fysdk_activity_payment"
 
     return-object v0
 .end method
@@ -792,15 +857,15 @@
     .locals 4
 
     .prologue
-    .line 310
+    .line 369
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->initData()V
 
-    .line 312
+    .line 371
     invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 313
+    .line 372
     .local v0, "intent":Landroid/content/Intent;
     const-string v1, "roleid"
 
@@ -810,7 +875,7 @@
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->role:Ljava/lang/String;
 
-    .line 314
+    .line 373
     const-string v1, "serverid"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -819,7 +884,7 @@
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->server:Ljava/lang/String;
 
-    .line 315
+    .line 374
     const-string v1, "money"
 
     const/4 v2, 0x0
@@ -830,12 +895,12 @@
 
     iput v1, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
 
-    .line 316
+    .line 375
     iget v1, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
 
     iput v1, p0, Lcom/game/sdk/ui/PayActivity;->totalPrice:F
 
-    .line 317
+    .line 376
     const-string v1, "productname"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -844,7 +909,7 @@
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->productname:Ljava/lang/String;
 
-    .line 318
+    .line 377
     const-string v1, "productdesc"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -853,7 +918,7 @@
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->productdesc:Ljava/lang/String;
 
-    .line 320
+    .line 379
     const-string v1, "attach"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -862,14 +927,14 @@
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->attach:Ljava/lang/String;
 
-    .line 322
+    .line 381
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->productNameTv:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->productname:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 323
+    .line 382
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->orderAmountTv:Landroid/widget/TextView;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -888,7 +953,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 324
+    .line 383
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->realPayAmountTv:Landroid/widget/TextView;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -907,10 +972,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 326
+    .line 385
     new-instance v2, Lcom/game/sdk/engin/PayCoinEngin;
 
-    .line 327
+    .line 386
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
     if-nez v1, :cond_0
@@ -920,10 +985,10 @@
     :goto_0
     invoke-direct {v2, p0, v1}, Lcom/game/sdk/engin/PayCoinEngin;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 326
+    .line 385
     iput-object v2, p0, Lcom/game/sdk/ui/PayActivity;->payCoinEngin:Lcom/game/sdk/engin/PayCoinEngin;
 
-    .line 328
+    .line 387
     new-instance v1, Lcom/game/sdk/view/CustomDialog;
 
     const-string v2, "\u6b63\u5728\u521b\u5efa\u8ba2\u5355"
@@ -932,19 +997,19 @@
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->payGameDialog:Lcom/game/sdk/view/CustomDialog;
 
-    .line 329
+    .line 388
     new-instance v1, Lcom/game/sdk/view/PayResultDialog;
 
     invoke-direct {v1, p0}, Lcom/game/sdk/view/PayResultDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
 
-    .line 330
+    .line 389
     iget-object v1, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
 
     invoke-virtual {v1, p0}, Lcom/game/sdk/view/PayResultDialog;->setPayResultListener(Lcom/game/sdk/view/PayResultDialog$PayResultListener;)V
 
-    .line 331
+    .line 390
     new-instance v1, Lcom/game/sdk/ui/PayActivity$PayInitTask;
 
     const/4 v2, 0x0
@@ -957,10 +1022,10 @@
 
     invoke-virtual {v1, v2}, Lcom/game/sdk/ui/PayActivity$PayInitTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 332
+    .line 391
     return-void
 
-    .line 327
+    .line 386
     :cond_0
     sget-object v1, Lcom/game/sdk/domain/GoagalInfo;->userInfo:Lcom/game/sdk/domain/UserInfo;
 
@@ -970,13 +1035,59 @@
 .end method
 
 .method public initVars()V
-    .locals 0
+    .locals 2
 
     .prologue
-    .line 214
+    .line 259
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->initVars()V
 
-    .line 215
+    .line 261
+    invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->setOrientation()V
+
+    .line 262
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->mIpaynowplugin:Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    if-nez v0, :cond_0
+
+    .line 263
+    invoke-static {}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->getInstance()Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->init(Landroid/content/Context;)Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->mIpaynowplugin:Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    .line 264
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->mIpaynowplugin:Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    invoke-virtual {v0}, Lcom/ipaynow/plugin/api/IpaynowPlugin;->unCkeckEnvironment()Lcom/ipaynow/plugin/api/IpaynowPlugin;
+
+    .line 267
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "initVars width---"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {p0}, Lcom/game/sdk/utils/DimensionUtil;->getWidth(Landroid/content/Context;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 268
     return-void
 .end method
 
@@ -986,10 +1097,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 219
+    .line 272
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->initViews()V
 
-    .line 220
+    .line 273
     const-string v0, "layout_inflater"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1000,7 +1111,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->inflater:Landroid/view/LayoutInflater;
 
-    .line 222
+    .line 275
     const-string v0, "pay_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1011,7 +1122,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payLayout:Landroid/widget/LinearLayout;
 
-    .line 224
+    .line 277
     const-string v0, "coupon_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1022,7 +1133,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponLayout:Landroid/widget/RelativeLayout;
 
-    .line 225
+    .line 278
     const-string v0, "more_coupon_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1033,7 +1144,16 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->moreCouponLayout:Landroid/widget/LinearLayout;
 
-    .line 226
+    .line 279
+    const-string v0, "num_tv"
+
+    invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponCountTv:Landroid/widget/TextView;
+
+    .line 280
     const-string v0, "alipay_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1044,7 +1164,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->alipayLayout:Landroid/widget/LinearLayout;
 
-    .line 227
+    .line 281
     const-string v0, "wxpay_layout"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1055,12 +1175,12 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->wxpayLayout:Landroid/widget/LinearLayout;
 
-    .line 229
+    .line 283
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->alipayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setSelected(Z)V
 
-    .line 231
+    .line 285
     const-string v0, "coupon_icon"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1071,7 +1191,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponCheckBox:Landroid/widget/CheckBox;
 
-    .line 232
+    .line 286
     const-string v0, "platform_icon"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1082,7 +1202,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformCoinCheckBox:Landroid/widget/CheckBox;
 
-    .line 233
+    .line 287
     const-string v0, "game_icon"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findViewByString(Ljava/lang/String;)Landroid/view/View;
@@ -1093,7 +1213,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->gameCoinCheckBox:Landroid/widget/CheckBox;
 
-    .line 234
+    .line 288
     const-string v0, "close_iv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findImageViewByString(Ljava/lang/String;)Landroid/widget/ImageView;
@@ -1102,7 +1222,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->closeIv:Landroid/widget/ImageView;
 
-    .line 236
+    .line 290
     const-string v0, "product_name_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1111,7 +1231,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->productNameTv:Landroid/widget/TextView;
 
-    .line 237
+    .line 291
     const-string v0, "order_amount_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1120,7 +1240,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->orderAmountTv:Landroid/widget/TextView;
 
-    .line 238
+    .line 292
     const-string v0, "real_pay_amount_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1129,7 +1249,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->realPayAmountTv:Landroid/widget/TextView;
 
-    .line 240
+    .line 294
     const-string v0, "coupon_use_info_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1138,7 +1258,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponUseInfoTv:Landroid/widget/TextView;
 
-    .line 241
+    .line 295
     const-string v0, "platform_money_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1147,7 +1267,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformMoneyTv:Landroid/widget/TextView;
 
-    .line 242
+    .line 296
     const-string v0, "game_money_tv"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1156,7 +1276,7 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->gameMoneyTv:Landroid/widget/TextView;
 
-    .line 243
+    .line 297
     const-string v0, "pay_game_btn"
 
     invoke-virtual {p0, v0}, Lcom/game/sdk/ui/PayActivity;->findTextViewByString(Ljava/lang/String;)Landroid/widget/TextView;
@@ -1165,47 +1285,42 @@
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payGameBtn:Landroid/widget/TextView;
 
-    .line 244
+    .line 298
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payGameBtn:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    new-instance v1, Lcom/game/sdk/ui/PayActivity$2;
 
-    .line 245
+    invoke-direct {v1, p0, p0}, Lcom/game/sdk/ui/PayActivity$2;-><init>(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/ui/PayActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 305
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->closeIv:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 246
+    .line 306
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->moreCouponLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 247
+    .line 307
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 248
+    .line 308
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->alipayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 249
+    .line 309
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->wxpayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 251
+    .line 311
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->couponCheckBox:Landroid/widget/CheckBox;
-
-    new-instance v1, Lcom/game/sdk/ui/PayActivity$2;
-
-    invoke-direct {v1, p0}, Lcom/game/sdk/ui/PayActivity$2;-><init>(Lcom/game/sdk/ui/PayActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 272
-    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->gameCoinCheckBox:Landroid/widget/CheckBox;
 
     new-instance v1, Lcom/game/sdk/ui/PayActivity$3;
 
@@ -1213,8 +1328,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 290
-    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformCoinCheckBox:Landroid/widget/CheckBox;
+    .line 332
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->gameCoinCheckBox:Landroid/widget/CheckBox;
 
     new-instance v1, Lcom/game/sdk/ui/PayActivity$4;
 
@@ -1222,10 +1337,19 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 305
+    .line 349
+    iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->platformCoinCheckBox:Landroid/widget/CheckBox;
+
+    new-instance v1, Lcom/game/sdk/ui/PayActivity$5;
+
+    invoke-direct {v1, p0}, Lcom/game/sdk/ui/PayActivity$5;-><init>(Lcom/game/sdk/ui/PayActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 364
     invoke-virtual {p0, v2}, Lcom/game/sdk/ui/PayActivity;->setFinishOnTouchOutside(Z)V
 
-    .line 306
+    .line 365
     return-void
 .end method
 
@@ -1236,10 +1360,10 @@
     .param p3, "data"    # Landroid/content/Intent;
 
     .prologue
-    .line 778
+    .line 946
     invoke-super {p0, p1, p2, p3}, Lcom/game/sdk/ui/BaseActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 779
+    .line 947
     sget-object v0, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
 
     const-string v1, "1"
@@ -1250,7 +1374,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 780
+    .line 948
     invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
@@ -1263,7 +1387,7 @@
 
     sput-object v0, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
 
-    .line 781
+    .line 949
     invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
@@ -1276,12 +1400,12 @@
 
     sput-object v0, Lcom/game/sdk/ui/PayActivity;->nowpayMsg:Ljava/lang/String;
 
-    .line 782
+    .line 950
     const-string v0, "2"
 
     sput-object v0, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
 
-    .line 784
+    .line 952
     :cond_0
     return-void
 .end method
@@ -1295,7 +1419,7 @@
 
     const/4 v2, 0x0
 
-    .line 357
+    .line 416
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1308,10 +1432,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 358
+    .line 417
     invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->finish()V
 
-    .line 361
+    .line 420
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1325,10 +1449,10 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 362
+    .line 421
     invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->showCouponList()V
 
-    .line 365
+    .line 424
     :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1342,10 +1466,10 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 366
+    .line 425
     invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->showCouponList()V
 
-    .line 368
+    .line 427
     :cond_2
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1359,22 +1483,22 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 369
+    .line 428
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->alipayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setSelected(Z)V
 
-    .line 370
+    .line 429
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->wxpayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setSelected(Z)V
 
-    .line 371
+    .line 430
     const-string v0, "alipay"
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
-    .line 373
+    .line 432
     :cond_3
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1388,40 +1512,23 @@
 
     if-ne v0, v1, :cond_4
 
-    .line 374
+    .line 433
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->alipayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setSelected(Z)V
 
-    .line 375
+    .line 434
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->wxpayLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setSelected(Z)V
 
-    .line 376
+    .line 435
     const-string v0, "wxpay"
 
     iput-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
-    .line 379
+    .line 444
     :cond_4
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v0
-
-    const-string v1, "pay_game_btn"
-
-    invoke-virtual {p0, v1}, Lcom/game/sdk/ui/PayActivity;->findIdByString(Ljava/lang/String;)I
-
-    move-result v1
-
-    if-ne v0, v1, :cond_5
-
-    .line 380
-    invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->pay()V
-
-    .line 382
-    :cond_5
     return-void
 .end method
 
@@ -1450,92 +1557,255 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 801
+    .line 1009
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->onDestroy()V
 
-    .line 802
+    .line 1010
+    const-string v0, "Pay----onDestroy--->"
+
+    invoke-static {v0}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 1011
+    return-void
+.end method
+
+.method protected onPause()V
+    .locals 1
+
+    .prologue
+    .line 1002
+    invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->onPause()V
+
+    .line 1003
+    const-string v0, "PayActivity"
+
+    invoke-static {v0}, Lcom/umeng/analytics/MobclickAgent;->onPageEnd(Ljava/lang/String;)V
+
+    .line 1004
+    invoke-static {p0}, Lcom/umeng/analytics/MobclickAgent;->onPause(Landroid/content/Context;)V
+
+    .line 1005
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 754
+    .line 873
     invoke-super {p0}, Lcom/game/sdk/ui/BaseActivity;->onResume()V
 
-    .line 761
-    sget-object v0, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
+    .line 874
+    const-string v2, "PayActivity"
 
-    const-string v1, "2"
+    invoke-static {v2}, Lcom/umeng/analytics/MobclickAgent;->onPageStart(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 875
+    invoke-static {p0}, Lcom/umeng/analytics/MobclickAgent;->onResume(Landroid/content/Context;)V
 
-    move-result v0
+    .line 877
+    const-string v2, "game_open_charge"
 
-    if-eqz v0, :cond_3
+    invoke-static {p0, v2}, Lcom/umeng/analytics/MobclickAgent;->onEvent(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 762
-    sget-object v0, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
+    .line 879
+    const-string v2, "Payactivity onResume---"
 
-    const-string v1, "00"
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 882
+    sget-object v2, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
 
-    move-result v0
+    const-string v3, "2"
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 763
-    const-string v0, "\u652f\u4ed8\u6210\u529f"
+    move-result v2
 
-    invoke-static {p0, v0}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    if-eqz v2, :cond_5
 
-    .line 766
+    .line 883
+    sget-object v2, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
+
+    const-string v3, "00"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 885
+    const-string v2, "\u652f\u4ed8\u6210\u529f--->"
+
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 888
+    new-instance v1, Lcom/game/sdk/domain/PaymentCallbackInfo;
+
+    invoke-direct {v1}, Lcom/game/sdk/domain/PaymentCallbackInfo;-><init>()V
+
+    .line 889
+    .local v1, "pci":Lcom/game/sdk/domain/PaymentCallbackInfo;
+    iget v2, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
+
+    iput v2, v1, Lcom/game/sdk/domain/PaymentCallbackInfo;->money:F
+
+    .line 890
+    const-string v2, "\u652f\u4ed8\u6210\u529f"
+
+    iput-object v2, v1, Lcom/game/sdk/domain/PaymentCallbackInfo;->msg:Ljava/lang/String;
+
+    .line 893
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->paymentListener:Lcom/game/sdk/domain/OnPaymentListener;
+
+    if-eqz v2, :cond_0
+
+    .line 894
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->paymentListener:Lcom/game/sdk/domain/OnPaymentListener;
+
+    invoke-interface {v2, v1}, Lcom/game/sdk/domain/OnPaymentListener;->paymentSuccess(Lcom/game/sdk/domain/PaymentCallbackInfo;)V
+
+    .line 898
     :cond_0
-    sget-object v0, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->finish()V
 
-    const-string v1, "02"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 767
-    const-string v0, "\u652f\u4ed8\u53d6\u6d88"
-
-    invoke-static {p0, v0}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 769
+    .line 900
+    .end local v1    # "pci":Lcom/game/sdk/domain/PaymentCallbackInfo;
     :cond_1
-    sget-object v0, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
+    sget-object v2, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
 
-    const-string v1, "01"
+    const-string v3, "02"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_3
 
-    .line 770
-    sget-object v0, Lcom/game/sdk/ui/PayActivity;->nowpayMsg:Ljava/lang/String;
+    .line 902
+    const-string v2, "\u652f\u4ed8\u53d6\u6d88--->"
 
-    invoke-static {p0, v0}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 772
+    .line 904
+    new-instance v0, Lcom/game/sdk/domain/PaymentErrorMsg;
+
+    invoke-direct {v0}, Lcom/game/sdk/domain/PaymentErrorMsg;-><init>()V
+
+    .line 905
+    .local v0, "msg_e":Lcom/game/sdk/domain/PaymentErrorMsg;
+    const/4 v2, 0x2
+
+    iput v2, v0, Lcom/game/sdk/domain/PaymentErrorMsg;->code:I
+
+    .line 906
+    const-string v2, "\u53d6\u6d88\u652f\u4ed8"
+
+    iput-object v2, v0, Lcom/game/sdk/domain/PaymentErrorMsg;->msg:Ljava/lang/String;
+
+    .line 907
+    iget v2, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
+
+    iput v2, v0, Lcom/game/sdk/domain/PaymentErrorMsg;->money:F
+
+    .line 910
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->paymentListener:Lcom/game/sdk/domain/OnPaymentListener;
+
+    if-eqz v2, :cond_2
+
+    .line 911
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->paymentListener:Lcom/game/sdk/domain/OnPaymentListener;
+
+    invoke-interface {v2, v0}, Lcom/game/sdk/domain/OnPaymentListener;->paymentError(Lcom/game/sdk/domain/PaymentErrorMsg;)V
+
+    .line 914
     :cond_2
-    const-string v0, "0"
+    invoke-static {p0}, Lcom/game/sdk/utils/SystemUtil;->isValidContext(Landroid/content/Context;)Z
 
-    sput-object v0, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
+    move-result v2
 
-    .line 774
+    if-eqz v2, :cond_3
+
+    .line 915
+    iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
+
+    invoke-virtual {v2}, Lcom/game/sdk/view/PayResultDialog;->isShowing()Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    .line 916
+    iget-object v2, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
+
+    invoke-virtual {v2}, Lcom/game/sdk/view/PayResultDialog;->show()V
+
+    .line 921
+    .end local v0    # "msg_e":Lcom/game/sdk/domain/PaymentErrorMsg;
     :cond_3
+    sget-object v2, Lcom/game/sdk/ui/PayActivity;->nowpayCode:Ljava/lang/String;
+
+    const-string v3, "01"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 922
+    sget-object v2, Lcom/game/sdk/ui/PayActivity;->nowpayMsg:Ljava/lang/String;
+
+    invoke-static {p0, v2}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 923
+    new-instance v0, Lcom/game/sdk/domain/PaymentErrorMsg;
+
+    invoke-direct {v0}, Lcom/game/sdk/domain/PaymentErrorMsg;-><init>()V
+
+    .line 924
+    .restart local v0    # "msg_e":Lcom/game/sdk/domain/PaymentErrorMsg;
+    const/4 v2, 0x1
+
+    iput v2, v0, Lcom/game/sdk/domain/PaymentErrorMsg;->code:I
+
+    .line 925
+    sget-object v2, Lcom/game/sdk/ui/PayActivity;->nowpayMsg:Ljava/lang/String;
+
+    iput-object v2, v0, Lcom/game/sdk/domain/PaymentErrorMsg;->msg:Ljava/lang/String;
+
+    .line 926
+    iget v2, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
+
+    iput v2, v0, Lcom/game/sdk/domain/PaymentErrorMsg;->money:F
+
+    .line 929
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->paymentListener:Lcom/game/sdk/domain/OnPaymentListener;
+
+    if-eqz v2, :cond_4
+
+    .line 930
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->paymentListener:Lcom/game/sdk/domain/OnPaymentListener;
+
+    invoke-interface {v2, v0}, Lcom/game/sdk/domain/OnPaymentListener;->paymentError(Lcom/game/sdk/domain/PaymentErrorMsg;)V
+
+    .line 933
+    .end local v0    # "msg_e":Lcom/game/sdk/domain/PaymentErrorMsg;
+    :cond_4
+    const-string v2, "0"
+
+    sput-object v2, Lcom/game/sdk/ui/PayActivity;->isnowpay:Ljava/lang/String;
+
+    .line 936
+    :cond_5
     return-void
 .end method
 
@@ -1545,7 +1815,7 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 388
+    .line 469
     new-instance v5, Ljava/lang/StringBuilder;
 
     const-string v6, "\u652f\u4ed8\u524d\u5b9e\u9645\u652f\u4ed8\u91d1\u989d---"
@@ -1564,34 +1834,34 @@
 
     invoke-static {v5}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 390
+    .line 471
     new-instance v2, Lcom/game/sdk/domain/PayRequestParams;
 
     invoke-direct {v2}, Lcom/game/sdk/domain/PayRequestParams;-><init>()V
 
-    .line 391
+    .line 472
     .local v2, "params":Lcom/game/sdk/domain/PayRequestParams;
     const-string v5, "1"
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->is_game_pay:Ljava/lang/String;
 
-    .line 393
+    .line 474
     iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
-    .line 395
+    .line 476
     .local v4, "tempPayWay":Ljava/lang/String;
     iget v5, p0, Lcom/game/sdk/ui/PayActivity;->amount:F
 
     const/4 v6, 0x0
 
-    cmpl-float v5, v5, v6
+    cmpg-float v5, v5, v6
 
-    if-nez v5, :cond_0
+    if-gtz v5, :cond_0
 
-    .line 396
+    .line 477
     const-string v4, ""
 
-    .line 399
+    .line 480
     :cond_0
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->couponCheckBox:Landroid/widget/CheckBox;
 
@@ -1601,37 +1871,37 @@
 
     if-eqz v5, :cond_1
 
-    .line 400
+    .line 481
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->currentCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->goodsId:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->goods_id:Ljava/lang/String;
 
-    .line 401
+    .line 482
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->currentCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->cardId:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->card_id:Ljava/lang/String;
 
-    .line 402
+    .line 483
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->currentCoupon:Lcom/game/sdk/domain/CouponInfo;
 
     iget-object v5, v5, Lcom/game/sdk/domain/CouponInfo;->cardTypeName:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->good_type_name:Ljava/lang/String;
 
-    .line 404
+    .line 485
     iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
-    .line 407
+    .line 488
     :cond_1
     new-instance v3, Ljava/lang/StringBuffer;
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    .line 409
+    .line 490
     .local v3, "temp":Ljava/lang/StringBuffer;
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->gameCoinCheckBox:Landroid/widget/CheckBox;
 
@@ -1641,7 +1911,7 @@
 
     if-eqz v5, :cond_3
 
-    .line 411
+    .line 492
     invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -1654,18 +1924,18 @@
 
     if-nez v5, :cond_2
 
-    .line 412
+    .line 493
     const-string v5, "|"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 415
+    .line 496
     :cond_2
     const-string v5, "gamemoney"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 418
+    .line 499
     :cond_3
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->platformCoinCheckBox:Landroid/widget/CheckBox;
 
@@ -1675,7 +1945,7 @@
 
     if-eqz v5, :cond_5
 
-    .line 420
+    .line 501
     invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -1688,18 +1958,18 @@
 
     if-nez v5, :cond_4
 
-    .line 421
+    .line 502
     const-string v5, "|"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 424
+    .line 505
     :cond_4
     const-string v5, "money"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 427
+    .line 508
     :cond_5
     invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -1707,41 +1977,49 @@
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->pay_ways:Ljava/lang/String;
 
-    .line 428
-    iget v5, p0, Lcom/game/sdk/ui/PayActivity;->totalPrice:F
+    .line 509
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-static {v5}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
+    iget v6, p0, Lcom/game/sdk/ui/PayActivity;->totalPrice:F
+
+    invoke-static {v6}, Ljava/lang/String;->valueOf(F)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->amount:Ljava/lang/String;
 
-    .line 429
+    .line 510
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->role:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->role:Ljava/lang/String;
 
-    .line 430
+    .line 511
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->server:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->server:Ljava/lang/String;
 
-    .line 431
+    .line 512
     const-string v5, ""
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->appid:Ljava/lang/String;
 
-    .line 432
+    .line 513
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->productname:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->productname:Ljava/lang/String;
 
-    .line 433
+    .line 514
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->attach:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->attach:Ljava/lang/String;
 
-    .line 435
+    .line 516
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
     const-string v6, "alipay"
@@ -1752,12 +2030,12 @@
 
     if-eqz v5, :cond_6
 
-    .line 436
+    .line 517
     const-string v5, ""
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->md5signstr:Ljava/lang/String;
 
-    .line 437
+    .line 518
     new-instance v5, Lcom/game/sdk/ui/PayActivity$PayGameTask;
 
     invoke-direct {v5, p0, v2}, Lcom/game/sdk/ui/PayActivity$PayGameTask;-><init>(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/domain/PayRequestParams;)V
@@ -1766,7 +2044,7 @@
 
     invoke-virtual {v5, v6}, Lcom/game/sdk/ui/PayActivity$PayGameTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 439
+    .line 520
     :cond_6
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->payWay:Ljava/lang/String;
 
@@ -1778,17 +2056,17 @@
 
     if-eqz v5, :cond_8
 
-    .line 440
+    .line 521
     invoke-direct {p0}, Lcom/game/sdk/ui/PayActivity;->prePayMessage()V
 
-    .line 441
+    .line 522
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v6, "{orderid}"
 
     iput-object v6, v5, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->mhtOrderNo:Ljava/lang/String;
 
-    .line 442
+    .line 523
     const-string v5, "connectivity"
 
     invoke-virtual {p0, v5}, Lcom/game/sdk/ui/PayActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1797,13 +2075,13 @@
 
     check-cast v1, Landroid/net/ConnectivityManager;
 
-    .line 443
+    .line 524
     .local v1, "manager":Landroid/net/ConnectivityManager;
     invoke-virtual {v1}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v0
 
-    .line 444
+    .line 525
     .local v0, "info":Landroid/net/NetworkInfo;
     if-eqz v0, :cond_7
 
@@ -1813,14 +2091,14 @@
 
     if-eqz v5, :cond_7
 
-    .line 446
+    .line 527
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     const-string v6, "13"
 
     iput-object v6, v5, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->payChannelType:Ljava/lang/String;
 
-    .line 448
+    .line 529
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->preSign:Lcom/ipaynow/plugin/utils/PreSignMessageUtil;
 
     invoke-virtual {v5}, Lcom/ipaynow/plugin/utils/PreSignMessageUtil;->generatePreSignMessage()Ljava/lang/String;
@@ -1829,13 +2107,34 @@
 
     sput-object v5, Lcom/game/sdk/ui/PayActivity;->preSignStr:Ljava/lang/String;
 
-    .line 450
+    .line 531
     :cond_7
     sget-object v5, Lcom/game/sdk/ui/PayActivity;->preSignStr:Ljava/lang/String;
 
     iput-object v5, v2, Lcom/game/sdk/domain/PayRequestParams;->md5signstr:Ljava/lang/String;
 
-    .line 451
+    .line 533
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "pay params -->"
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 534
     new-instance v5, Lcom/game/sdk/ui/PayActivity$PayGameTask;
 
     invoke-direct {v5, p0, v2}, Lcom/game/sdk/ui/PayActivity$PayGameTask;-><init>(Lcom/game/sdk/ui/PayActivity;Lcom/game/sdk/domain/PayRequestParams;)V
@@ -1844,15 +2143,29 @@
 
     invoke-virtual {v5, v6}, Lcom/game/sdk/ui/PayActivity$PayGameTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 454
+    .line 537
     .end local v0    # "info":Landroid/net/NetworkInfo;
     .end local v1    # "manager":Landroid/net/ConnectivityManager;
     :cond_8
     iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->payGameDialog:Lcom/game/sdk/view/CustomDialog;
 
+    if-eqz v5, :cond_9
+
+    iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->payGameDialog:Lcom/game/sdk/view/CustomDialog;
+
+    invoke-virtual {v5}, Lcom/game/sdk/view/CustomDialog;->isShowing()Z
+
+    move-result v5
+
+    if-nez v5, :cond_9
+
+    .line 538
+    iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->payGameDialog:Lcom/game/sdk/view/CustomDialog;
+
     invoke-virtual {v5}, Lcom/game/sdk/view/CustomDialog;->show()V
 
-    .line 455
+    .line 541
+    :cond_9
     return-void
 .end method
 
@@ -1863,33 +2176,33 @@
     .param p3, "privateKey"    # Ljava/lang/String;
 
     .prologue
-    .line 658
+    .line 758
     :try_start_0
     invoke-static {p3}, Lcom/game/sdk/utils/Util;->getKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p3
 
-    .line 659
+    .line 759
     invoke-static {p3}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
 
-    .line 660
+    .line 760
     invoke-direct {p0, p1, p2}, Lcom/game/sdk/ui/PayActivity;->getNewOrderInfo(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 661
+    .line 761
     .local v1, "info":Ljava/lang/String;
     invoke-static {v1, p3}, Lcom/game/sdk/security/Rsa;->sign(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 662
+    .line 762
     .local v3, "sign":Ljava/lang/String;
     invoke-static {v3}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 663
+    .line 763
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -1926,39 +2239,39 @@
 
     move-result-object v1
 
-    .line 664
+    .line 764
     move-object v2, v1
 
-    .line 665
+    .line 765
     .local v2, "orderInfo":Ljava/lang/String;
-    invoke-static {}, Lcom/game/sdk/utils/ThreadPoolManager;->getInstance()Lcom/game/sdk/utils/ThreadPoolManager;
+    invoke-static {}, Lcom/game/sdk/utils/ThreadPoolManager;->getInstance()Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;
 
     move-result-object v4
 
-    new-instance v5, Lcom/game/sdk/ui/PayActivity$6;
+    new-instance v5, Lcom/game/sdk/ui/PayActivity$7;
 
-    invoke-direct {v5, p0, v2}, Lcom/game/sdk/ui/PayActivity$6;-><init>(Lcom/game/sdk/ui/PayActivity;Ljava/lang/String;)V
+    invoke-direct {v5, p0, v2}, Lcom/game/sdk/ui/PayActivity$7;-><init>(Lcom/game/sdk/ui/PayActivity;Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Lcom/game/sdk/utils/ThreadPoolManager;->addTask(Ljava/lang/Runnable;)V
+    invoke-virtual {v4, v5}, Lcom/game/sdk/utils/ThreadPoolManager$ThreadPollProxy;->addTask(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 683
+    .line 783
     .end local v1    # "info":Ljava/lang/String;
     .end local v2    # "orderInfo":Ljava/lang/String;
     .end local v3    # "sign":Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 679
+    .line 779
     :catch_0
     move-exception v0
 
-    .line 680
+    .line 780
     .local v0, "ex":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 681
+    .line 781
     const-string v4, "\u652f\u4ed8\u5931\u8d25"
 
     invoke-static {p0, v4}, Lcom/game/sdk/utils/Util;->toast(Landroid/content/Context;Ljava/lang/String;)V
@@ -1970,7 +2283,7 @@
     .locals 1
 
     .prologue
-    .line 793
+    .line 994
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
 
     if-eqz v0, :cond_0
@@ -1983,203 +2296,353 @@
 
     if-eqz v0, :cond_0
 
-    .line 794
+    .line 995
     iget-object v0, p0, Lcom/game/sdk/ui/PayActivity;->payResultDialog:Lcom/game/sdk/view/PayResultDialog;
 
     invoke-virtual {v0}, Lcom/game/sdk/view/PayResultDialog;->dismiss()V
 
-    .line 796
+    .line 997
     :cond_0
     invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->finish()V
 
-    .line 797
+    .line 998
+    return-void
+.end method
+
+.method public setOrientation()V
+    .locals 8
+
+    .prologue
+    const/16 v7, 0x11
+
+    const/4 v6, 0x1
+
+    .line 852
+    invoke-virtual {p0}, Lcom/game/sdk/ui/PayActivity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    .line 853
+    .local v0, "dialogWindow":Landroid/view/Window;
+    invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    .line 855
+    .local v1, "params":Landroid/view/WindowManager$LayoutParams;
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget v2, v2, Lcom/game/sdk/domain/InItInfo;->vertical:I
+
+    if-nez v2, :cond_0
+
+    .line 856
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2}, Lcom/game/sdk/ui/PayActivity;->setRequestedOrientation(I)V
+
+    .line 857
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "onresume width land ---"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {p0}, Lcom/game/sdk/utils/DimensionUtil;->getWidth(Landroid/content/Context;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 858
+    invoke-static {p0}, Lcom/game/sdk/utils/DimensionUtil;->getWidth(Landroid/content/Context;)I
+
+    move-result v2
+
+    int-to-double v2, v2
+
+    const-wide v4, 0x3fe199999999999aL    # 0.55
+
+    mul-double/2addr v2, v4
+
+    double-to-int v2, v2
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    .line 859
+    iput v7, v1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    .line 861
+    :cond_0
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    if-eqz v2, :cond_1
+
+    sget-object v2, Lcom/game/sdk/domain/GoagalInfo;->inItInfo:Lcom/game/sdk/domain/InItInfo;
+
+    iget v2, v2, Lcom/game/sdk/domain/InItInfo;->vertical:I
+
+    if-ne v2, v6, :cond_1
+
+    .line 862
+    invoke-virtual {p0, v6}, Lcom/game/sdk/ui/PayActivity;->setRequestedOrientation(I)V
+
+    .line 863
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "onresume width port ---"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {p0}, Lcom/game/sdk/utils/DimensionUtil;->getWidth(Landroid/content/Context;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/game/sdk/utils/Logger;->msg(Ljava/lang/String;)V
+
+    .line 864
+    invoke-static {p0}, Lcom/game/sdk/utils/DimensionUtil;->getWidth(Landroid/content/Context;)I
+
+    move-result v2
+
+    int-to-double v2, v2
+
+    const-wide v4, 0x3feb333333333333L    # 0.85
+
+    mul-double/2addr v2, v4
+
+    double-to-int v2, v2
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    .line 865
+    iput v7, v1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    .line 868
+    :cond_1
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+
+    .line 869
     return-void
 .end method
 
 .method public showCouponList()V
-    .locals 8
+    .locals 9
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    .line 460
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    .line 545
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    invoke-virtual {v3}, Landroid/widget/PopupWindow;->isShowing()Z
+    invoke-virtual {v4}, Landroid/widget/PopupWindow;->isShowing()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 461
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    .line 546
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    invoke-virtual {v3}, Landroid/widget/PopupWindow;->dismiss()V
+    invoke-virtual {v4}, Landroid/widget/PopupWindow;->dismiss()V
 
-    .line 538
+    .line 639
     :cond_0
     :goto_0
     return-void
 
-    .line 463
+    .line 550
     :cond_1
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->payCoinEngin:Lcom/game/sdk/engin/PayCoinEngin;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-virtual {v3}, Lcom/game/sdk/engin/PayCoinEngin;->getUrl()Ljava/lang/String;
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    move-result-object v3
+    .line 552
+    .local v2, "tempList":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/CouponInfo;>;"
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->couponList:Ljava/util/List;
 
-    invoke-direct {p0, v3}, Lcom/game/sdk/ui/PayActivity;->getCouponInfoList(Ljava/lang/String;)Ljava/util/List;
+    if-eqz v4, :cond_2
 
-    move-result-object v3
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->couponList:Ljava/util/List;
 
-    iput-object v3, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    .line 465
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-lez v4, :cond_2
 
-    .line 468
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
+    .line 553
+    sget-object v4, Lcom/game/sdk/domain/GoagalInfo;->couponList:Ljava/util/List;
 
-    if-nez v3, :cond_2
+    invoke-interface {v2, v4}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 469
-    new-instance v3, Lcom/game/sdk/ui/adapter/CouponListAdapter;
+    .line 556
+    :cond_2
+    iput-object v2, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
 
+    .line 558
     iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
 
-    invoke-direct {v3, p0, v4}, Lcom/game/sdk/ui/adapter/CouponListAdapter;-><init>(Landroid/content/Context;Ljava/util/List;)V
+    if-eqz v4, :cond_0
 
-    iput-object v3, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
+    .line 561
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
 
-    .line 472
-    :cond_2
-    const/16 v3, 0x154
+    if-nez v4, :cond_3
 
-    invoke-static {p0, v3}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
+    .line 562
+    new-instance v4, Lcom/game/sdk/ui/adapter/CouponListAdapter;
+
+    iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
+
+    invoke-direct {v4, p0, v5}, Lcom/game/sdk/ui/adapter/CouponListAdapter;-><init>(Landroid/content/Context;Ljava/util/List;)V
+
+    iput-object v4, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
+
+    .line 565
+    :cond_3
+    const/16 v4, 0x154
+
+    invoke-static {p0, v4}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
 
     move-result v1
 
-    .line 473
+    .line 566
     .local v1, "pwidth":I
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_4
 
-    .line 474
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->inflater:Landroid/view/LayoutInflater;
+    .line 567
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->inflater:Landroid/view/LayoutInflater;
 
-    const-string v4, "layout"
+    const-string v5, "layout"
 
-    const-string v5, "coupon_list"
+    const-string v6, "coupon_list"
+
+    invoke-static {p0, v5, v6}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    .line 568
+    .local v3, "view":Landroid/view/View;
+    const-string v4, "id"
+
+    const-string v5, "coupon_list_view"
 
     invoke-static {p0, v4, v5}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v4
 
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 475
-    .local v2, "view":Landroid/view/View;
-    const-string v3, "id"
-
-    const-string v4, "coupon_list_view"
-
-    invoke-static {p0, v3, v4}, Lcom/game/sdk/utils/MResource;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/ListView;
 
-    .line 476
+    .line 569
     .local v0, "lv_pw":Landroid/widget/ListView;
-    invoke-virtual {v0, v7}, Landroid/widget/ListView;->setCacheColorHint(I)V
+    invoke-virtual {v0, v8}, Landroid/widget/ListView;->setCacheColorHint(I)V
 
-    .line 477
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
+    .line 570
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {v0, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 478
-    new-instance v3, Lcom/game/sdk/ui/PayActivity$5;
+    .line 571
+    new-instance v4, Lcom/game/sdk/ui/PayActivity$6;
 
-    invoke-direct {v3, p0}, Lcom/game/sdk/ui/PayActivity$5;-><init>(Lcom/game/sdk/ui/PayActivity;)V
+    invoke-direct {v4, p0}, Lcom/game/sdk/ui/PayActivity$6;-><init>(Lcom/game/sdk/ui/PayActivity;)V
 
-    invoke-virtual {v0, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v0, v4}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 529
-    new-instance v3, Landroid/widget/PopupWindow;
+    .line 630
+    new-instance v4, Landroid/widget/PopupWindow;
 
-    const/4 v4, -0x2
+    const/4 v5, -0x2
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-direct {v3, v2, v1, v4, v5}, Landroid/widget/PopupWindow;-><init>(Landroid/view/View;IIZ)V
+    invoke-direct {v4, v3, v1, v5, v6}, Landroid/widget/PopupWindow;-><init>(Landroid/view/View;IIZ)V
 
-    iput-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    iput-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    .line 530
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    .line 631
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    new-instance v4, Landroid/graphics/drawable/ColorDrawable;
+    new-instance v5, Landroid/graphics/drawable/ColorDrawable;
 
-    invoke-direct {v4, v7}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+    invoke-direct {v5, v8}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    invoke-virtual {v3, v4}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v4, v5}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 531
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    .line 632
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    invoke-virtual {v3, v2}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v4, v3}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
 
-    .line 536
+    .line 637
     .end local v0    # "lv_pw":Landroid/widget/ListView;
-    .end local v2    # "view":Landroid/view/View;
+    .end local v3    # "view":Landroid/view/View;
     :goto_1
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->pwCoupon:Landroid/widget/PopupWindow;
 
-    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->moreCouponLayout:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/game/sdk/ui/PayActivity;->moreCouponLayout:Landroid/widget/LinearLayout;
 
-    neg-int v5, v1
+    neg-int v6, v1
 
-    const/16 v6, 0x30
+    const/16 v7, 0x30
 
-    invoke-static {p0, v6}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
+    invoke-static {p0, v7}, Lcom/game/sdk/utils/DimensionUtil;->dip2px(Landroid/content/Context;I)I
 
-    move-result v6
+    move-result v7
 
-    add-int/2addr v5, v6
+    add-int/2addr v6, v7
 
-    invoke-virtual {v3, v4, v5, v7}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;II)V
+    invoke-virtual {v4, v5, v6, v8}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;II)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 533
-    :cond_3
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
+    .line 634
+    :cond_4
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
 
-    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->couponInfoList:Ljava/util/List;
+    invoke-virtual {v4, v2}, Lcom/game/sdk/ui/adapter/CouponListAdapter;->initDataList(Ljava/util/List;)V
 
-    invoke-virtual {v3, v4}, Lcom/game/sdk/ui/adapter/CouponListAdapter;->initDataList(Ljava/util/List;)V
+    .line 635
+    iget-object v4, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
 
-    .line 534
-    iget-object v3, p0, Lcom/game/sdk/ui/PayActivity;->adapter:Lcom/game/sdk/ui/adapter/CouponListAdapter;
-
-    invoke-virtual {v3}, Lcom/game/sdk/ui/adapter/CouponListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v4}, Lcom/game/sdk/ui/adapter/CouponListAdapter;->notifyDataSetChanged()V
 
     goto :goto_1
 .end method

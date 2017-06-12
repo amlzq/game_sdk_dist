@@ -4,6 +4,12 @@
 
 
 # instance fields
+.field public agentId:Ljava/lang/String;
+    .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
+        name = "agent_id"
+    .end annotation
+.end field
+
 .field public gameNotice:Lcom/game/sdk/domain/NoticeMsg;
     .annotation runtime Lcom/alibaba/fastjson/annotation/JSONField;
         name = "game_notice"

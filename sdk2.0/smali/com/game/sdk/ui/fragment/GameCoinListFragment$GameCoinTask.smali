@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 103
+    .line 111
     iput-object p1, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -48,7 +48,7 @@
     .locals 0
 
     .prologue
-    .line 103
+    .line 111
     invoke-direct {p0, p1}, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;-><init>(Lcom/game/sdk/ui/fragment/GameCoinListFragment;)V
 
     return-void
@@ -58,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 103
+    .line 111
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
     return-object v0
@@ -96,7 +96,7 @@
     .end annotation
 
     .prologue
-    .line 112
+    .line 120
     iget-object v0, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/GameCoinListFragment;->gameCoinEngin:Lcom/game/sdk/engin/GameCoinEngin;
@@ -114,7 +114,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/game/sdk/engin/GameCoinEngin;->getGameCoinList(Ljava/lang/String;Lcom/game/sdk/net/listeners/Callback;)V
 
-    .line 134
+    .line 142
     const/4 v0, 0x0
 
     return-object v0
@@ -145,11 +145,11 @@
     .end annotation
 
     .prologue
-    .line 139
+    .line 147
     .local p1, "result":Ljava/util/List;, "Ljava/util/List<Lcom/game/sdk/domain/GameCoin;>;"
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    .line 140
+    .line 148
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -158,23 +158,23 @@
 
     if-lez v1, :cond_0
 
-    .line 141
+    .line 149
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
     iput-object p1, v1, Lcom/game/sdk/ui/fragment/GameCoinListFragment;->gameCoinList:Ljava/util/List;
 
-    .line 144
+    .line 152
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 145
+    .line 153
     .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 146
+    .line 154
     iget-object v1, p0, Lcom/game/sdk/ui/fragment/GameCoinListFragment$GameCoinTask;->this$0:Lcom/game/sdk/ui/fragment/GameCoinListFragment;
 
     # getter for: Lcom/game/sdk/ui/fragment/GameCoinListFragment;->handler:Landroid/os/Handler;
@@ -184,7 +184,7 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 148
+    .line 156
     .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
@@ -194,9 +194,9 @@
     .locals 0
 
     .prologue
-    .line 107
+    .line 115
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V
 
-    .line 108
+    .line 116
     return-void
 .end method

@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/game/sdk/ui/InitActivity;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/game/sdk/ui/InitActivity;->initData()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/game/sdk/ui/InitActivity$1;->this$0:Lcom/game/sdk/ui/InitActivity;
 
-    .line 96
+    .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,34 +38,16 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 100
-    iget-object v1, p0, Lcom/game/sdk/ui/InitActivity$1;->this$0:Lcom/game/sdk/ui/InitActivity;
+    .line 96
+    iget-object v0, p0, Lcom/game/sdk/ui/InitActivity$1;->this$0:Lcom/game/sdk/ui/InitActivity;
 
-    # getter for: Lcom/game/sdk/ui/InitActivity;->view:Lcom/game/sdk/view/LVEatBeans;
-    invoke-static {v1}, Lcom/game/sdk/ui/InitActivity;->access$2(Lcom/game/sdk/ui/InitActivity;)Lcom/game/sdk/view/LVEatBeans;
+    iget-object v0, v0, Lcom/game/sdk/ui/InitActivity;->fyGmaeSDk:Lcom/game/sdk/FYGameSDK;
 
-    move-result-object v1
+    invoke-virtual {v0}, Lcom/game/sdk/FYGameSDK;->init()V
 
-    invoke-virtual {v1}, Lcom/game/sdk/view/LVEatBeans;->stopAnim()V
-
-    .line 101
-    new-instance v0, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/game/sdk/ui/InitActivity$1;->this$0:Lcom/game/sdk/ui/InitActivity;
-
-    const-class v2, Lcom/game/sdk/ui/QuickLoginActivity;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    .line 102
-    .local v0, "intent":Landroid/content/Intent;
-    iget-object v1, p0, Lcom/game/sdk/ui/InitActivity$1;->this$0:Lcom/game/sdk/ui/InitActivity;
-
-    invoke-virtual {v1, v0}, Lcom/game/sdk/ui/InitActivity;->startActivity(Landroid/content/Intent;)V
-
-    .line 103
+    .line 97
     return-void
 .end method

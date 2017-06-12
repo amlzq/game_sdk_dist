@@ -39,17 +39,17 @@
     :cond_0
     const-string v1, "0"
 
-    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->ai:Ljava/lang/String;
+    iget-object v2, p1, Lcom/unionpay/mobile/android/model/b;->an:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    iget-boolean v2, p1, Lcom/unionpay/mobile/android/model/b;->ar:Z
+    iget-boolean v2, p1, Lcom/unionpay/mobile/android/model/b;->aw:Z
 
     if-eqz v2, :cond_1
 
-    iget v2, p1, Lcom/unionpay/mobile/android/model/b;->aj:I
+    iget v2, p1, Lcom/unionpay/mobile/android/model/b;->ao:I
 
     const v3, 0x11101
 
@@ -73,7 +73,7 @@
     return v0
 
     :cond_3
-    iget-object v1, p1, Lcom/unionpay/mobile/android/model/b;->p:Ljava/lang/String;
+    iget-object v1, p1, Lcom/unionpay/mobile/android/model/b;->u:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -88,7 +88,7 @@
     move-result v0
 
     :cond_4
-    iget-object v1, p1, Lcom/unionpay/mobile/android/model/b;->o:Lorg/json/JSONArray;
+    iget-object v1, p1, Lcom/unionpay/mobile/android/model/b;->t:Lorg/json/JSONArray;
 
     invoke-static {v1}, Lcom/unionpay/mobile/android/nocard/utils/f;->a(Lorg/json/JSONArray;)Z
 

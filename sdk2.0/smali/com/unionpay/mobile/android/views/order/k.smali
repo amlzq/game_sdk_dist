@@ -33,6 +33,16 @@
 
     iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/k;->a:Lcom/unionpay/mobile/android/views/order/i;
 
+    iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/k;->a:Lcom/unionpay/mobile/android/views/order/i;
+
+    iget-object v0, v0, Lcom/unionpay/mobile/android/views/order/i;->b:Landroid/content/Context;
+
+    const-string v1, "login_by_register"
+
+    invoke-static {v0, v1}, Lcom/unionpay/mobile/android/views/order/i;->a(Landroid/content/Context;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/unionpay/mobile/android/views/order/k;->a:Lcom/unionpay/mobile/android/views/order/i;
+
     iget-object v0, v0, Lcom/unionpay/mobile/android/views/order/i;->e:Lcom/unionpay/mobile/android/views/order/AbstractMethod$b;
 
     iget-object v1, p0, Lcom/unionpay/mobile/android/views/order/k;->a:Lcom/unionpay/mobile/android/views/order/i;
