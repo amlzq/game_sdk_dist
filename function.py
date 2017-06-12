@@ -51,7 +51,7 @@ def mergeAndroidManifestXml(sXml, tXml):
     sAppRoot = sRoot.find("application")
     tAppRoot = tRoot.find("application")
     global package_name
-    package_name = tRoot.attrib[packageName].replace(".", "/")
+    package_name = tRoot.attrib['package'].replace(".", "/")
     mergeRootNode(sRoot, tRoot)
     mergeRootNode(sAppRoot, tAppRoot)
 
@@ -86,8 +86,8 @@ def mergePublicXml(sXml, tXml):
     X={}
 
     for tChild in tRoot:
-        stype = tChild.attrib['type'];
-        iid = tChild.attrib['id'];
+        stype = tChild.attrib['type']
+        iid = tChild.attrib['id']
 
         val = 0
         if stype in X:
@@ -159,7 +159,6 @@ if __name__ == '__main__':
 
     xml.etree.ElementTree.register_namespace('android', "http://schemas.android.com/apk/res/android")
     androidName     = '{http://schemas.android.com/apk/res/android}name'
-    packageName     = 'package'
 
     mergeAndroidManifestXml("".join([s_dir, "/AndroidManifest.xml"]), "".join([t_dir, "/AndroidManifest.xml"]))
 
@@ -167,5 +166,5 @@ if __name__ == '__main__':
     files = os.listdir(path)
     for name in files:
         if name != "public.xml":
-            mergeValuesXml("".join([path, name]), "".join([t_dir, "/res/values/", name]));
+            mergeValuesXml("".join([path, name]), "".join([t_dir, "/res/values/", name]))
     mergePublicXml("".join([s_dir, "/res/values/public.xml"]), "".join([t_dir, "/res/values/public.xml"]))
