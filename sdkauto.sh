@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 target_apk_path=${1}
 source_apk_path=${2}
 is_fix_sdk=1
@@ -91,7 +92,14 @@ python function.py ${s_dir} ${t_dir}
 echo "I: Merge success"
 #6 回编
 echo "I: Encode game..."
-java -jar apktool.jar b ${t_dir} -o ${t_dir}_tmp.apk
+result=`java -jar apktool.jar b ${t_dir} -o ${t_dir}_tmp.apk 2>&1 > /dev/null`
+if [[ "${result##* }" == "more" ]]
+then
+  echo "E: Encode game fail"
+  echo "I: Detail see log.txt"
+  echo ${result} > log.txt
+  exit
+fi
 echo "I: Encode success"
 #7 签名
 echo "I: Signing..."
