@@ -5,58 +5,57 @@ import os
 import xml.etree.ElementTree
 from shutil import copyfile
 
-def mergeRootNode(sNode, tNode):
-    for sChild in sNode:
-        isSame = False
-        if sChild.tag == "application":
+def merge_root_node(snode, tnode):
+    for schild in snode:
+        issame = False
+        if schild.tag == "application":
             continue
-        for tChild in tNode:
-            if sChild.tag == tChild.tag:
-                if 'name' in sChild.attrib and sChild.attrib['name'] == 'app_name':
-                    isSame = True
+        for tchild in tnode:
+            if schild.tag == tchild.tag:
+                if 'name' in schild.attrib and schild.attrib['name'] == 'app_name':
+                    issame = True
                     break
-                if sChild.tag == "meta-data":
-                    isSame = True
+                if schild.tag == "meta-data":
+                    issame = True
                     break
-                if androidName in sChild.attrib and androidName in tChild.attrib:
-                    if sChild.attrib[androidName] == "com.game.sdk.TTWSDKActivity":
-                        isSame = True
+                if android_name in schild.attrib and android_name in tchild.attrib:
+                    if schild.attrib[android_name] == "com.game.sdk.TTWSDKActivity":
+                        issame = True
                         break
-                    if sChild.attrib[androidName] == tChild.attrib[androidName]:
-                        tChild.text = sChild.text
-                        isSame = True
+                    if schild.attrib[android_name] == tchild.attrib[android_name]:
+                        tchild.text = schild.text
+                        issame = True
                         break
-                if sChild.attrib == tChild.attrib:
-                    tChild.text = sChild.text
-                    isSame = True
+                if schild.attrib == tchild.attrib:
+                    tchild.text = schild.text
+                    issame = True
                     break
-        if not isSame:
-            tNode.append(sChild)
+        if not issame:
+            tnode.append(schild)
 
 
-def mergeAndroidManifestXml(sXml, tXml, fix_sdk = False):
-    if not os.path.isfile(sXml):
+def merge_android_manifest_xml(sxml, txml, is_fix_sdk = False):
+    if not os.path.isfile(sxml):
         return
 
-    if not os.path.isfile(tXml):
-        copyfile(sXml, tXml)
+    if not os.path.isfile(txml):
+        copyfile(sxml, txml)
         return
 
-    sTree = xml.etree.ElementTree.parse(sXml)
-    tTree = xml.etree.ElementTree.parse(tXml)
+    stree = xml.etree.ElementTree.parse(sxml)
+    ttree = xml.etree.ElementTree.parse(txml)
 
-    sRoot = sTree.getroot()
-    tRoot = tTree.getroot()
+    sroot = stree.getroot()
+    troot = ttree.getroot()
 
-    sAppRoot = sRoot.find("application")
-    tAppRoot = tRoot.find("application")
+    sapproot = sroot.find("application")
+    tapproot = troot.find("application")
 
-
-    if fix_sdk:
-        global icon_name
-        androidIcon = '{http://schemas.android.com/apk/res/android}icon'
-        icon_name =  tAppRoot.attrib[androidIcon]
-        arr = icon_name.split("/")
+    if is_fix_sdk:
+        print("I: Fix sdk bug...")
+        android_icon = '{http://schemas.android.com/apk/res/android}icon'
+        icon_value =  tapproot.attrib[android_icon]
+        arr = icon_value.split("/")
         if arr[0][1:] == "drawable" and arr[1] == "ic_launcher":
             os.remove("".join([t_dir, "/res/drawable-xhdpi-v4/ic_launcher.png"]))
             os.remove("".join([t_dir, "/res/drawable-mdpi-v4/ic_launcher.png"]))
@@ -65,99 +64,98 @@ def mergeAndroidManifestXml(sXml, tXml, fix_sdk = False):
         return
 
     global package_name
-    package_name = tRoot.attrib['package'].replace(".", "/")
+    package_name = troot.attrib['package'].replace(".", "/")
 
-    mergeRootNode(sRoot, tRoot)
-    mergeRootNode(sAppRoot, tAppRoot)
+    merge_root_node(sroot, troot)
+    merge_root_node(sapproot, tapproot)
 
-    tTree.write(tXml, encoding='utf-8', xml_declaration=True)
+    ttree.write(txml, encoding='utf-8', xml_declaration=True)
 
-def mergeValuesXml(sXml, tXml):
-    if not os.path.isfile(sXml):
+def merge_values_xml(sxml, txml):
+    if not os.path.isfile(sxml):
         return
 
-    if not os.path.isfile(tXml):
-        copyfile(sXml, tXml)
+    if not os.path.isfile(txml):
+        copyfile(sxml, txml)
         return
 
-    sTree = xml.etree.ElementTree.parse(sXml)
-    tTree = xml.etree.ElementTree.parse(tXml)
+    stree = xml.etree.ElementTree.parse(sxml)
+    ttree = xml.etree.ElementTree.parse(txml)
 
-    sRoot = sTree.getroot()
-    tRoot = tTree.getroot()
+    sroot = stree.getroot()
+    troot = ttree.getroot()
 
-    mergeRootNode(sRoot, tRoot)
-    tTree.write(tXml, encoding='utf-8', xml_declaration=True)
+    merge_root_node(sroot, troot)
+    ttree.write(txml, encoding='utf-8', xml_declaration=True)
 
-def mergePublicXml(sXml, tXml):
-    sTree = xml.etree.ElementTree.parse(sXml)
-    tTree = xml.etree.ElementTree.parse(tXml)
+def merge_public_xml(sxml, txml):
+    stree = xml.etree.ElementTree.parse(sxml)
+    ttree = xml.etree.ElementTree.parse(txml)
 
-    sRoot = sTree.getroot()
-    tRoot = tTree.getroot()
+    sroot = stree.getroot()
+    troot = ttree.getroot()
+    tmp_troot = troot[:]
 
     R={}
-    Rkeys=[]
+    R_keys=[]
 
-    for sChild in sRoot:
-        isSame = False
-        stype = sChild.attrib['type']
-        sname = sChild.attrib['name']
-
-        for tChild in tRoot:
-            if stype == tChild.attrib['type'] and sname == tChild.attrib['name']:
-                isSame = True
-                #tChild.attrib['id'] = sChild.attrib['id']
+    for schild in sroot:
+        issame = False
+        stype = schild.attrib['type']
+        sname = schild.attrib['name']
+        for tchild in tmp_troot:
+            if stype == tchild.attrib['type'] and sname == tchild.attrib['name']:
+                issame = True
                 break
-        if not isSame:
+        if not issame:
             lastid = "0x00700000"
-            lastpre = lastid[0:6]
-            for tChild in tRoot:
-                ttype = tChild.attrib['type']
-                tlastid = tChild.attrib['id']
-                tlastpre = tlastid[0:6]
-                if int(lastpre, 16) < int(tlastpre, 16):
-                    lastpre = tlastpre
+            lastid_pre = lastid[0:6]
+            for tchild in troot:
+                ttype = tchild.attrib['type']
+                tlastid = tchild.attrib['id']
+                tlastid_pre = tlastid[0:6]
+                if int(lastid_pre, 16) < int(tlastid_pre, 16):
+                    lastid_pre = tlastid_pre
                 if stype == ttype:
                     if int(lastid, 16) < int(tlastid, 16):
                         lastid = tlastid
             if lastid == "0x00700000":
-                lastid = str(hex(int(lastpre, 16) + 1)) + "0001"
+                lastid = str(hex(int(lastid_pre, 16) + 1)) + "0001"
             else:
                 lastid = str(hex(int(lastid, 16) + 1))
-            sChild.attrib['id'] = lastid
-            tRoot.append(sChild)
+            schild.attrib['id'] = lastid
+            troot.append(schild)
 
-    for tChild in tRoot:
-        sname = tChild.attrib['name']
-        stype = tChild.attrib['type']
+    for tchild in troot:
+        sname = tchild.attrib['name']
+        stype = tchild.attrib['type']
 
         if "." in sname:
             sname = sname.replace(".", "_")
 
-        if stype not in Rkeys:
-            Rkeys.append(stype)
+        if stype not in R_keys:
+            R_keys.append(stype)
             fname = "R${1}.smali".replace("{1}", stype)
             R[stype]={
                 'fname': fname,
                 'file' : open(fname, "w+")
             }
-            (R[stype]['file']).write(templateHeader(stype))
+            (R[stype]['file']).write(rfile_header(stype))
 
         field_template = ".field public static final {1}:I = {2}\n\n"
-        fieldStr = field_template.replace("{1}", sname).replace("{2}", tChild.attrib['id'])
+        fieldStr = field_template.replace("{1}", sname).replace("{2}", tchild.attrib['id'])
         (R[stype]['file']).write(fieldStr)
 
-    tTree.write(tXml, encoding='utf-8', xml_declaration=True)
+    ttree.write(txml, encoding='utf-8', xml_declaration=True)
 
-    for stype in Rkeys:
-        (R[stype]['file']).write(templateFooter())
+    for stype in R_keys:
+        (R[stype]['file']).write(rfile_footer())
         (R[stype]['file']).close()
         fname = R[stype]['fname']
         copyfile(fname, "".join([t_dir, "/smali/", package_name, "/",  fname]))
         os.remove(fname)
 
-def templateHeader(stype):
+def rfile_header(stype):
     template = ".class public final L{2}/R${1};\n\
     .super Ljava/lang/Object;\n\
     .source \"R.java\"\n\n\n\
@@ -173,7 +171,7 @@ def templateHeader(stype):
     return template.replace("{1}", stype).replace("{2}", package_name)
 
 
-def templateFooter():
+def rfile_footer():
     template = "# direct methods\n\
     .method public constructor <init>()V\n\
         .locals 0\n\
@@ -189,20 +187,20 @@ if __name__ == '__main__':
     s_dir = sys.argv[1]
     t_dir = sys.argv[2]
     if len(sys.argv) == 4:
-        fix_sdk = sys.argv[3]
-        if fix_sdk == "1":
-            mergeAndroidManifestXml("".join([s_dir, "/AndroidManifest.xml"]), "".join([t_dir, "/AndroidManifest.xml"]), True)
+        is_fix_sdk = sys.argv[3]
+        if is_fix_sdk == "1":
+            merge_android_manifest_xml("".join([s_dir, "/AndroidManifest.xml"]), "".join([t_dir, "/AndroidManifest.xml"]), True)
         exit()
 
     print "I: Pyhton merge xml and gen r$*.java file"
     xml.etree.ElementTree.register_namespace('android', "http://schemas.android.com/apk/res/android")
-    androidName = '{http://schemas.android.com/apk/res/android}name'
+    android_name = '{http://schemas.android.com/apk/res/android}name'
 
-    mergeAndroidManifestXml("".join([s_dir, "/AndroidManifest.xml"]), "".join([t_dir, "/AndroidManifest.xml"]))
+    merge_android_manifest_xml("".join([s_dir, "/AndroidManifest.xml"]), "".join([t_dir, "/AndroidManifest.xml"]))
 
     path = "".join([s_dir, "/res/values/"])
     files = os.listdir(path)
     for name in files:
         if name != "public.xml":
-            mergeValuesXml("".join([path, name]), "".join([t_dir, "/res/values/", name]))
-    mergePublicXml("".join([s_dir, "/res/values/public.xml"]), "".join([t_dir, "/res/values/public.xml"]))
+            merge_values_xml("".join([path, name]), "".join([t_dir, "/res/values/", name]))
+    merge_public_xml("".join([s_dir, "/res/values/public.xml"]), "".join([t_dir, "/res/values/public.xml"]))

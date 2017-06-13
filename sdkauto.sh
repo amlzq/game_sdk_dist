@@ -2,6 +2,11 @@
 
 target_apk_path=${1}
 source_apk_path=${2}
+is_fix_sdk=1
+
+if [ "$#" -eq 3 ]; then
+    is_fix_sdk=${3}
+fi
 
 ext="${target_apk_path##*.}"
 name="${target_apk_path%.*}"
@@ -44,8 +49,7 @@ do
 done
 
 #fix sdk bug
-echo "I: Fix sdk bug..."
-python function.py ${s_dir} ${t_dir} 1
+python function.py ${s_dir} ${t_dir} $is_fix_sdk
 rm -rf ${t_dir}/smali/com/game/sdk
 
 rm -rf ${t_dir}/smali/com/ipaynow #删除
