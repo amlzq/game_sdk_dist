@@ -24,17 +24,17 @@ if [ ! -d $s_dir ]; then
     echo "I: ${source_apk_path} not exist"
     exit
   fi
-  echo "I: Decode sdk.."
+  echo "I: Decode sdk..."
   java -jar apktool.jar d $source_apk_path -o $s_dir
   echo "I: Decode success"
 fi
 
 #1. 反编译游戏母包app
-echo "I: Decode game.."
+echo "I: Decode game..."
 java -jar apktool.jar -f d ${target_apk_path} -o ${t_dir}
 echo "I: Decode success"
 #2. lib合并
-echo "I: Merge lib、smail、res dirs.."
+echo "I: Merge lib、smail、res dirs..."
 for D in `find ${t_dir}/lib -type d`
 do
   if [[ $D != "${t_dir}/lib" ]]
@@ -43,12 +43,17 @@ do
   fi
 done
 
+#fix sdk bug
+echo "I: Fix sdk bug..."
+python function.py ${s_dir} ${t_dir} 1
 rm -rf ${t_dir}/smali/com/game/sdk
+
 rm -rf ${t_dir}/smali/com/ipaynow #删除
 rm -rf ${t_dir}/smali/com/UCMobile #删除
 rm -rf ${t_dir}/smali/com/unionpay #删除
 rm -rf ${t_dir}/smali/com/ta #删除
 rm -rf ${t_dir}/smali/com/ut #删除
+
 #2.复制已经反编好的sdk smail代码到 已经反编译游戏母包目录
 cp -rf ${s_dir}/smali/okhttp3 ${t_dir}/smali
 cp -rf ${s_dir}/smali/okio ${t_dir}/smali
@@ -81,15 +86,16 @@ done
 python function.py ${s_dir} ${t_dir}
 echo "I: Merge success"
 #6 回编
-echo "I: Encode game.."
-java -jar apktool.jar b ${t_dir} -o ${t_dir}.apk
+echo "I: Encode game..."
+java -jar apktool.jar b ${t_dir} -o ${t_dir}_tmp.apk
 echo "I: Encode success"
 #7 签名
-echo "I: Signing.."
-jarsigner -verbose -keystore xxrjy.jks -signedjar ${t_dir}_signed.apk ${t_dir}.apk xxrjy -storepass 123456
+echo "I: Signing..."
+jarsigner -verbose -keystore xxrjy.jks -signedjar ${t_dir}_signed.apk ${t_dir}_tmp.apk xxrjy -storepass 123456 >/dev/null
 echo "I: Sign success"
 #清理
 # rm -rf ${t_dir}.apk
-echo "I: Delete temp file.."
+echo "I: Delete temp file..."
 rm -rf ${t_dir}
+rm -f ${t_dir}_tmp.apk
 echo "I: Success"
