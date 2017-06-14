@@ -1,6 +1,4 @@
 #!/bin/sh
-
-
 target_apk_path=${1}
 source_apk_path=${2}
 is_fix_sdk=1
@@ -96,8 +94,7 @@ result=`java -jar apktool.jar b ${t_dir} -o ${t_dir}_tmp.apk 2>&1 > /dev/null`
 if [[ "${result##* }" == "more" ]]
 then
   echo "E: Encode game fail"
-  echo "I: Detail see log.txt"
-  echo ${result} > log.txt
+  echo ${result}
   exit
 fi
 echo "I: Encode success"

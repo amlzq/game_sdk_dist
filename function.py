@@ -57,10 +57,13 @@ def merge_android_manifest_xml(sxml, txml, is_fix_sdk = False):
         icon_value =  tapproot.attrib[android_icon]
         arr = icon_value.split("/")
         if arr[0][1:] == "drawable" and arr[1] == "ic_launcher":
-            os.remove("".join([t_dir, "/res/drawable-xhdpi-v4/ic_launcher.png"]))
-            os.remove("".join([t_dir, "/res/drawable-mdpi-v4/ic_launcher.png"]))
-            os.remove("".join([t_dir, "/res/drawable-hdpi-v4/ic_launcher.png"]))
-            print("I: Delete ic_launcher.png success")
+            try:
+                os.remove("".join([t_dir, "/res/drawable-xhdpi-v4/ic_launcher.png"]))
+                os.remove("".join([t_dir, "/res/drawable-mdpi-v4/ic_launcher.png"]))
+                os.remove("".join([t_dir, "/res/drawable-hdpi-v4/ic_launcher.png"]))
+                print("I: Delete ic_launcher.png success")
+            except:
+                pass
         return
 
     global package_name
