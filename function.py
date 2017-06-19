@@ -7,32 +7,31 @@ from shutil import copyfile
 
 def merge_root_node(snode, tnode):
     for schild in snode:
-        issame = False
+        issametag = False
         if schild.tag == "application":
             continue
         for tchild in tnode:
             if schild.tag == tchild.tag:
                 if 'name' in schild.attrib and schild.attrib['name'] == 'app_name':
-                    issame = True
+                    issametag = True
                     break
                 if schild.tag == "meta-data":
-                    issame = True
+                    issametag = True
                     break
                 if android_name in schild.attrib and android_name in tchild.attrib:
                     if schild.attrib[android_name] == "com.game.sdk.TTWSDKActivity":
-                        issame = True
+                        issametag = True
                         break
                     if schild.attrib[android_name] == tchild.attrib[android_name]:
                         tchild.text = schild.text
-                        issame = True
+                        issametag = True
                         break
                 if schild.attrib == tchild.attrib:
                     tchild.text = schild.text
-                    issame = True
+                    issametag = True
                     break
-        if not issame:
+        if not issametag:
             tnode.append(schild)
-
 
 def merge_android_manifest_xml(sxml, txml, is_fix_sdk = False):
     if not os.path.isfile(sxml):
@@ -103,14 +102,14 @@ def merge_public_xml(sxml, txml):
     R_keys=[]
 
     for schild in sroot:
-        issame = False
+        issametag = False
         stype = schild.attrib['type']
         sname = schild.attrib['name']
         for tchild in tmp_troot:
             if stype == tchild.attrib['type'] and sname == tchild.attrib['name']:
-                issame = True
+                issametag = True
                 break
-        if not issame:
+        if not issametag:
             lastid = "0x00700000"
             lastid_pre = lastid[0:6]
             for tchild in troot:
@@ -155,7 +154,21 @@ def merge_public_xml(sxml, txml):
         (R[stype]['file']).write(rfile_footer())
         (R[stype]['file']).close()
         fname = R[stype]['fname']
-        copyfile(fname, "".join([t_dir, "/smali/", package_name, "/",  fname]))
+
+        rdir = "".join([t_dir, "/smali/", package_name])
+        if not os.path.isdir(rdir):
+            i = 2
+            while True:
+                rdir = "".join([t_dir, "/smali_classes" + str(i) + "/", package_name])
+                if os.path.isdir(rdir):
+                    break
+                if i > 10:
+                    break
+                i += 1
+        if not os.path.isdir(rdir):
+            print("E: " + rdir + " not found")
+            return
+        copyfile(fname, rdir+"/"+fname)
         os.remove(fname)
 
 def rfile_header(stype):
@@ -173,7 +186,6 @@ def rfile_header(stype):
     # static fields\n"
     return template.replace("{1}", stype).replace("{2}", package_name)
 
-
 def rfile_footer():
     template = "# direct methods\n\
     .method public constructor <init>()V\n\
@@ -184,7 +196,6 @@ def rfile_footer():
         return-void\n\
     .end method\n"
     return template
-
 
 if __name__ == '__main__':
     s_dir = sys.argv[1]

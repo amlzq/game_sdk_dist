@@ -108,3 +108,5 @@ echo "I: Delete temp file..."
 rm -rf ${t_dir}
 rm -f ${t_dir}_tmp.apk
 echo "I: Success"
+
+ls -t
