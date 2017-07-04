@@ -33,12 +33,25 @@ if [ ! -d $s_dir ]; then
   echo "I: Decode success"
 fi
 
+
+
 #1. 反编译游戏母包app
 echo "I: Decode game..."
 java -jar apktool.jar -f d ${target_apk_path} -o ${t_dir}
 echo "I: Decode success"
 #2. lib合并
 echo "I: Merge lib、smail、res dirs..."
+
+#0.检查res文件中png图片的真实性 若不是则转换为png
+for FILE in  `find ${t_dir}/res -name "*.png" -type f`
+do
+  if test -e $FILE -a $(file -b --mime-type $FILE) != "image/png"; then
+    mogrify -format png $FILE
+    echo "I: $FILE not png, already convert to png"
+  fi
+done
+
+
 for D in `find ${t_dir}/lib -type d`
 do
   if [[ $D != "${t_dir}/lib" ]]
@@ -46,6 +59,8 @@ do
     cp -Rf ${D/$t_dir/$s_dir} ${t_dir}/lib
   fi
 done
+
+
 
 #fix sdk bug
 python function.py ${s_dir} ${t_dir} $is_fix_sdk
