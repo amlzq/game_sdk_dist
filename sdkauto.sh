@@ -42,12 +42,14 @@ echo "I: Decode success"
 #2. lib合并
 echo "I: Merge lib、smail、res dirs..."
 
-#0.检查res文件中png图片的真实性 若不是则转换为png
+#0.检查res文件中png图片的真实性 若不是则转换为更改缀名
 for FILE in  `find ${t_dir}/res -name "*.png" -type f`
 do
   if test -e $FILE -a $(file -b --mime-type $FILE) != "image/png"; then
-    mogrify -format png $FILE
-    echo "I: $FILE not png, already convert to png"
+    #mogrify -format png $FILE
+    #echo "I: $FILE not png, already convert to png"
+    mv $FILE "${FILE%.*}.exif"
+    echo "I: $FILE real not png, already rename exif"
   fi
 done
 
