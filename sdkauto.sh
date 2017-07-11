@@ -1,10 +1,41 @@
 #!/bin/sh
-target_apk_path=${1}
-source_apk_path=${2}
-is_fix_sdk=1
+function usage() {
+    echo "usage:"
+    echo "      ./sdkauto.sh -g game.apk [-s sdk.apk] [-v apktool.jar] [-b 1|0]"
+    exit
+}
 
-if [ "$#" -eq 3 ]; then
-    is_fix_sdk=${3}
+target_apk_path=
+source_apk_path=sdk.apk
+is_fix_sdk=0
+apktool_jar_path="apktool2.2.2.jar"
+while getopts ":s:b:v:g:h" arg
+do
+  case $arg in
+       g)
+          target_apk_path=$OPTARG
+          ;;
+       s)
+          source_apk_path=$OPTARG
+          ;;
+       b)
+          is_fix_sdk=$OPTARG
+          ;;
+       v)
+          apktool_jar_path=$OPTARG
+          ;;
+       h)
+          usage
+          ;;
+       *)  #当有不认识的选项的时候arg为*
+          usage
+          ;;
+  esac
+done
+
+if [[ "${target_apk_path}" == "" ]];
+then
+  usage
 fi
 
 ext="${target_apk_path##*.}"
@@ -29,7 +60,7 @@ if [ ! -d $s_dir ]; then
     exit
   fi
   echo "I: Decode sdk..."
-  java -jar apktool.jar d $source_apk_path -o $s_dir
+  java -jar ${apktool_jar_path} d $source_apk_path -o $s_dir
   echo "I: Decode success"
 fi
 
@@ -37,7 +68,7 @@ fi
 
 #1. 反编译游戏母包app
 echo "I: Decode game..."
-java -jar apktool.jar -f d ${target_apk_path} -o ${t_dir}
+java -jar ${apktool_jar_path} -f d ${target_apk_path} -o ${t_dir}
 echo "I: Decode success"
 #2. lib合并
 echo "I: Merge lib、smail、res dirs..."
@@ -49,7 +80,12 @@ do
     #mogrify -format png $FILE
     #echo "I: $FILE not png, already convert to png"
     mv $FILE "${FILE%.*}.exif"
-    echo "I: $FILE real not png, already rename exif"
+    echo "W: $FILE real not png, already rename exif"
+  fi
+  if [[ $FILE == *".png.png" ]] ||  [[ $FILE == *".png.exif" ]];
+  then
+    echo "W: $FILE error png name, already"
+    mv $FILE "${FILE%.*}"
   fi
 done
 
@@ -58,7 +94,9 @@ for D in `find ${t_dir}/lib -type d`
 do
   if [[ $D != "${t_dir}/lib" ]]
   then
-    cp -Rf ${D/$t_dir/$s_dir} ${t_dir}/lib
+    if [  -d ${D/$t_dir/$s_dir} ]; then
+        cp -Rf ${D/$t_dir/$s_dir} ${t_dir}/lib
+    fi
   fi
 done
 
@@ -107,11 +145,12 @@ python function.py ${s_dir} ${t_dir}
 echo "I: Merge success"
 #6 回编
 echo "I: Encode game..."
-result=`java -jar apktool.jar b ${t_dir} -o ${t_dir}_tmp.apk 2>&1 > /dev/null`
+result=`java -jar ${apktool_jar_path} b ${t_dir} -o ${t_dir}_tmp.apk 2>&1 > /dev/null`
 if [[ "${result##* }" == "more" ]]
 then
   echo "E: Encode game fail"
-  echo ${result}
+  echo ${result} > log.txt
+  cat log.txt
   exit
 fi
 echo "I: Encode success"
@@ -125,5 +164,3 @@ echo "I: Delete temp file..."
 rm -rf ${t_dir}
 rm -f ${t_dir}_tmp.apk
 echo "I: Success"
-
-ls -t
