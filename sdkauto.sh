@@ -1,7 +1,11 @@
 #!/bin/sh
 function usage() {
-    echo "usage:"
-    echo "      ./sdkauto.sh -g game.apk [-s sdk.apk] [-v apktool.jar] [-b 1|0]"
+    echo "usage: ./sdkaout.sh"
+    echo "  ./sdkauto.sh -g game.apk [-s sdk.apk] [-v apktool.jar] [-b 1|0]"
+    echo "  -g game path"
+    echo "  -s sdk path"
+    echo "  -b is fix sdk bug"
+    echo "  -v apktool.jar path"
     exit
 }
 
@@ -44,27 +48,25 @@ s_dir=sdk2.0
 t_dir=$name
 
 if [ -f "${t_dir}_signed.apk" ]; then
-  echo "I: ${t_dir}_signed.apk is exist"
-  echo "I: try: \n    rm -f ${t_dir}_signed.apk"
+  echo "W: ${t_dir}_signed.apk is exist"
+  echo "W: try: \n    rm -f ${t_dir}_signed.apk"
   exit
 fi
 
 if [ ! -f $target_apk_path ]; then
-  echo "I: ${target_apk_path} not exist"
+  echo "W: ${target_apk_path} not exist"
   exit
 fi
 
 if [ ! -d $s_dir ]; then
   if [ ! -f $source_apk_path ]; then
-    echo "I: ${source_apk_path} not exist"
+    echo "W: ${source_apk_path} not exist"
     exit
   fi
   echo "I: Decode sdk..."
   java -jar ${apktool_jar_path} d $source_apk_path -o $s_dir
   echo "I: Decode success"
 fi
-
-
 
 #1. 反编译游戏母包app
 echo "I: Decode game..."
